@@ -2,3 +2,5 @@ fam_lia_moderna_t1e13.json	https://viniseries3.blogspot.com/2026/06/inix-familia
 fam_lia_moderna_t1e14.json	https://viniseries3.blogspot.com/2026/06/inix-familia-moderna-tp1e14.html	3 falhas
 spider_noir_t1e2.json	https://vini7xgseries2.blogspot.com/2026/05/inix-spider-noir-tp1e02.html	3 falhas
 spider_noir_t1e6.json	https://vini7xgseries2.blogspot.com/2026/05/inix-spider-noir-tp1e06.html	3 falhas
+se_desejos_matassem_t1e3.json	https://vini7xgseries2.blogspot.com/2026/05/inix-se-desejos-matassem-tp1e03.html	3 falhas
+se_desejos_matassem_t1e4.json	https://vini7xgseries2.blogspot.com/2026/05/inix-se-desejos-matassem-tp1e04.html	3 falhas
