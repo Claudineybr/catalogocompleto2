@@ -1,38 +1,14 @@
 [
   {
-    "arquivo": "fam_lia_moderna_t1e13.json",
-    "nome_json": "Família Moderna - T1E13 - – Quinze Por Cento - 🍿Clau",
-    "url": "https://viniseries3.blogspot.com/2026/06/inix-familia-moderna-tp1e13.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "fam_lia_moderna_t1e14.json",
-    "nome_json": "Família Moderna - T1E14 - – Pouso na Lua - 🍿Clau",
-    "url": "https://viniseries3.blogspot.com/2026/06/inix-familia-moderna-tp1e14.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "spider_noir_t1e2.json",
-    "nome_json": "Spider-Noir - T1E2 - – Pise com Cuidado - 🍿Clau",
-    "url": "https://vini7xgseries2.blogspot.com/2026/05/inix-spider-noir-tp1e02.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "spider_noir_t1e6.json",
-    "nome_json": "Spider-Noir - T1E6 - – Pesadelo em uma Maca - 🍿Clau",
-    "url": "https://vini7xgseries2.blogspot.com/2026/05/inix-spider-noir-tp1e06.html",
-    "tentativas": 3
-  },
-  {
     "arquivo": "se_desejos_matassem_t1e3.json",
     "nome_json": "Se Desejos Matassem - T1E3 - – O Primeiro Desejo - 🍿Clau",
     "url": "https://vini7xgseries2.blogspot.com/2026/05/inix-se-desejos-matassem-tp1e03.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "se_desejos_matassem_t1e4.json",
     "nome_json": "Se Desejos Matassem - T1E4 - – Segredos Revelados - 🍿Clau",
     "url": "https://vini7xgseries2.blogspot.com/2026/05/inix-se-desejos-matassem-tp1e04.html",
-    "tentativas": 2
+    "tentativas": 3
   }
 ]
