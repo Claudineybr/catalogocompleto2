@@ -101,7 +101,7 @@ jobs:
           fila = [u for u in todas if u not in feitas]
           lote = fila[:500]
 
-          log(f"Total na fila: {len(todas)} | Ja feitos: {len(feitas)} | Faltam: {len(fila)} | Pendentes: {len(pendentes)}")
+          log(f"Total na fila: {len(todas)} | Ja feitos: {len(feitas)} | Faltam: {len(fila)} | Pendentes: {len(pendentes)}.")
 
           async def extrair_video_playwright(context, url_ep):
               page = await context.new_page()
@@ -271,7 +271,8 @@ jobs:
           TOTAL=$(wc -l < filmes_fila.txt)
           FEITOS=$(sort -u filmes_feitos.txt | wc -l)
           FALTAM=$((TOTAL - FEITOS))
-          echo "Faltam $FALTAM filmes."
+          
+          echo "Total na fila: $TOTAL | Ja feitos: $FEITOS | Faltam: $FALTAM"
           
           if [ "$FALTAM" -le 0 ]; then
             echo "✅ Fila vazia. Chain encerrada."; exit 0
@@ -283,6 +284,9 @@ jobs:
           if [ "$RECENTES" -ge 30 ]; then
             echo "⚠️ Limite de 30 runs/hora atingido. Aguardando cron."; exit 0
           fi
+
+          echo "⏳ Aguardando 30 segundos antes de disparar a próxima run..."
+          sleep 30
 
           echo "🔁 Disparando próxima run..."
           gh workflow run "Filmes.yml" --repo "$REPO" --ref main
