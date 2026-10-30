@@ -1,14 +1,13 @@
-name: Teste Extracao RedeCanais
+name: Teste Extracao RedeCanais (Iframe)
 
 on:
-  workflow_dispatch: # Apenas manual, não tem cron
+  workflow_dispatch:
 
 jobs:
   testar:
     runs-on: ubuntu-latest
     steps:
-      - name: Baixar repositório
-        uses: actions/checkout@v5
+      - uses: actions/checkout@v5
 
       - name: Instalar Python e Playwright
         run: |
@@ -18,83 +17,89 @@ jobs:
 
       - name: Extrair Link do Video
         run: |
-          cat > /tmp/teste_redecanais.py << 'PYEOF'
-          import asyncio
-          import re
-          import sys
+          cat > /tmp/teste_redecanais_iframe.py << 'PYEOF'
+          import asyncio, re, sys, requests
           from bs4 import BeautifulSoup
           from playwright.async_api import async_playwright
 
-          # Link exato que você enviou
           URL_ALVO = "https://redecanais.by/arrow-1a-temporada-episodio-01-piloto_530488a01.html"
-          HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
+          BASE_URL = "https://redecanais.by"
+          HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"}
 
-          def log(*args):
-              print(*args, flush=True)
-              sys.stdout.flush()
+          def log(*a): print(*a, flush=True); sys.stdout.flush()
+
+          def extrair_do_html(html):
+              # Padrão clássico do player3: file: "http://....mp4"
+              m = re.search(r'file\s*:\s*["\'](https?://[^"\']+\.(?:mp4|m3u8))["\']', html, re.I)
+              if m: return m.group(1)
+              # Fallback: tag <video><source src="...">
+              soup = BeautifulSoup(html, 'html.parser')
+              for tag in soup.find_all(['video','source']):
+                  src = tag.get('src')
+                  if src and re.search(r'\.(mp4|m3u8)(\?|$)', src, re.I):
+                      return src
+              # Fallback: qualquer URL .mp4/.m3u8 no HTML
+              m = re.search(r'(https?://[^"\']+\.(?:mp4|m3u8)[^"\']*)', html, re.I)
+              return m.group(1) if m else None
 
           async def main():
-              log(f"--> Acessando: {URL_ALVO}")
               async with async_playwright() as pw:
                   browser = await pw.chromium.launch(headless=True)
-                  context = await browser.new_context(user_agent=HEADERS["User-Agent"])
-                  page = await context.new_page()
+                  ctx = await browser.new_context(user_agent=HEADERS["User-Agent"])
+                  page = await ctx.new_page()
 
+                  # 1. Abre página principal e captura iframe do player
+                  await page.goto(URL_ALVO, wait_until="domcontentloaded", timeout=30000)
+                  await asyncio.sleep(2.0)
+                  html = await page.content()
+                  soup = BeautifulSoup(html, 'html.parser')
+                  player_iframe = None
+                  for iframe in soup.find_all('iframe'):
+                      src = iframe.get('src','')
+                      if 'player3/server.php' in src:
+                          player_iframe = src
+                          break
+
+                  if not player_iframe:
+                      log("[-] Iframe do player3 não encontrado.")
+                      await browser.close(); return
+
+                  if player_iframe.startswith('/'):
+                      player_iframe = BASE_URL + player_iframe
+                  log(f"[+] Iframe do player: {player_iframe}")
+
+                  # 2. Tenta abrir o iframe no Playwright e interceptar rede
+                  page2 = await ctx.new_page()
                   capturados = []
-                  
-                  # Intercepta as respostas de rede
-                  def on_response(res):
-                      u = res.url
-                      if re.search(r"\.(mp4|m3u8)(\?|$)", u, re.I):
-                          capturados.append(u)
-                          log(f"    [Capturado na Rede]: {u}")
-                  
-                  page.on("response", on_response)
-
+                  page2.on("response", lambda r: capturados.append(r.url) if re.search(r'\.(mp4|m3u8)(\?|$)', r.url, re.I) else None)
                   try:
-                      # 1. Carrega a página
-                      await page.goto(URL_ALVO, wait_until="domcontentloaded", timeout=30000)
-                      log("--> Página carregada. Esperando o player iniciar (10 segundos)...")
-                      
-                      # 2. Espera o player fazer a requisição (o RedeCanais pode demorar um pouco)
-                      await asyncio.sleep(10.0)
-
-                      # 3. Fallback: Se não capturou o arquivo direto, tenta pegar o link do iframe
-                      if not capturados:
-                          log("--> Nenhum .mp4/.m3u8 capturado. Tentando achar iframe...")
-                          html = await page.content()
-                          soup = BeautifulSoup(html, 'html.parser')
-                          
-                          for iframe in soup.find_all('iframe'):
-                              src = iframe.get('src', '')
-                              if src and 'google' not in src.lower() and 'ads' not in src.lower():
-                                  log(f"    [Iframe encontrado]: {src}")
-                                  capturados.append(src)
-                                  
-                          # Regex extra no HTML puro, caso o iframe seja gerado por JS
-                          if not capturados:
-                              match = re.search(r'(https?://[^"\']+(?:\.m3u8|\.mp4)[^"\']*)', html)
-                              if match:
-                                  log(f"    [Regex no HTML]: {match.group(1)}")
-                                  capturados.append(match.group(1))
-
+                      await page2.goto(player_iframe, wait_until="domcontentloaded", timeout=20000)
+                      await asyncio.sleep(5.0)  # espera o player carregar o vídeo
                   except Exception as e:
-                      log(f"    [Erro]: {e}")
+                      log(f"    [aviso] Playwright no iframe: {e}")
                   finally:
-                      await page.close()
-                      await browser.close()
+                      await page2.close()
 
-                  log("\n=== RESULTADO FINAL ===")
                   if capturados:
-                      # Remove duplicatas mantendo a ordem
-                      links_unicos = list(dict.fromkeys(capturados))
-                      for link in links_unicos:
-                          log(f"[+] LINK ENCONTRADO: {link}")
-                  else:
-                      log("[-] Nenhum link de vídeo encontrado.")
+                      log(f"[+] Capturado na rede: {capturados[0]}")
+                      await browser.close()
+                      return
+
+                  # 3. Fallback: requests direto no iframe + regex
+                  log("[-] Rede não capturou. Tentando requests + regex no HTML do iframe...")
+                  try:
+                      r = requests.get(player_iframe, headers={**HEADERS, "Referer": URL_ALVO}, timeout=15)
+                      link = extrair_do_html(r.text)
+                      if link:
+                          log(f"[+] Extraído via regex: {link}")
+                      else:
+                          log("[-] Nenhum link encontrado no HTML do iframe.")
+                  except Exception as e:
+                      log(f"[-] Erro no requests: {e}")
+
+                  await browser.close()
 
           if __name__ == "__main__":
               asyncio.run(main())
           PYEOF
-
-          python3 /tmp/teste_redecanais.py
+          python3 /tmp/teste_redecanais_iframe.py
