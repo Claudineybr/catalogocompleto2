@@ -1,4 +1,4 @@
-name: Teste RedeCanais v5 (yt-dlp + rede completa)
+name: Teste RedeCanais v6 (Biblioteca Redecanais)
 
 on:
   workflow_dispatch:
@@ -9,167 +9,42 @@ jobs:
     steps:
       - uses: actions/checkout@v5
 
-      - name: Instalar deps
+      - name: Instalar dependências
         run: |
-          pip install playwright beautifulsoup4 requests yt-dlp curl_cffi
-          playwright install chromium
-          playwright install-deps
+          pip install redecanais
+          # A biblioteca pode ter dependências não listadas explicitamente
+          pip install requests beautifulsoup4
 
-      - name: Testar Extração (múltiplas estratégias)
+      - name: Extrair link com a biblioteca redecanais
         run: |
-          cat > /tmp/teste_v5.py << 'PYEOF'
-          import asyncio, re, sys, subprocess, json
-          from bs4 import BeautifulSoup
-          from playwright.async_api import async_playwright
-          from curl_cffi import requests as curl_requests
+          cat > /tmp/teste_redecanais_lib.py << 'PYEOF'
+          import sys
+          from redecanais.redecanais import ChannelsNetwork
 
           URL_ALVO = "https://redecanais.by/arrow-1a-temporada-episodio-01-piloto_530488a01.html"
-          BASE_URL = "https://redecanais.by"
-          HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
 
           def log(*a): print(*a, flush=True); sys.stdout.flush()
 
-          async def estrategia_ytdlp():
-              log("\n--- Estrategia 1: yt-dlp na página original ---")
+          def main():
+              log(f"[+] Iniciando extração para: {URL_ALVO}")
               try:
-                  result = subprocess.run(
-                      ["yt-dlp", "-g", "--no-warnings", URL_ALVO],
-                      capture_output=True, text=True, timeout=60
-                  )
-                  if result.returncode == 0 and result.stdout.strip():
-                      links = [l.strip() for l in result.stdout.strip().splitlines() if l.strip()]
-                      for link in links:
-                          log(f"[+] yt-dlp link: {link}")
-                      return links[0]
+                  cn = ChannelsNetwork()
+                  # O método find_streams é o orquestrador que segue a cadeia de POSTs
+                  resultado = cn.find_streams(URL_ALVO)
+                  
+                  if resultado and resultado.get('stream'):
+                      link = resultado['stream']
+                      log(f"\n[+] SUCESSO! Link do vídeo encontrado:")
+                      log(f"    {link}")
                   else:
-                      log(f"[-] yt-dlp falhou. stderr: {result.stderr[:500]}")
+                      log("\n[-] A biblioteca não retornou um link válido.")
+                      log(f"    Resultado: {resultado}")
               except Exception as e:
-                  log(f"[-] Erro no yt-dlp: {e}")
-              return None
-
-          async def estrategia_curl_cffi():
-              log("\n--- Estrategia 2: curl_cffi no server.php ---")
-              try:
-                  # Tenta acessar a página principal com curl_cffi para obter o iframe
-                  r = curl_requests.get(URL_ALVO, headers=HEADERS, impersonate="chrome120", timeout=30)
-                  soup = BeautifulSoup(r.text, 'html.parser')
-                  player_iframe = None
-                  for iframe in soup.find_all('iframe'):
-                      src = iframe.get('src', '')
-                      if 'player3/server.php' in src:
-                          player_iframe = src if src.startswith('http') else BASE_URL + src
-                          break
-                  if not player_iframe:
-                      log("[-] Iframe não encontrado via curl_cffi.")
-                      return None
-                  log(f"[+] Iframe via curl_cffi: {player_iframe}")
-
-                  # Tenta acessar o player com curl_cffi
-                  r2 = curl_requests.get(player_iframe, headers={**HEADERS, "Referer": URL_ALVO}, impersonate="chrome120", timeout=30)
-                  # Procura por padrões de link no HTML
-                  m = re.search(r'file\s*:\s*["\'](https?://[^"\']+\.(?:mp4|m3u8))["\']', r2.text, re.I)
-                  if m:
-                      log(f"[+] Link via curl_cffi: {m.group(1)}")
-                      return m.group(1)
-                  else:
-                      log("[-] curl_cffi não encontrou link no HTML do player.")
-              except Exception as e:
-                  log(f"[-] Erro no curl_cffi: {e}")
-              return None
-
-          async def estrategia_playwright_rede():
-              log("\n--- Estrategia 3: Playwright + interceptar TODAS as requisições ---")
-              async with async_playwright() as pw:
-                  browser = await pw.chromium.launch(headless=True)
-                  ctx = await browser.new_context(user_agent=HEADERS["User-Agent"])
-                  page = await ctx.new_page()
-
-                  # Captura TODAS as URLs de requisição que contenham palavras-chave
-                  urls_capturadas = []
-                  page.on("request", lambda req: urls_capturadas.append(req.url)
-                          if re.search(r'(mp4|m3u8|player|stream|video|file|json)', req.url, re.I) else None)
-
-                  # Captura também respostas JSON que possam conter o link
-                  json_capturados = []
-                  async def on_response(res):
-                      if res.status == 200 and 'json' in res.headers.get('content-type',''):
-                          try:
-                              body = await res.text()
-                              json_capturados.append(body[:2000])
-                          except: pass
-                  page.on("response", on_response)
-
-                  # Navega para a página original e encontra o iframe
-                  await page.goto(URL_ALVO, wait_until="domcontentloaded", timeout=30000)
-                  await asyncio.sleep(2)
-                  html = await page.content()
-                  soup = BeautifulSoup(html, 'html.parser')
-                  player_iframe = None
-                  for iframe in soup.find_all('iframe'):
-                      src = iframe.get('src', '')
-                      if 'player3/server.php' in src:
-                          player_iframe = src if src.startswith('http') else BASE_URL + src
-                          break
-
-                  if not player_iframe:
-                      log("[-] Iframe não encontrado.")
-                      await browser.close(); return None
-
-                  log(f"[+] Iframe: {player_iframe}")
-
-                  # Navega para o iframe e espera bastante tempo
-                  await page.goto(player_iframe, wait_until="domcontentloaded", timeout=30000)
-                  await asyncio.sleep(10)  # espera o JS rodar
-
-                  # Tenta clicar no centro do vídeo para iniciar o player
-                  try:
-                      await page.mouse.click(640, 360)
-                      await asyncio.sleep(5)
-                  except: pass
-
-                  # Imprime todas as URLs capturadas que contenham .mp4 ou .m3u8
-                  links_diretos = [u for u in urls_capturadas if re.search(r'\.(mp4|m3u8)', u, re.I)]
-                  if links_diretos:
-                      log(f"[+] Links diretos capturados: {links_diretos}")
-                      await browser.close()
-                      return links_diretos[0]
-
-                  # Se não achou links diretos, mostra todas as requisições capturadas para debug
-                  log(f"[-] Nenhum .mp4/.m3u8. Requisições capturadas (até 20):")
-                  for u in urls_capturadas[:20]:
-                      log(f"    {u}")
-
-                  # Mostra respostas JSON capturadas
-                  if json_capturados:
-                      log("[-] Respostas JSON capturadas (primeiras):")
-                      for j in json_capturados[:3]:
-                          log(f"    {j[:500]}...")
-
-                  await browser.close()
-              return None
-
-          async def main():
-              # Tenta estratégia 1
-              link = await estrategia_ytdlp()
-              if link:
-                  log(f"\n=== SUCESSO (yt-dlp): {link} ===")
-                  return
-
-              # Tenta estratégia 2
-              link = await estrategia_curl_cffi()
-              if link:
-                  log(f"\n=== SUCESSO (curl_cffi): {link} ===")
-                  return
-
-              # Tenta estratégia 3
-              link = await estrategia_playwright_rede()
-              if link:
-                  log(f"\n=== SUCESSO (Playwright): {link} ===")
-                  return
-
-              log("\n=== NENHUMA ESTRATÉGIA FUNCIONOU ===")
+                  log(f"\n[-] Erro ao usar a biblioteca: {e}")
+                  import traceback
+                  traceback.print_exc()
 
           if __name__ == "__main__":
-              asyncio.run(main())
+              main()
           PYEOF
-          python3 /tmp/teste_v5.py
+          python3 /tmp/teste_redecanais_lib.py
