@@ -313,3 +313,15 @@ dead_like_me_t2e2.json	https://viniraveon.blogspot.com/2025/08/inix-dead-like-me
 minha_vida_com_a_fam_lia_walter_t2e1.json	https://viniraveon.blogspot.com/2025/08/inix-minha-vida-com-familia-walter-tp2e01.html	3 falhas
 minha_vida_com_a_fam_lia_walter_t2e7.json	https://viniraveon.blogspot.com/2025/08/inix-minha-vida-com-familia-walter_97.html	3 falhas
 minha_vida_com_a_fam_lia_walter_t2e10.json	https://viniraveon.blogspot.com/2025/08/inix-minha-vida-com-familia-walter_72.html	3 falhas
+contagem_regressiva_t1e1.json	https://viniraveon.blogspot.com/2025/08/inix-contagem-regressiva-tp1e01.html	3 falhas
+contagem_regressiva_t1e2.json	https://viniraveon.blogspot.com/2025/08/inix-contagem-regressiva-tp1e02.html	3 falhas
+contagem_regressiva_t1e3.json	https://viniraveon.blogspot.com/2025/08/inix-contagem-regressiva-tp1e03.html	3 falhas
+contagem_regressiva_t1e4.json	https://viniraveon.blogspot.com/2025/08/inix-contagem-regressiva-tp1e04.html	3 falhas
+contagem_regressiva_t1e5.json	https://viniraveon.blogspot.com/2025/08/inix-contagem-regressiva-tp1e05.html	3 falhas
+contagem_regressiva_t1e6.json	https://viniraveon.blogspot.com/2025/08/inix-contagem-regressiva-tp1e06.html	3 falhas
+contagem_regressiva_t1e7.json	https://viniraveon.blogspot.com/2025/08/inix-contagem-regressiva-tp1e07.html	3 falhas
+contagem_regressiva_t1e8.json	https://viniraveon.blogspot.com/2025/08/inix-contagem-regressiva-tp1e08.html	3 falhas
+contagem_regressiva_t1e9.json	https://viniraveon.blogspot.com/2025/08/inix-contagem-regressiva-tp1e09.html	3 falhas
+contagem_regressiva_t1e10.json	https://viniraveon.blogspot.com/2025/08/inix-contagem-regressiva-tp1e10.html	3 falhas
+contagem_regressiva_t1e11.json	https://viniraveon.blogspot.com/2025/08/inix-contagem-regressiva-tp1e11.html	3 falhas
+contagem_regressiva_t1e12.json	https://viniraveon.blogspot.com/2025/08/inix-contagem-regressiva-tp1e12.html	3 falhas
