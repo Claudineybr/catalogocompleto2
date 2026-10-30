@@ -1,158 +1,296 @@
 [
   {
-    "arquivo": "chernobyl_t1e1.json",
-    "nome_json": "Chernobyl - T1E1 - – 1:23:45 - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/12/inix-chernobyl-tp1e01.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "chernobyl_t1e2.json",
-    "nome_json": "Chernobyl - T1E2 - – Por Favor, Permaneçam Calmos - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/12/inix-chernobyl-tp1e02.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "chernobyl_t1e3.json",
-    "nome_json": "Chernobyl - T1E3 - – Abrir Bem a Terra - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/12/inix-chernobyl-tp1e03.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "chernobyl_t1e4.json",
-    "nome_json": "Chernobyl - T1E4 - – A Felicidade de Toda a Humanidade - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/12/inix-chernobyl-tp1e04.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "chernobyl_t1e5.json",
-    "nome_json": "Chernobyl - T1E5 - – Vichnaya Pamyat - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/12/inix-chernobyl-tp1e05.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "orange_is_the_new_black_t1e4.json",
-    "nome_json": "Orange Is the New Black - T1E4 - – Doutor Psicopata - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/12/inix-orange-is-new-black-tp1e04.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "orange_is_the_new_black_t1e10.json",
-    "nome_json": "Orange Is the New Black - T1E10 - – Coelho, Caveira, Coelho, Caveira - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/12/inix-orange-is-new-black-tp1e10.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "grey_s_anatomy_t2e14.json",
-    "nome_json": "Grey's Anatomy - T2E14 - – Diga-me Doces Mentiras - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/12/inix-greys-anatomy-tp2e14.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "grey_s_anatomy_t2e19.json",
-    "nome_json": "Grey's Anatomy - T2E19 - – O Que Eu Fiz Para Merecer Isso? - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/12/inix-greys-anatomy-tp2e19.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "o_segredo_al_m_do_jardim_t1e1.json",
-    "nome_json": "O Segredo Além do Jardim - T1E1 - – O Velho Moinho de Grãos - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/12/inix-o-segredo-alem-do-jardim-tp1e01.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "robin_hood_t1e4.json",
-    "nome_json": "Robin Hood - T1E4 - A Causa Dessa Agitação - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/11/inix-robin-hood-tp1e04.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "robin_hood_t1e5.json",
-    "nome_json": "Robin Hood - T1E5 - Volte Para Eles - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/11/inix-robin-hood-tp1e05.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "os_abandonados_t1e2.json",
-    "nome_json": "Os Abandonados - T1E2 -  - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/12/inix-os-abandonados-tp1e02.html",
-    "tentativas": 2
-  },
-  {
     "arquivo": "os_abandonados_t1e5.json",
     "nome_json": "Os Abandonados - T1E5 -  - 🍿Clau",
     "url": "https://viniraveon.blogspot.com/2025/12/inix-os-abandonados-tp1e05.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "os_abandonados_t1e7.json",
     "nome_json": "Os Abandonados - T1E7 -  - 🍿Clau",
     "url": "https://viniraveon.blogspot.com/2025/12/inix-os-abandonados-tp1e07.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "it_bem_vindos_derry_t1e1.json",
     "nome_json": "IT: Bem-Vindos à Derry - T1E1 - O Piloto - 🍿Clau",
     "url": "https://viniraveon.blogspot.com/2025/10/inix-it-bem-vindos-derry-tp1e01.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "it_bem_vindos_derry_t1e2.json",
     "nome_json": "IT: Bem-Vindos à Derry - T1E2 - Bem-Vindos a Escuridão - 🍿Clau",
     "url": "https://viniraveon.blogspot.com/2025/10/inix-it-bem-vindos-derry-tp1e01_31.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "it_bem_vindos_derry_t1e3.json",
     "nome_json": "IT: Bem-Vindos à Derry - T1E3 - Agora Você Vai Ver - 🍿Clau",
     "url": "https://viniraveon.blogspot.com/2025/11/inix-it-bem-vindos-derry-tp1e03.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "it_bem_vindos_derry_t1e4.json",
     "nome_json": "IT: Bem-Vindos à Derry - T1E4 -  - 🍿Clau",
     "url": "https://viniraveon.blogspot.com/2025/11/inix-it-bem-vindos-derry-tp1e04.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "it_bem_vindos_derry_t1e5.json",
     "nome_json": "IT: Bem-Vindos à Derry - T1E5 -  - 🍿Clau",
     "url": "https://viniraveon.blogspot.com/2025/11/inix-it-bem-vindos-derry-tp1e05.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "it_bem_vindos_derry_t1e6.json",
     "nome_json": "IT: Bem-Vindos à Derry - T1E6 -  - 🍿Clau",
     "url": "https://viniraveon.blogspot.com/2025/11/inix-it-bem-vindos-derry-tp1e06.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "it_bem_vindos_derry_t1e7.json",
     "nome_json": "IT: Bem-Vindos à Derry - T1E7 -  - 🍿Clau",
     "url": "https://viniraveon.blogspot.com/2025/12/inix-it-bem-vindos-derry-tp1e07.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "it_bem_vindos_derry_t1e8.json",
     "nome_json": "IT: Bem-Vindos à Derry - T1E8 -  - 🍿Clau",
     "url": "https://viniraveon.blogspot.com/2025/12/inix-it-bem-vindos-derry-tp1e07_14.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "o_exorcista_t2e1.json",
     "nome_json": "O Exorcista - T2E1 - – Jano - 🍿Clau",
     "url": "https://viniraveon.blogspot.com/2025/12/inix-o-exorcista-tp2e01.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "punho_de_ferro_t2e1.json",
+    "nome_json": "Punho de Ferro - T2E1 - – A Fúria do Punho de Ferro - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e01.html",
     "tentativas": 2
   },
   {
-    "arquivo": "o_exorcista_t2e7.json",
-    "nome_json": "O Exorcista - T2E7 - – Ajude-me - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/12/inix-o-exorcista-tp2e07.html",
+    "arquivo": "punho_de_ferro_t2e2.json",
+    "nome_json": "Punho de Ferro - T2E2 - – A Cidade não é para Queimar - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e02.html",
     "tentativas": 2
   },
   {
-    "arquivo": "a_ltima_fronteira_t1e7.json",
-    "nome_json": "A Última Fronteira - T1E7 -  - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/11/inix-ultima-fronteira-tp1e07.html",
+    "arquivo": "punho_de_ferro_t2e3.json",
+    "nome_json": "Punho de Ferro - T2E3 - – Este Segredo Mortal - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e03.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "punho_de_ferro_t2e4.json",
+    "nome_json": "Punho de Ferro - T2E4 - – Alvo: Punho de Ferro - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e04.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "punho_de_ferro_t2e5.json",
+    "nome_json": "Punho de Ferro - T2E5 - – Coração do Dragão - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e05.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "punho_de_ferro_t2e6.json",
+    "nome_json": "Punho de Ferro - T2E6 - – O Dragão Morre ao Amanhecer - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e06.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "punho_de_ferro_t2e7.json",
+    "nome_json": "Punho de Ferro - T2E7 - – Manhã da Mente - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e07.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "punho_de_ferro_t2e8.json",
+    "nome_json": "Punho de Ferro - T2E8 - – Cidade à Beira da Vingança - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e08.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "punho_de_ferro_t2e9.json",
+    "nome_json": "Punho de Ferro - T2E9 - – Guerra sem Fim - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e09.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "punho_de_ferro_t2e10.json",
+    "nome_json": "Punho de Ferro - T2E10 - – Um Duelo de Ferro - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e10.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "di_rios_de_uma_apoticaria_t1e2.json",
+    "nome_json": "Diários De Uma Apoticaria - T1E2 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/11/inix-tp2e02.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "di_rios_de_uma_apoticaria_t1e5.json",
+    "nome_json": "Diários De Uma Apoticaria - T1E5 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/11/inix-tp02e05.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "di_rios_de_uma_apoticaria_t1e6.json",
+    "nome_json": "Diários De Uma Apoticaria - T1E6 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/11/inix-tp02e06.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "di_rios_de_uma_apoticaria_t1e7.json",
+    "nome_json": "Diários De Uma Apoticaria - T1E7 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/11/inix-tp02e07.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "di_rios_de_uma_apoticaria_t1e8.json",
+    "nome_json": "Diários De Uma Apoticaria - T1E8 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/11/inix-tp02e08.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "di_rios_de_uma_apoticaria_t1e9.json",
+    "nome_json": "Diários De Uma Apoticaria - T1E9 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/11/inix-tp2e09.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "di_rios_de_uma_apoticaria_t1e10.json",
+    "nome_json": "Diários De Uma Apoticaria - T1E10 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/11/inix-tp02e10.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "di_rios_de_uma_apoticaria_t1e11.json",
+    "nome_json": "Diários De Uma Apoticaria - T1E11 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/11/inix-tp02e11.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "di_rios_de_uma_apoticaria_t1e12.json",
+    "nome_json": "Diários De Uma Apoticaria - T1E12 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/11/inix-tp02e12.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "di_rios_de_uma_apoticaria_t1e14.json",
+    "nome_json": "Diários De Uma Apoticaria - T1E14 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/11/inix-tp02e014.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "di_rios_de_uma_apoticaria_t1e15.json",
+    "nome_json": "Diários De Uma Apoticaria - T1E15 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/11/inix-tp02e015.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "di_rios_de_uma_apoticaria_t1e16.json",
+    "nome_json": "Diários De Uma Apoticaria - T1E16 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/11/inix-tp02e16.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "di_rios_de_uma_apoticaria_t1e17.json",
+    "nome_json": "Diários De Uma Apoticaria - T1E17 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/11/inix-tp02e17.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "di_rios_de_uma_apoticaria_t1e18.json",
+    "nome_json": "Diários De Uma Apoticaria - T1E18 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/11/inix-tp02e18.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "di_rios_de_uma_apoticaria_t1e19.json",
+    "nome_json": "Diários De Uma Apoticaria - T1E19 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/11/inix-tp02e19.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "di_rios_de_uma_apoticaria_t1e20.json",
+    "nome_json": "Diários De Uma Apoticaria - T1E20 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/11/diarioa-de-uma-apoticaria-tp02ep20.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "di_rios_de_uma_apoticaria_t1e21.json",
+    "nome_json": "Diários De Uma Apoticaria - T1E21 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/11/inix-tp01ep21.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "di_rios_de_uma_apoticaria_t1e22.json",
+    "nome_json": "Diários De Uma Apoticaria - T1E22 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/11/inix-tp02e22.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "di_rios_de_uma_apoticaria_t1e23.json",
+    "nome_json": "Diários De Uma Apoticaria - T1E23 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/11/inix-tp02e23.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "di_rios_de_uma_apoticaria_t1e24.json",
+    "nome_json": "Diários De Uma Apoticaria - T1E24 - (Final) - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/11/inix-tp02e24_14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dias_perfeitos_t1e1.json",
+    "nome_json": "Dias Perfeitos - T1E1 - De planetas diferentes - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/11/inix-dias-perfeitos-tp1e01.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dias_perfeitos_t1e2.json",
+    "nome_json": "Dias Perfeitos - T1E2 - Eu sou um cara legal - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/11/inix-dias-perfeitos-tp1e02.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dias_perfeitos_t1e3.json",
+    "nome_json": "Dias Perfeitos - T1E3 - Não perturbe - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/11/inix-dias-perfeitos-tp1e03.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dias_perfeitos_t1e4.json",
+    "nome_json": "Dias Perfeitos - T1E4 - Me dói fazer isso, Clarice - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/11/inix-dias-perfeitos-tp1e04.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dias_perfeitos_t1e5.json",
+    "nome_json": "Dias Perfeitos - T1E5 - Pareciam um casal feliz - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/11/inix-dias-perfeitos-tp1e05.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dias_perfeitos_t1e6.json",
+    "nome_json": "Dias Perfeitos - T1E6 - O melhor pior Natal - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/11/inix-dias-perfeitos-tp1e06.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dias_perfeitos_t1e7.json",
+    "nome_json": "Dias Perfeitos - T1E7 - O homem dependurado - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/11/inix-dias-perfeitos-tp1e07.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dias_perfeitos_t1e8.json",
+    "nome_json": "Dias Perfeitos - T1E8 - Dias perfeitos - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/11/inix-dias-perfeitos-tp1e08.html",
     "tentativas": 2
   }
 ]
