@@ -57,3 +57,16 @@ o_cuco_de_cristal_t1e3.json	https://viniraveon.blogspot.com/2026/02/inix-o-cuco-
 o_cuco_de_cristal_t1e4.json	https://viniraveon.blogspot.com/2026/02/inix-o-cuco-de-cristal-tp1e04.html	3 falhas
 o_cuco_de_cristal_t1e5.json	https://viniraveon.blogspot.com/2026/02/inix-o-cuco-de-cristal-tp1e05.html	3 falhas
 o_cuco_de_cristal_t1e6.json	https://viniraveon.blogspot.com/2026/02/inix-o-cuco-de-cristal-tp1e06.html	3 falhas
+orphan_black_t2e5.json	https://marcosx7.blogspot.com/2026/01/inix-orphan-black-tp02ep05.html	3 falhas
+orphan_black_t2e6.json	https://marcosx7.blogspot.com/2026/01/inix-orphan-black-tp02ep06.html	3 falhas
+orphan_black_t2e8.json	https://marcosx7.blogspot.com/2026/01/inix-orphan-black-tp02ep08.html	3 falhas
+orphan_black_t2e10.json	https://marcosx7.blogspot.com/2026/01/inix-orphan-black-tp02ep10.html	3 falhas
+orphan_black_t3e10.json	https://marcosx7.blogspot.com/2026/07/inix-orphan-black-tp03ep10.html	3 falhas
+orphan_black_t4e6.json	https://marcosx7.blogspot.com/2026/01/inix-orphan-black-tp04ep06.html	3 falhas
+orphan_black_t4e9.json	https://marcosx7.blogspot.com/2026/01/inix-orphan-black-tp04ep09.html	3 falhas
+orphan_black_t4e10.json	https://marcosx7.blogspot.com/2026/01/inix-orphan-black-tp04ep10.html	3 falhas
+orphan_black_t5e1.json	https://marcosx7.blogspot.com/2026/01/inix-orphan-black-tp05ep01.html	3 falhas
+orphan_black_t5e6.json	https://marcosx7.blogspot.com/2026/01/inix-orphan-black-tp05ep06.html	3 falhas
+south_park_t2e10.json	https://vini7xgseries2.blogspot.com/2026/01/inix-south-park-tp2e10.html	3 falhas
+south_park_t2e16.json	https://vini7xgseries2.blogspot.com/2026/01/inix-south-park-tp2e16.html	3 falhas
+garota_sequestrada_t1e6.json	https://vini7xgseries2.blogspot.com/2026/01/inix-garota-sequestrada-tp1e06.html	3 falhas
