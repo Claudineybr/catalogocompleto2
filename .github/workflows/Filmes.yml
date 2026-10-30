@@ -2,10 +2,7 @@ name: Mega Extrair Filmes (Lotes de 500)
 
 on:
   schedule:
-    - cron: '15,45 * * * *'      # backup: se a chain morrer, o cron ressuscita
-  workflow_run:
-    workflows: ["Mega Extrair Filmes (Lotes de 500)"]   # ← self-chain
-    types: [completed]
+    - cron: '15,45 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -13,14 +10,10 @@ permissions:
 
 concurrency:
   group: mega-filmes
-  cancel-in-progress: false       # enfileira em vez de sobrepor
+  cancel-in-progress: false
 
 jobs:
   extrair:
-    # Não roda se foi disparo de chain e a run anterior falhou
-    if: |
-      github.event_name != 'workflow_run' ||
-      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Baixar repositório
@@ -108,9 +101,7 @@ jobs:
           fila = [u for u in todas if u not in feitas]
           lote = fila[:500]
 
-          log(f"Total na fila: {len(todas)}")
-          log(f"Já feitos: {len(feitas)}")
-          log(f"Faltam {len(fila)}. Pendentes: {len(pendentes)}.")
+          log(f"Total na fila: {len(todas)} | Ja feitos: {len(feitas)} | Faltam: {len(fila)} | Pendentes: {len(pendentes)}")
 
           async def extrair_video_playwright(context, url_ep):
               page = await context.new_page()
@@ -147,11 +138,9 @@ jobs:
                   raw = soup.h1.text if soup.h1 else (soup.title.text if soup.title else "Filme Desconhecido")
               raw = raw.replace('𝑴arcø𝒔x⁷👾', '').replace('Marcos', '').strip()
               partes = [p.strip() for p in raw.split(' - ') if p.strip()]
-              validas = [p for p in partes if not any(x in p.lower() for x in
-                        ['vini','grave','online','blogspot','assistir'])]
+              validas = [p for p in partes if not any(x in p.lower() for x in ['vini','grave','online','blogspot','assistir'])]
               return max(validas, key=len) if validas else "Filme Desconhecido"
 
-          # BUG FIX: grupo `(19|20)` só retornava '20'. Captura o ano completo.
           def extrair_ano_da_url(url_pagina):
               m = re.search(r'/([^/]+)\.html', url_pagina)
               if not m: return ""
@@ -159,7 +148,6 @@ jobs:
               anos = re.findall(r'(?<!\d)(?:19|20)\d{2}(?!\d)', slug)
               return anos[-1] if anos else ""
 
-          # BUG FIX: 'epis' em qualquer link pegava menu. Exige "Episódio N" ou URL de episódio.
           def eh_serie(soup):
               for a in soup.find_all('a', href=True):
                   if re.search(r'epis[oó]dio[-_/]\d+', a['href'], re.I): return True
@@ -175,14 +163,11 @@ jobs:
                   "contentUrl": link, "embedUrl": link,
               }
               js = json.dumps(dados, ensure_ascii=False, indent=2)
-              html = (f'<!DOCTYPE html>\n<html lang="pt-BR">\n<head>\n'
-                      f'<script type="application/ld+json">\n{js}\n</script>\n'
-                      f'<title>{nome_json}</title>\n</head>\n<body>\n<h1>{nome_json}</h1>\n</body>\n</html>')
+              html = (f'<!DOCTYPE html>\n<html lang="pt-BR">\n<head>\n<script type="application/ld+json">\n{js}\n</script>\n<title>{nome_json}</title>\n</head>\n<body>\n<h1>{nome_json}</h1>\n</body>\n</html>')
               Path(nome_arquivo).write_text(html, encoding='utf-8')
 
           async def processar_item(context, url_pagina):
               if any(m in url_pagina.lower() for m in FILMES_MORTOS):
-                  log(f"\n--> [BYPASS] {url_pagina}")
                   with open(ARQ_FEITAS, "a", encoding="utf-8") as f: f.write(url_pagina.strip()+"\n")
                   return
               log(f"\n--> Verificando: {url_pagina}")
@@ -191,7 +176,7 @@ jobs:
                   soup = BeautifulSoup(r.text, 'html.parser')
 
                   if eh_serie(soup):
-                      log("    (É série. Pulando...)")
+                      log("    (E serie. Pulando...)")
                       with open(ARQ_FEITAS, "a", encoding="utf-8") as f: f.write(url_pagina.strip()+"\n")
                       return
 
@@ -210,15 +195,13 @@ jobs:
                   with open(ARQ_FEITAS, "a", encoding="utf-8") as f: f.write(url_pagina.strip()+"\n")
 
                   if Path(nome_arquivo).exists():
-                      log(f"    (Já existe: {nome_arquivo})"); return
+                      log(f"    (Ja existe: {nome_arquivo})"); return
 
                   log(f"    Filme: '{nome_json}' (ano={ano or 'n/a'})")
                   link = await extrair_video_playwright(context, url_pagina)
                   if not link:
-                      log("      [-] Falhou → pendentes.")
                       if not any(p['arquivo']==nome_arquivo for p in pendentes):
-                          pendentes.append({"arquivo": nome_arquivo, "nome_json": nome_json,
-                                            "url": url_pagina, "tentativas": 1})
+                          pendentes.append({"arquivo": nome_arquivo, "nome_json": nome_json, "url": url_pagina, "tentativas": 1})
                       return
                   salvar_json(nome_arquivo, nome_json, link)
                   log(f"      [+] Salvo: {nome_arquivo}")
@@ -240,7 +223,6 @@ jobs:
                           if Path(item['arquivo']).exists(): continue
                           if any(m in item.get('url','').lower() for m in FILMES_MORTOS): continue
                           if item.get("tentativas",0) >= MAX_TENTATIVAS:
-                              log(f"--> [DESISTINDO] {item['arquivo']}")
                               with open(ARQ_DESCARTADOS,"a",encoding="utf-8") as f:
                                   f.write(f"{item['arquivo']}\t{item['url']}\t{item.get('tentativas')} falhas\n")
                               continue
@@ -250,7 +232,6 @@ jobs:
                               salvar_json(item['arquivo'], item['nome_json'], link)
                               log("    [+] SUCESSO")
                           else:
-                              log("    [-] Ainda falhando")
                               item["tentativas"] = item.get("tentativas",1) + 1
                               ainda.append(item)
                       pendentes.clear(); pendentes.extend(ainda)
@@ -259,7 +240,6 @@ jobs:
           if __name__ == "__main__":
               asyncio.run(main())
               ARQ_PENDENTES.write_text(json.dumps(pendentes, ensure_ascii=False, indent=2), encoding="utf-8")
-              log(f"\nProgresso salvo. {len(pendentes)} filmes pendentes.")
           PYEOF
           python3 /tmp/mega_filmes.py
 
@@ -270,61 +250,39 @@ jobs:
           git add -f filmes_feitos.txt filmes_fila.txt filmes_pendentes.json filmes_descartados.txt 2>/dev/null || true
           git add -f *.json *.txt 2>/dev/null || true
           if git diff --cached --quiet; then echo "Nada novo."; exit 0; fi
-          ARQUIVOS=$(git diff --cached --name-only | wc -l)
-          git commit -m "feat: mega extracao de filmes ($ARQUIVOS arquivos)"
+          git commit -m "feat: mega extracao de filmes"
 
           for i in $(seq 1 5); do
-            echo "== Push tentativa $i/5 =="
-            if git push origin HEAD:main; then echo "[OK] push na tentativa $i"; exit 0; fi
-            echo "[FALHA] sincronizando com origin/main..."
+            if git push origin HEAD:main; then break; fi
             git fetch origin main
             git reset --mixed origin/main
             git add -f filmes_feitos.txt filmes_fila.txt filmes_pendentes.json filmes_descartados.txt 2>/dev/null || true
             git add -f *.json *.txt 2>/dev/null || true
-            if git diff --cached --quiet; then echo "Nada apos reset."; exit 0; fi
-            git commit -m "feat: mega extracao de filmes (retry $i)" || true
+            git commit -m "feat: retry $i" || true
             sleep $((RANDOM % 10 + 5))
           done
-          echo "[FALHA] push apos 5 tentativas"; exit 1
 
-      # ─── SELF-CHAIN: dispara próxima run se ainda houver fila ─────────────
       - name: Disparar próxima run (se fila não vazia)
         if: success()
         env:
           GH_TOKEN: ${{ secrets.PAT_CHAIN }}
           REPO: ${{ github.repository }}
         run: |
-          # 1) Conta o que falta
-          if [ ! -f filmes_fila.txt ] || [ ! -f filmes_feitos.txt ]; then
-            echo "Sem arquivos de fila — não encadeio."; exit 0
-          fi
           TOTAL=$(wc -l < filmes_fila.txt)
           FEITOS=$(sort -u filmes_feitos.txt | wc -l)
           FALTAM=$((TOTAL - FEITOS))
-          echo "Total=$TOTAL Feitos=$FEITOS Faltam=$FALTAM"
-
-          # 2) Guard: fila vazia → para
+          echo "Faltam $FALTAM filmes."
+          
           if [ "$FALTAM" -le 0 ]; then
-            echo "✅ Fila vazia. Chain encerrada."
-            exit 0
+            echo "✅ Fila vazia. Chain encerrada."; exit 0
           fi
 
-          # 3) Guard: limite de runs por hora (protege a cota do Actions)
-          #    Conta runs disparadas por workflow_run nos últimos 60 min.
           LIMITE_ISO=$(date -u -d '60 minutes ago' +%Y-%m-%dT%H:%M:%SZ)
-          RECENTES=$(gh run list \
-            --workflow="mega_extrair_filmes.yml" \
-            --limit 100 \
-            --json event,createdAt \
-            --jq "[.[] | select(.event == \"workflow_run\") | select(.createdAt > \"$LIMITE_ISO\")] | length" \
-            --repo "$REPO" 2>/dev/null || echo 0)
-          echo "Runs encadeadas nos últimos 60 min: $RECENTES"
+          RECENTES=$(gh run list --workflow="Filmes.yml" --limit 100 --json event,createdAt --jq "[.[] | select(.event == \"workflow_dispatch\") | select(.createdAt > \"$LIMITE_ISO\")] | length" --repo "$REPO" 2>/dev/null || echo 0)
+          
           if [ "$RECENTES" -ge 30 ]; then
-            echo "⚠️ Limite de 30 chains/hora atingido. Aguardando cron."
-            exit 0
+            echo "⚠️ Limite de 30 runs/hora atingido. Aguardando cron."; exit 0
           fi
 
-          # 4) Dispara a próxima run
           echo "🔁 Disparando próxima run..."
-          gh workflow run "mega_extrair_filmes.yml" --repo "$REPO" --ref main
-          echo "✅ Próxima run disparada."
+          gh workflow run "Filmes.yml" --repo "$REPO" --ref main
