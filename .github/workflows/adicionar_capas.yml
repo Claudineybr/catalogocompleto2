@@ -1,0 +1,204 @@
+name: Adicionar Capas usando o campo Name
+
+on:
+  workflow_dispatch: # Roda na mão
+
+permissions:
+  contents: write
+
+concurrency:
+  group: adicionar-capas-name
+  cancel-in-progress: false
+
+jobs:
+  extrair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - name: Baixar repositorio
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Instalar dependencias
+        run: pip install beautifulsoup4 requests
+
+      - name: Buscar Capas no TMDB
+        env:
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+        run: |
+          cat > buscar_capas.py << 'PYEOF'
+          import os
+          import re
+          import json
+          import requests
+          import time
+          import sys
+          from bs4 import BeautifulSoup
+          from pathlib import Path
+          import urllib.parse
+
+          TMDB_API_KEY = os.environ.get("TMDB_API_KEY")
+          if not TMDB_API_KEY:
+              print("ERRO: TMDB_API_KEY nao configurada.")
+              sys.exit(1)
+
+          ARQ_PROCESSADOS = Path("capas_processadas.txt")
+          processados = set()
+          if ARQ_PROCESSADOS.exists():
+              processados = set(line.strip() for line in ARQ_PROCESSADOS.read_text(encoding="utf-8").splitlines() if line.strip())
+
+          arquivos = list(Path(".").glob("*.json"))
+          faltam = [f for f in arquivos if f.name not in processados]
+          
+          # Lote de 1000 para não estourar a API
+          lote = faltam[:1000]
+          
+          print(f"Total de JSONs: {len(arquivos)} | Ja processados: {len(processados)} | Restantes: {len(faltam)}")
+          print(f"Processando lote de {len(lote)} arquivos...")
+
+          def buscar_tmdb(titulo, ano, is_series):
+              if not titulo or len(titulo) < 2: return None
+              tipo = "tv" if is_series else "movie"
+              
+              # 1. Tenta buscar COM o ano
+              if ano:
+                  year_param = f"&first_air_date_year={ano}" if is_series else f"&year={ano}"
+                  url = f"https://api.themoviedb.org/3/search/{tipo}?api_key={TMDB_API_KEY}&language=pt-BR&query={urllib.parse.quote(titulo)}{year_param}"
+                  try:
+                      r = requests.get(url, timeout=10)
+                      if r.status_code == 200 and r.json().get("results"):
+                          poster = r.json()["results"][0].get("poster_path")
+                          if poster: return f"https://image.tmdb.org/t/p/w500{poster}"
+                  except: pass
+                  time.sleep(0.1)
+
+              # 2. Tenta buscar SEM o ano (caso o ano esteja errado)
+              url_sem_ano = f"https://api.themoviedb.org/3/search/{tipo}?api_key={TMDB_API_KEY}&language=pt-BR&query={urllib.parse.quote(titulo)}"
+              try:
+                  r = requests.get(url_sem_ano, timeout=10)
+                  if r.status_code == 200 and r.json().get("results"):
+                      poster = r.json()["results"][0].get("poster_path")
+                      if poster: return f"https://image.tmdb.org/t/p/w500{poster}"
+              except: pass
+
+              return None
+
+          contador = 0
+          for arquivo in lote:
+              try:
+                  conteudo = arquivo.read_text(encoding="utf-8")
+                  
+                  # Se já tem capa do TMDB, pula
+                  if "image.tmdb.org" in conteudo:
+                      with open(ARQ_PROCESSADOS, "a", encoding="utf-8") as f:
+                          f.write(arquivo.name + "\n")
+                      continue
+
+                  soup = BeautifulSoup(conteudo, "html.parser")
+                  script_tag = soup.find("script", type="application/ld+json")
+                  if not script_tag: continue
+                  
+                  dados = json.loads(script_tag.string)
+                  nome_json = dados.get("name", "")
+                  
+                  if not nome_json: continue
+
+                  # Detectar se é série pelo nome do arquivo
+                  is_series = bool(re.search(r'_t\d+e\d+', arquivo.name, re.I))
+                  
+                  # LIMPEZA DO NOME
+                  nome_limpo = nome_json.replace('🕸️ PK', '').replace('🍿Clau', '').replace('𝑴arcø𝒔x⁷👾', '').replace('Marcos', '').strip()
+                  
+                  # Remove "Episódio X", "T1E1", "Temporada X"
+                  if is_series:
+                      nome_limpo = re.sub(r'Episódio\s*\d+.*', '', nome_limpo, flags=re.I)
+                      nome_limpo = re.sub(r'-?\s*T\d+E\d+.*', '', nome_limpo, flags=re.I)
+                      nome_limpo = re.sub(r'\d+ª\s*Temporada.*', '', nome_limpo, flags=re.I)
+
+                  # Separa por hífen e pega o maior pedaço (para tirar lixo)
+                  partes = [p.strip() for p in re.split(r'\s+-\s+', nome_limpo) if p.strip()]
+                  if partes:
+                      nome_limpo = max(partes, key=len)
+                  
+                  # Extrai Ano (4 dígitos)
+                  match_ano = re.search(r'\b(19\d{2}|20\d{2})\b', nome_json)
+                  ano = match_ano.group(1) if match_ano else ""
+                  
+                  # Limpa o título final
+                  titulo_busca = re.sub(r'\b(19\d{2}|20\d{2})\b', '', nome_limpo)
+                  titulo_busca = re.sub(r'[\(\)\[\]]', '', titulo_busca)
+                  titulo_busca = re.sub(r'\s+', ' ', titulo_busca).strip()
+                  titulo_busca = re.sub(r'[\s.:;,]+$', '', titulo_busca).strip()
+
+                  if not titulo_busca or "desconhecido" in titulo_busca.lower(): continue
+
+                  print(f"Buscando: '{titulo_busca}' ({ano}) [{'Serie' if is_series else 'Filme'}]...", end=" ")
+                  
+                  capa_url = buscar_tmdb(titulo_busca, ano, is_series)
+                  
+                  if capa_url:
+                      print("ACHEI!")
+                      dados["thumbnailUrl"] = [capa_url]
+                      novo_json_str = json.dumps(dados, ensure_ascii=False, indent=2)
+                      
+                      novo_html = conteudo.replace(script_tag.string, novo_json_str)
+                      arquivo.write_text(novo_html, encoding="utf-8")
+                      contador += 1
+                  else:
+                      print("NAO ACHOU")
+                  
+                  with open(ARQ_PROCESSADOS, "a", encoding="utf-8") as f:
+                      f.write(arquivo.name + "\n")
+
+                  time.sleep(0.2)
+              except Exception as e:
+                  pass
+
+          print(f"\nFinalizado! {contador} capas adicionadas.")
+          PYEOF
+
+          python3 buscar_capas.py
+
+      - name: Salvar arquivos e progresso
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          git add -f capas_processadas.txt 2>/dev/null || true
+          git add *.json
+          git add *.txt
+          
+          if git diff --cached --quiet; then
+            echo "Nada novo."
+            exit 0
+          fi
+          
+          git commit -m "feat: adicionar capas usando o campo name como referencia"
+          
+          for i in $(seq 1 5); do
+            if git push origin HEAD:main; then
+              echo "[SUCESSO] Push OK"
+              exit 0
+            fi
+            echo "[FALHA] Push falhou. Sincronizando..."
+            git pull --rebase origin main --autostash || git pull origin main --no-rebase -X ours --no-edit
+            sleep 3
+          done
+
+      - name: Disparar proxima run
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.PAT_CHAIN }}
+          REPO: ${{ github.repository }}
+        run: |
+          TOTAL=$(ls -1 *.json 2>/dev/null | wc -l)
+          PROCESSADOS=$(sort -u capas_processadas.txt 2>/dev/null | wc -l)
+          FALTAM=$((TOTAL - PROCESSADOS))
+          
+          if [ "$FALTAM" -le 0 ]; then
+            echo "✅ Todas as capas processadas."; exit 0
+          fi
+
+          sleep 30
+          gh workflow run "capas_por_name.yml" --repo "$REPO" --ref main || true
