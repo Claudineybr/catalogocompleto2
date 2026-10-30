@@ -1,0 +1,287 @@
+name: Mega Extrair Filmes (Lotes de 500)
+
+on:
+  schedule:
+    - cron: '15,45 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mega-filmes
+  cancel-in-progress: false
+
+jobs:
+  extrair:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Instalar Python e Playwright
+        run: |
+          pip install playwright beautifulsoup4 requests
+          playwright install chromium
+          playwright install-deps
+
+      - name: Extrair Filmes e Retentar Falhas
+        run: |
+          cat > /tmp/mega_filmes.py << 'PYEOF'
+          import asyncio, re, json, requests, sys
+          from bs4 import BeautifulSoup
+          from pathlib import Path
+          from playwright.async_api import async_playwright
+
+          BASE_URL = "https://www.vini7xgrave.site"
+          HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+
+          ARQ_FILA        = Path("filmes_fila.txt")
+          ARQ_FEITAS      = Path("filmes_feitas.txt") if False else Path("filmes_feitos.txt")
+          ARQ_PENDENTES   = Path("filmes_pendentes.json")
+          ARQ_DESCARTADOS = Path("filmes_descartados.txt")
+
+          FILMES_MORTOS = []
+          MAX_TENTATIVAS = 3
+
+          def log(*a): print(*a, flush=True); sys.stdout.flush()
+
+          # ---------- Fila (merge em vez de só criar) ----------
+          def construir_fila():
+              log("Criando/atualizando fila de filmes...")
+              urls, vistos = [], set()
+              if ARQ_FILA.exists():
+                  for u in ARQ_FILA.read_text(encoding="utf-8").splitlines():
+                      u = u.strip()
+                      if u and u not in vistos:
+                          urls.append(u); vistos.add(u)
+              start = 1
+              while True:
+                  url_feed = f"{BASE_URL}/feeds/posts/default?alt=json&max-results=150&start-index={start}"
+                  try:
+                      r = requests.get(url_feed, headers=HEADERS, timeout=15)
+                      if r.status_code != 200: break
+                      entries = r.json().get("feed", {}).get("entry", [])
+                      if not entries: break
+                      for e in entries:
+                          link = next((l["href"] for l in e.get("link", []) if l.get("rel") == "alternate"), None)
+                          if link:
+                              u = link.split("?")[0].strip()
+                              if u and u not in vistos:
+                                  urls.append(u); vistos.add(u)
+                      start += 150
+                      if len(entries) < 150: break
+                  except: break
+              ARQ_FILA.write_text("\n".join(urls), encoding="utf-8")
+              log(f"Fila: {len(urls)} URLs.")
+
+          if not ARQ_FILA.exists():
+              construir_fila()
+
+          feitas = set()
+          if ARQ_FEITAS.exists():
+              feitas = set(l.strip() for l in ARQ_FEITAS.read_text(encoding="utf-8").splitlines() if l.strip())
+
+          pendentes_dict = {}
+          if ARQ_PENDENTES.exists():
+              try:
+                  for p in json.loads(ARQ_PENDENTES.read_text(encoding="utf-8")):
+                      if any(m in p.get('url','').lower() for m in FILMES_MORTOS): continue
+                      if p['arquivo'] not in pendentes_dict:
+                          pendentes_dict[p['arquivo']] = p
+                      else:
+                          pendentes_dict[p['arquivo']]['tentativas'] = max(
+                              pendentes_dict[p['arquivo']].get('tentativas',1),
+                              p.get('tentativas',1))
+              except: pass
+          pendentes = list(pendentes_dict.values())
+
+          todas = [u.strip() for u in ARQ_FILA.read_text(encoding="utf-8").splitlines() if u.strip()]
+          fila = [u for u in todas if u not in feitas]
+          lote = fila[:500]
+
+          log(f"Total na fila: {len(todas)}")
+          log(f"Já feitos: {len(feitas)}")
+          log(f"Faltam {len(fila)}. Pendentes: {len(pendentes)}.")
+
+          # ---------- Helpers ----------
+          async def extrair_video_playwright(context, url_ep):
+              page = await context.new_page()
+              capturados = []
+              def on_response(res):
+                  u = res.url
+                  if re.search(r"[.](mp4|m3u8)([?]|$)", u, re.I) or 'tankie' in u or 'oneplayer' in u:
+                      capturados.append(u)
+              page.on("response", on_response)
+              try:
+                  await page.goto(url_ep, wait_until="domcontentloaded", timeout=20000)
+                  try: await page.wait_for_selector("iframe", timeout=10000)
+                  except: pass
+                  await asyncio.sleep(3.0)
+                  if not capturados:
+                      html = await page.content()
+                      soup = BeautifulSoup(html, 'html.parser')
+                      for iframe in soup.find_all('iframe'):
+                          src = iframe.get('src','')
+                          if src and 'google' not in src.lower() and 'ads' not in src.lower():
+                              capturados.append(src)
+                      if not capturados:
+                          m = re.search(r'(https?://[^"\']+(?:tankie|oneplayer)[^"\']+)', html)
+                          if m: capturados.append(m.group(1))
+              except Exception: pass
+              finally: await page.close()
+              return list(dict.fromkeys(capturados))[0] if capturados else None
+
+          def extrair_titulo(soup):
+              og = soup.find('meta', property='og:title')
+              if og and og.get('content'):
+                  raw = og['content']
+              else:
+                  raw = soup.h1.text if soup.h1 else (soup.title.text if soup.title else "Filme Desconhecido")
+              raw = raw.replace('𝑴arcø𝒔x⁷👾', '').replace('Marcos', '').strip()
+              partes = [p.strip() for p in raw.split(' - ') if p.strip()]
+              validas = [p for p in partes if not any(x in p.lower() for x in
+                        ['vini','grave','online','blogspot','assistir'])]
+              return max(validas, key=len) if validas else "Filme Desconhecido"
+
+          # 🚨 CORREÇÃO 1: pega o ANO completo, ignora underscore/dash antes
+          def extrair_ano_da_url(url_pagina):
+              m = re.search(r'/([^/]+)\.html', url_pagina)
+              if not m: return ""
+              slug = m.group(1)
+              anos = re.findall(r'(?<!\d)(?:19|20)\d{2}(?!\d)', slug)
+              return anos[-1] if anos else ""
+
+          # 🚨 CORREÇÃO 2: só considera série se houver link REAL de episódio
+          def eh_serie(soup):
+              for a in soup.find_all('a', href=True):
+                  if re.search(r'epis[oó]dio[-_/]\d+', a['href'], re.I): return True
+                  if re.search(r'\bepis[oó]dio\s*\d+', a.get_text(strip=True), re.I): return True
+              return False
+
+          def salvar_json(nome_arquivo, nome_json, link):
+              dados = {
+                  "@context": "https://schema.org", "@type": "VideoObject",
+                  "name": nome_json, "description": f"Assista {nome_json}",
+                  "thumbnailUrl": ["https://via.placeholder.com/500x750?text=Sem+Capa"],
+                  "uploadDate": "2020-01-01T00:00:00+00:00", "inLanguage": "pt",
+                  "contentUrl": link, "embedUrl": link,
+              }
+              js = json.dumps(dados, ensure_ascii=False, indent=2)
+              html = (f'<!DOCTYPE html>\n<html lang="pt-BR">\n<head>\n'
+                      f'<script type="application/ld+json">\n{js}\n</script>\n'
+                      f'<title>{nome_json}</title>\n</head>\n<body>\n<h1>{nome_json}</h1>\n</body>\n</html>')
+              Path(nome_arquivo).write_text(html, encoding='utf-8')
+
+          async def processar_item(context, url_pagina):
+              if any(m in url_pagina.lower() for m in FILMES_MORTOS):
+                  log(f"\n--> [BYPASS] {url_pagina}")
+                  with open(ARQ_FEITAS, "a", encoding="utf-8") as f: f.write(url_pagina.strip()+"\n")
+                  return
+              log(f"\n--> Verificando: {url_pagina}")
+              try:
+                  r = await asyncio.to_thread(requests.get, url_pagina, headers=HEADERS, timeout=20)
+                  soup = BeautifulSoup(r.text, 'html.parser')
+
+                  if eh_serie(soup):
+                      log("    (É série. Pulando...)")
+                      with open(ARQ_FEITAS, "a", encoding="utf-8") as f: f.write(url_pagina.strip()+"\n")
+                      return
+
+                  titulo = extrair_titulo(soup)
+                  ano = extrair_ano_da_url(url_pagina)
+                  slug = re.sub(r'[^a-z0-9]', '_', titulo.lower())
+                  slug = re.sub(r'_+', '_', slug).strip('_')
+
+                  if ano:
+                      nome_arquivo = f"{slug}_{ano}.json"
+                      nome_json    = f"{titulo} ({ano}) - 🍿Clau"
+                  else:
+                      nome_arquivo = f"{slug}.json"
+                      nome_json    = f"{titulo} - 🍿Clau"
+
+                  with open(ARQ_FEITAS, "a", encoding="utf-8") as f: f.write(url_pagina.strip()+"\n")
+
+                  if Path(nome_arquivo).exists():
+                      log(f"    (Já existe: {nome_arquivo})"); return
+
+                  log(f"    Filme: '{nome_json}' (ano={ano or 'n/a'})")
+                  link = await extrair_video_playwright(context, url_pagina)
+                  if not link:
+                      log("      [-] Falhou → pendentes.")
+                      if not any(p['arquivo']==nome_arquivo for p in pendentes):
+                          pendentes.append({"arquivo": nome_arquivo, "nome_json": nome_json,
+                                            "url": url_pagina, "tentativas": 1})
+                      return
+                  salvar_json(nome_arquivo, nome_json, link)
+                  log(f"      [+] Salvo: {nome_arquivo}")
+              except Exception as e:
+                  log(f"    Erro em {url_pagina}: {e}")
+
+          async def main():
+              async with async_playwright() as pw:
+                  browser = await pw.chromium.launch(headless=True)
+                  ctx = await browser.new_context(user_agent=HEADERS["User-Agent"])
+                  for i, url in enumerate(lote, 1):
+                      log(f"[{i}/{len(lote)}]")
+                      await processar_item(ctx, url)
+
+                  if pendentes:
+                      log(f"\n=== RETENTANDO {len(pendentes)} FILMES ===")
+                      ainda = []
+                      for item in pendentes:
+                          if Path(item['arquivo']).exists(): continue
+                          if any(m in item.get('url','').lower() for m in FILMES_MORTOS): continue
+                          if item.get("tentativas",0) >= MAX_TENTATIVAS:
+                              log(f"--> [DESISTINDO] {item['arquivo']}")
+                              with open(ARQ_DESCARTADOS,"a",encoding="utf-8") as f:
+                                  f.write(f"{item['arquivo']}\t{item['url']}\t{item.get('tentativas')} falhas\n")
+                              continue
+                          log(f"--> Tentativa {item['tentativas']+1}/{MAX_TENTATIVAS}: {item['arquivo']}")
+                          link = await extrair_video_playwright(ctx, item['url'])
+                          if link:
+                              salvar_json(item['arquivo'], item['nome_json'], link)
+                              log("    [+] SUCESSO")
+                          else:
+                              log("    [-] Ainda falhando")
+                              item["tentativas"] = item.get("tentativas",1) + 1
+                              ainda.append(item)
+                      pendentes.clear(); pendentes.extend(ainda)
+                  await browser.close()
+
+          if __name__ == "__main__":
+              asyncio.run(main())
+              ARQ_PENDENTES.write_text(json.dumps(pendentes, ensure_ascii=False, indent=2), encoding="utf-8")
+              log(f"\nProgresso salvo. {len(pendentes)} filmes pendentes.")
+          PYEOF
+          python3 /tmp/mega_filmes.py
+
+      - name: Salvar arquivos e progresso
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f filmes_feitos.txt filmes_fila.txt filmes_pendentes.json filmes_descartados.txt 2>/dev/null || true
+          git add -f *.json *.txt 2>/dev/null || true
+          if git diff --cached --quiet; then echo "Nada novo."; exit 0; fi
+          ARQUIVOS=$(git diff --cached --name-only | wc -l)
+          git commit -m "feat: mega extracao de filmes ($ARQUIVOS arquivos)"
+
+          # git reset --mixed preserva a working tree e re-cria o commit
+          # em cima do origin/main atualizado. Evita merge commits sujos.
+          # (Não troque por 'git add -A' — o reset abaixo ressuscitaria
+          # deleções que outro robô acabou de fazer.)
+          for i in $(seq 1 5); do
+            echo "== Push tentativa $i/5 =="
+            if git push origin HEAD:main; then echo "[OK] push na tentativa $i"; exit 0; fi
+            echo "[FALHA] sincronizando com origin/main..."
+            git fetch origin main
+            git reset --mixed origin/main
+            git add -f filmes_feitos.txt filmes_fila.txt filmes_pendentes.json filmes_descartados.txt 2>/dev/null || true
+            git add -f *.json *.txt 2>/dev/null || true
+            if git diff --cached --quiet; then echo "Nada apos reset."; exit 0; fi
+            git commit -m "feat: mega extracao de filmes (retry $i)" || true
+            sleep $((RANDOM % 10 + 5))
+          done
+          echo "[FALHA] push apos 5 tentativas"; exit 1
