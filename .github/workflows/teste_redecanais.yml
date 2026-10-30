@@ -1,4 +1,4 @@
-name: Teste RedeCanais v7 (Biblioteca + Numpy)
+name: Teste RedeCanais v8 (Super Debug Playwright)
 
 on:
   workflow_dispatch:
@@ -11,37 +11,109 @@ jobs:
 
       - name: Instalar dependências
         run: |
-          # Adicionado o numpy que faltava
-          pip install redecanais numpy
+          pip install playwright beautifulsoup4 requests
+          playwright install chromium
+          playwright install-deps
 
-      - name: Extrair link com a biblioteca redecanais
+      - name: Extrair link via Playwright (Mídia + Iframes)
         run: |
-          cat > /tmp/teste_redecanais_lib.py << 'PYEOF'
-          import sys
-          from redecanais.redecanais import ChannelsNetwork
+          cat > /tmp/teste_v8.py << 'PYEOF'
+          import asyncio, re, sys
+          from bs4 import BeautifulSoup
+          from playwright.async_api import async_playwright
 
           URL_ALVO = "https://redecanais.by/arrow-1a-temporada-episodio-01-piloto_530488a01.html"
+          BASE_URL = "https://redecanais.by"
+          HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
 
           def log(*a): print(*a, flush=True); sys.stdout.flush()
 
-          def main():
-              log(f"[+] Iniciando extração para: {URL_ALVO}")
-              try:
-                  cn = ChannelsNetwork()
-                  log("[*] Chamando find_streams()... (isso pode demorar alguns segundos)")
-                  resultado = cn.find_streams(URL_ALVO)
-                  
-                  if resultado:
-                      log(f"\n[+] RESULTADO RETORNADO PELA BIBLIOTECA:")
-                      log(f"{resultado}")
+          async def main():
+              async with async_playwright() as pw:
+                  browser = await pw.chromium.launch(headless=True)
+                  ctx = await browser.new_context(user_agent=HEADERS["User-Agent"])
+                  page = await ctx.new_page()
+
+                  links_media = []
+
+                  # Intercepta requisições de mídia (audio, video, etc) e links conhecidos
+                  def on_request(req):
+                      if req.resource_type in ["media", "xhr", "fetch"]:
+                          u = req.url
+                          if any(x in u.lower() for x in [".mp4", ".m3u8", "drive.google", "video", "stream"]):
+                              log(f"    [Rede - {req.resource_type}]: {u}")
+                              links_media.append(u)
+
+                  page.on("request", on_request)
+
+                  log(f"--> Acessando página principal: {URL_ALVO}")
+                  await page.goto(URL_ALVO, wait_until="domcontentloaded", timeout=30000)
+                  await asyncio.sleep(3)
+
+                  # Pega o link do iframe
+                  html = await page.content()
+                  soup = BeautifulSoup(html, 'html.parser')
+                  player_iframe = None
+                  for iframe in soup.find_all('iframe'):
+                      src = iframe.get('src','')
+                      if 'player3/server.php' in src:
+                          player_iframe = src if src.startswith('http') else BASE_URL + src
+                          break
+
+                  if not player_iframe:
+                      log("[-] Iframe do player não encontrado.")
+                      await browser.close(); return
+
+                  log(f"[+] Iframe: {player_iframe}")
+
+                  # Extrai o gid do Google Drive da URL se existir
+                  m_gid = re.search(r'gid=([a-zA-Z0-9_-]+)', player_iframe)
+                  if m_gid:
+                      log(f"[+] GID do Google Drive detectado: {m_gid.group(1)}")
+                      log(f"    Teste manual do Drive: https://drive.google.com/uc?id={m_gid.group(1)}&export=download")
+
+                  # Navega para o iframe e espera MUITO tempo (o player pode ter delay)
+                  log("--> Abrindo iframe do player e esperando 15 segundos...")
+                  await page.goto(player_iframe, wait_until="domcontentloaded", timeout=30000)
+                  await asyncio.sleep(15)
+
+                  # Tenta clicar no centro da tela para dar "Play" caso tenha overlay
+                  try:
+                      await page.mouse.click(400, 300)
+                      await asyncio.sleep(5)
+                  except: pass
+
+                  # Busca recursiva por iframes aninhados
+                  frames = page.frames
+                  log(f"[*] Total de frames na página: {len(frames)}")
+                  for i, frame in enumerate(frames):
+                      log(f"    Frame {i}: {frame.url}")
+                      # Tenta pegar tags <video> ou <source> dentro do frame
+                      try:
+                          v_src = await frame.evaluate("""() => {
+                              let v = document.querySelector('video');
+                              if (v) return v.src || v.currentSrc;
+                              let s = document.querySelector('source');
+                              if (s) return s.src;
+                              return null;
+                          }""")
+                          if v_src:
+                              log(f"    [+] Tag de vídeo encontrada no Frame {i}: {v_src}")
+                              links_media.append(v_src)
+                      except: pass
+
+                  log("\n=== RESULTADO FINAL ===")
+                  if links_media:
+                      # Filtra duplicatas
+                      unicos = list(dict.fromkeys(links_media))
+                      for link in unicos:
+                          log(f"[+] LINK ENCONTRADO: {link}")
                   else:
-                      log("\n[-] A biblioteca retornou um resultado vazio (None).")
-              except Exception as e:
-                  log(f"\n[-] Erro ao usar a biblioteca: {e}")
-                  import traceback
-                  traceback.print_exc()
+                      log("[-] Nenhum link de mídia ou Drive encontrado.")
+                  
+                  await browser.close()
 
           if __name__ == "__main__":
-              main()
+              asyncio.run(main())
           PYEOF
-          python3 /tmp/teste_redecanais_lib.py
+          python3 /tmp/teste_v8.py
