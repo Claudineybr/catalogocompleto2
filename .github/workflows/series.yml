@@ -97,9 +97,12 @@ jobs:
               except: pass
           pendentes = list(pendentes_dict.values())
 
-          fila = [u for u in ARQ_FILA.read_text(encoding="utf-8").splitlines() if u.strip() and u not in feitas]
+          # --- LOG PADRONIZADO COM O DE FILMES ---
+          todas = [u.strip() for u in ARQ_FILA.read_text(encoding="utf-8").splitlines() if u.strip()]
+          fila = [u for u in todas if u not in feitas]
           lote = fila[:300]
-          log(f"Faltam {len(fila)} series. Pendentes: {len(pendentes)}.")
+
+          log(f"Total na fila: {len(todas)} | Ja feitos: {len(feitas)} | Faltam: {len(fila)} | Pendentes: {len(pendentes)}.")
 
           async def extrair_video_playwright(context, url_ep):
               page = await context.new_page()
@@ -281,7 +284,9 @@ jobs:
           TOTAL=$(wc -l < series_fila.txt)
           FEITOS=$(sort -u series_feitas.txt | wc -l)
           FALTAM=$((TOTAL - FEITOS))
-          echo "Faltam $FALTAM series."
+          
+          # --- LOG PADRONIZADO NO FINAL TAMBÉM ---
+          echo "Total na fila: $TOTAL | Ja feitos: $FEITOS | Faltam: $FALTAM"
           
           if [ "$FALTAM" -le 0 ]; then
             echo "✅ Fila vazia. Chain encerrada."; exit 0
