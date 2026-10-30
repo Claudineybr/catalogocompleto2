@@ -1,4 +1,4 @@
-name: Mega Extrair Series (Lotes de 300)
+name: Mega Extrair Series (Lotes de 100)
 
 on:
   schedule:
@@ -97,10 +97,11 @@ jobs:
               except: pass
           pendentes = list(pendentes_dict.values())
 
-          # --- LOG PADRONIZADO COM O DE FILMES ---
           todas = [u.strip() for u in ARQ_FILA.read_text(encoding="utf-8").splitlines() if u.strip()]
           fila = [u for u in todas if u not in feitas]
-          lote = fila[:300]
+          
+          # MUDANÇA 1: Lote de 100 séries
+          lote = fila[:100]
 
           log(f"Total na fila: {len(todas)} | Ja feitos: {len(feitas)} | Faltam: {len(fila)} | Pendentes: {len(pendentes)}.")
 
@@ -285,7 +286,6 @@ jobs:
           FEITOS=$(sort -u series_feitas.txt | wc -l)
           FALTAM=$((TOTAL - FEITOS))
           
-          # --- LOG PADRONIZADO NO FINAL TAMBÉM ---
           echo "Total na fila: $TOTAL | Ja feitos: $FEITOS | Faltam: $FALTAM"
           
           if [ "$FALTAM" -le 0 ]; then
@@ -298,6 +298,10 @@ jobs:
           if [ "$RECENTES" -ge 30 ]; then
             echo "⚠️ Limite de 30 runs/hora atingido. Aguardando cron."; exit 0
           fi
+
+          # MUDANÇA 2: Sleep de 30 segundos antes de iniciar a próxima
+          echo "⏳ Aguardando 30 segundos antes de disparar a próxima run..."
+          sleep 30
 
           echo "🔁 Disparando próxima run..."
           gh workflow run "series.yml" --repo "$REPO" --ref main
