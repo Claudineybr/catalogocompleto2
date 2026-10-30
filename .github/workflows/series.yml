@@ -3,9 +3,6 @@ name: Mega Extrair Series (Lotes de 300)
 on:
   schedule:
     - cron: '0,30 * * * *'
-  workflow_run:
-    workflows: ["Mega Extrair Series (Lotes de 300)"]   # ← self-chain
-    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -17,9 +14,6 @@ concurrency:
 
 jobs:
   extrair:
-    if: |
-      github.event_name != 'workflow_run' ||
-      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Baixar repositorio
@@ -103,8 +97,7 @@ jobs:
               except: pass
           pendentes = list(pendentes_dict.values())
 
-          fila = [u for u in ARQ_FILA.read_text(encoding="utf-8").splitlines()
-                  if u.strip() and u not in feitas]
+          fila = [u for u in ARQ_FILA.read_text(encoding="utf-8").splitlines() if u.strip() and u not in feitas]
           lote = fila[:300]
           log(f"Faltam {len(fila)} series. Pendentes: {len(pendentes)}.")
 
@@ -135,7 +128,6 @@ jobs:
               finally: await page.close()
               return list(dict.fromkeys(capturados))[0] if capturados else None
 
-          # BUG FIX: prevê "Nª Temporada" / "Season N" no max() por comprimento.
           def limpar_titulo_pagina(soup):
               if not soup: return "Serie Desconhecida"
               candidatos = []
@@ -153,10 +145,8 @@ jobs:
                   if not partes: continue
 
                   if len(partes) > 1:
-                      limpas = [p for p in partes if not re.search(
-                          r'(vini|grave|site|online|blogspot|assistir|download)', p, re.I)]
-                      sem_temp = [p for p in limpas if not re.search(
-                          r'^(?:\d+\s*[ªº]?\s*)?(?:temporada|season)', p, re.I)]
+                      limpas = [p for p in partes if not re.search(r'(vini|grave|site|online|blogspot|assistir|download)', p, re.I)]
+                      sem_temp = [p for p in limpas if not re.search(r'^(?:\d+\s*[ªº]?\s*)?(?:temporada|season)', p, re.I)]
                       candidato = sem_temp or limpas or partes
                       titulo = max(candidato, key=len)
                   else:
@@ -178,14 +168,11 @@ jobs:
                   "contentUrl": link, "embedUrl": link,
               }
               js = json.dumps(dados, ensure_ascii=False, indent=2)
-              html = (f'<!DOCTYPE html>\n<html lang="pt-BR">\n<head>\n'
-                      f'<script type="application/ld+json">\n{js}\n</script>\n'
-                      f'<title>{nome_json}</title>\n</head>\n<body>\n<h1>{nome_json}</h1>\n</body>\n</html>')
+              html = (f'<!DOCTYPE html>\n<html lang="pt-BR">\n<head>\n<script type="application/ld+json">\n{js}\n</script>\n<title>{nome_json}</title>\n</head>\n<body>\n<h1>{nome_json}</h1>\n</body>\n</html>')
               Path(nome_arquivo).write_text(html, encoding='utf-8')
 
           async def processar_serie(context, url_serie):
               if any(m in url_serie.lower() for m in SERIES_MORTAS):
-                  log(f"\n--> [BYPASS] {url_serie}")
                   with open(ARQ_FEITAS,"a",encoding="utf-8") as f: f.write(url_serie.strip()+"\n")
                   return
               log(f"\n--> Verificando serie: {url_serie}")
@@ -214,8 +201,8 @@ jobs:
 
                   with open(ARQ_FEITAS,"a",encoding="utf-8") as f: f.write(url_serie.strip()+"\n")
                   if not eps:
-                      log("    (É filme. Pulando...)"); return
-                  log(f"    Série '{titulo}' ({slug}) — {len(eps)} episódios.")
+                      log("    (E filme. Pulando...)"); return
+                  log(f"    Serie '{titulo}' ({slug}) - {len(eps)} episodios.")
 
                   for it in eps:
                       nome_arquivo = f"{slug}_t{it['temp']}e{it['ep']}.json"
@@ -224,9 +211,7 @@ jobs:
                       link = await extrair_video_playwright(context, it['url'])
                       if not link:
                           if not any(p['arquivo']==nome_arquivo for p in pendentes):
-                              log(f"      [-] Falhou → pendentes: {nome_arquivo}")
-                              pendentes.append({"arquivo": nome_arquivo, "nome_json": nome_json,
-                                                "url": it['url'], "tentativas": 1})
+                              pendentes.append({"arquivo": nome_arquivo, "nome_json": nome_json, "url": it['url'], "tentativas": 1})
                           continue
                       salvar_json(nome_arquivo, nome_json, link)
                       log(f"      [+] Salvo: {nome_arquivo}")
@@ -248,7 +233,6 @@ jobs:
                           if Path(item['arquivo']).exists(): continue
                           if any(m in item.get('url','').lower() for m in SERIES_MORTAS): continue
                           if item.get("tentativas",0) >= MAX_TENTATIVAS:
-                              log(f"--> [DESISTINDO] {item['arquivo']}")
                               with open(ARQ_DESCARTADOS,"a",encoding="utf-8") as f:
                                   f.write(f"{item['arquivo']}\t{item['url']}\t{item.get('tentativas')} falhas\n")
                               continue
@@ -258,7 +242,6 @@ jobs:
                               salvar_json(item['arquivo'], item['nome_json'], link)
                               log("    [+] SUCESSO")
                           else:
-                              log("    [-] Ainda falhando")
                               item["tentativas"] = item.get("tentativas",1) + 1
                               ainda.append(item)
                       pendentes.clear(); pendentes.extend(ainda)
@@ -267,7 +250,6 @@ jobs:
           if __name__ == "__main__":
               asyncio.run(main())
               ARQ_PENDENTES.write_text(json.dumps(pendentes, ensure_ascii=False, indent=2), encoding="utf-8")
-              log(f"\nProgresso salvo. {len(pendentes)} episodios pendentes.")
           PYEOF
           python3 /tmp/mega_series.py
 
@@ -278,56 +260,39 @@ jobs:
           git add -f series_feitas.txt series_fila.txt episodios_pendentes.json series_descartados.txt 2>/dev/null || true
           git add -f *.json *.txt 2>/dev/null || true
           if git diff --cached --quiet; then echo "Nada novo."; exit 0; fi
-          ARQUIVOS=$(git diff --cached --name-only | wc -l)
-          git commit -m "chore: atualizar catalogo de series ($ARQUIVOS arquivos)"
+          git commit -m "chore: atualizar catalogo de series"
 
           for i in $(seq 1 5); do
-            echo "== Push tentativa $i/5 =="
-            if git push origin HEAD:main; then echo "[OK] push na tentativa $i"; exit 0; fi
-            echo "[FALHA] sincronizando com origin/main..."
+            if git push origin HEAD:main; then break; fi
             git fetch origin main
             git reset --mixed origin/main
             git add -f series_feitas.txt series_fila.txt episodios_pendentes.json series_descartados.txt 2>/dev/null || true
             git add -f *.json *.txt 2>/dev/null || true
-            if git diff --cached --quiet; then echo "Nada apos reset."; exit 0; fi
-            git commit -m "chore: atualizar catalogo de series (retry $i)" || true
+            git commit -m "chore: retry $i" || true
             sleep $((RANDOM % 10 + 5))
           done
-          echo "[FALHA] push apos 5 tentativas"; exit 1
 
-      # ─── SELF-CHAIN: dispara próxima run se ainda houver fila ─────────────
       - name: Disparar próxima run (se fila não vazia)
         if: success()
         env:
           GH_TOKEN: ${{ secrets.PAT_CHAIN }}
           REPO: ${{ github.repository }}
         run: |
-          if [ ! -f series_fila.txt ] || [ ! -f series_feitas.txt ]; then
-            echo "Sem arquivos de fila — não encadeio."; exit 0
-          fi
           TOTAL=$(wc -l < series_fila.txt)
           FEITOS=$(sort -u series_feitas.txt | wc -l)
           FALTAM=$((TOTAL - FEITOS))
-          echo "Total=$TOTAL Feitos=$FEITOS Faltam=$FALTAM"
-
+          echo "Faltam $FALTAM series."
+          
           if [ "$FALTAM" -le 0 ]; then
-            echo "✅ Fila vazia. Chain encerrada."
-            exit 0
+            echo "✅ Fila vazia. Chain encerrada."; exit 0
           fi
 
           LIMITE_ISO=$(date -u -d '60 minutes ago' +%Y-%m-%dT%H:%M:%SZ)
-          RECENTES=$(gh run list \
-            --workflow="mega_extrair_series.yml" \
-            --limit 100 \
-            --json event,createdAt \
-            --jq "[.[] | select(.event == \"workflow_run\") | select(.createdAt > \"$LIMITE_ISO\")] | length" \
-            --repo "$REPO" 2>/dev/null || echo 0)
-          echo "Runs encadeadas nos últimos 60 min: $RECENTES"
+          RECENTES=$(gh run list --workflow="series.yml" --limit 100 --json event,createdAt --jq "[.[] | select(.event == \"workflow_dispatch\") | select(.createdAt > \"$LIMITE_ISO\")] | length" --repo "$REPO" 2>/dev/null || echo 0)
+          
           if [ "$RECENTES" -ge 30 ]; then
-            echo "⚠️ Limite de 30 chains/hora atingido. Aguardando cron."
-            exit 0
+            echo "⚠️ Limite de 30 runs/hora atingido. Aguardando cron."; exit 0
           fi
 
           echo "🔁 Disparando próxima run..."
-          gh workflow run "mega_extrair_series.yml" --repo "$REPO" --ref main
-          echo "✅ Próxima run disparada."
+          gh workflow run "series.yml" --repo "$REPO" --ref main
