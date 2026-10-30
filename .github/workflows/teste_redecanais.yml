@@ -1,0 +1,100 @@
+name: Teste Extracao RedeCanais
+
+on:
+  workflow_dispatch: # Apenas manual, não tem cron
+
+jobs:
+  testar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v5
+
+      - name: Instalar Python e Playwright
+        run: |
+          pip install playwright beautifulsoup4 requests
+          playwright install chromium
+          playwright install-deps
+
+      - name: Extrair Link do Video
+        run: |
+          cat > /tmp/teste_redecanais.py << 'PYEOF'
+          import asyncio
+          import re
+          import sys
+          from bs4 import BeautifulSoup
+          from playwright.async_api import async_playwright
+
+          # Link exato que você enviou
+          URL_ALVO = "https://redecanais.by/arrow-1a-temporada-episodio-01-piloto_530488a01.html"
+          HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
+
+          def log(*args):
+              print(*args, flush=True)
+              sys.stdout.flush()
+
+          async def main():
+              log(f"--> Acessando: {URL_ALVO}")
+              async with async_playwright() as pw:
+                  browser = await pw.chromium.launch(headless=True)
+                  context = await browser.new_context(user_agent=HEADERS["User-Agent"])
+                  page = await context.new_page()
+
+                  capturados = []
+                  
+                  # Intercepta as respostas de rede
+                  def on_response(res):
+                      u = res.url
+                      if re.search(r"\.(mp4|m3u8)(\?|$)", u, re.I):
+                          capturados.append(u)
+                          log(f"    [Capturado na Rede]: {u}")
+                  
+                  page.on("response", on_response)
+
+                  try:
+                      # 1. Carrega a página
+                      await page.goto(URL_ALVO, wait_until="domcontentloaded", timeout=30000)
+                      log("--> Página carregada. Esperando o player iniciar (10 segundos)...")
+                      
+                      # 2. Espera o player fazer a requisição (o RedeCanais pode demorar um pouco)
+                      await asyncio.sleep(10.0)
+
+                      # 3. Fallback: Se não capturou o arquivo direto, tenta pegar o link do iframe
+                      if not capturados:
+                          log("--> Nenhum .mp4/.m3u8 capturado. Tentando achar iframe...")
+                          html = await page.content()
+                          soup = BeautifulSoup(html, 'html.parser')
+                          
+                          for iframe in soup.find_all('iframe'):
+                              src = iframe.get('src', '')
+                              if src and 'google' not in src.lower() and 'ads' not in src.lower():
+                                  log(f"    [Iframe encontrado]: {src}")
+                                  capturados.append(src)
+                                  
+                          # Regex extra no HTML puro, caso o iframe seja gerado por JS
+                          if not capturados:
+                              match = re.search(r'(https?://[^"\']+(?:\.m3u8|\.mp4)[^"\']*)', html)
+                              if match:
+                                  log(f"    [Regex no HTML]: {match.group(1)}")
+                                  capturados.append(match.group(1))
+
+                  except Exception as e:
+                      log(f"    [Erro]: {e}")
+                  finally:
+                      await page.close()
+                      await browser.close()
+
+                  log("\n=== RESULTADO FINAL ===")
+                  if capturados:
+                      # Remove duplicatas mantendo a ordem
+                      links_unicos = list(dict.fromkeys(capturados))
+                      for link in links_unicos:
+                          log(f"[+] LINK ENCONTRADO: {link}")
+                  else:
+                      log("[-] Nenhum link de vídeo encontrado.")
+
+          if __name__ == "__main__":
+              asyncio.run(main())
+          PYEOF
+
+          python3 /tmp/teste_redecanais.py
