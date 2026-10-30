@@ -1,20 +1,314 @@
 [
   {
-    "arquivo": "from_origem_t2e1.json",
-    "nome_json": "From (Origem) - T2E1 - – Estrada Afora - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e01.html",
+    "arquivo": "bridgerton_t1e3.json",
+    "nome_json": "Bridgerton - T1E3 -  - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/12/inix-bridgerton-tp1e03.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "bridgerton_t1e5.json",
+    "nome_json": "Bridgerton - T1E5 -  - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/12/inix-bridgerton-tp1e05.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "bridgerton_t2e1.json",
+    "nome_json": "Bridgerton - T2E1 - – Capital R Rake - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/12/inix-bridgerton-tp2e01.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "bridgerton_t3e1.json",
+    "nome_json": "Bridgerton - T3E1 - – Das Sombras - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/01/inix-bridgerton-tp3e01.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "bridgerton_t3e3.json",
+    "nome_json": "Bridgerton - T3E3 - – Forças da Natureza - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/01/inix-bridgerton-tp3e03.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "bridgerton_t3e4.json",
+    "nome_json": "Bridgerton - T3E4 - – Velhos Amigos - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/01/inix-bridgerton-tp3e04.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "bridgerton_t3e5.json",
+    "nome_json": "Bridgerton - T3E5 - – Tic Tac - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/01/inix-bridgerton-tp3e05.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "bridgerton_t3e8.json",
+    "nome_json": "Bridgerton - T3E8 - – Para a Luz - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/01/inix-bridgerton-tp3e08.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "os_simpsons_t1e11.json",
+    "nome_json": "Os Simpsons - T1E11 - – Os Crepes da Ira - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/02/inix-os-simpsons-tp1e11.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "os_simpsons_t2e2.json",
+    "nome_json": "Os Simpsons - T2E2 - – Simpson e Dalila - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/02/inix-os-simpsons-tp2e02.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "os_simpsons_t3e18.json",
+    "nome_json": "Os Simpsons - T3E18 - – A Separação de Burns - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/02/inix-os-simpsons-tp3e18.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "os_simpsons_t3e22.json",
+    "nome_json": "Os Simpsons - T3E22 - – O Otto se Mostra - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/02/inix-os-simpsons-tp3e22.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "os_simpsons_t3e24.json",
+    "nome_json": "Os Simpsons - T3E24 - – Irmão, Onde Estás? - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/02/inix-os-simpsons-tp3e24.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "os_simpsons_t4e1.json",
+    "nome_json": "Os Simpsons - T4E1 - – Acampamento Krusty - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/02/inix-os-simpsons-tp4e01.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "os_simpsons_t4e10.json",
+    "nome_json": "Os Simpsons - T4E10 - – A Primeira Palavra de Lisa - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/02/inix-os-simpsons-tp4e10.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "os_simpsons_t4e16.json",
+    "nome_json": "Os Simpsons - T4E16 - – Duffless - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/02/inix-os-simpsons-tp4e16.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "futurama_t1e9.json",
+    "nome_json": "Futurama - T1E9 - – O Inferno São os Outros Robôs - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e09_22.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "futurama_t2e3.json",
+    "nome_json": "Futurama - T2E3 - – Quando os Aliens Atacam - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e03_11.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "futurama_t2e10.json",
+    "nome_json": "Futurama - T2E10 - – Coloque Sua Cabeça nos Meus Ombros - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e10_11.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "futurama_t2e12.json",
+    "nome_json": "Futurama - T2E12 - – Bender Furioso - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e12_11.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "beauty_in_black_t1e7.json",
+    "nome_json": "Beauty in Black - T1E7 -  - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/02/inix-beauty-in-black-tp1e07.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "ra_zes_t1e2.json",
+    "nome_json": "Raízes - T1E2 -  - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/02/inix-raizes-tp1e02.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "o_cuco_de_cristal_t1e1.json",
+    "nome_json": "O Cuco de Cristal - T1E1 - – - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/02/inix-o-cuco-de-cristal-tp1e01.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "o_cuco_de_cristal_t1e2.json",
+    "nome_json": "O Cuco de Cristal - T1E2 - – - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/02/inix-o-cuco-de-cristal-tp1e01_9.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "o_cuco_de_cristal_t1e3.json",
+    "nome_json": "O Cuco de Cristal - T1E3 - – - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/02/inix-o-cuco-de-cristal-tp1e03.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "o_cuco_de_cristal_t1e4.json",
+    "nome_json": "O Cuco de Cristal - T1E4 - – - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/02/inix-o-cuco-de-cristal-tp1e04.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "o_cuco_de_cristal_t1e5.json",
+    "nome_json": "O Cuco de Cristal - T1E5 - – - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/02/inix-o-cuco-de-cristal-tp1e05.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "o_cuco_de_cristal_t1e6.json",
+    "nome_json": "O Cuco de Cristal - T1E6 - – - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/02/inix-o-cuco-de-cristal-tp1e06.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "orphan_black_t1e1.json",
+    "nome_json": "Orphan Black - T1E1 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/01/inix-orphan-black-tp01ep01.html",
     "tentativas": 2
   },
   {
-    "arquivo": "from_origem_t2e6.json",
-    "nome_json": "From (Origem) - T2E6 - – Passos em Falso - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e06.html",
+    "arquivo": "orphan_black_t2e5.json",
+    "nome_json": "Orphan Black - T2E5 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/01/inix-orphan-black-tp02ep05.html",
     "tentativas": 2
   },
   {
-    "arquivo": "from_origem_t2e8.json",
-    "nome_json": "From (Origem) - T2E8 - – Fim da Linha - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e08.html",
+    "arquivo": "orphan_black_t2e6.json",
+    "nome_json": "Orphan Black - T2E6 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/01/inix-orphan-black-tp02ep06.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "orphan_black_t2e8.json",
+    "nome_json": "Orphan Black - T2E8 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/01/inix-orphan-black-tp02ep08.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "orphan_black_t2e10.json",
+    "nome_json": "Orphan Black - T2E10 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/01/inix-orphan-black-tp02ep10.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "orphan_black_t3e7.json",
+    "nome_json": "Orphan Black - T3E7 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/07/inix-orphan-black-tp03ep07.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "orphan_black_t3e9.json",
+    "nome_json": "Orphan Black - T3E9 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/07/inix-orphan-black-tp03ep09.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "orphan_black_t3e10.json",
+    "nome_json": "Orphan Black - T3E10 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/07/inix-orphan-black-tp03ep10.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "orphan_black_t4e3.json",
+    "nome_json": "Orphan Black - T4E3 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/01/inix-orphan-black-tp04ep03.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "orphan_black_t4e6.json",
+    "nome_json": "Orphan Black - T4E6 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/01/inix-orphan-black-tp04ep06.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "orphan_black_t4e7.json",
+    "nome_json": "Orphan Black - T4E7 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/01/inix-orphan-black-tp04ep07.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "orphan_black_t4e9.json",
+    "nome_json": "Orphan Black - T4E9 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/01/inix-orphan-black-tp04ep09.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "orphan_black_t4e10.json",
+    "nome_json": "Orphan Black - T4E10 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/01/inix-orphan-black-tp04ep10.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "orphan_black_t5e1.json",
+    "nome_json": "Orphan Black - T5E1 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/01/inix-orphan-black-tp05ep01.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "orphan_black_t5e6.json",
+    "nome_json": "Orphan Black - T5E6 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/01/inix-orphan-black-tp05ep06.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "south_park_t1e4.json",
+    "nome_json": "South Park - T1E4 - – A Grande Viagem Gay de Barco - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/01/inix-south-park-tp1e04.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "south_park_t1e6.json",
+    "nome_json": "South Park - T1E6 - – Morte - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/01/inix-south-park-tp1e06.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "south_park_t1e7.json",
+    "nome_json": "South Park - T1E7 - – Olho Cor-de-Rosa - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/01/inix-south-park-tp1e07.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "south_park_t2e10.json",
+    "nome_json": "South Park - T2E10 - – Catapora - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/01/inix-south-park-tp2e10.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "south_park_t2e14.json",
+    "nome_json": "South Park - T2E14 - – Ajude o Chef - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/01/inix-south-park-tp2e14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "south_park_t2e16.json",
+    "nome_json": "South Park - T2E16 - – Feliz Natal Charlie Manson - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/01/inix-south-park-tp2e16.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "garota_sequestrada_t1e4.json",
+    "nome_json": "Garota Sequestrada - T1E4 - — Confronto - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/01/inix-garota-sequestrada-tp1e04.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "garota_sequestrada_t1e5.json",
+    "nome_json": "Garota Sequestrada - T1E5 - — Crise - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/01/inix-garota-sequestrada-tp1e05.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "garota_sequestrada_t1e6.json",
+    "nome_json": "Garota Sequestrada - T1E6 - — Caçada Humana - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/01/inix-garota-sequestrada-tp1e06.html",
     "tentativas": 2
   }
 ]

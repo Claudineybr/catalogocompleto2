@@ -21,3 +21,11 @@ boate_kiss_a_trag_dia_de_santa_maria_t1e2.json	https://vini7xgseries2.blogspot.c
 boate_kiss_a_trag_dia_de_santa_maria_t1e3.json	https://vini7xgseries2.blogspot.com/2026/03/inix-boate-kiss-alem-da-noticia-tp1e03.html	3 falhas
 boate_kiss_a_trag_dia_de_santa_maria_t1e4.json	https://vini7xgseries2.blogspot.com/2026/03/inix-boate-kiss-alem-da-noticia-tp1e04.html	3 falhas
 boate_kiss_a_trag_dia_de_santa_maria_t1e5.json	https://vini7xgseries2.blogspot.com/2026/03/inix-boate-kiss-alem-da-noticia-tp1e05.html	3 falhas
+task_unidade_especial_t1e1.json	https://viniraveon.blogspot.com/2025/09/inix-task-unidade-especial-tp1e01.html	3 falhas
+task_unidade_especial_t1e2.json	https://viniraveon.blogspot.com/2025/09/inix-task-unidade-especial-tp1e02.html	3 falhas
+task_unidade_especial_t1e3.json	https://viniraveon.blogspot.com/2025/09/inix-task-unidade-especial-tp1e03.html	3 falhas
+task_unidade_especial_t1e4.json	https://viniraveon.blogspot.com/2025/09/inix-task-unidade-especial-tp1e04.html	3 falhas
+task_unidade_especial_t1e5.json	https://viniraveon.blogspot.com/2025/10/inix-task-unidade-especial-tp1e05.html	3 falhas
+task_unidade_especial_t1e6.json	https://viniraveon.blogspot.com/2026/03/inix-task-unidade-especial-tp1e06.html	3 falhas
+task_unidade_especial_t1e7.json	https://viniraveon.blogspot.com/2026/03/inix-task-unidade-especial-tp1e07.html	3 falhas
+armaz_m_13_t4e20.json	https://marcosx7.blogspot.com/2026/03/inix-armazem-13-tp4ep20.html	3 falhas
