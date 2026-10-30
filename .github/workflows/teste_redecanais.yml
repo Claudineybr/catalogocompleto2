@@ -1,4 +1,4 @@
-name: Teste RedeCanais v3 (serverf4 + embed)
+name: Teste RedeCanais v4 (Regex HTML)
 
 on:
   workflow_dispatch:
@@ -15,11 +15,10 @@ jobs:
           playwright install chromium
           playwright install-deps
 
-      - name: Extrair Link (serverf4 + embed + rede)
+      - name: Extrair Link (Regex + Playwright)
         run: |
-          cat > /tmp/teste_v3.py << 'PYEOF'
+          cat > /tmp/teste_v4.py << 'PYEOF'
           import asyncio, re, sys
-          from bs4 import BeautifulSoup
           from playwright.async_api import async_playwright
 
           URL_ALVO = "https://redecanais.by/arrow-1a-temporada-episodio-01-piloto_530488a01.html"
@@ -28,118 +27,69 @@ jobs:
 
           def log(*a): print(*a, flush=True); sys.stdout.flush()
 
+          async def extrair_do_html(html):
+              # Padrão clássico do player: file: "http://....mp4"
+              m = re.search(r'file\s*:\s*["\'](https?://[^"\']+\.(?:mp4|m3u8))["\']', html, re.I)
+              if m: return m.group(1)
+              # Padrão alternativo: "url": "https://....m3u8"
+              m = re.search(r'"url"\s*:\s*["\'](https?://[^"\']+\.(?:mp4|m3u8))["\']', html, re.I)
+              if m: return m.group(1)
+              # Fallback: qualquer URL .mp4/.m3u8
+              m = re.search(r'(https?://[^"\']+\.(?:mp4|m3u8))', html, re.I)
+              return m.group(1) if m else None
+
           async def main():
               async with async_playwright() as pw:
                   browser = await pw.chromium.launch(headless=True)
                   ctx = await browser.new_context(user_agent=HEADERS["User-Agent"])
                   page = await ctx.new_page()
 
-                  # 1. Pega o iframe do player
+                  # 1. Pega o iframe do player na página principal
                   await page.goto(URL_ALVO, wait_until="domcontentloaded", timeout=30000)
                   await asyncio.sleep(2)
                   html = await page.content()
-                  soup = BeautifulSoup(html, 'html.parser')
-                  player_iframe = None
-                  for iframe in soup.find_all('iframe'):
-                      src = iframe.get('src','')
-                      if 'player3/server.php' in src:
-                          player_iframe = src if src.startswith('http') else BASE_URL + src
-                          break
-                  if not player_iframe:
-                      log("[-] Iframe do player nao encontrado.")
+                  m = re.search(r'<iframe[^>]+src="([^"]*player3/server\.php[^"]*)"', html, re.I)
+                  if not m:
+                      log("[-] Iframe do player não encontrado.")
                       await browser.close(); return
+                  player_url = m.group(1)
+                  if player_url.startswith('/'):
+                      player_url = BASE_URL + player_url
+                  log(f"[+] Iframe: {player_url}")
 
-                  log(f"[+] Iframe: {player_iframe}")
+                  # 2. Carrega a página do player e espera o JS rodar
+                  page2 = await ctx.new_page()
+                  await page2.goto(player_url, wait_until="domcontentloaded", timeout=20000)
+                  await asyncio.sleep(5)  # tempo para o JS injetar o link
 
-                  # ----- ESTRATEGIA 1: serverf4.php via Playwright -----
-                  log("\n--- Estrategia 1: serverf4.php via Playwright ---")
-                  url_f4 = player_iframe.replace("server.php", "serverf4.php")
-                  page_f4 = await ctx.new_page()
-                  try:
-                      await page_f4.goto(url_f4, wait_until="domcontentloaded", timeout=20000)
-                      await asyncio.sleep(5)  # espera o JS carregar
-                      html_f4 = await page_f4.content()
-                      # Padrão clássico: file: "http://....mp4"
-                      m = re.search(r'file\s*:\s*["\'](https?://[^"\']+\.(?:mp4|m3u8))["\']', html_f4, re.I)
-                      if m:
-                          log(f"[+] Link encontrado via serverf4.php: {m.group(1)}")
-                          await page_f4.close()
-                          await browser.close()
-                          return
-                      # Fallback: qualquer URL .mp4/.m3u8 no HTML
-                      m = re.search(r'(https?://[^"\']+\.(?:mp4|m3u8))', html_f4, re.I)
-                      if m:
-                          log(f"[+] Link (fallback regex) via serverf4.php: {m.group(1)}")
-                          await page_f4.close()
-                          await browser.close()
-                          return
-                      log("[-] serverf4.php nao expos link .mp4/.m3u8 no HTML renderizado.")
-                  except Exception as e:
-                      log(f"[-] Erro ao carregar serverf4.php com Playwright: {e}")
-                  finally:
-                      await page_f4.close()
+                  # 3. Extrai o link do HTML renderizado
+                  html_render = await page2.content()
+                  link = await extrair_do_html(html_render)
 
-                  # ----- ESTRATEGIA 2: Clicar em EMBED (seletores corretos) -----
-                  log("\n--- Estrategia 2: Clicar em EMBED ---")
-                  page_embed = await ctx.new_page()
-                  capturados_rede = []
-                  page_embed.on("response", lambda r: capturados_rede.append(r.url)
-                                if re.search(r'\.(mp4|m3u8)(\?|$)', r.url, re.I) else None)
-                  try:
-                      await page_embed.goto(player_iframe, wait_until="domcontentloaded", timeout=20000)
-                      await asyncio.sleep(3)
-                      # Tenta vários seletores para o botão EMBED
-                      embed_btn = None
-                      for sel in ['text=EMBED', 'button:has-text("EMBED")', 'a:has-text("EMBED")', '#embed']:
-                          try:
-                              embed_btn = await page_embed.wait_for_selector(sel, timeout=3000)
-                              if embed_btn: break
-                          except: pass
-                      if embed_btn:
-                          log("[+] Botao EMBED encontrado. Clicando...")
-                          await embed_btn.click()
-                          await asyncio.sleep(6)
-                          if capturados_rede:
-                              log(f"[+] Capturado via EMBED: {capturados_rede[0]}")
-                              await page_embed.close()
-                              await browser.close()
-                              return
-                      else:
-                          log("[-] Botao EMBED nao encontrado.")
-                  except Exception as e:
-                      log(f"[-] Erro na Estrategia 2: {e}")
-                  finally:
-                      await page_embed.close()
+                  if link:
+                      log(f"[+] Link encontrado: {link}")
+                  else:
+                      log("[-] Regex não encontrou link no HTML renderizado do player original.")
+                      # 4. Fallback: tenta serverf4.php
+                      url_f4 = player_url.replace("server.php", "serverf4.php")
+                      log(f"[*] Tentando fallback: {url_f4}")
+                      try:
+                          await page2.goto(url_f4, wait_until="domcontentloaded", timeout=20000)
+                          await asyncio.sleep(5)
+                          html_f4 = await page2.content()
+                          link = await extrair_do_html(html_f4)
+                          if link:
+                              log(f"[+] Link encontrado via serverf4.php: {link}")
+                          else:
+                              log("[-] Regex não encontrou link no serverf4.php.")
+                      except Exception as e:
+                          log(f"[-] Erro no fallback: {e}")
 
-                  # ----- ESTRATEGIA 3: Interceptar rede por mais tempo -----
-                  log("\n--- Estrategia 3: Interceptar rede (espera longa) ---")
-                  page_net = await ctx.new_page()
-                  capturados = []
-                  page_net.on("response", lambda r: capturados.append(r.url)
-                              if re.search(r'\.(mp4|m3u8|mpd)(\?|$)', r.url, re.I) else None)
-                  try:
-                      await page_net.goto(player_iframe, wait_until="domcontentloaded", timeout=20000)
-                      await asyncio.sleep(10)  # espera mais tempo
-                      # Tenta também scroll para carregar lazy-load
-                      await page_net.evaluate("window.scrollBy(0, 500)")
-                      await asyncio.sleep(3)
-                      if capturados:
-                          log(f"[+] Capturado na rede: {capturados[0]}")
-                          await page_net.close()
-                          await browser.close()
-                          return
-                      else:
-                          log("[-] Nenhum .mp4/.m3u8 capturado na rede.")
-                  except Exception as e:
-                      log(f"[-] Erro na Estrategia 3: {e}")
-                  finally:
-                      await page_net.close()
-
-                  log("\n=== RESULTADO FINAL ===")
-                  log("[-] Nenhuma estrategia funcionou.")
+                  if not link:
+                      log("\n[-] Nenhum link extraído. O player pode usar token dinâmico ou ofuscação JS.")
                   await browser.close()
 
           if __name__ == "__main__":
               asyncio.run(main())
           PYEOF
-          python3 /tmp/teste_v3.py
+          python3 /tmp/teste_v4.py
