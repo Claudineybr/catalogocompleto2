@@ -2,7 +2,10 @@ name: Mega Extrair Filmes (Lotes de 500)
 
 on:
   schedule:
-    - cron: '15,45 * * * *'
+    - cron: '15,45 * * * *'      # backup: se a chain morrer, o cron ressuscita
+  workflow_run:
+    workflows: ["Mega Extrair Filmes (Lotes de 500)"]   # ← self-chain
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -10,10 +13,14 @@ permissions:
 
 concurrency:
   group: mega-filmes
-  cancel-in-progress: false
+  cancel-in-progress: false       # enfileira em vez de sobrepor
 
 jobs:
   extrair:
+    # Não roda se foi disparo de chain e a run anterior falhou
+    if: |
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Baixar repositório
@@ -39,7 +46,7 @@ jobs:
           HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
 
           ARQ_FILA        = Path("filmes_fila.txt")
-          ARQ_FEITAS      = Path("filmes_feitas.txt") if False else Path("filmes_feitos.txt")
+          ARQ_FEITAS      = Path("filmes_feitos.txt")
           ARQ_PENDENTES   = Path("filmes_pendentes.json")
           ARQ_DESCARTADOS = Path("filmes_descartados.txt")
 
@@ -48,7 +55,6 @@ jobs:
 
           def log(*a): print(*a, flush=True); sys.stdout.flush()
 
-          # ---------- Fila (merge em vez de só criar) ----------
           def construir_fila():
               log("Criando/atualizando fila de filmes...")
               urls, vistos = [], set()
@@ -106,7 +112,6 @@ jobs:
           log(f"Já feitos: {len(feitas)}")
           log(f"Faltam {len(fila)}. Pendentes: {len(pendentes)}.")
 
-          # ---------- Helpers ----------
           async def extrair_video_playwright(context, url_ep):
               page = await context.new_page()
               capturados = []
@@ -146,7 +151,7 @@ jobs:
                         ['vini','grave','online','blogspot','assistir'])]
               return max(validas, key=len) if validas else "Filme Desconhecido"
 
-          # 🚨 CORREÇÃO 1: pega o ANO completo, ignora underscore/dash antes
+          # BUG FIX: grupo `(19|20)` só retornava '20'. Captura o ano completo.
           def extrair_ano_da_url(url_pagina):
               m = re.search(r'/([^/]+)\.html', url_pagina)
               if not m: return ""
@@ -154,7 +159,7 @@ jobs:
               anos = re.findall(r'(?<!\d)(?:19|20)\d{2}(?!\d)', slug)
               return anos[-1] if anos else ""
 
-          # 🚨 CORREÇÃO 2: só considera série se houver link REAL de episódio
+          # BUG FIX: 'epis' em qualquer link pegava menu. Exige "Episódio N" ou URL de episódio.
           def eh_serie(soup):
               for a in soup.find_all('a', href=True):
                   if re.search(r'epis[oó]dio[-_/]\d+', a['href'], re.I): return True
@@ -268,10 +273,6 @@ jobs:
           ARQUIVOS=$(git diff --cached --name-only | wc -l)
           git commit -m "feat: mega extracao de filmes ($ARQUIVOS arquivos)"
 
-          # git reset --mixed preserva a working tree e re-cria o commit
-          # em cima do origin/main atualizado. Evita merge commits sujos.
-          # (Não troque por 'git add -A' — o reset abaixo ressuscitaria
-          # deleções que outro robô acabou de fazer.)
           for i in $(seq 1 5); do
             echo "== Push tentativa $i/5 =="
             if git push origin HEAD:main; then echo "[OK] push na tentativa $i"; exit 0; fi
@@ -285,3 +286,45 @@ jobs:
             sleep $((RANDOM % 10 + 5))
           done
           echo "[FALHA] push apos 5 tentativas"; exit 1
+
+      # ─── SELF-CHAIN: dispara próxima run se ainda houver fila ─────────────
+      - name: Disparar próxima run (se fila não vazia)
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.PAT_CHAIN }}
+          REPO: ${{ github.repository }}
+        run: |
+          # 1) Conta o que falta
+          if [ ! -f filmes_fila.txt ] || [ ! -f filmes_feitos.txt ]; then
+            echo "Sem arquivos de fila — não encadeio."; exit 0
+          fi
+          TOTAL=$(wc -l < filmes_fila.txt)
+          FEITOS=$(sort -u filmes_feitos.txt | wc -l)
+          FALTAM=$((TOTAL - FEITOS))
+          echo "Total=$TOTAL Feitos=$FEITOS Faltam=$FALTAM"
+
+          # 2) Guard: fila vazia → para
+          if [ "$FALTAM" -le 0 ]; then
+            echo "✅ Fila vazia. Chain encerrada."
+            exit 0
+          fi
+
+          # 3) Guard: limite de runs por hora (protege a cota do Actions)
+          #    Conta runs disparadas por workflow_run nos últimos 60 min.
+          LIMITE_ISO=$(date -u -d '60 minutes ago' +%Y-%m-%dT%H:%M:%SZ)
+          RECENTES=$(gh run list \
+            --workflow="mega_extrair_filmes.yml" \
+            --limit 100 \
+            --json event,createdAt \
+            --jq "[.[] | select(.event == \"workflow_run\") | select(.createdAt > \"$LIMITE_ISO\")] | length" \
+            --repo "$REPO" 2>/dev/null || echo 0)
+          echo "Runs encadeadas nos últimos 60 min: $RECENTES"
+          if [ "$RECENTES" -ge 30 ]; then
+            echo "⚠️ Limite de 30 chains/hora atingido. Aguardando cron."
+            exit 0
+          fi
+
+          # 4) Dispara a próxima run
+          echo "🔁 Disparando próxima run..."
+          gh workflow run "mega_extrair_filmes.yml" --repo "$REPO" --ref main
+          echo "✅ Próxima run disparada."
