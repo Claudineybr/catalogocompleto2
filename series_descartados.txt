@@ -181,3 +181,7 @@ the_witcher_t2e1.json	https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e01_31
 the_witcher_t3e2.json	https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e02_20.html	3 falhas
 the_witcher_t4e6.json	https://viniraveon.blogspot.com/2025/10/inix-witcher-tp4e06.html	3 falhas
 harlan_coben_l_zaro_t1e4.json	https://viniraveon.blogspot.com/2025/10/inix-harlan-coben-lazaro-tp1e04.html	3 falhas
+bom_dia_ver_nica_t1e7.json	https://marcosx7.blogspot.com/2025/10/inix-bom-dia-veronica-tp01ep07.html	3 falhas
+bom_dia_ver_nica_t1e8.json	https://marcosx7.blogspot.com/2025/10/inix-bom-dia-veronica-tp01ep08.html	3 falhas
+bom_dia_ver_nica_t2e1.json	https://marcosx7.blogspot.com/2025/10/inix-bom-dia-veronica-tp02ep01.html	3 falhas
+o_dia_do_chacal_t1e4.json	https://viniraveon.blogspot.com/2025/03/inix-tp1e04_30.html	3 falhas
