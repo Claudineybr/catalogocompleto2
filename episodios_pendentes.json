@@ -1,20 +1,26 @@
 [
   {
-    "arquivo": "from_origem_t2e1.json",
-    "nome_json": "From (Origem) - T2E1 - – Estrada Afora - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e01.html",
+    "arquivo": "fam_lia_moderna_t1e13.json",
+    "nome_json": "Família Moderna - T1E13 - – Quinze Por Cento - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2026/06/inix-familia-moderna-tp1e13.html",
     "tentativas": 2
   },
   {
-    "arquivo": "from_origem_t2e6.json",
-    "nome_json": "From (Origem) - T2E6 - – Passos em Falso - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e06.html",
+    "arquivo": "fam_lia_moderna_t1e14.json",
+    "nome_json": "Família Moderna - T1E14 - – Pouso na Lua - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2026/06/inix-familia-moderna-tp1e14.html",
     "tentativas": 2
   },
   {
-    "arquivo": "from_origem_t2e8.json",
-    "nome_json": "From (Origem) - T2E8 - – Fim da Linha - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e08.html",
+    "arquivo": "spider_noir_t1e2.json",
+    "nome_json": "Spider-Noir - T1E2 - – Pise com Cuidado - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/05/inix-spider-noir-tp1e02.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "spider_noir_t1e6.json",
+    "nome_json": "Spider-Noir - T1E6 - – Pesadelo em uma Maca - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/05/inix-spider-noir-tp1e06.html",
     "tentativas": 2
   }
 ]
