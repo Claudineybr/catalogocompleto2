@@ -3,24 +3,510 @@
     "arquivo": "fam_lia_moderna_t1e13.json",
     "nome_json": "Família Moderna - T1E13 - – Quinze Por Cento - 🍿Clau",
     "url": "https://viniseries3.blogspot.com/2026/06/inix-familia-moderna-tp1e13.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "fam_lia_moderna_t1e14.json",
     "nome_json": "Família Moderna - T1E14 - – Pouso na Lua - 🍿Clau",
     "url": "https://viniseries3.blogspot.com/2026/06/inix-familia-moderna-tp1e14.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "bordertown_t1e10.json",
     "nome_json": "Bordertown - T1E10 - – O jogo final - Parte 1 - 🍿Clau",
     "url": "https://viniseries3.blogspot.com/2026/05/inix-bordertown-tp1e10.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "big_bang_a_teoria_t5e1.json",
     "nome_json": "Big Bang: A Teoria - T5E1 - – Análise do Reflexo do Skank - 🍿Clau",
     "url": "https://viniraveon.blogspot.com/2026/04/inix-big-bang-teoria-tp5e01.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "planeta_dos_abutres_t1e1.json",
+    "nome_json": "Planeta dos Abutres - T1E1 - – A Queda - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/04/inix-planeta-dos-abutres-tp1e01.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "planeta_dos_abutres_t1e2.json",
+    "nome_json": "Planeta dos Abutres - T1E2 - – O Destroço - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/04/inix-planeta-dos-abutres-tp1e02.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "planeta_dos_abutres_t1e3.json",
+    "nome_json": "Planeta dos Abutres - T1E3 - – A Aventura - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/04/inix-planeta-dos-abutres-tp1e03.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "planeta_dos_abutres_t1e4.json",
+    "nome_json": "Planeta dos Abutres - T1E4 - – A Aventura - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/04/inix-planeta-dos-abutres-tp1e04.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "planeta_dos_abutres_t1e5.json",
+    "nome_json": "Planeta dos Abutres - T1E5 - – A Aventura - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/04/inix-planeta-dos-abutres-tp1e05.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "planeta_dos_abutres_t1e6.json",
+    "nome_json": "Planeta dos Abutres - T1E6 - – A Aventura - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/04/inix-planeta-dos-abutres-tp1e06.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "planeta_dos_abutres_t1e7.json",
+    "nome_json": "Planeta dos Abutres - T1E7 - – A Aventura - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/04/inix-planeta-dos-abutres-tp1e07.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "planeta_dos_abutres_t1e8.json",
+    "nome_json": "Planeta dos Abutres - T1E8 - – A Aventura - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/04/inix-planeta-dos-abutres-tp1e08.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "planeta_dos_abutres_t1e9.json",
+    "nome_json": "Planeta dos Abutres - T1E9 - – A Aventura - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/04/inix-planeta-dos-abutres-tp1e09.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "planeta_dos_abutres_t1e10.json",
+    "nome_json": "Planeta dos Abutres - T1E10 - – A Aventura - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/04/inix-planeta-dos-abutres-tp1e10.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "planeta_dos_abutres_t1e11.json",
+    "nome_json": "Planeta dos Abutres - T1E11 - – A Aventura - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/04/inix-planeta-dos-abutres-tp1e11.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "planeta_dos_abutres_t1e12.json",
+    "nome_json": "Planeta dos Abutres - T1E12 - – A Aventura - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/04/inix-planeta-dos-abutres-tp1e12.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_the_ones_who_live_t1e1.json",
+    "nome_json": "The Walking Dead: The Ones Who Live - T1E1 - – Anos - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/03/inix-walking-dead-ones-who-live-tp1e01.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_the_ones_who_live_t1e2.json",
+    "nome_json": "The Walking Dead: The Ones Who Live - T1E2 - – Desaparecida - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/03/inix-walking-dead-ones-who-live-tp1e02.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_the_ones_who_live_t1e3.json",
+    "nome_json": "The Walking Dead: The Ones Who Live - T1E3 - – Adeus - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/03/inix-walking-dead-ones-who-live-tp1e03.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_the_ones_who_live_t1e4.json",
+    "nome_json": "The Walking Dead: The Ones Who Live - T1E4 - – O Que Somos - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/03/inix-walking-dead-ones-who-live-tp1e04.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_the_ones_who_live_t1e5.json",
+    "nome_json": "The Walking Dead: The Ones Who Live - T1E5 - – Tornar-se - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/03/inix-walking-dead-ones-who-live-tp1e05.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_the_ones_who_live_t1e6.json",
+    "nome_json": "The Walking Dead: The Ones Who Live - T1E6 - – A Última Vez - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/03/inix-walking-dead-ones-who-live-tp1e06.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dexter_pecado_original_t1e10.json",
+    "nome_json": "Dexter: Pecado Original - T1E10 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/inix-dexter-pecado-original-tp1e10.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "os_cavaleiros_do_zod_aco_t1e8.json",
+    "nome_json": "Os Cavaleiros do Zodíaco - T1E8 - – A Derrota do Dragão - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/inix-cavaleiros-do-zodiaco-tp1e08.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "os_cavaleiros_do_zod_aco_t1e17.json",
+    "nome_json": "Os Cavaleiros do Zodíaco - T1E17 - – O Resgate de Saori - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/inix-cavaleiros-do-zodiaco-tp1e17.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "os_cavaleiros_do_zod_aco_t1e24.json",
+    "nome_json": "Os Cavaleiros do Zodíaco - T1E24 - – O Mestre de Hyoga - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/inix-cavaleiros-do-zodiaco-tp1e24.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "os_cavaleiros_do_zod_aco_t1e31.json",
+    "nome_json": "Os Cavaleiros do Zodíaco - T1E31 - – A Casa de Aquário - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/inix-cavaleiros-do-zodiaco-tp1e31.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "os_cavaleiros_do_zod_aco_t1e50.json",
+    "nome_json": "Os Cavaleiros do Zodíaco - T1E50 - – A Casa Final - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/inix-cavaleiros-do-zodiaco-tp1e50.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "os_cavaleiros_do_zod_aco_t1e70.json",
+    "nome_json": "Os Cavaleiros do Zodíaco - T1E70 - – Io de Scylla - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/inix-cavaleiros-do-zodiaco-tp1e70.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "os_cavaleiros_do_zod_aco_t1e78.json",
+    "nome_json": "Os Cavaleiros do Zodíaco - T1E78 - – O Pilar do Oceano Índico - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/inix-cavaleiros-do-zodiaco-tp1e78.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "os_cavaleiros_do_zod_aco_t1e89.json",
+    "nome_json": "Os Cavaleiros do Zodíaco - T1E89 - – O Fim da Batalha - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/inix-cavaleiros-do-zodiaco-tp1e89.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "todo_dia_a_mesma_noite_t1e1.json",
+    "nome_json": "Todo Dia a Mesma Noite - T1E1 - – A Culpa - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/03/inix-todo-dia-mesma-noite-tp1e01.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "boate_kiss_a_trag_dia_de_santa_maria_t1e1.json",
+    "nome_json": "Boate Kiss: A Tragédia de Santa Maria - T1E1 - – 27 de janeiro de 2013 - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/03/inix-boate-kiss-alem-da-noticia-tp1e01.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "boate_kiss_a_trag_dia_de_santa_maria_t1e2.json",
+    "nome_json": "Boate Kiss: A Tragédia de Santa Maria - T1E2 - – Do luto à luta - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/03/inix-boate-kiss-alem-da-noticia-tp1e02.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "boate_kiss_a_trag_dia_de_santa_maria_t1e3.json",
+    "nome_json": "Boate Kiss: A Tragédia de Santa Maria - T1E3 - – Coincidências fatais - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/03/inix-boate-kiss-alem-da-noticia-tp1e03.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "boate_kiss_a_trag_dia_de_santa_maria_t1e4.json",
+    "nome_json": "Boate Kiss: A Tragédia de Santa Maria - T1E4 - – No banco dos réus - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/03/inix-boate-kiss-alem-da-noticia-tp1e04.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "boate_kiss_a_trag_dia_de_santa_maria_t1e5.json",
+    "nome_json": "Boate Kiss: A Tragédia de Santa Maria - T1E5 - – Ponto de interrogação - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/03/inix-boate-kiss-alem-da-noticia-tp1e05.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "task_unidade_especial_t1e1.json",
+    "nome_json": "Task: Unidade Especial - T1E1 - Caminhos Cruzados - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/09/inix-task-unidade-especial-tp1e01.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "task_unidade_especial_t1e2.json",
+    "nome_json": "Task: Unidade Especial - T1E2 - Declaração Familiar - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/09/inix-task-unidade-especial-tp1e02.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "task_unidade_especial_t1e3.json",
+    "nome_json": "Task: Unidade Especial - T1E3 - Ninguém é mais forte que o perdão de Deus - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/09/inix-task-unidade-especial-tp1e03.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "task_unidade_especial_t1e4.json",
+    "nome_json": "Task: Unidade Especial - T1E4 - Todas as estradas - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/09/inix-task-unidade-especial-tp1e04.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "task_unidade_especial_t1e5.json",
+    "nome_json": "Task: Unidade Especial - T1E5 - Vagabundos - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/10/inix-task-unidade-especial-tp1e05.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "task_unidade_especial_t1e6.json",
+    "nome_json": "Task: Unidade Especial - T1E6 - Além das ideias de certo e errado, existe um rio - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/03/inix-task-unidade-especial-tp1e06.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "task_unidade_especial_t1e7.json",
+    "nome_json": "Task: Unidade Especial - T1E7 - Uma voz suave e silenciosa - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/03/inix-task-unidade-especial-tp1e07.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dexter_new_blood_t1e2.json",
+    "nome_json": "Dexter: New Blood - T1E2 - – Sinais de Fumaça - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/03/inix-dexter-new-blood-tp1e02.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dexter_new_blood_t1e3.json",
+    "nome_json": "Dexter: New Blood - T1E3 - – Smoke and Mirrors - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/03/inix-dexter-new-blood-tp1e03.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dexter_new_blood_t1e7.json",
+    "nome_json": "Dexter: New Blood - T1E7 - – Too Many Tuna Sandwiches - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/03/inix-dexter-new-blood-tp1e07.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "one_piece_a_s_rie_t2e4.json",
+    "nome_json": "ONE PIECE: A Série - T2E4 - – Grande Problema no Pequeno Jardim - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/03/inix-one-piece-serie-tp2e04.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "one_piece_a_s_rie_t2e6.json",
+    "nome_json": "ONE PIECE: A Série - T2E6 - – Querida Nami - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/03/inix-one-piece-serie-tp2e06.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "one_piece_a_s_rie_t2e8.json",
+    "nome_json": "ONE PIECE: A Série - T2E8 - – Medo e Delírio no Reino de Drum - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2026/03/inix-one-piece-serie-tp2e08.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "demolidor_t1e8.json",
+    "nome_json": "Demolidor - T1E8 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/arc-demolidor-tp1ep08.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "demolidor_t2e1.json",
+    "nome_json": "Demolidor - T2E1 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/arc-demolidor-tp2ep01.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "demolidor_t2e5.json",
+    "nome_json": "Demolidor - T2E5 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/arc-demolidor-tp2ep05.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "demolidor_t2e8.json",
+    "nome_json": "Demolidor - T2E8 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/arc-demolidor-tp2ep08.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "armaz_m_13_t1e7.json",
+    "nome_json": "Armazém 13 - T1E7 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/inix-armazem-13-tp1ep07.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "armaz_m_13_t1e8.json",
+    "nome_json": "Armazém 13 - T1E8 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/inix-armazem-13-tp1ep08.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "armaz_m_13_t1e9.json",
+    "nome_json": "Armazém 13 - T1E9 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/inix-armazem-13-tp1ep09.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "armaz_m_13_t2e3.json",
+    "nome_json": "Armazém 13 - T2E3 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/inix-armazem-13-tp2ep03.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "armaz_m_13_t2e4.json",
+    "nome_json": "Armazém 13 - T2E4 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/inix-armazem-13-tp2ep04.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "armaz_m_13_t2e6.json",
+    "nome_json": "Armazém 13 - T2E6 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/inix-armazem-13-tp2ep06.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "armaz_m_13_t3e1.json",
+    "nome_json": "Armazém 13 - T3E1 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/inix-armazem-13-tp3ep01.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "armaz_m_13_t3e7.json",
+    "nome_json": "Armazém 13 - T3E7 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/inix-armazem-13-tp3ep07.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "armaz_m_13_t3e8.json",
+    "nome_json": "Armazém 13 - T3E8 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/inix-armazem-13-tp3ep08.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "armaz_m_13_t4e5.json",
+    "nome_json": "Armazém 13 - T4E5 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/inix-armazem-13-tp4ep05.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "armaz_m_13_t4e6.json",
+    "nome_json": "Armazém 13 - T4E6 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/inix-armazem-13-tp4ep06.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "armaz_m_13_t4e7.json",
+    "nome_json": "Armazém 13 - T4E7 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/inix-armazem-13-tp4ep07.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "armaz_m_13_t4e20.json",
+    "nome_json": "Armazém 13 - T4E20 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2026/03/inix-armazem-13-tp4ep20.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dexter_t1e10.json",
+    "nome_json": "Dexter - T1E10 - – Vendo Vermelho - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/01/inix-dexter-tp1e10.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dexter_t2e7.json",
+    "nome_json": "Dexter - T2E7 - – Naquela Noite, uma Floresta Cresceu - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/01/inix-dexter-tp2e07.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dexter_t2e10.json",
+    "nome_json": "Dexter - T2E10 - – Tem Algo Sobre o Harry - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/01/inix-dexter-tp2e10.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dexter_t2e11.json",
+    "nome_json": "Dexter - T2E11 - – Virada à Esquerda à Frente - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/01/inix-dexter-tp2e11.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dexter_t3e1.json",
+    "nome_json": "Dexter - T3E1 - – Nosso Pai - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/01/inix-dexter-tp3e01.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dexter_t3e6.json",
+    "nome_json": "Dexter - T3E6 - – Sim, é Possível - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/01/inix-dexter-tp3e06.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dexter_t4e1.json",
+    "nome_json": "Dexter - T4E1 - – Vivendo o Sonho - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/01/inix-dexter-tp4e01.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dexter_t4e8.json",
+    "nome_json": "Dexter - T4E8 - – Atropelamento - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/01/inix-dexter-tp4e08.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dexter_t4e10.json",
+    "nome_json": "Dexter - T4E10 - – Meninos Perdidos - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/01/inix-dexter-tp4e10.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dexter_t4e11.json",
+    "nome_json": "Dexter - T4E11 - – Olá, Dexter Morgan - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/01/inix-dexter-tp4e11.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dexter_t5e5.json",
+    "nome_json": "Dexter - T5E5 - – Primeiro Sangue - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/01/inix-dexter-tp5e05.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dexter_t5e9.json",
+    "nome_json": "Dexter - T5E9 - – Terra da Juventude Perdida - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/03/inix-dexter-tp5e09.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dexter_t6e4.json",
+    "nome_json": "Dexter - T6E4 - – Um Cavalo de Cor Diferente - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/03/inix-dexter-tp6e04.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dexter_t6e6.json",
+    "nome_json": "Dexter - T6E6 - – Apenas Deixe Ir - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/03/inix-dexter-tp6e06.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dexter_t7e4.json",
+    "nome_json": "Dexter - T7E4 - – Corra - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/03/inix-dexter-tp7e04.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dexter_t7e10.json",
+    "nome_json": "Dexter - T7E10 - – O Lado Sombrio... Tanto Faz - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/03/inix-dexter-tp7e10.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dexter_t8e5.json",
+    "nome_json": "Dexter - T8E5 - – O Porquinho - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/03/inix-dexter-tp8e05.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "dexter_t8e12.json",
+    "nome_json": "Dexter - T8E12 - – Lembre-se dos Monstros? - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2026/03/inix-dexter-tp8e12.html",
     "tentativas": 2
   }
 ]
