@@ -188,3 +188,11 @@ o_dia_do_chacal_t1e4.json	https://viniraveon.blogspot.com/2025/03/inix-tp1e04_30
 trailer_park_boys_a_s_rie_animada_t1e5.json	https://viniraveon.blogspot.com/2025/10/inix-trailer-park-boys-serie-animada_48.html	3 falhas
 dragon_ball_super_t1e7.json	https://vini7xgseries2.blogspot.com/2025/08/inix-dragon-ball-super-tp1e07.html	3 falhas
 dragon_ball_super_t1e13.json	https://vini7xgseries2.blogspot.com/2025/08/inix-dragon-ball-super-tp1e13.html	3 falhas
+9_1_1_t1e9.json	https://viniseries3.blogspot.com/2025/10/inix-911-tp1e09.html	3 falhas
+9_1_1_t3e6.json	https://viniseries3.blogspot.com/2025/10/inix-9-1-1-tp3e06.html	3 falhas
+9_1_1_t4e12.json	https://viniseries3.blogspot.com/2025/10/inix-9-1-1-tp4e12.html	3 falhas
+9_1_1_t5e3.json	https://viniseries3.blogspot.com/2025/10/inix-9-1-1-tp5e03.html	3 falhas
+9_1_1_t5e10.json	https://viniseries3.blogspot.com/2025/10/inix-9-1-1-tp5e10.html	3 falhas
+monstro_a_hist_ria_de_ed_gein_t1e1.json	https://viniraveon.blogspot.com/2025/10/inix-monstro-historia-de-ed-gein-tp1e0.html	3 falhas
+monstro_a_hist_ria_de_ed_gein_t1e3.json	https://viniraveon.blogspot.com/2025/10/inix-monstro-historia-de-ed-gein-tp1e03.html	3 falhas
+as_aventuras_de_tintim_t2e13.json	#	3 falhas
