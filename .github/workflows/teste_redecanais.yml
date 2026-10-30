@@ -1,4 +1,4 @@
-name: Teste RedeCanais v6 (Biblioteca Redecanais)
+name: Teste RedeCanais v7 (Biblioteca + Numpy)
 
 on:
   workflow_dispatch:
@@ -11,9 +11,8 @@ jobs:
 
       - name: Instalar dependências
         run: |
-          pip install redecanais
-          # A biblioteca pode ter dependências não listadas explicitamente
-          pip install requests beautifulsoup4
+          # Adicionado o numpy que faltava
+          pip install redecanais numpy
 
       - name: Extrair link com a biblioteca redecanais
         run: |
@@ -29,16 +28,14 @@ jobs:
               log(f"[+] Iniciando extração para: {URL_ALVO}")
               try:
                   cn = ChannelsNetwork()
-                  # O método find_streams é o orquestrador que segue a cadeia de POSTs
+                  log("[*] Chamando find_streams()... (isso pode demorar alguns segundos)")
                   resultado = cn.find_streams(URL_ALVO)
                   
-                  if resultado and resultado.get('stream'):
-                      link = resultado['stream']
-                      log(f"\n[+] SUCESSO! Link do vídeo encontrado:")
-                      log(f"    {link}")
+                  if resultado:
+                      log(f"\n[+] RESULTADO RETORNADO PELA BIBLIOTECA:")
+                      log(f"{resultado}")
                   else:
-                      log("\n[-] A biblioteca não retornou um link válido.")
-                      log(f"    Resultado: {resultado}")
+                      log("\n[-] A biblioteca retornou um resultado vazio (None).")
               except Exception as e:
                   log(f"\n[-] Erro ao usar a biblioteca: {e}")
                   import traceback
