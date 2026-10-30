@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "arquivo": "from_origem_t2e1.json",
+    "nome_json": "From (Origem) - T2E1 - – Estrada Afora - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e01.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "from_origem_t2e6.json",
+    "nome_json": "From (Origem) - T2E6 - – Passos em Falso - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e06.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "from_origem_t2e8.json",
+    "nome_json": "From (Origem) - T2E8 - – Fim da Linha - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e08.html",
+    "tentativas": 2
+  }
+]
