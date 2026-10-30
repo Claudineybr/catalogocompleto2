@@ -1,0 +1,295 @@
+name: Mega Extrair Series (Lotes de 300)
+
+on:
+  schedule:
+    - cron: '0,30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mega-series
+  cancel-in-progress: false
+
+jobs:
+  extrair:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar repositorio
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Instalar Python e Playwright
+        run: |
+          pip install playwright beautifulsoup4 requests
+          playwright install chromium
+          playwright install-deps
+
+      - name: Extrair Series e Retentar Falhas
+        run: |
+          cat > /tmp/mega_series.py << 'PYEOF'
+          import asyncio, re, json, requests, sys
+          from bs4 import BeautifulSoup
+          from pathlib import Path
+          from playwright.async_api import async_playwright
+
+          BASE_URL = "https://www.vini7xgrave.site"
+          HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+
+          ARQ_FILA        = Path("series_fila.txt")
+          ARQ_FEITAS      = Path("series_feitas.txt")
+          ARQ_PENDENTES   = Path("episodios_pendentes.json")
+          ARQ_DESCARTADOS = Path("series_descartados.txt")
+
+          SERIES_MORTAS = ['true_detective', 'o_cuco_de_cristal', 'o11ze', 'big_bang_a_teoria']
+          MAX_TENTATIVAS = 3
+
+          def log(*a): print(*a, flush=True); sys.stdout.flush()
+
+          # ---------- Fila (merge) ----------
+          def construir_fila():
+              log("Criando/atualizando fila de series...")
+              urls, vistos = [], set()
+              if ARQ_FILA.exists():
+                  for u in ARQ_FILA.read_text(encoding="utf-8").splitlines():
+                      u = u.strip()
+                      if u and u not in vistos:
+                          urls.append(u); vistos.add(u)
+              start = 1
+              while True:
+                  url_feed = f"{BASE_URL}/feeds/posts/default?alt=json&max-results=150&start-index={start}"
+                  try:
+                      r = requests.get(url_feed, headers=HEADERS, timeout=15)
+                      if r.status_code != 200: break
+                      entries = r.json().get("feed", {}).get("entry", [])
+                      if not entries: break
+                      for e in entries:
+                          link = next((l["href"] for l in e.get("link", []) if l.get("rel") == "alternate"), None)
+                          if link:
+                              u = link.split("?")[0].strip()
+                              if u and u not in vistos:
+                                  urls.append(u); vistos.add(u)
+                      start += 150
+                      if len(entries) < 150: break
+                  except: break
+              ARQ_FILA.write_text("\n".join(urls), encoding="utf-8")
+              log(f"Fila: {len(urls)} URLs.")
+
+          if not ARQ_FILA.exists():
+              construir_fila()
+
+          feitas = set()
+          if ARQ_FEITAS.exists():
+              feitas = set(l.strip() for l in ARQ_FEITAS.read_text(encoding="utf-8").splitlines() if l.strip())
+
+          pendentes_dict = {}
+          if ARQ_PENDENTES.exists():
+              try:
+                  for p in json.loads(ARQ_PENDENTES.read_text(encoding="utf-8")):
+                      if any(m in p.get('url','').lower() for m in SERIES_MORTAS): continue
+                      if p['arquivo'] not in pendentes_dict:
+                          pendentes_dict[p['arquivo']] = p
+                      else:
+                          pendentes_dict[p['arquivo']]['tentativas'] = max(
+                              pendentes_dict[p['arquivo']].get('tentativas',1),
+                              p.get('tentativas',1))
+              except: pass
+          pendentes = list(pendentes_dict.values())
+
+          fila = [u for u in ARQ_FILA.read_text(encoding="utf-8").splitlines()
+                  if u.strip() and u not in feitas]
+          lote = fila[:300]
+          log(f"Faltam {len(fila)} series. Pendentes: {len(pendentes)}.")
+
+          # ---------- Helpers ----------
+          async def extrair_video_playwright(context, url_ep):
+              page = await context.new_page()
+              capturados = []
+              def on_response(res):
+                  u = res.url
+                  if re.search(r"[.](mp4|m3u8)([?]|$)", u, re.I) or 'tankie' in u or 'oneplayer' in u:
+                      capturados.append(u)
+              page.on("response", on_response)
+              try:
+                  await page.goto(url_ep, wait_until="domcontentloaded", timeout=20000)
+                  try: await page.wait_for_selector("iframe", timeout=10000)
+                  except: pass
+                  await asyncio.sleep(3.0)
+                  if not capturados:
+                      html = await page.content()
+                      soup = BeautifulSoup(html, 'html.parser')
+                      for iframe in soup.find_all('iframe'):
+                          src = iframe.get('src','')
+                          if src and 'google' not in src.lower() and 'ads' not in src.lower():
+                              capturados.append(src)
+                      if not capturados:
+                          m = re.search(r'(https?://[^"\']+(?:tankie|oneplayer)[^"\']+)', html)
+                          if m: capturados.append(m.group(1))
+              except Exception: pass
+              finally: await page.close()
+              return list(dict.fromkeys(capturados))[0] if capturados else None
+
+          # 🚨 CORREÇÃO: prevê "Temporada N" e "Season N" para não virar
+          # o "max" por engano. Antes, "Lost - 1ª Temporada" virava "1ª Temporada".
+          def limpar_titulo_pagina(soup):
+              if not soup: return "Serie Desconhecida"
+              candidatos = []
+              og = soup.find('meta', property='og:title')
+              if og and og.get('content'): candidatos.append(og['content'])
+              if soup.h1: candidatos.append(soup.h1.get_text())
+              if soup.title and soup.title.string: candidatos.append(soup.title.string)
+
+              for raw in candidatos:
+                  if not raw: continue
+                  titulo = str(raw).strip()
+                  titulo = titulo.replace('𝑴arcø𝒔x⁷👾','').replace('Marcos','').strip()
+
+                  partes = [p.strip() for p in re.split(r'\s+[-–—]\s+', titulo) if p.strip()]
+                  if not partes: continue
+
+                  if len(partes) > 1:
+                      # remove ruído de site
+                      limpas = [p for p in partes if not re.search(
+                          r'(vini|grave|site|online|blogspot|assistir|download)', p, re.I)]
+                      # remove "Temporada N" / "Season N" / "Nª Temporada"
+                      sem_temp = [p for p in limpas if not re.search(
+                          r'^(?:\d+\s*[ªº]?\s*)?(?:temporada|season)', p, re.I)]
+                      candidato = sem_temp or limpas or partes
+                      titulo = max(candidato, key=len)
+                  else:
+                      titulo = partes[0]
+
+                  titulo = re.sub(r'\s*\(?\d{4}\)?\s*$', '', titulo).strip()
+                  titulo = titulo.strip('"\'').strip()
+                  titulo = re.sub(r'[\s.:;,]+$', '', titulo).strip()
+                  if titulo and len(titulo) > 2:
+                      return titulo
+              return "Serie Desconhecida"
+
+          def salvar_json(nome_arquivo, nome_json, link):
+              dados = {
+                  "@context": "https://schema.org", "@type": "VideoObject",
+                  "name": nome_json, "description": f"Assista {nome_json}",
+                  "thumbnailUrl": ["https://via.placeholder.com/500x750?text=Sem+Capa"],
+                  "uploadDate": "2020-01-01T00:00:00+00:00", "inLanguage": "pt",
+                  "contentUrl": link, "embedUrl": link,
+              }
+              js = json.dumps(dados, ensure_ascii=False, indent=2)
+              html = (f'<!DOCTYPE html>\n<html lang="pt-BR">\n<head>\n'
+                      f'<script type="application/ld+json">\n{js}\n</script>\n'
+                      f'<title>{nome_json}</title>\n</head>\n<body>\n<h1>{nome_json}</h1>\n</body>\n</html>')
+              Path(nome_arquivo).write_text(html, encoding='utf-8')
+
+          async def processar_serie(context, url_serie):
+              if any(m in url_serie.lower() for m in SERIES_MORTAS):
+                  log(f"\n--> [BYPASS] {url_serie}")
+                  with open(ARQ_FEITAS,"a",encoding="utf-8") as f: f.write(url_serie.strip()+"\n")
+                  return
+              log(f"\n--> Verificando serie: {url_serie}")
+              try:
+                  r = await asyncio.to_thread(requests.get, url_serie, headers=HEADERS, timeout=20)
+                  soup = BeautifulSoup(r.text, 'html.parser')
+
+                  titulo = limpar_titulo_pagina(soup)
+                  slug = re.sub(r'[^a-z0-9]', '_', titulo.lower())
+                  slug = re.sub(r'_+', '_', slug).strip('_')
+
+                  temporada, eps = 1, []
+                  for tag in soup.find_all(['b', 'h2', 'h3', 'p', 'a', 'div']):
+                      texto = tag.get_text(strip=True)
+                      m_temp = re.search(r'(\d+)\s*[ªº]\s*Temporada', texto, re.I)
+                      if m_temp:
+                          temporada = int(m_temp.group(1)); continue
+                      if tag.name == 'a' and 'episódio' in texto.lower():
+                          href = tag.get('href')
+                          if not href: continue
+                          if href.startswith('/'): href = BASE_URL + href
+                          m_ep = re.search(r'Episódio\s*(\d+)', texto, re.I)
+                          num = m_ep.group(1) if m_ep else "0"
+                          titulo_ep = re.sub(r'Episódio\s*\d+\s*-?\s*', '', texto, flags=re.I).strip()
+                          eps.append({'temp': temporada, 'ep': num, 'titulo': titulo_ep, 'url': href})
+
+                  with open(ARQ_FEITAS,"a",encoding="utf-8") as f: f.write(url_serie.strip()+"\n")
+                  if not eps:
+                      log("    (É filme. Pulando...)"); return
+                  log(f"    Série '{titulo}' ({slug}) — {len(eps)} episódios.")
+
+                  for it in eps:
+                      nome_arquivo = f"{slug}_t{it['temp']}e{it['ep']}.json"
+                      if Path(nome_arquivo).exists(): continue
+                      nome_json = f"{titulo} - T{it['temp']}E{it['ep']} - {it['titulo']} - 🍿Clau"
+                      link = await extrair_video_playwright(context, it['url'])
+                      if not link:
+                          if not any(p['arquivo']==nome_arquivo for p in pendentes):
+                              log(f"      [-] Falhou → pendentes: {nome_arquivo}")
+                              pendentes.append({"arquivo": nome_arquivo, "nome_json": nome_json,
+                                                "url": it['url'], "tentativas": 1})
+                          continue
+                      salvar_json(nome_arquivo, nome_json, link)
+                      log(f"      [+] Salvo: {nome_arquivo}")
+              except Exception as e:
+                  log(f"    Erro na serie {url_serie}: {e}")
+
+          async def main():
+              async with async_playwright() as pw:
+                  browser = await pw.chromium.launch(headless=True)
+                  ctx = await browser.new_context(user_agent=HEADERS["User-Agent"])
+                  for i, url in enumerate(lote, 1):
+                      log(f"[{i}/{len(lote)}]")
+                      await processar_serie(ctx, url)
+
+                  if pendentes:
+                      log(f"\n=== RETENTANDO {len(pendentes)} EPISODIOS ===")
+                      ainda = []
+                      for item in pendentes:
+                          if Path(item['arquivo']).exists(): continue
+                          if any(m in item.get('url','').lower() for m in SERIES_MORTAS): continue
+                          if item.get("tentativas",0) >= MAX_TENTATIVAS:
+                              log(f"--> [DESISTINDO] {item['arquivo']}")
+                              with open(ARQ_DESCARTADOS,"a",encoding="utf-8") as f:
+                                  f.write(f"{item['arquivo']}\t{item['url']}\t{item.get('tentativas')} falhas\n")
+                              continue
+                          log(f"--> Tentativa {item['tentativas']+1}/{MAX_TENTATIVAS}: {item['arquivo']}")
+                          link = await extrair_video_playwright(ctx, item['url'])
+                          if link:
+                              salvar_json(item['arquivo'], item['nome_json'], link)
+                              log("    [+] SUCESSO")
+                          else:
+                              log("    [-] Ainda falhando")
+                              item["tentativas"] = item.get("tentativas",1) + 1
+                              ainda.append(item)
+                      pendentes.clear(); pendentes.extend(ainda)
+                  await browser.close()
+
+          if __name__ == "__main__":
+              asyncio.run(main())
+              ARQ_PENDENTES.write_text(json.dumps(pendentes, ensure_ascii=False, indent=2), encoding="utf-8")
+              log(f"\nProgresso salvo. {len(pendentes)} episodios pendentes.")
+          PYEOF
+          python3 /tmp/mega_series.py
+
+      - name: Salvar arquivos e progresso
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f series_feitas.txt series_fila.txt episodios_pendentes.json series_descartados.txt 2>/dev/null || true
+          git add -f *.json *.txt 2>/dev/null || true
+          if git diff --cached --quiet; then echo "Nada novo."; exit 0; fi
+          ARQUIVOS=$(git diff --cached --name-only | wc -l)
+          git commit -m "chore: atualizar catalogo de series ($ARQUIVOS arquivos)"
+
+          for i in $(seq 1 5); do
+            echo "== Push tentativa $i/5 =="
+            if git push origin HEAD:main; then echo "[OK] push na tentativa $i"; exit 0; fi
+            echo "[FALHA] sincronizando com origin/main..."
+            git fetch origin main
+            git reset --mixed origin/main
+            git add -f series_feitas.txt series_fila.txt episodios_pendentes.json series_descartados.txt 2>/dev/null || true
+            git add -f *.json *.txt 2>/dev/null || true
+            if git diff --cached --quiet; then echo "Nada apos reset."; exit 0; fi
+            git commit -m "chore: atualizar catalogo de series (retry $i)" || true
+            sleep $((RANDOM % 10 + 5))
+          done
+          echo "[FALHA] push apos 5 tentativas"; exit 1
