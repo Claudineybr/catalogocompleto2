@@ -3,6 +3,9 @@ name: Mega Extrair Series (Lotes de 300)
 on:
   schedule:
     - cron: '0,30 * * * *'
+  workflow_run:
+    workflows: ["Mega Extrair Series (Lotes de 300)"]   # ← self-chain
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -14,6 +17,9 @@ concurrency:
 
 jobs:
   extrair:
+    if: |
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Baixar repositorio
@@ -48,7 +54,6 @@ jobs:
 
           def log(*a): print(*a, flush=True); sys.stdout.flush()
 
-          # ---------- Fila (merge) ----------
           def construir_fila():
               log("Criando/atualizando fila de series...")
               urls, vistos = [], set()
@@ -103,7 +108,6 @@ jobs:
           lote = fila[:300]
           log(f"Faltam {len(fila)} series. Pendentes: {len(pendentes)}.")
 
-          # ---------- Helpers ----------
           async def extrair_video_playwright(context, url_ep):
               page = await context.new_page()
               capturados = []
@@ -131,8 +135,7 @@ jobs:
               finally: await page.close()
               return list(dict.fromkeys(capturados))[0] if capturados else None
 
-          # 🚨 CORREÇÃO: prevê "Temporada N" e "Season N" para não virar
-          # o "max" por engano. Antes, "Lost - 1ª Temporada" virava "1ª Temporada".
+          # BUG FIX: prevê "Nª Temporada" / "Season N" no max() por comprimento.
           def limpar_titulo_pagina(soup):
               if not soup: return "Serie Desconhecida"
               candidatos = []
@@ -150,10 +153,8 @@ jobs:
                   if not partes: continue
 
                   if len(partes) > 1:
-                      # remove ruído de site
                       limpas = [p for p in partes if not re.search(
                           r'(vini|grave|site|online|blogspot|assistir|download)', p, re.I)]
-                      # remove "Temporada N" / "Season N" / "Nª Temporada"
                       sem_temp = [p for p in limpas if not re.search(
                           r'^(?:\d+\s*[ªº]?\s*)?(?:temporada|season)', p, re.I)]
                       candidato = sem_temp or limpas or partes
@@ -293,3 +294,40 @@ jobs:
             sleep $((RANDOM % 10 + 5))
           done
           echo "[FALHA] push apos 5 tentativas"; exit 1
+
+      # ─── SELF-CHAIN: dispara próxima run se ainda houver fila ─────────────
+      - name: Disparar próxima run (se fila não vazia)
+        if: success()
+        env:
+          GH_TOKEN: ${{ secrets.PAT_CHAIN }}
+          REPO: ${{ github.repository }}
+        run: |
+          if [ ! -f series_fila.txt ] || [ ! -f series_feitas.txt ]; then
+            echo "Sem arquivos de fila — não encadeio."; exit 0
+          fi
+          TOTAL=$(wc -l < series_fila.txt)
+          FEITOS=$(sort -u series_feitas.txt | wc -l)
+          FALTAM=$((TOTAL - FEITOS))
+          echo "Total=$TOTAL Feitos=$FEITOS Faltam=$FALTAM"
+
+          if [ "$FALTAM" -le 0 ]; then
+            echo "✅ Fila vazia. Chain encerrada."
+            exit 0
+          fi
+
+          LIMITE_ISO=$(date -u -d '60 minutes ago' +%Y-%m-%dT%H:%M:%SZ)
+          RECENTES=$(gh run list \
+            --workflow="mega_extrair_series.yml" \
+            --limit 100 \
+            --json event,createdAt \
+            --jq "[.[] | select(.event == \"workflow_run\") | select(.createdAt > \"$LIMITE_ISO\")] | length" \
+            --repo "$REPO" 2>/dev/null || echo 0)
+          echo "Runs encadeadas nos últimos 60 min: $RECENTES"
+          if [ "$RECENTES" -ge 30 ]; then
+            echo "⚠️ Limite de 30 chains/hora atingido. Aguardando cron."
+            exit 0
+          fi
+
+          echo "🔁 Disparando próxima run..."
+          gh workflow run "mega_extrair_series.yml" --repo "$REPO" --ref main
+          echo "✅ Próxima run disparada."
