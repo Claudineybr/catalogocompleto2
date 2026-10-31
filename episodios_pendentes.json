@@ -1,248 +1,104 @@
 [
   {
-    "arquivo": "a_agente_t1e1.json",
-    "nome_json": "A Agente - T1E1 - Construindo História - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/10/inix-agente-tp1e01.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "a_agente_t1e2.json",
-    "nome_json": "A Agente - T1E2 - Voltando de Dubai - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/10/inix-agente-tp1e02.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "a_agente_t1e3.json",
-    "nome_json": "A Agente - T1E3 - Sangue e Bailes - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/10/inix-agente-tp1e03.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "a_agente_t1e4.json",
-    "nome_json": "A Agente - T1E4 - Sem Saída - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/10/inix-agente-tp1e04.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "a_agente_t1e5.json",
-    "nome_json": "A Agente - T1E5 - Nas Profundezas - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/10/inix-agente-tp1e05.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "a_agente_t1e6.json",
-    "nome_json": "A Agente - T1E6 - Qual Era Mesmo o Seu Nome - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/10/inix-agente-tp1e06.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "a_lista_terminal_lobo_negro_t1e1.json",
-    "nome_json": "A Lista Terminal: Lobo Negro - T1E1 - Determinação Inerente - 🍿Clau",
-    "url": "https://vini7xgseries2.blogspot.com/2025/08/inix-lista-terminal-lobo-negro-tp1e01.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "a_lista_terminal_lobo_negro_t1e2.json",
-    "nome_json": "A Lista Terminal: Lobo Negro - T1E2 - A Audição - 🍿Clau",
-    "url": "https://vini7xgseries2.blogspot.com/2025/08/inix-lista-terminal-lobo-negro-tp1e02.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "a_lista_terminal_lobo_negro_t1e3.json",
-    "nome_json": "A Lista Terminal: Lobo Negro - T1E3 - O Passado É Prólogo - 🍿Clau",
-    "url": "https://vini7xgseries2.blogspot.com/2025/08/inix-lista-terminal-lobo-negro-tp1e03.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "a_lista_terminal_lobo_negro_t1e4.json",
-    "nome_json": "A Lista Terminal: Lobo Negro - T1E4 - O Som Das Armas - 🍿Clau",
-    "url": "https://vini7xgseries2.blogspot.com/2025/10/inix-lista-terminal-lobo-negro-tp1e04.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "a_lista_terminal_lobo_negro_t1e5.json",
-    "nome_json": "A Lista Terminal: Lobo Negro - T1E5 - Fuga e Evasão - 🍿Clau",
-    "url": "https://vini7xgseries2.blogspot.com/2025/10/inix-lista-terminal-lobo-negro-tp1e05.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "a_lista_terminal_lobo_negro_t1e6.json",
-    "nome_json": "A Lista Terminal: Lobo Negro - T1E6 - Peões e Reis - 🍿Clau",
-    "url": "https://vini7xgseries2.blogspot.com/2025/10/inix-lista-terminal-lobo-negro-tp1e06.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "a_lista_terminal_lobo_negro_t1e7.json",
-    "nome_json": "A Lista Terminal: Lobo Negro - T1E7 - O Lobo Que Você Alimenta - 🍿Clau",
-    "url": "https://vini7xgseries2.blogspot.com/2025/10/inix-lista-terminal-lobo-negro-tp1e07.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "marc_sx7_the_walking_dead_daryl_dixon_t2e3.json",
-    "nome_json": "Marcøsx7👾 - The Walking Dead: Daryl Dixon - T2E3 - : Laços de Sangue - 🍿Clau",
-    "url": "https://marcosx7.blogspot.com/2025/10/arc-walking-dead-daryl-tp02ep03.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "marc_sx7_the_walking_dead_daryl_dixon_t3e6.json",
-    "nome_json": "Marcøsx7👾 - The Walking Dead: Daryl Dixon - T3E6 - : Caminhos Escuros - 🍿Clau",
-    "url": "https://marcosx7.blogspot.com/2025/10/arc-walking-dead-daryl-tp03ep06.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "marc_sx7_the_walking_dead_daryl_dixon_t3e7.json",
-    "nome_json": "Marcøsx7👾 - The Walking Dead: Daryl Dixon - T3E7 - : O Último Horizonte - 🍿Clau",
-    "url": "https://marcosx7.blogspot.com/2025/10/arc-walking-dead-daryl-tp03ep07_26.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "bom_dia_veronica_t1e7.json",
-    "nome_json": "Bom Dia Veronica - T1E7 -  - 🍿Clau",
-    "url": "https://marcosx7.blogspot.com/2025/10/inix-bom-dia-veronica-tp01ep07.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "bom_dia_veronica_t1e8.json",
-    "nome_json": "Bom Dia Veronica - T1E8 -  - 🍿Clau",
-    "url": "https://marcosx7.blogspot.com/2025/10/inix-bom-dia-veronica-tp01ep08.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "bom_dia_veronica_t2e1.json",
-    "nome_json": "Bom Dia Veronica - T2E1 - – Justiça - 🍿Clau",
-    "url": "https://marcosx7.blogspot.com/2025/10/inix-bom-dia-veronica-tp02ep01.html",
-    "tentativas": 3
-  },
-  {
     "arquivo": "pacificador_t1e1.json",
     "nome_json": "Pacificador - T1E1 - Um Novo Turbilhão - 🍿Clau",
     "url": "https://vini7xgseries2.blogspot.com/2025/09/inix-pacificador-tp1e01.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "pacificador_t1e2.json",
     "nome_json": "Pacificador - T1E2 - Piores Amigos Para Sempre - 🍿Clau",
     "url": "https://vini7xgseries2.blogspot.com/2025/09/inix-pacificador-tp1e02.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "pacificador_t1e3.json",
     "nome_json": "Pacificador - T1E3 - Melhor Morto - 🍿Clau",
     "url": "https://vini7xgseries2.blogspot.com/2025/09/inix-pacificador-tp1e03.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "pacificador_t1e4.json",
     "nome_json": "Pacificador - T1E4 - A Estrada Mais Paucorrida - 🍿Clau",
     "url": "https://vini7xgseries2.blogspot.com/2025/09/inix-pacificador-tp1e04.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "pacificador_t1e5.json",
     "nome_json": "Pacificador - T1E5 - Suave Na Nave - 🍿Clau",
     "url": "https://vini7xgseries2.blogspot.com/2025/09/inix-pacificador-tp1e05.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "pacificador_t1e6.json",
     "nome_json": "Pacificador - T1E6 - Queimurn Depois de Ler - 🍿Clau",
     "url": "https://vini7xgseries2.blogspot.com/2025/09/inix-pacificador-tp1e06.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "pacificador_t1e7.json",
     "nome_json": "Pacificador - T1E7 - O Que os Olhos Não Veem o Dragão Não Sente - 🍿Clau",
     "url": "https://vini7xgseries2.blogspot.com/2025/09/inix-pacificador-tp1e07.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "pacificador_t1e8.json",
     "nome_json": "Pacificador - T1E8 - Chutando o Pau da Bavaca - 🍿Clau",
     "url": "https://vini7xgseries2.blogspot.com/2025/09/inix-pacificador-tp1e08.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "pacificador_t2e1.json",
     "nome_json": "Pacificador - T2E1 - Os Laços Que Desgastam - 🍿Clau",
     "url": "https://vini7xgseries2.blogspot.com/2025/09/inix-pacificador-tp2e01.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "pacificador_t2e2.json",
     "nome_json": "Pacificador - T2E2 - O Pássaro Do Homem Determina Seu Valor - 🍿Clau",
     "url": "https://vini7xgseries2.blogspot.com/2025/09/inix-pacificador-tp2e02.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "pacificador_t2e3.json",
     "nome_json": "Pacificador - T2E3 - Outro Rick Na Manga - 🍿Clau",
     "url": "https://vini7xgseries2.blogspot.com/2025/09/inix-pacificador-tp2e03.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "pacificador_t2e4.json",
     "nome_json": "Pacificador - T2E4 - Que Mais Porta Dizer? - 🍿Clau",
     "url": "https://vini7xgseries2.blogspot.com/2025/09/inix-pacificador-tp2e04.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "pacificador_t2e5.json",
     "nome_json": "Pacificador - T2E5 - De Volta À Sutura - 🍿Clau",
     "url": "https://vini7xgseries2.blogspot.com/2025/09/inix-pacificador-tp2e05.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "pacificador_t2e6.json",
     "nome_json": "Pacificador - T2E6 - A Ignorância é Chris - 🍿Clau",
     "url": "https://vini7xgseries2.blogspot.com/2025/09/inix-pacificador-tp2e06.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "pacificador_t2e7.json",
     "nome_json": "Pacificador - T2E7 - Como Um Keith na Noite - 🍿Clau",
     "url": "https://vini7xgseries2.blogspot.com/2025/09/inix-pacificador-tp2e07.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "pacificador_t2e8.json",
     "nome_json": "Pacificador - T2E8 - Chave Nelson - 🍿Clau",
     "url": "https://vini7xgseries2.blogspot.com/2025/09/inix-pacificador-tp2e08.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "trailer_park_boys_a_serie_animada_t1e2.json",
-    "nome_json": "Trailer Park Boys: A Serie Animada - T1E2 -  - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/10/inix-trailer-park-boys-serie-animada_17.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "trailer_park_boys_a_serie_animada_t2e3.json",
-    "nome_json": "Trailer Park Boys: A Serie Animada - T2E3 -  - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/10/inix-trailer-park-boys-serie-animada_12.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "trailer_park_boys_a_serie_animada_t2e7.json",
-    "nome_json": "Trailer Park Boys: A Serie Animada - T2E7 -  - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/10/inix-trailer-park-boys-serie-animada_92.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "trailer_park_boys_a_serie_animada_t2e10.json",
-    "nome_json": "Trailer Park Boys: A Serie Animada - T2E10 -  - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/10/inix-trailer-park-boys-serie-animada_54.html",
-    "tentativas": 2
+    "tentativas": 3
   },
   {
     "arquivo": "splinter_cell_deathwatch_t1e2.json",
     "nome_json": "Splinter Cell: Deathwatch - T1E2 - Primeiro jantamos, depois falamos - 🍿Clau",
     "url": "https://viniraveon.blogspot.com/2025/10/inix-splinter-cell-deathwatch-tp1e02.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "splinter_cell_deathwatch_t1e3.json",
-    "nome_json": "Splinter Cell: Deathwatch - T1E3 - Boas-vindas - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/10/inix-splinter-cell-deathwatch-tp1e03.html",
-    "tentativas": 2
+    "tentativas": 3
   }
 ]
