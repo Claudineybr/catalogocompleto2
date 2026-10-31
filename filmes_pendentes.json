@@ -1,152 +1,506 @@
 [
   {
-    "arquivo": "espiral_o_legado_de_jogos_mortais_2021.json",
-    "nome_json": "Espiral: O Legado de Jogos Mortais 2021 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/05/inix-espiral-o-legado-de-jogos-mortais.html",
+    "arquivo": "marc_sx7_racha_velocidade_sem_limite_2005.json",
+    "nome_json": "Marcøsx7👾 - Racha:Velocidade Sem Limite  2005 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/11/arc-rachavelocidade-sem-limite-2005.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "fuga_da_alemanha_2024.json",
+    "nome_json": "Fuga da Alemanha 2024 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/11/inix-fuga-da-alemanha-2024.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "luccas_e_gi_em_amor_de_mae_2025.json",
+    "nome_json": "Luccas e Gi em: Amor de Mae 2025 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/11/inix-luccas-e-gi-em-amor-de-mae-2025.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "a_escolha_de_natal_2023.json",
+    "nome_json": "A Escolha de Natal 2023 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/11/inix-escolha-de-natal-2023.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "assassinos_sadicos_3_carnificina_2024.json",
+    "nome_json": "Assassinos Sadicos 3: Carnificina 2024 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/11/inix-assassinos-sadicos-3-carnificina.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "emmanuelle_2024.json",
+    "nome_json": "Emmanuelle 2024 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/11/inix-emmanuelle-2024.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "https_www_vini7xgrave_site_2025_11_inix_miss_franca_2020_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/11/inix-miss-franca-2020.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/11/inix-miss-franca-2020.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "marc_sx7_the_woman_nem_todo_monstro_vive_na_selva_2011.json",
+    "nome_json": "Marcøsx7👾 - The Woman: Nem Todo Monstro Vive Na Selva 2011 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/11/arc-woman-nem-todo-monstro-vive-na.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "um_noivo_e_duas_noivas_2025.json",
+    "nome_json": "Um Noivo e Duas Noivas 2025 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/11/inix-um-noivo-e-duas-noivas-2025.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "animais_perigosos_2025.json",
+    "nome_json": "Animais Perigosos 2025 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/11/inix-animais-perigosos-2025.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "frankenstein_2025.json",
+    "nome_json": "Frankenstein 2025 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/11/inix-frankenstein-2025.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "bem_vinda_a_quixeramobim_2022.json",
+    "nome_json": "Bem-Vinda a Quixeramobim 2022 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/11/inix-bem-vinda-quixeramobim-2022.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "ilha_do_renascimento_2024.json",
+    "nome_json": "Ilha do Renascimento 2024 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/11/inix-ilha-do-renascimento-2024.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "https_www_vini7xgrave_site_2025_11_inix_engajamento_mortal_2022_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/11/inix-engajamento-mortal-2022.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/11/inix-engajamento-mortal-2022.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "sombras_do_deserto_2022.json",
+    "nome_json": "Sombras do Deserto 2022 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/11/inix-sombras-do-deserto-2022.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "https_www_vini7xgrave_site_2025_11_inix_no_rastro_da_bala_2006_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/11/inix-no-rastro-da-bala-2006.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/11/inix-no-rastro-da-bala-2006.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "quarteto_fantastico_primeiros_passos_2025.json",
+    "nome_json": "Quarteto Fantastico: Primeiros Passos 2025 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/08/inix-quarteto-fantastico-primeiros.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "b13_13o_distrito_2004.json",
+    "nome_json": "B13 - 13o Distrito 2004 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/11/inix-b13-13-distrito-2004.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "https_www_vini7xgrave_site_2025_11_arc_bicho_papao_o_conto_2023_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/11/arc-bicho-papao-o-conto-2023.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/11/arc-bicho-papao-o-conto-2023.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "roubo_do_cao_2025.json",
+    "nome_json": "Roubo do Cao 2025 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/11/inix-roubo-do-cao-2025.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "marc_sx7_ilha_do_medo_2010.json",
+    "nome_json": "Marcøsx7👾 - Ilha Do Medo 2010 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/arc-ilha-do-medo-2010.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "https_www_vini7xgrave_site_2025_10_inix_os_ratos_uma_historia_de_witcher_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/10/inix-os-ratos-uma-historia-de-witcher.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-os-ratos-uma-historia-de-witcher.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "amigos_do_alem_2025.json",
+    "nome_json": "Amigos do Alem 2025 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-amigos-do-alem-2025.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "https_www_vini7xgrave_site_2025_10_inix_darkland_o_retorno_2023_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/10/inix-darkland-o-retorno-2023.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-darkland-o-retorno-2023.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "a_mulher_da_fila_2025.json",
+    "nome_json": "A Mulher da Fila 2025 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-mulher-da-fila-2025.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "a_maldicao_do_colar_2024.json",
+    "nome_json": "A Maldicao do Colar 2024 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-maldicao-do-colar-2024.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "18_anos_e_ainda_virgem_2009.json",
+    "nome_json": "18 Anos e Ainda Virgem 2009 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-18-anos-e-ainda-virgem-2009.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "vinganca_ancestral_2023.json",
+    "nome_json": "Vinganca Ancestral 2023 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-vinganca-ancestral-2023.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "um_pai_para_minha_filha_2023.json",
+    "nome_json": "Um Pai Para Minha Filha 2023 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-um-pai-para-minha-filha-2023.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "https_www_vini7xgrave_site_2025_10_inix_mansao_do_horror_2022_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/10/inix-mansao-do-horror-2022.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-mansao-do-horror-2022.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "https_www_vini7xgrave_site_2025_10_inix_matilha_voraz_2025_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/10/inix-matilha-voraz-2025.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-matilha-voraz-2025.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "acordando_o_diabo_2022.json",
+    "nome_json": "Acordando o Diabo 2022 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-acordando-o-diabo-2022.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "https_www_vini7xgrave_site_2025_10_inix_princesa_mononoke_1997_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/10/inix-princesa-mononoke-1997.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-princesa-mononoke-1997.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "vale_maligno_2024.json",
+    "nome_json": "Vale Maligno 2024 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-vale-maligno-2024.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "o_massacre_da_festa_do_pijama_2021.json",
+    "nome_json": "O Massacre da Festa do Pijama 2021 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-o-massacre-da-festa-do-pijama-2021.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "censor_2021.json",
+    "nome_json": "Censor 2021 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-censor-2021.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "hedda_2025.json",
+    "nome_json": "Hedda 2025 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-hedda-2025.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "https_www_vini7xgrave_site_2025_10_inix_conduta_mortal_2024_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/10/inix-conduta-mortal-2024.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-conduta-mortal-2024.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "refem_do_silencio_2001.json",
+    "nome_json": "Refem do Silencio 2001 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-refem-do-silencio-2001.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "balada_de_um_jogador_2025.json",
+    "nome_json": "Balada de um Jogador 2025 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-balada-de-um-jogador-2025.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "https_www_vini7xgrave_site_2025_10_inix_hotel_dunsmuir_2022_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/10/inix-hotel-dunsmuir-2022.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-hotel-dunsmuir-2022.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "1492_a_conquista_do_paraiso_1992.json",
+    "nome_json": "1492 - A Conquista do Paraiso 1992 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-1492-conquista-do-paraiso-1992.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "118_dias_2014.json",
+    "nome_json": "118 Dias 2014 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/arc-camaleoes-2023_29.html",
     "tentativas": 2
   },
   {
-    "arquivo": "jogos_mortais_iii_2006.json",
-    "nome_json": "Jogos Mortais III 2006 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/05/inix-jogos-mortais-iii-2006.html",
+    "arquivo": "12_presentes_de_natal_2015.json",
+    "nome_json": "12 Presentes de Natal 2015 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-12-presentes-de-natal-2015.html",
     "tentativas": 2
   },
   {
-    "arquivo": "https_www_vini7xgrave_site_2025_05_inix_jogos_mortais_2004_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/05/inix-jogos-mortais-2004.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/05/inix-jogos-mortais-2004.html",
+    "arquivo": "12_dias_de_natal_2020.json",
+    "nome_json": "12 Dias de Natal 2020 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-12-dias-de-natal-2020.html",
     "tentativas": 2
   },
   {
-    "arquivo": "gran_turismo_de_jogador_a_corredor_2023.json",
-    "nome_json": "Gran Turismo: De Jogador A Corredor 2023 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/06/arc-gran-turismo-de-jogador-corredor.html",
+    "arquivo": "12_feet_deep_2018_legendado.json",
+    "nome_json": "12 Feet Deep 2018 (LEGENDADO) - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-12-feet-deep-2018-legendado.html",
     "tentativas": 2
   },
   {
-    "arquivo": "https_www_vini7xgrave_site_2026_10_inix_till_busca_por_justica_2022_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2026/10/inix-till-busca-por-justica-2022.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2026/10/inix-till-busca-por-justica-2022.html",
+    "arquivo": "https_www_vini7xgrave_site_2025_10_arc_estomago_2007_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/10/arc-estomago-2007.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/arc-estomago-2007.html",
     "tentativas": 2
   },
   {
-    "arquivo": "https_www_vini7xgrave_site_2025_05_inix_morte_te_da_parabens_2017_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/05/inix-morte-te-da-parabens-2017.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/05/inix-morte-te-da-parabens-2017.html",
+    "arquivo": "o_casal_duplicado_2024.json",
+    "nome_json": "O Casal Duplicado 2024 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-o-casal-duplicado-2024.html",
     "tentativas": 2
   },
   {
-    "arquivo": "https_www_vini7xgrave_site_2026_10_inix_o_misterio_de_candyman_1992_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2026/10/inix-o-misterio-de-candyman-1992.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2026/10/inix-o-misterio-de-candyman-1992.html",
+    "arquivo": "encontro_de_casais_2009.json",
+    "nome_json": "Encontro de Casais 2009 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-encontro-de-casais-2009.html",
     "tentativas": 2
   },
   {
-    "arquivo": "https_www_vini7xgrave_site_2026_10_inix_into_badlands_2015_0835136260_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2026/10/inix-into-badlands-2015_0835136260.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2026/10/inix-into-badlands-2015_0835136260.html",
+    "arquivo": "https_www_vini7xgrave_site_2025_10_inix_um_time_show_de_bola_2013_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/10/inix-um-time-show-de-bola-2013.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-um-time-show-de-bola-2013.html",
     "tentativas": 2
   },
   {
-    "arquivo": "samurai_x_o_final_2021.json",
-    "nome_json": "Samurai X: O Final 2021 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2026/10/inix-samurai-x-o-final-2021.html",
+    "arquivo": "halloween_2_2009.json",
+    "nome_json": "Halloween 2 2009 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-halloween-2-2009_27.html",
     "tentativas": 2
   },
   {
-    "arquivo": "https_www_vini7xgrave_site_2025_03_inix_robocop_o_policial_do_futuro_1987_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/03/inix-robocop-o-policial-do-futuro-1987.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-robocop-o-policial-do-futuro-1987.html",
+    "arquivo": "sonho_de_uma_noite_de_verao_1999.json",
+    "nome_json": "Sonho de uma Noite de Verao 1999 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-sonho-de-uma-noite-de-verao-1999.html",
     "tentativas": 2
   },
   {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_lilo_stitch_2002_28_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-lilo-stitch-2002_28.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-lilo-stitch-2002_28.html",
+    "arquivo": "soldados_amaldicoados_2015.json",
+    "nome_json": "Soldados Amaldicoados 2015 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-soldados-amaldicoados-2015.html",
     "tentativas": 2
   },
   {
-    "arquivo": "conexao_perigosa_2026.json",
-    "nome_json": "Conexao Perigosa 2026 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2026/09/inix-conexao-perigosa-2026.html",
+    "arquivo": "palco_de_ilusoes_1988.json",
+    "nome_json": "Palco de Ilusoes 1988 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-palco-de-ilusoes-1988.html",
     "tentativas": 2
   },
   {
-    "arquivo": "a_hipotese_do_amor_2026.json",
-    "nome_json": "A Hipotese do Amor 2026 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2026/09/inix-hipotese-do-amor-2026.html",
+    "arquivo": "pokemon_ranger_e_o_lendario_templo_do_mar_2006.json",
+    "nome_json": "Pokemon Ranger e o Lendario Templo do Mar 2006 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-pokemon-ranger-e-o-lendario-templo.html",
     "tentativas": 2
   },
   {
-    "arquivo": "https_www_vini7xgrave_site_2026_09_inix_cyberpunk_mercenarios_2022_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2026/09/inix-cyberpunk-mercenarios-2022.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2026/09/inix-cyberpunk-mercenarios-2022.html",
+    "arquivo": "https_www_vini7xgrave_site_2025_10_inix_bom_menino_2025_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/10/inix-bom-menino-2025.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-bom-menino-2025.html",
     "tentativas": 2
   },
   {
-    "arquivo": "https_www_vini7xgrave_site_2026_09_inix_kraken_terror_no_mar_2025_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2026/09/inix-kraken-terror-no-mar-2025.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2026/09/inix-kraken-terror-no-mar-2025.html",
+    "arquivo": "a_vinganca_de_cinderela_2024.json",
+    "nome_json": "A Vinganca de Cinderela 2024 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-vinganca-de-cinderela-2024.html",
     "tentativas": 2
   },
   {
-    "arquivo": "aposta_de_alto_risco_2026.json",
-    "nome_json": "Aposta de Alto Risco 2026 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2026/09/inix-aposta-de-alto-risco-2026.html",
+    "arquivo": "johnny_english_2003.json",
+    "nome_json": "Johnny English 2003 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-johnny-english-2003.html",
     "tentativas": 2
   },
   {
-    "arquivo": "indiana_jones_e_a_ultima_cruzada_1989.json",
-    "nome_json": "Indiana Jones e a Ultima Cruzada 1989 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/06/inix-indiana-jones-e-ultima-cruzada-1989.html",
+    "arquivo": "https_www_vini7xgrave_site_2025_10_inix_operacao_presente_2011_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/10/inix-operacao-presente-2011.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-operacao-presente-2011.html",
     "tentativas": 2
   },
   {
-    "arquivo": "https_www_vini7xgrave_site_2026_09_inix_corrida_contra_o_tempo_2026_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2026/09/inix-corrida-contra-o-tempo-2026.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2026/09/inix-corrida-contra-o-tempo-2026.html",
+    "arquivo": "marc_sx7_halloween_2018.json",
+    "nome_json": "Marcøsx7👾 - Halloween 2018 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/arc-halloween-2018.html",
     "tentativas": 2
   },
   {
-    "arquivo": "a_mulher_secreta_2026.json",
-    "nome_json": "A Mulher Secreta 2026 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2026/09/inix-mulher-secreta-2026.html",
+    "arquivo": "https_www_vini7xgrave_site_2025_10_inix_jogos_de_guerra_1983_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/10/inix-jogos-de-guerra-1983.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-jogos-de-guerra-1983.html",
     "tentativas": 2
   },
   {
-    "arquivo": "https_www_vini7xgrave_site_2026_07_inix_frutas_proibidas_2026_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2026/07/inix-frutas-proibidas-2026.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2026/07/inix-frutas-proibidas-2026.html",
+    "arquivo": "https_www_vini7xgrave_site_2025_10_inix_o_monstro_de_florenca_2025_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/10/inix-o-monstro-de-florenca-2025.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-o-monstro-de-florenca-2025.html",
     "tentativas": 2
   },
   {
-    "arquivo": "proposta_indecente_1993.json",
-    "nome_json": "Proposta Indecente 1993 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2026/08/inix-proposta-indecente-1993.html",
+    "arquivo": "como_descartar_um_corpo_2022.json",
+    "nome_json": "Como Descartar um Corpo 2022 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-como-descartar-um-corpo-2022.html",
     "tentativas": 2
   },
   {
-    "arquivo": "o_ultimo_nascer_do_sol_2026.json",
-    "nome_json": "O Ultimo Nascer do Sol 2026 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2026/08/inix-o-ultimo-nascer-do-sol-2026.html",
+    "arquivo": "eden_2025.json",
+    "nome_json": "Eden 2025 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-eden-2025.html",
     "tentativas": 2
   },
   {
-    "arquivo": "https_www_vini7xgrave_site_2026_08_inix_relatos_de_um_assassino_2025_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2026/08/inix-relatos-de-um-assassino-2025.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2026/08/inix-relatos-de-um-assassino-2025.html",
+    "arquivo": "casa_de_dinamite_2025.json",
+    "nome_json": "Casa de Dinamite 2025 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-casa-de-dinamite-2025.html",
     "tentativas": 2
   },
   {
-    "arquivo": "yellow_mirror_a_realidade_paralela_de_homer_2026.json",
-    "nome_json": "Yellow Mirror: A Realidade Paralela de Homer 2026 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2026/08/inix-yellow-mirror-realidade-paralela.html",
+    "arquivo": "https_www_vini7xgrave_site_2025_10_inix_vitalina_varela_2019_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/10/inix-vitalina-varela-2019.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-vitalina-varela-2019.html",
     "tentativas": 2
   },
   {
-    "arquivo": "https_www_vini7xgrave_site_2026_08_inix_queda_livre_as_consequencias_do_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2026/08/inix-queda-livre-as-consequencias-do.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2026/08/inix-queda-livre-as-consequencias-do.html",
+    "arquivo": "https_www_vini7xgrave_site_2025_10_inix_mr_k_2025_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/10/inix-mr-k-2025.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-mr-k-2025.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "https_www_vini7xgrave_site_2025_10_inix_no_amor_e_na_musica_2025_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/10/inix-no-amor-e-na-musica-2025.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-no-amor-e-na-musica-2025.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "hell_a_ira_esta_solta_2003.json",
+    "nome_json": "Hell - A Ira Esta Solta 2003 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-hell-ira-esta-solta-2003.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "o_ultimo_lutador_2023.json",
+    "nome_json": "O Ultimo Lutador 2023 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/09/inix-o-ultimo-lutador-2023.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "sem_saida_2025.json",
+    "nome_json": "Sem Saida 2025 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-sem-saida-2025.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "vida_adulta_2025.json",
+    "nome_json": "Vida Adulta 2025 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-vida-adulta-2025.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "https_www_vini7xgrave_site_2025_10_inix_velhos_2023_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/10/inix-velhos-2023.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-velhos-2023.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "um_lobo_entre_os_cisnes_2025.json",
+    "nome_json": "Um Lobo entre os Cisnes 2025 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-um-lobo-entre-os-cisnes-2025.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "https_www_vini7xgrave_site_2025_09_inix_invocacao_do_mal_4_o_ultimo_ritual_5_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/09/inix-invocacao-do-mal-4-o-ultimo-ritual_5.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/09/inix-invocacao-do-mal-4-o-ultimo-ritual_5.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "a_primeira_morte_de_joana_2021.json",
+    "nome_json": "A Primeira Morte de Joana 2021 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-primeira-morte-de-joana-2021.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "estrada_florestal_825_2025.json",
+    "nome_json": "Estrada Florestal 825 2025 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-estrada-florestal-825-2025.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "ataque_13_2025.json",
+    "nome_json": "Ataque 13 2025 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-ataque-13-2025.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "panico_na_floresta_3_caminho_da_morte_2009.json",
+    "nome_json": "Panico na Floresta 3: Caminho da Morte 2009 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/03/inix-panico-na-floresta-3-floresta-do.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "marc_sx7_azul_e_cor_mais_quente_2013.json",
+    "nome_json": "Marcøsx7👾 - Azul E Cor Mais Quente 2013 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/arc-azul-e-cor-mais-quente-2013.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "marc_sx7_reino_de_fogo_2002.json",
+    "nome_json": "Marcøsx7👾 -Reino De fogo 2002 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/arc-reino-de-fogo-2002.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "amaldicoada_3_o_amuleto_2023.json",
+    "nome_json": "Amaldicoada 3 - O Amuleto 2023 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-amaldicoada-3-o-amuleto-2023.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "a_ilha_do_inverno_2024.json",
+    "nome_json": "A Ilha do Inverno 2024 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-ilha-do-inverno-2024.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "a_paranoia_de_lulu_2024.json",
+    "nome_json": "A Paranoia de Lulu 2024 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/10/inix-paranoia-de-lulu-2024.html",
     "tentativas": 2
   }
 ]
