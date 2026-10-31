@@ -100,7 +100,6 @@ jobs:
           todas = [u.strip() for u in ARQ_FILA.read_text(encoding="utf-8").splitlines() if u.strip()]
           fila = [u for u in todas if u not in feitas]
           
-          # MUDANÇA 1: Lote de 100 séries
           lote = fila[:100]
 
           log(f"Total na fila: {len(todas)} | Ja feitos: {len(feitas)} | Faltam: {len(fila)} | Pendentes: {len(pendentes)}.")
@@ -143,20 +142,20 @@ jobs:
               for raw in candidatos:
                   if not raw: continue
                   titulo = str(raw).strip()
-                  titulo = titulo.replace('𝑴arcø𝒔x⁷👾','').replace('Marcos','').strip()
-
+                  
                   partes = [p.strip() for p in re.split(r'\s+[-–—]\s+', titulo) if p.strip()]
                   if not partes: continue
 
                   if len(partes) > 1:
-                      limpas = [p for p in partes if not re.search(r'(vini|grave|site|online|blogspot|assistir|download)', p, re.I)]
+                      # Remove nome do site/prefixo e infos de temporada
+                      limpas = [p for p in partes if not re.search(r'(vini|marcos|grave|site|online|blogspot|assistir|download)', p, re.I)]
                       sem_temp = [p for p in limpas if not re.search(r'^(?:\d+\s*[ªº]?\s*)?(?:temporada|season)', p, re.I)]
                       candidato = sem_temp or limpas or partes
-                      titulo = max(candidato, key=len)
+                      # Junta de volta o que é título real
+                      titulo = ' - '.join(candidato)
                   else:
                       titulo = partes[0]
 
-                  titulo = re.sub(r'\s*\(?\d{4}\)?\s*$', '', titulo).strip()
                   titulo = titulo.strip('"\'').strip()
                   titulo = re.sub(r'[\s.:;,]+$', '', titulo).strip()
                   if titulo and len(titulo) > 2:
@@ -299,7 +298,6 @@ jobs:
             echo "⚠️ Limite de 30 runs/hora atingido. Aguardando cron."; exit 0
           fi
 
-          # MUDANÇA 2: Sleep de 30 segundos antes de iniciar a próxima
           echo "⏳ Aguardando 30 segundos antes de disparar a próxima run..."
           sleep 30
 
