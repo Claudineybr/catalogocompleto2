@@ -30,7 +30,7 @@ jobs:
       - name: Extrair Filmes e Retentar Falhas
         run: |
           cat > /tmp/mega_filmes.py << 'PYEOF'
-          import asyncio, re, json, requests, sys
+          import asyncio, re, json, requests, sys, unicodedata
           from bs4 import BeautifulSoup
           from pathlib import Path
           from playwright.async_api import async_playwright
@@ -137,13 +137,15 @@ jobs:
               else:
                   raw = soup.h1.text if soup.h1 else (soup.title.text if soup.title else "Filme Desconhecido")
               
-              # Separa por traço e filtra os pedaços que têm nome de site
-              partes = [p.strip() for p in re.split(r'\s+[-–—]\s+', raw) if p.strip()]
+              # NORMALIZA CARACTERES FANCY (𝑽 -> V, 𝟕 -> 7)
+              raw_norm = unicodedata.normalize('NFKD', str(raw))
+              raw_norm = "".join([c for c in raw_norm if not unicodedata.combining(c)])
+              
+              # Separa por traço e remove o nome do site (agora pega ViNi, Marcos, etc)
+              partes = [p.strip() for p in re.split(r'\s+[-–—]\s+', raw_norm) if p.strip()]
               validas = [p for p in partes if not re.search(r'(vini|marcos|grave|online|blogspot|assistir)', p, re.I)]
               
-              # Junta de volta o que é título real
-              titulo = ' - '.join(validas) if validas else raw.strip()
-              return titulo.strip()
+              return ' - '.join(validas) if validas else raw_norm.strip()
 
           def extrair_ano_da_url(url_pagina):
               m = re.search(r'/([^/]+)\.html', url_pagina)
@@ -187,7 +189,6 @@ jobs:
                   titulo = extrair_titulo(soup)
                   ano = extrair_ano_da_url(url_pagina)
                   
-                  # Verifica se o ano já está no título para não duplicar
                   tem_ano_no_titulo = bool(re.search(r'(?<!\d)(?:19|20)\d{2}(?!\d)', titulo))
 
                   slug = re.sub(r'[^a-z0-9]', '_', titulo.lower())
