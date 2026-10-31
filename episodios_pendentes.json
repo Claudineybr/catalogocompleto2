@@ -1,1 +1,2072 @@
-[]
+[
+  {
+    "arquivo": "a_casa_do_dragao_t1e1.json",
+    "nome_json": "A Casa do Dragao - T1E1 - Os Herdeiros do Dragão - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp1e01_23.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "a_casa_do_dragao_t1e2.json",
+    "nome_json": "A Casa do Dragao - T1E2 - O Príncipe Canalha - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp1e02_12.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "a_casa_do_dragao_t1e3.json",
+    "nome_json": "A Casa do Dragao - T1E3 - O Segundo de seu Nome - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp1e03_96.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "a_casa_do_dragao_t1e4.json",
+    "nome_json": "A Casa do Dragao - T1E4 - O Rei do Mar Estreito - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp1e04_93.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "a_casa_do_dragao_t1e5.json",
+    "nome_json": "A Casa do Dragao - T1E5 - Iluminamos o Caminho - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp1e05_99.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "a_casa_do_dragao_t1e6.json",
+    "nome_json": "A Casa do Dragao - T1E6 - A Princesa e a Rainha - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp1e06_98.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "a_casa_do_dragao_t1e7.json",
+    "nome_json": "A Casa do Dragao - T1E7 - Driftmark - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp1e07_41.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "a_casa_do_dragao_t1e8.json",
+    "nome_json": "A Casa do Dragao - T1E8 - O Rei das Marés - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp1e08_26.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "a_casa_do_dragao_t1e9.json",
+    "nome_json": "A Casa do Dragao - T1E9 - O Conselho Verde - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp1e09_11.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "a_casa_do_dragao_t1e10.json",
+    "nome_json": "A Casa do Dragao - T1E10 - A Rainha Preta - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp1e10_30.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "a_casa_do_dragao_t2e1.json",
+    "nome_json": "A Casa do Dragao - T2E1 - Um Filho por um Filho - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp2e01_9.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "a_casa_do_dragao_t2e2.json",
+    "nome_json": "A Casa do Dragao - T2E2 - Rhaenyra, A Cruel - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp2e02_9.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "a_casa_do_dragao_t2e3.json",
+    "nome_json": "A Casa do Dragao - T2E3 - O Moinho Ardente - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp2e03_9.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "a_casa_do_dragao_t2e4.json",
+    "nome_json": "A Casa do Dragao - T2E4 - O Dragão Vermelho e O Dourado - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp2e04_9.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "a_casa_do_dragao_t2e5.json",
+    "nome_json": "A Casa do Dragao - T2E5 - O Regente - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp1e05_52.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "a_casa_do_dragao_t2e6.json",
+    "nome_json": "A Casa do Dragao - T2E6 - Os Plebeus - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp2e06_9.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "a_casa_do_dragao_t2e7.json",
+    "nome_json": "A Casa do Dragao - T2E7 - A Semeação Vermelha - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp2e07_9.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "a_casa_do_dragao_t2e8.json",
+    "nome_json": "A Casa do Dragao - T2E8 - A Rainha que Sempre Foi - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp2e08_9.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "love_death_robots_t1e1.json",
+    "nome_json": "Love, Death & Robots - T1E1 - A Vantagem de Sonnie - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp1e01_97.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "love_death_robots_t1e2.json",
+    "nome_json": "Love, Death & Robots - T1E2 - Os Três Robôs - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp1e02_66.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "love_death_robots_t1e3.json",
+    "nome_json": "Love, Death & Robots - T1E3 - A Testemunha - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp1e03_61.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "love_death_robots_t1e4.json",
+    "nome_json": "Love, Death & Robots - T1E4 - Proteção Contra Alienígenas - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp1e04_91.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "love_death_robots_t1e7.json",
+    "nome_json": "Love, Death & Robots - T1E7 - Para Além da Fenda de Áquila - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp1e07_5.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "love_death_robots_t1e8.json",
+    "nome_json": "Love, Death & Robots - T1E8 - Boa Caçada - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp1e08_5.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "love_death_robots_t1e11.json",
+    "nome_json": "Love, Death & Robots - T1E11 - Ajudinha - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp1e11_5.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "love_death_robots_t1e14.json",
+    "nome_json": "Love, Death & Robots - T1E14 -  - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp1e14_5.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "love_death_robots_t3e7.json",
+    "nome_json": "Love, Death & Robots - T3E7 - Ratos de Mason - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/05/inix-tp3e07_5.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "com_carinho_kitty_t1e3.json",
+    "nome_json": "Com Carinho, Kitty - T1E3 - KISS - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp1e03.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "com_carinho_kitty_t1e4.json",
+    "nome_json": "Com Carinho, Kitty - T1E4 - Sextou - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp1e04.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "com_carinho_kitty_t1e6.json",
+    "nome_json": "Com Carinho, Kitty - T1E6 - Traga sua bebida - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp1e06.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "com_carinho_kitty_t1e8.json",
+    "nome_json": "Com Carinho, Kitty - T1E8 - Vamos nessa - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp1e08.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "com_carinho_kitty_t1e10.json",
+    "nome_json": "Com Carinho, Kitty - T1E10 - Mozão - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp1e10.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "com_carinho_kitty_t2e1.json",
+    "nome_json": "Com Carinho, Kitty - T2E1 - Um beijo para a KISS - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp1e11.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "com_carinho_kitty_t2e4.json",
+    "nome_json": "Com Carinho, Kitty - T2E4 - Beijo e segredo revelado - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp2e04.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "com_carinho_kitty_t2e8.json",
+    "nome_json": "Com Carinho, Kitty - T2E8 - [Título não informado] - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp2e08.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t1e2.json",
+    "nome_json": "Supernatural (Sobrenatural) - T1E2 - Wendigo - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp1e02_25.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t1e16.json",
+    "nome_json": "Supernatural (Sobrenatural) - T1E16 - Sombra - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp1e16_25.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t2e1.json",
+    "nome_json": "Supernatural (Sobrenatural) - T2E1 - Na hora da Minha Morte - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e01_26.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t2e2.json",
+    "nome_json": "Supernatural (Sobrenatural) - T2E2 - Todos Amam o Palhaço - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e02_26.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t2e7.json",
+    "nome_json": "Supernatural (Sobrenatural) - T2E7 - Os Suspeitos Habituais - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e07_26.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t2e10.json",
+    "nome_json": "Supernatural (Sobrenatural) - T2E10 - Caçado - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e10_26.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t2e14.json",
+    "nome_json": "Supernatural (Sobrenatural) - T2E14 - Nascido Num Signo Ruim - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e14_26.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t2e15.json",
+    "nome_json": "Supernatural (Sobrenatural) - T2E15 - Exagerado - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e15_26.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t2e21.json",
+    "nome_json": "Supernatural (Sobrenatural) - T2E21 - Demônios à Solta (Parte 1) - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e21_26.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t3e2.json",
+    "nome_json": "Supernatural (Sobrenatural) - T3E2 - O Sangue do Mal - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e02_27.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t3e3.json",
+    "nome_json": "Supernatural (Sobrenatural) - T3E3 - Dia Ruim em Black Rock - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e03_27.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t3e5.json",
+    "nome_json": "Supernatural (Sobrenatural) - T3E5 - A Lenda do Espantalho - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e04_30.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t3e6.json",
+    "nome_json": "Supernatural (Sobrenatural) - T3E6 - Sonhos Roubados - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e06_27.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t3e8.json",
+    "nome_json": "Supernatural (Sobrenatural) - T3E8 - Um Natal Muito Sobrenatural - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e08_27.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t4e6.json",
+    "nome_json": "Supernatural (Sobrenatural) - T4E6 - Febre Amarela - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e22.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t4e8.json",
+    "nome_json": "Supernatural (Sobrenatural) - T4E8 - A Fonte dos Desejos - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp4e08_28.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t4e17.json",
+    "nome_json": "Supernatural (Sobrenatural) - T4E17 - Que Vida Terrível - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp4e17.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t4e19.json",
+    "nome_json": "Supernatural (Sobrenatural) - T4E19 - O Irmão - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp4e19.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t5e5.json",
+    "nome_json": "Supernatural (Sobrenatural) - T5E5 - Ídolos Caídos - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp5e05_28.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t5e14.json",
+    "nome_json": "Supernatural (Sobrenatural) - T5E14 - Amores Sangrentos - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp5e14_28.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t5e20.json",
+    "nome_json": "Supernatural (Sobrenatural) - T5E20 - O Diabo Conhecido - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp5e20_28.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t6e6.json",
+    "nome_json": "Supernatural (Sobrenatural) - T6E6 - Você não consegue lidar com a verdade - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp6e06_28.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t7e2.json",
+    "nome_json": "Supernatural (Sobrenatural) - T7E2 - Olá, Mundo Cruel - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp7e02_28.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t7e3.json",
+    "nome_json": "Supernatural (Sobrenatural) - T7E3 - A Garota da Porta ao Lado - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp7e03_28.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t7e16.json",
+    "nome_json": "Supernatural (Sobrenatural) - T7E16 - Fora com o velho - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp7e16.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t7e21.json",
+    "nome_json": "Supernatural (Sobrenatural) - T7E21 - Ler é fundamental - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp7e21_28.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t8e4.json",
+    "nome_json": "Supernatural (Sobrenatural) - T8E4 - Mordido - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp8e04_29.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t8e5.json",
+    "nome_json": "Supernatural (Sobrenatural) - T8E5 - Irmãos de Sangue - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp8e05_29.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t8e7.json",
+    "nome_json": "Supernatural (Sobrenatural) - T8E7 - Uma Pequena Fatia de Kevin - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp8e07.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t8e17.json",
+    "nome_json": "Supernatural (Sobrenatural) - T8E17 - Adeus, Estranho - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp8e17.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t8e21.json",
+    "nome_json": "Supernatural (Sobrenatural) - T8E21 - O Grande Escapista - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp8e21.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t8e22.json",
+    "nome_json": "Supernatural (Sobrenatural) - T8E22 - Clip Show - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp8e22.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t9e2.json",
+    "nome_json": "Supernatural (Sobrenatural) - T9E2 - O Diabo Pode Se Preocupar - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp9e02.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t9e3.json",
+    "nome_json": "Supernatural (Sobrenatural) - T9E3 - Eu Não Sou Nenhum Anjo - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp9e03.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t9e11.json",
+    "nome_json": "Supernatural (Sobrenatural) - T9E11 - Primogênito - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp9e11.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t9e13.json",
+    "nome_json": "Supernatural (Sobrenatural) - T9E13 - O Expurgo - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp9e13.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t10e8.json",
+    "nome_json": "Supernatural (Sobrenatural) - T10E8 - Emergência em Hibbing - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp10e08.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t10e10.json",
+    "nome_json": "Supernatural (Sobrenatural) - T10E10 - Os Jogos dos Caçadores - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp10e10.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t10e12.json",
+    "nome_json": "Supernatural (Sobrenatural) - T10E12 - Sobre um Menino - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp10e12.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t10e13.json",
+    "nome_json": "Supernatural (Sobrenatural) - T10E13 - Pare e Pegue Fogo - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp10e13.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t10e16.json",
+    "nome_json": "Supernatural (Sobrenatural) - T10E16 - Pinte Isso de Preto - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp10e16.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t11e2.json",
+    "nome_json": "Supernatural (Sobrenatural) - T11E2 - Forma e Vazia - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp11e02.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t11e3.json",
+    "nome_json": "Supernatural (Sobrenatural) - T11E3 - A Semente do Mal - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp11e03.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t11e5.json",
+    "nome_json": "Supernatural (Sobrenatural) - T11E5 - A Pequena Lizzie - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp11e05.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t11e22.json",
+    "nome_json": "Supernatural (Sobrenatural) - T11E22 - Estamos Pouco Felizes - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp11e22.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t12e2.json",
+    "nome_json": "Supernatural (Sobrenatural) - T12E2 - Mamma Mia - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp12e02.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t12e11.json",
+    "nome_json": "Supernatural (Sobrenatural) - T12E11 - Sobre Dean - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp12e11.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t12e12.json",
+    "nome_json": "Supernatural (Sobrenatural) - T12E12 - Preso no Meio (Com Você) - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp12e12.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t13e20.json",
+    "nome_json": "Supernatural (Sobrenatural) - T13E20 - Negócios Inacabados - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp13e20.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t13e22.json",
+    "nome_json": "Supernatural (Sobrenatural) - T13E22 - Apocalipse Agora - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp13e22.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t14e2.json",
+    "nome_json": "Supernatural (Sobrenatural) - T14E2 - Deuses e Monstros - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp14e02.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t14e3.json",
+    "nome_json": "Supernatural (Sobrenatural) - T14E3 - A Cicatriz - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp14e03.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t14e10.json",
+    "nome_json": "Supernatural (Sobrenatural) - T14E10 - Niilismo - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp14e10.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "supernatural_sobrenatural_t15e6.json",
+    "nome_json": "Supernatural (Sobrenatural) - T15E6 - Pai Nosso, que não estás no céu - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp15e06.html",
+    "tentativas": 3
+  },
+  {
+    "arquivo": "doctor_who_t1e1.json",
+    "nome_json": "Doctor Who - T1E1 - Rose - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e01_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t1e2.json",
+    "nome_json": "Doctor Who - T1E2 - O Fim do Mundo - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e02_84.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t1e3.json",
+    "nome_json": "Doctor Who - T1E3 - Os Mortos Inquietos - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e03_65.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t1e4.json",
+    "nome_json": "Doctor Who - T1E4 - Alienígenas em Londres - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e04_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t1e5.json",
+    "nome_json": "Doctor Who - T1E5 - Terceira Guerra Mundial - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e05_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t1e6.json",
+    "nome_json": "Doctor Who - T1E6 - Dalek - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e06_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t1e7.json",
+    "nome_json": "Doctor Who - T1E7 - O Jogo Longo - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e07_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t1e8.json",
+    "nome_json": "Doctor Who - T1E8 - O Dia do Pai - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e08_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t1e9.json",
+    "nome_json": "Doctor Who - T1E9 - A Criança Vazia - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e09_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t1e10.json",
+    "nome_json": "Doctor Who - T1E10 - O Doutor Dança - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e10_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t1e11.json",
+    "nome_json": "Doctor Who - T1E11 - Cidade Explosiva - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e11_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t1e12.json",
+    "nome_json": "Doctor Who - T1E12 - Lobo Mau - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e12_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t1e13.json",
+    "nome_json": "Doctor Who - T1E13 - Seguindo Caminhos Separados - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e13_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t2e1.json",
+    "nome_json": "Doctor Who - T2E1 - A Nova Terra - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e01_45.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t2e2.json",
+    "nome_json": "Doctor Who - T2E2 - Dente e Garra - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e02_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t2e3.json",
+    "nome_json": "Doctor Who - T2E3 - A Garota da lareira - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e03_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t2e4.json",
+    "nome_json": "Doctor Who - T2E4 - O Enigma de Satanás (Parte 1) - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e04_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t2e5.json",
+    "nome_json": "Doctor Who - T2E5 - O Poço de Satanás (Parte 2) - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e05_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t2e6.json",
+    "nome_json": "Doctor Who - T2E6 - Amor & Monstros - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e06_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t2e7.json",
+    "nome_json": "Doctor Who - T2E7 - A Ascensão dos Cybermen (Parte 1) - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e07_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t2e8.json",
+    "nome_json": "Doctor Who - T2E8 - A Era de Aço (Parte 2) - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e08_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t2e9.json",
+    "nome_json": "Doctor Who - T2E9 - A Chamada Fantasma - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e09_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t2e10.json",
+    "nome_json": "Doctor Who - T2E10 - Amor Nunca Mais - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e10_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t2e11.json",
+    "nome_json": "Doctor Who - T2E11 - O Exército de Fantasmas (Parte 1) - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e11_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t2e12.json",
+    "nome_json": "Doctor Who - T2E12 - A Batalha Final (Parte 2) - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e12_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t2e13.json",
+    "nome_json": "Doctor Who - T2E13 - Adeus, Rose - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e13_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t3e1.json",
+    "nome_json": "Doctor Who - T3E1 - Smith e Jones - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp3e01_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t3e3.json",
+    "nome_json": "Doctor Who - T3E3 - Encontro na Lua de Mel - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp3e03_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t3e4.json",
+    "nome_json": "Doctor Who - T3E4 - Daleks em Manhattan - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp3e04_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t3e5.json",
+    "nome_json": "Doctor Who - T3E5 - Evolução dos Daleks - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp3e05_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t3e6.json",
+    "nome_json": "Doctor Who - T3E6 - O Experimento Lazarus - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp3e06_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t3e7.json",
+    "nome_json": "Doctor Who - T3E7 - 42 - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp3e07_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t3e8.json",
+    "nome_json": "Doctor Who - T3E8 - Natureza Humana - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp3e08_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t3e9.json",
+    "nome_json": "Doctor Who - T3E9 - A Família de Sangue - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp3e09_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t3e10.json",
+    "nome_json": "Doctor Who - T3E10 - Pisque - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp3e10_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t3e11.json",
+    "nome_json": "Doctor Who - T3E11 - Utopia - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp3e11_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t3e12.json",
+    "nome_json": "Doctor Who - T3E12 - O Som dos Tambores - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp3e12_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t3e13.json",
+    "nome_json": "Doctor Who - T3E13 - O Último Senhor do Tempo - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp3e13_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t4e1.json",
+    "nome_json": "Doctor Who - T4E1 - Parceiros no Crime - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp4e01_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t4e2.json",
+    "nome_json": "Doctor Who - T4E2 - As Chamas de Pompeia - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp4e02_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t4e3.json",
+    "nome_json": "Doctor Who - T4E3 - O Planeta dos Ood - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp4e03_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t4e4.json",
+    "nome_json": "Doctor Who - T4E4 - A Filha do Doutor - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp4e04_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t4e5.json",
+    "nome_json": "Doctor Who - T4E5 - O Estratagema Sontaran - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp4e05_27.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t4e6.json",
+    "nome_json": "Doctor Who - T4E6 - O Céu Venenoso - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp4e06_56.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t4e7.json",
+    "nome_json": "Doctor Who - T4E7 - O Unicórnio e a Vespa - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp4e07_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t4e8.json",
+    "nome_json": "Doctor Who - T4E8 - Silêncio na Biblioteca - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp4e08_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t4e9.json",
+    "nome_json": "Doctor Who - T4E9 - Floresta dos Mortos - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp4e09_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t4e10.json",
+    "nome_json": "Doctor Who - T4E10 - À Meia-Noite - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp4e10_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t4e11.json",
+    "nome_json": "Doctor Who - T4E11 - Vire à Esquerda - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp4e11_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t4e12.json",
+    "nome_json": "Doctor Who - T4E12 - A Terra Roubada - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp4e12_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t4e13.json",
+    "nome_json": "Doctor Who - T4E13 - O Fim da Jornada - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp4e13_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t4e14.json",
+    "nome_json": "Doctor Who - T4E14 - O Próximo Doutor (Especial de Natal) - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp4e14_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t4e15.json",
+    "nome_json": "Doctor Who - T4E15 - O Planeta dos Mortos (Especial de Páscoa) - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp4e15_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t4e16.json",
+    "nome_json": "Doctor Who - T4E16 - As Águas de Marte (Especial de Outono) - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp4e16_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t4e17.json",
+    "nome_json": "Doctor Who - T4E17 - O Fim do Tempo - Parte 1 (Especial de Natal) - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp4e17_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t4e18.json",
+    "nome_json": "Doctor Who - T4E18 - O Fim do Tempo - Parte 2 (Especial de Ano Novo) - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp4e18_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t5e1.json",
+    "nome_json": "Doctor Who - T5E1 - O Décimo Primeiro Hora - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp5e01_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t5e2.json",
+    "nome_json": "Doctor Who - T5E2 - A Fera em Baixo - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp5e02_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t5e3.json",
+    "nome_json": "Doctor Who - T5E3 - A Vitória dos Daleks - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp5e03_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t5e4.json",
+    "nome_json": "Doctor Who - T5E4 - O Tempo dos Anjos - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp5e04_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t5e5.json",
+    "nome_json": "Doctor Who - T5E5 - A Carne e Pedra - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp5e05_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t5e6.json",
+    "nome_json": "Doctor Who - T5E6 - Os Vampiros de Veneza - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp5e06_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t5e7.json",
+    "nome_json": "Doctor Who - T5E7 - Amy's Choice (A Escolha de Amy) - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp5e07_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t5e8.json",
+    "nome_json": "Doctor Who - T5E8 - A Aliança dos Humanos - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp5e08_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t5e9.json",
+    "nome_json": "Doctor Who - T5E9 - Pesadelo em Prata - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp5e09_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t5e10.json",
+    "nome_json": "Doctor Who - T5E10 - Vincent e o Doutor - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp5e10_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t5e11.json",
+    "nome_json": "Doctor Who - T5E11 - O Casamento de River Song - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp5e11_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t5e12.json",
+    "nome_json": "Doctor Who - T5E12 - A Pandórica se Abre - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp5e12_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "doctor_who_t5e13.json",
+    "nome_json": "Doctor Who - T5E13 - O Grande Bang - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp5e13_28.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t1e1.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T1E1 - Precisa-se de Ajudante / Assoprador de Recife / Chá em Terra Firme - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp1e01_12.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t1e2.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T1E2 - Bolhas de Sabão / Calça Rasgada - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp1e02_65.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t1e3.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T1E3 - Caçando Água-Viva / Plankton! - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp1e03_43.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t1e4.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T1E4 - Vizinhos Náuticos Terríveis / Escola de Pilotagem - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp1e04_72.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t1e5.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T1E5 - Entrega de Pizza / Lar Doce Abacaxi - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp1e05_86.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t1e6.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T1E6 - O Homem Sereia e o Mexilhãozinho / Picles - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp1e06_64.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t1e7.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T1E7 - Monitor da Classe / A Festa das Águas-Vivas - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp1e07_67.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t1e8.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T1E8 - O Foguete da Sandy / Botas que Rangem - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp1e08_43.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t1e9.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T1E9 - Com Calças Naturais / Dia do Contra - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp1e09_80.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t1e10.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T1E10 - Choque Cultural / D.I.V.E.R.S.Ã.O - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp1e10_40.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t1e11.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T1E11 - Bob Músculo Calça Cheia / Lula Molusco, O Fantasma Abusado - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp1e11_86.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t1e12.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T1E12 - O Acompanhante / O Funcionário do Mês - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp1e12_29.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t1e13.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T1E13 - Bob Medroso / Virei um Gary Adolescente - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp1e13_17.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t1e14.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T1E14 - SB-129 / Karatecas Fatiadores - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp1e14_90.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t1e15.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T1E15 - Hora do Sono / Espuma - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp1e15_47.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t1e16.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T1E16 - Dia de São Valentim / O Papel - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp1e16_61.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t1e17.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T1E17 - Sim, Capitão! / Fenda da Pedra - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp1e17_26.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t1e18.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T1E18 - O Texas / Passos Pequeninos - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp1e18_11.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t1e19.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T1E19 - Primeiro de Abril / A Espátula de Netuno - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp1e19_25.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t1e20.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T1E20 - Anzóis / Homem-Sereia e o Mexilhãozinho II - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp1e20_25.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t2e1.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T2E1 - Sapatos Desamarrados / O Dia de Folga do Lula Molusco - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e01_25.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t2e2.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T2E2 - Está Cheirando Alguma Coisa / Nas Botas do Chefe - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e02_25.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t2e3.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T2E3 - O Grande Fracassado Cor de Rosa / O Amigo da Bolha - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e03_25.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t2e4.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T2E4 - Morrendo por uma Torta / Imitação de Caranguejo - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e04_25.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t2e5.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T2E5 - A Lagartinha / Hamburger Decepcionante - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e05_25.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t2e6.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T2E6 - Beijos da Vovó / Cidade de Lula - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e06_25.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t2e7.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T2E7 - Uma Semana Antes da Hibernação / Vida de Crime - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e07_25.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t2e8.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T2E8 - Natal Quem? - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e08_38.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t2e9.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T2E9 - Sobrevivência dos Idiotas / Descartado - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e09_25.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t2e10.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T2E10 - Pilotar sem Saber não Vai / Sou seu Maior Fã - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e10.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t2e11.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T2E11 - Homem Sereia e o Mexilhãozinho III / Piadas de Esquilo - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e11.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t2e12.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T2E12 - Pressão / O Amendoim do Barulho - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e12_25.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t2e13.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T2E13 - Marujo na Marra / O Banho do Gary - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e13_25.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t2e14.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T2E14 - Bem-Vindo ao Balde de Lixo / Frankenrabisco - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e14_25.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t2e15.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T2E15 - A Caixa Secreta / Doidos Pela Banda - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e15_25.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t2e16.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T2E16 - Turno Macabro / Amor Cascudo - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e16_25.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t2e17.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T2E17 - Delonga / Sou pelos Idiotas - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e17_25.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t2e18.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T2E18 - Boca de Marinheiro / Artista Desconhecido - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e18_25.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t2e19.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T2E19 - Caçador de Água-Viva / Os Jogos do Mestre-Cuca - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e19_25.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t2e20.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T2E20 - Lula em Greve / Sandy, Bob Esponja, e a Minhoca - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e20_25.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t3e1.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T3E1 - Algas Cada Vez Mais Verdes / Salva-Vidas Bob Em Serviço - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp3e01.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t3e2.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T3E2 - Clube do Bob Esponja / O Meu Belo Cavalo-Marinho - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp3e02.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t3e3.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T3E3 - Só Uma Mordida / O Incômodo - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp3e03.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t3e4.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T3E4 - O Hambúrguer Perigoso / A Caixa Idiota - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp3e04.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t3e5.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T3E5 - O Homem Sereia e o Mexilhãozinho IV / Criando Tempo - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp3e05.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t3e6.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T3E6 - Efeito Bola De Neve / O Lixo Do Caranguejo - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp3e06.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t3e7.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T3E7 - Como na TV / Dá Para Economizar Uma Moeda? - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp3e07.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t3e8.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T3E8 - Grande Homem Do Mar / Vendedor Bob Esponja - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp3e08.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t3e9.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T3E9 - O Aprendiz De Feiticeiro / O Colecionador De Moedas - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp3e09.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t3e10.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T3E10 - O Segredo da Fenda do Biquíni / Bob Peste - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp3e10.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t3e11.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T3E11 - Plankton Adota Um Mascote / Bob Esponja, O Desastrado - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp3e11.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t3e12.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T3E12 - A Fuga do Siri Cascudo / A Garagem da Fenda do Biquíni - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp3e12.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t3e13.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T3E13 - O Amigo Invisível / Pat Morador de Rua - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp3e13.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t3e14.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T3E14 - Um Dia Sem Lágrimas / Arenosos Companheiros - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp3e14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t3e15.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T3E15 - Amnésia / Comendo Abacaxi - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp3e15.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t3e16.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T3E16 - O Dom Musical / A Máquina de Bolhas - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp3e16.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t3e17.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T3E17 - Uma Greve no Siri Cascudo / A Lagarta da Sandy - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp3e17.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t3e18.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T3E18 - A Fórmula Secreta / Viagem de Campo - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp3e18.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t3e19.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T3E19 - A Nova Vida de Lula Molusco / A Noite dos Anjos Bobos - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp3e19.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t3e20.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T3E20 - O Grande Assalto ao Siri Cascudo / As Olimpíadas da Fenda do Biquíni - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp3e20_26.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t4e1.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T4E1 - Medo de hambúrguer de siri / Másculo, mesmo sem casca - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp4e01.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t4e2.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T4E2 - O colchão perdido / Sirigueijo Vs. Plankton - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp4e02.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t4e3.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T4E3 - Cadê esse caracol? - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp4e03.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t4e4.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T4E4 - Gancho habilidoso / Bons vizinhos - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp4e04.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t4e5.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T4E5 - A venda / Calça engraçada - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp4e05.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t4e6.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T4E6 - Masmorras e dragões - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp4e06.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t4e7.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T4E7 - Padrasto inimigo / Homem Sereia e o Mexilhãozinho VI: O Filme - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp4e07.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t4e8.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T4E8 - Patrick calça esperta / Bob Lula Calça Tentáculos - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp4e08.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t4e9.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T4E9 - A torre cascuda / Sra. Puff, está demitida - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp4e09.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t4e10.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T4E10 - Olá chimpanzés / O anfitrião do fantasma - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp4e10.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t4e11.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T4E11 - Aniversário da baleia / Ilha do karatê - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp4e11.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t4e12.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T4E12 - Nem tudo que reluz / O poço dos desejos - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp4e12.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t4e13.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T4E13 - Virando a página / Mordida contagiosa - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp4e13.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t4e14.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T4E14 - Férias desastrosas / Peruca da moda - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp4e14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t4e15.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T4E15 - Viagem lulástica / Não é uma dama - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp4e15.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t4e16.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T4E16 - A coisa / Conversa fiada - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp4e16.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t4e17.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T4E17 - Pilotando de chorar / Reinado dos idiotas - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp4e17.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t4e18.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T4E18 - Nascido para ser selvagem / Grandes amininigos - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp4e18.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t4e19.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T4E19 - O ladrão cor de rosa / Lula de madeira - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp4e19.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t4e20.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T4E20 - Melhor dia de todos / O presente da goma de mascar - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp4e20.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t5e1.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T5E1 - Amigo ou inimigo - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp5e01_6.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t5e2.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T5E2 - O Mestre-Cuca original / Luz noturna - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp5e02_6.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t5e3.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T5E3 - Acorde disposto / Esperando / Tem fungo entre nós - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp5e03_6.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t5e4.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T5E4 - Amigos espiões / Pilotagem consciente / Qual o nome dele? - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp5e04_7.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t5e5.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T5E5 - Casa nueva / Cangrejo al estilo de la casa - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp5e05_7.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t5e6.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T5E6 - Medo de montanha russa / Balde, doce balde - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp5e06_7.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t5e7.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T5E7 - Adoro a Patty / O gostinho do novo Lula Molusco - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp5e07_7.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t5e8.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T5E8 - O dinheiro fala / Bob Esponja vs a máquina de hambúrguer / Dança pegajosa - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp5e08_7.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t5e9.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T5E9 - A esponja cascuda / A música do Patrick - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp5e09_7.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t5e10.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T5E10 - Uma pulga no domo dela / A rosquinha da vergonha / O prato cascudo - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp5e10_7.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t5e11.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T5E11 - Gás Gugudadá / La grande troca - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp5e11_7.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t5e12.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T5E12 - Bob Esponja: Descobrindo Atlântida / Aventura en la Atlántida - Parte 1 - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp5e12_7.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t5e13.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T5E13 - O dia da foto / O Pat não paga / Blackjack / Aventura en la Atlántida - Parte 2 - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp5e13_7.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t5e14.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T5E14 - Esponja roxa / Homem Sereia Versus Bob Esponja - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp5e14_7.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t5e15.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T5E15 - Os reclusos do verão / Salvando um esquilo - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp5e15_7.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t5e16.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T5E16 - A peste do oeste - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp5e16_7.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t5e17.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T5E17 - 20.000 Hamburgueres Submarinos / A batalha da Fenda do Bikini - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp5e17_7.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t5e18.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T5E18 - O que aconteceu com o Bob Esponja? - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp5e18_7.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t5e19.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T5E19 - As duas caras do Lula Molusco / Monumento de Esponja - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp5e19_7.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t5e20.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T5E20 - Interdição na Fenda do Bikini / Stanley S. Calça Quadrada - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp5e20_7.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e1.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E1 - Casa chique / Estrada do Carsiri - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e01.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e2.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E2 - Doido por tostões / Novato náutico - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e02.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e3.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E3 - Spongicus / Sinfonia das ventosas - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e03.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e4.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E4 - Não é normal / Desaparecidos - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e04.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e5.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E5 - A farpa / Os palhaços do assobio - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e05.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e6.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E6 - Uma vida num dia / Alvejado - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e06.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e7.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E7 - Lula Molusco gigante / Nenhum nariz sabe - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e07.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e8.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E8 - Hamburguer e delito / O cliente assíduo do Plankton - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e08.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e9.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E9 - Amigos pilotos / A Gazeta do Siri - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e09.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e10.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E10 - A festa do pijama / Gary enfeitado - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e10.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e11.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E11 - Bob Esponja e a onda gigante - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e11.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e12.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E12 - Bolsos porosos / Os rapazes do coro - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e12.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e13.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E13 - Os crocantes apetitosos / A figurinha - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e13.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e14.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E14 - Queridos vikings / A trapaça - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e15.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E15 - O vovô pirata / Loja maçônica cefalópode - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e15.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e16.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E16 - Visita do Lula / Para o Calça Quadrada ou não - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e16.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e17.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E17 - Embarque atrapalhado / Professor Lula Molusco - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e17.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e18.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E18 - Mascotes ou pestes / Computador sobrecarregado - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e18.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e19.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E19 - Calça ingênua / Sobrecarregado - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e19.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e20.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E20 - Nada de chapéu pro Patrick / Loja de brinquedos ameaçadores - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e20.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e21.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E21 - Castelos de areia na areia / Casca em choque - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e21.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e22.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E22 - Balde de lixo supremo / Aniversário de casamento do Unicelular - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e22.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e23.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E23 - Bob Esponja entrando numa fria - Parte 1 - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e23.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e24.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E24 - Bob Esponja entrando numa fria - Parte 2 - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e24.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e25.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E25 - Tempo de abacaxi / Cavernas do Salmão - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e25.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "bob_esponja_calca_quadrada_t6e26.json",
+    "nome_json": "Bob Esponja Calca Quadrada - T6E26 - A Fúria de Tritão - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp6e26.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "tp7_e16_t1e0.json",
+    "nome_json": "TP7|E16 - T1E0 - Episódios - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/search/label/Epis%C3%B3dios",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t1e1.json",
+    "nome_json": "Star Contra as Forcas do Mal - T1E1 - Star Vem à Terra / Festa do Monstro - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e01_55.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t1e2.json",
+    "nome_json": "Star Contra as Forcas do Mal - T1E2 - Escola de Magia / O Monstro do Baú - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e01_57.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t1e3.json",
+    "nome_json": "Star Contra as Forcas do Mal - T1E3 - Cheirando Problema / Amor de Carnaval - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e03_32.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t1e4.json",
+    "nome_json": "Star Contra as Forcas do Mal - T1E4 - O Monstro das Mãos / Batalha Real - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e04_98.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t1e5.json",
+    "nome_json": "Star Contra as Forcas do Mal - T1E5 - Mentiras e Magias / O Banquete - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e05_45.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t1e6.json",
+    "nome_json": "Star Contra as Forcas do Mal - T1E6 - Comida da Terra / O Monstro Espacial - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e06_19.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t1e7.json",
+    "nome_json": "Star Contra as Forcas do Mal - T1E7 - O Retorno de Toffee / A Festa de Marco - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e07_84.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t1e8.json",
+    "nome_json": "Star Contra as Forcas do Mal - T1E8 - Vômito de Arco-Íris / Monstros da Pipoca - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e08_44.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t1e9.json",
+    "nome_json": "Star Contra as Forcas do Mal - T1E9 - Fuga do Castelo / Dia dos Pais - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e09_6.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t1e10.json",
+    "nome_json": "Star Contra as Forcas do Mal - T1E10 - Ludo em Conserto / Festival de Inverno - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e10_67.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t1e11.json",
+    "nome_json": "Star Contra as Forcas do Mal - T1E11 - Caça ao Tesouro / O Monstro do Pântano - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e11_66.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t1e13.json",
+    "nome_json": "Star Contra as Forcas do Mal - T1E13 - A Grande Luta / O Fim da Varinha - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e13_14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t2e4.json",
+    "nome_json": "Star Contra as Forcas do Mal - T2E4 - \"A festa de pijamas\" - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e04_14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t2e7.json",
+    "nome_json": "Star Contra as Forcas do Mal - T2E7 - \"A coisa da pizza\" - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e07_14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t2e12.json",
+    "nome_json": "Star Contra as Forcas do Mal - T2E12 - \"Matemagia\" - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e12_14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t2e13.json",
+    "nome_json": "Star Contra as Forcas do Mal - T2E13 - \"A sala de saltos\" - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e13_14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t2e14.json",
+    "nome_json": "Star Contra as Forcas do Mal - T2E14 - \"Horrível\" - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e14_14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t2e21.json",
+    "nome_json": "Star Contra as Forcas do Mal - T2E21 - \"A Jornada da Esperança\" - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e21.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t3e1.json",
+    "nome_json": "Star Contra as Forcas do Mal - T3E1 - \"Sra. Heinous\" - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e01_26.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t3e2.json",
+    "nome_json": "Star Contra as Forcas do Mal - T3E2 - \"Terra de Mewni\" - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e02_26.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t3e3.json",
+    "nome_json": "Star Contra as Forcas do Mal - T3E3 - \"Clube da Magia\" - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e03_26.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t3e4.json",
+    "nome_json": "Star Contra as Forcas do Mal - T3E4 - \"A Volta do Ludo\" - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e04_26.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t3e5.json",
+    "nome_json": "Star Contra as Forcas do Mal - T3E5 - \"Hotel de Monstros\" - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e05_26.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t3e6.json",
+    "nome_json": "Star Contra as Forcas do Mal - T3E6 - \"Dia da Família\" - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e06_26.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t3e7.json",
+    "nome_json": "Star Contra as Forcas do Mal - T3E7 - \"Dia de Tênis\" - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e06_19.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t3e8.json",
+    "nome_json": "Star Contra as Forcas do Mal - T3E8 - \"Churrasco Real\" - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e08_26.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t3e9.json",
+    "nome_json": "Star Contra as Forcas do Mal - T3E9 - \"Fuga de Pixtopia\" - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e09_26.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t3e10.json",
+    "nome_json": "Star Contra as Forcas do Mal - T3E10 - \"Assustados na Mewniween\" - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e10_26.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t3e11.json",
+    "nome_json": "Star Contra as Forcas do Mal - T3E11 - \"Crescimento da Estrela\" - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e11.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t3e12.json",
+    "nome_json": "Star Contra as Forcas do Mal - T3E12 - \"Dia de Foto de Família\" - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e12.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t3e13.json",
+    "nome_json": "Star Contra as Forcas do Mal - T3E13 - \"Butterfly Trap\" - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e13.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t3e14.json",
+    "nome_json": "Star Contra as Forcas do Mal - T3E14 - \"Lágrimas de uma Monstro\" - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t3e15.json",
+    "nome_json": "Star Contra as Forcas do Mal - T3E15 - \"Caçada Selvagem\" - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e15.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t3e16.json",
+    "nome_json": "Star Contra as Forcas do Mal - T3E16 - \"Marco Jr.\" - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e16.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t3e17.json",
+    "nome_json": "Star Contra as Forcas do Mal - T3E17 - \"Divididos\" - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e17_26.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t3e18.json",
+    "nome_json": "Star Contra as Forcas do Mal - T3E18 - \"O Feitiço Final\" - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e18.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t3e19.json",
+    "nome_json": "Star Contra as Forcas do Mal - T3E19 - \"Estranho com um Cão\" - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e19.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t3e20.json",
+    "nome_json": "Star Contra as Forcas do Mal - T3E20 - \"Cova das Almas Perdidas\" - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp3e20.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t3e21.json",
+    "nome_json": "Star Contra as Forcas do Mal - T3E21 - \"A Batalha pelo Mewni\" - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/04/inix-tp3e21.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t4e1.json",
+    "nome_json": "Star Contra as Forcas do Mal - T4E1 - As Loucuras Butterfly - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp4e01_77.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t4e2.json",
+    "nome_json": "Star Contra as Forcas do Mal - T4E2 - Fugindo do Povo Torta - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp4e02_14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t4e3.json",
+    "nome_json": "Star Contra as Forcas do Mal - T4E3 - A Lua se Lembra; O Traje de Banho - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp4e03_82.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t4e4.json",
+    "nome_json": "Star Contra as Forcas do Mal - T4E4 - Resgategrama; A Febre da Casa no Lago - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp4e04_45.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t4e5.json",
+    "nome_json": "Star Contra as Forcas do Mal - T4E5 - Frutinhas Blá Blá Blá; Descendo Rio Abaixo - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp4e05_68.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t4e6.json",
+    "nome_json": "Star Contra as Forcas do Mal - T4E6 - O Chapéu da Cabeça Pônei; Sobrevivendo às Picadas de Aranha - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp4e06_57.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t4e7.json",
+    "nome_json": "Star Contra as Forcas do Mal - T4E7 - Saindo do Mercado; O Mundo da Kelly - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp4e07_74.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t4e8.json",
+    "nome_json": "Star Contra as Forcas do Mal - T4E8 - A Maldição da Lua de Sangue - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp4e08_94.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t4e9.json",
+    "nome_json": "Star Contra as Forcas do Mal - T4E9 - A Princesa Quasar e o Sino Mágico; O Fantasma do Castelo Butterfly - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp4e09_14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t4e10.json",
+    "nome_json": "Star Contra as Forcas do Mal - T4E10 - Milhobol; As Lições da Meteora - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp4e10_84.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t4e11.json",
+    "nome_json": "Star Contra as Forcas do Mal - T4E11 - O Posto do Cavaleiro; Rainhaptada - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp4e11_68.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t4e12.json",
+    "nome_json": "Star Contra as Forcas do Mal - T4E12 - A Sucata da Janna; Um Feitiço sem Nome - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp4e12_54.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t4e13.json",
+    "nome_json": "Star Contra as Forcas do Mal - T4E13 - Um Garoto e a Sua MD-700XE; O Monstro e a Rainha - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp4e13_6.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t4e14.json",
+    "nome_json": "Star Contra as Forcas do Mal - T4E14 - Doop-Doop; Tacos da Britta - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp4e14_6.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t4e15.json",
+    "nome_json": "Star Contra as Forcas do Mal - T4E15 - Dia de Praia; Bebês Desaparecidas - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp4e15_6.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t4e16.json",
+    "nome_json": "Star Contra as Forcas do Mal - T4E16 - Linha Direta do Adolescente Triste; Jannanices - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp4e16_6.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t4e17.json",
+    "nome_json": "Star Contra as Forcas do Mal - T4E17 - Mama Star; Preparar, Apontar, Atirar - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp4e17_6.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t4e18.json",
+    "nome_json": "Star Contra as Forcas do Mal - T4E18 - A Maneira Correta; Aqui para Ajudar - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp4e18_6.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t4e19.json",
+    "nome_json": "Star Contra as Forcas do Mal - T4E19 - Festa da Pizza; A Taberna no Fim do Multiverso - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp4e19.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t4e20.json",
+    "nome_json": "Star Contra as Forcas do Mal - T4E20 - Rachadura - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp4e20.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "star_contra_as_forcas_do_mal_t4e21.json",
+    "nome_json": "Star Contra as Forcas do Mal - T4E21 - Final - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp4e21.html",
+    "tentativas": 2
+  }
+]
