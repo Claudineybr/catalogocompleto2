@@ -20,3 +20,9 @@ https_www_vini7xgrave_site_2026_08_inix_diamante_de_sangue_2006_html.json	https:
 os_fantasmas_de_scrooge_2009.json	https://www.vini7xgrave.site/2026/08/inix-os-fantasmas-de-scrooge-2009.html	3 falhas
 my_little_pony_equestria_girls_rainbow_rocks_2013.json	https://www.vini7xgrave.site/2026/08/inix-my-little-pony-equestria-girls.html	3 falhas
 https_www_vini7xgrave_site_2026_07_inix_maldicao_da_residencia_hill_2018_html.json	https://www.vini7xgrave.site/2026/07/inix-maldicao-da-residencia-hill-2018.html	3 falhas
+camp_rock_2_the_final_jam_2010.json	https://www.vini7xgrave.site/2025/08/inix-camp-rock-2-final-jam-2010.html	3 falhas
+alem_do_ceu_2020.json	https://www.vini7xgrave.site/2026/06/inix-alem-do-ceu-2020.html	3 falhas
+colateral_2004.json	https://www.vini7xgrave.site/2026/06/contexthttpsschema.html	3 falhas
+esquadrao_suicida_2021.json	https://www.vini7xgrave.site/2025/03/inix-esquadrao-suicida-2016.html	3 falhas
+arranha_ceu_coragem_sem_limite_2018.json	https://www.vini7xgrave.site/2025/03/inix-arranha-ceu-coragem-sem-limite-2018.html	3 falhas
+jexi_um_celular_sem_filtro_2019.json	https://www.vini7xgrave.site/2025/08/inix-jexi-um-celular-sem-filtro-2019.html	3 falhas
