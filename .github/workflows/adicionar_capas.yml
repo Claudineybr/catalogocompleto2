@@ -1,4 +1,4 @@
-name: Adicionar Capas usando o campo Name
+name: Adicionar Capas (Name + IMDb Fallback)
 
 on:
   workflow_dispatch: # Roda na mão
@@ -34,6 +34,7 @@ jobs:
           import requests
           import time
           import sys
+          import unicodedata
           from bs4 import BeautifulSoup
           from pathlib import Path
           import urllib.parse
@@ -44,24 +45,35 @@ jobs:
               sys.exit(1)
 
           ARQ_PROCESSADOS = Path("capas_processadas.txt")
+          ARQ_SEM_CAPA = Path("filmes_sem_capa.txt") # <-- NOVO ARQUIVO AQUI
+
           processados = set()
           if ARQ_PROCESSADOS.exists():
               processados = set(line.strip() for line in ARQ_PROCESSADOS.read_text(encoding="utf-8").splitlines() if line.strip())
 
           arquivos = list(Path(".").glob("*.json"))
           faltam = [f for f in arquivos if f.name not in processados]
-          
-          # Lote de 1000 para não estourar a API
           lote = faltam[:1000]
           
           print(f"Total de JSONs: {len(arquivos)} | Ja processados: {len(processados)} | Restantes: {len(faltam)}")
-          print(f"Processando lote de {len(lote)} arquivos...")
 
-          def buscar_tmdb(titulo, ano, is_series):
+          def buscar_tmdb_por_imdb(imdb_id):
+              url = f"https://api.themoviedb.org/3/find/{imdb_id}?api_key={TMDB_API_KEY}&language=pt-BR&external_source=imdb_id"
+              try:
+                  r = requests.get(url, timeout=10)
+                  if r.status_code == 200:
+                      data = r.json()
+                      for tipo in ["movie_results", "tv_results"]:
+                          if data.get(tipo):
+                              poster = data[tipo][0].get("poster_path")
+                              if poster: return f"https://image.tmdb.org/t/p/w500{poster}"
+              except: pass
+              return None
+
+          def buscar_tmdb_por_nome(titulo, ano, is_series):
               if not titulo or len(titulo) < 2: return None
               tipo = "tv" if is_series else "movie"
               
-              # 1. Tenta buscar COM o ano
               if ano:
                   year_param = f"&first_air_date_year={ano}" if is_series else f"&year={ano}"
                   url = f"https://api.themoviedb.org/3/search/{tipo}?api_key={TMDB_API_KEY}&language=pt-BR&query={urllib.parse.quote(titulo)}{year_param}"
@@ -73,7 +85,6 @@ jobs:
                   except: pass
                   time.sleep(0.1)
 
-              # 2. Tenta buscar SEM o ano (caso o ano esteja errado)
               url_sem_ano = f"https://api.themoviedb.org/3/search/{tipo}?api_key={TMDB_API_KEY}&language=pt-BR&query={urllib.parse.quote(titulo)}"
               try:
                   r = requests.get(url_sem_ano, timeout=10)
@@ -84,12 +95,32 @@ jobs:
 
               return None
 
+          def limpar_nome(nome_json):
+              nome = nome_json
+              lixos = ['🕸️ PK', '🍿Clau', '𝑴arcø𝒔x⁷👾', '𝑴arcø𝒔ˣ⁷👾', '𝑽iNi𝟕x👾', 'Marcos', 'LEGENDADO', 'DUBLADO', 'HD']
+              for lixo in lixos:
+                  nome = nome.replace(lixo, '')
+              
+              partes = [p.strip() for p in re.split(r'\s+-\s+|\s+–\s+', nome) if p.strip()]
+              if partes:
+                  nome = max(partes, key=len)
+                  
+              nome = unicodedata.normalize('NFKD', nome).encode('ASCII', 'ignore').decode('ASCII')
+              
+              match_ano = re.search(r'\b(19\d{2}|20\d{2})\b', nome_json)
+              ano = match_ano.group(1) if match_ano else ""
+              
+              titulo = re.sub(r'\b(19\d{2}|20\d{2})\b', '', nome)
+              titulo = re.sub(r'[\(\)\[\]]', '', titulo)
+              titulo = re.sub(r'\s+', ' ', titulo).strip()
+              
+              return titulo, ano
+
           contador = 0
           for arquivo in lote:
               try:
                   conteudo = arquivo.read_text(encoding="utf-8")
                   
-                  # Se já tem capa do TMDB, pula
                   if "image.tmdb.org" in conteudo:
                       with open(ARQ_PROCESSADOS, "a", encoding="utf-8") as f:
                           f.write(arquivo.name + "\n")
@@ -101,41 +132,26 @@ jobs:
                   
                   dados = json.loads(script_tag.string)
                   nome_json = dados.get("name", "")
+                  url_video = dados.get("contentUrl", "")
                   
                   if not nome_json: continue
-
-                  # Detectar se é série pelo nome do arquivo
                   is_series = bool(re.search(r'_t\d+e\d+', arquivo.name, re.I))
                   
-                  # LIMPEZA DO NOME
-                  nome_limpo = nome_json.replace('🕸️ PK', '').replace('🍿Clau', '').replace('𝑴arcø𝒔x⁷👾', '').replace('Marcos', '').strip()
+                  titulo_busca, ano_busca = limpar_nome(nome_json)
                   
-                  # Remove "Episódio X", "T1E1", "Temporada X"
-                  if is_series:
-                      nome_limpo = re.sub(r'Episódio\s*\d+.*', '', nome_limpo, flags=re.I)
-                      nome_limpo = re.sub(r'-?\s*T\d+E\d+.*', '', nome_limpo, flags=re.I)
-                      nome_limpo = re.sub(r'\d+ª\s*Temporada.*', '', nome_limpo, flags=re.I)
-
-                  # Separa por hífen e pega o maior pedaço (para tirar lixo)
-                  partes = [p.strip() for p in re.split(r'\s+-\s+', nome_limpo) if p.strip()]
-                  if partes:
-                      nome_limpo = max(partes, key=len)
-                  
-                  # Extrai Ano (4 dígitos)
-                  match_ano = re.search(r'\b(19\d{2}|20\d{2})\b', nome_json)
-                  ano = match_ano.group(1) if match_ano else ""
-                  
-                  # Limpa o título final
-                  titulo_busca = re.sub(r'\b(19\d{2}|20\d{2})\b', '', nome_limpo)
-                  titulo_busca = re.sub(r'[\(\)\[\]]', '', titulo_busca)
-                  titulo_busca = re.sub(r'\s+', ' ', titulo_busca).strip()
-                  titulo_busca = re.sub(r'[\s.:;,]+$', '', titulo_busca).strip()
-
                   if not titulo_busca or "desconhecido" in titulo_busca.lower(): continue
 
-                  print(f"Buscando: '{titulo_busca}' ({ano}) [{'Serie' if is_series else 'Filme'}]...", end=" ")
+                  print(f"Buscando: '{titulo_busca}' ({ano_busca}) [{'Serie' if is_series else 'Filme'}]...", end=" ")
                   
-                  capa_url = buscar_tmdb(titulo_busca, ano, is_series)
+                  # 1. Tenta buscar pelo Nome
+                  capa_url = buscar_tmdb_por_nome(titulo_busca, ano_busca, is_series)
+                  
+                  # 2. Se falhar, tenta buscar pelo ID do IMDb
+                  if not capa_url:
+                      match_imdb = re.search(r'(tt\d{7,9})', url_video)
+                      if match_imdb:
+                          print("(Tentando IMDb)...", end=" ")
+                          capa_url = buscar_tmdb_por_imdb(match_imdb.group(1))
                   
                   if capa_url:
                       print("ACHEI!")
@@ -147,6 +163,9 @@ jobs:
                       contador += 1
                   else:
                       print("NAO ACHOU")
+                      # REGISTRA O ERRO NO TXT DE FALHAS
+                      with open(ARQ_SEM_CAPA, "a", encoding="utf-8") as f_erro:
+                          f_erro.write(f"{arquivo.name} | Buscado: '{titulo_busca}' ({ano_busca})\n")
                   
                   with open(ARQ_PROCESSADOS, "a", encoding="utf-8") as f:
                       f.write(arquivo.name + "\n")
@@ -156,6 +175,8 @@ jobs:
                   pass
 
           print(f"\nFinalizado! {contador} capas adicionadas.")
+          if ARQ_SEM_CAPA.exists():
+              print(f"Arquivos sem capa salvos em '{ARQ_SEM_CAPA.name}' para analise manual.")
           PYEOF
 
           python3 buscar_capas.py
@@ -166,6 +187,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
           git add -f capas_processadas.txt 2>/dev/null || true
+          git add -f filmes_sem_capa.txt 2>/dev/null || true # <-- SALVA O ARQUIVO DE FALHAS
           git add *.json
           git add *.txt
           
@@ -174,14 +196,13 @@ jobs:
             exit 0
           fi
           
-          git commit -m "feat: adicionar capas usando o campo name como referencia"
+          git commit -m "feat: adicionar capas e registrar falhas em filmes_sem_capa.txt"
           
           for i in $(seq 1 5); do
             if git push origin HEAD:main; then
               echo "[SUCESSO] Push OK"
               exit 0
             fi
-            echo "[FALHA] Push falhou. Sincronizando..."
             git pull --rebase origin main --autostash || git pull origin main --no-rebase -X ours --no-edit
             sleep 3
           done
