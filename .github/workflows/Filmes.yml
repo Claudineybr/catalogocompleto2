@@ -1,4 +1,4 @@
-name: Mega Extrair Filmes (Lotes de 500)
+name: Mega Extrair Filmes (Lotes de 100)
 
 on:
   schedule:
@@ -99,7 +99,9 @@ jobs:
 
           todas = [u.strip() for u in ARQ_FILA.read_text(encoding="utf-8").splitlines() if u.strip()]
           fila = [u for u in todas if u not in feitas]
-          lote = fila[:500]
+          
+          # MUDANÇA: Lote de 100 filmes
+          lote = fila[:100]
 
           log(f"Total na fila: {len(todas)} | Ja feitos: {len(feitas)} | Faltam: {len(fila)} | Pendentes: {len(pendentes)}.")
 
@@ -145,12 +147,10 @@ jobs:
               
               return ' - '.join(validas) if validas else raw_norm.strip()
 
-          # NOVO: Função para pegar a capa direto do site
           def extrair_capa(soup):
               og_img = soup.find('meta', property='og:image')
               if og_img and og_img.get('content'):
                   return og_img['content']
-              # Fallback para twitter:image
               tw_img = soup.find('meta', attrs={'name': 'twitter:image'})
               if tw_img and tw_img.get('content'):
                   return tw_img['content']
@@ -169,12 +169,11 @@ jobs:
                   if re.search(r'\bepis[oó]dio\s*\d+', a.get_text(strip=True), re.I): return True
               return False
 
-          # Atualizado para receber a capa
           def salvar_json(nome_arquivo, nome_json, link, capa_url):
               dados = {
                   "@context": "https://schema.org", "@type": "VideoObject",
                   "name": nome_json, "description": f"Assista {nome_json}",
-                  "thumbnailUrl": [capa_url], # Usa a capa do site aqui
+                  "thumbnailUrl": [capa_url],
                   "uploadDate": "2020-01-01T00:00:00+00:00", "inLanguage": "pt",
                   "contentUrl": link, "embedUrl": link,
               }
@@ -198,7 +197,7 @@ jobs:
 
                   titulo = extrair_titulo(soup)
                   ano = extrair_ano_da_url(url_pagina)
-                  capa_url = extrair_capa(soup) # Pega a capa
+                  capa_url = extrair_capa(soup)
                   
                   tem_ano_no_titulo = bool(re.search(r'(?<!\d)(?:19|20)\d{2}(?!\d)', titulo))
 
@@ -223,8 +222,8 @@ jobs:
                       if not any(p['arquivo']==nome_arquivo for p in pendentes):
                           pendentes.append({"arquivo": nome_arquivo, "nome_json": nome_json, "url": url_pagina, "tentativas": 1})
                       return
-                  salvar_json(nome_arquivo, nome_json, link, capa_url) # Passa a capa para salvar
-                  log(f"      [+] Salvo: {nome_arquivo} (com capa do site)")
+                  salvar_json(nome_arquivo, nome_json, link, capa_url)
+                  log(f"      [+] Salvo: {nome_arquivo}")
               except Exception as e:
                   log(f"    Erro em {url_pagina}: {e}")
 
@@ -249,7 +248,6 @@ jobs:
                           log(f"--> Tentativa {item['tentativas']+1}/{MAX_TENTATIVAS}: {item['arquivo']}")
                           link = await extrair_video_playwright(ctx, item['url'])
                           
-                          # No retry, a gente tenta pegar a capa de novo
                           try:
                               r = await asyncio.to_thread(requests.get, item['url'], headers=HEADERS, timeout=20)
                               soup = BeautifulSoup(r.text, 'html.parser')
@@ -279,7 +277,7 @@ jobs:
           git add -f filmes_feitos.txt filmes_fila.txt filmes_pendentes.json filmes_descartados.txt 2>/dev/null || true
           git add -f *.json *.txt 2>/dev/null || true
           if git diff --cached --quiet; then echo "Nada novo."; exit 0; fi
-          git commit -m "feat: mega extracao de filmes (com capa nativa)"
+          git commit -m "feat: mega extracao de filmes (lote 100)"
 
           for i in $(seq 1 5); do
             if git push origin HEAD:main; then break; fi
