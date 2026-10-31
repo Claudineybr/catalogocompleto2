@@ -1,1 +1,548 @@
-[]
+[
+  {
+    "arquivo": "the_walking_dead_t1e1.json",
+    "nome_json": "The Walking Dead - T1E1 - Dias Passados - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp1e01_13.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t1e2.json",
+    "nome_json": "The Walking Dead - T1E2 - Coragem - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp1e02_13.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t1e4.json",
+    "nome_json": "The Walking Dead - T1E4 - Vatos - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp1e04_13.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t1e5.json",
+    "nome_json": "The Walking Dead - T1E5 - Incêndio - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp1e05_13.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t2e1.json",
+    "nome_json": "The Walking Dead - T2E1 - O que Vem por Aí - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp2e01_13.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t2e2.json",
+    "nome_json": "The Walking Dead - T2E2 - Sangria - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp2e02_13.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t2e3.json",
+    "nome_json": "The Walking Dead - T2E3 - Salve o Último - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp2e03_13.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t2e10.json",
+    "nome_json": "The Walking Dead - T2E10 - 18 Milhas Afora - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp2e10_13.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t2e12.json",
+    "nome_json": "The Walking Dead - T2E12 - Anjos Melhores - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp2e12_13.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t2e13.json",
+    "nome_json": "The Walking Dead - T2E13 - Ao Lado da Brasa - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp2e13_13.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t3e2.json",
+    "nome_json": "The Walking Dead - T3E2 - Doente - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp3e02_14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t3e6.json",
+    "nome_json": "The Walking Dead - T3E6 - Perseguido - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp3e06_14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t3e11.json",
+    "nome_json": "The Walking Dead - T3E11 - Eu Não Sou um Judas - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp3e11_14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t3e12.json",
+    "nome_json": "The Walking Dead - T3E12 - Clareza - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp3e12_14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t3e13.json",
+    "nome_json": "The Walking Dead - T3E13 - Flecha no Batente da Porta - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp3e13_14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t3e16.json",
+    "nome_json": "The Walking Dead - T3E16 - Bem-Vindo aos Túmulos - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp3e16_14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t4e4.json",
+    "nome_json": "The Walking Dead - T4E4 - Indiferença - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp4e04_14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t4e5.json",
+    "nome_json": "The Walking Dead - T4E5 - Internação - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp4e05_14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t4e8.json",
+    "nome_json": "The Walking Dead - T4E8 - Longe Demais - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp4e08_14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t4e9.json",
+    "nome_json": "The Walking Dead - T4E9 - Depois - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp4e09_14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t4e10.json",
+    "nome_json": "The Walking Dead - T4E10 - Reclusos - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp4e10.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t4e11.json",
+    "nome_json": "The Walking Dead - T4E11 - Reivindicado - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp4e11.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t5e2.json",
+    "nome_json": "The Walking Dead - T5E2 - Estranhos - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp5e02.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t5e3.json",
+    "nome_json": "The Walking Dead - T5E3 - Quatro Paredes e um Telhado - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp5e03.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t5e4.json",
+    "nome_json": "The Walking Dead - T5E4 - Slabtown - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp5e04.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t5e5.json",
+    "nome_json": "The Walking Dead - T5E5 - Autoajuda - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp5e05.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t5e8.json",
+    "nome_json": "The Walking Dead - T5E8 - Coda - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp5e08.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t5e11.json",
+    "nome_json": "The Walking Dead - T5E11 - A Distância - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp5e11.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t5e12.json",
+    "nome_json": "The Walking Dead - T5E12 - Lembre-se - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp5e12.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t5e13.json",
+    "nome_json": "The Walking Dead - T5E13 - Esqueça - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp5e13.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t5e14.json",
+    "nome_json": "The Walking Dead - T5E14 - Gaste - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp5e14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t6e3.json",
+    "nome_json": "The Walking Dead - T6E3 - Obrigado - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp6e03.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t6e4.json",
+    "nome_json": "The Walking Dead - T6E4 - Aqui Não É Aqui - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp6e04.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t6e11.json",
+    "nome_json": "The Walking Dead - T6E11 - Nós Desatados - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp6e11.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t6e15.json",
+    "nome_json": "The Walking Dead - T6E15 - Leste - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp6e15.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t7e4.json",
+    "nome_json": "The Walking Dead - T7E4 - Serviço - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp7e04.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t7e6.json",
+    "nome_json": "The Walking Dead - T7E6 - Praga - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp7e06.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t7e7.json",
+    "nome_json": "The Walking Dead - T7E7 - Cante uma Canção - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp7e07.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t7e8.json",
+    "nome_json": "The Walking Dead - T7E8 - Corações Ainda Batendo - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp7e08.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t7e9.json",
+    "nome_json": "The Walking Dead - T7E9 - Pedra no Caminho - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp7e09.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t7e10.json",
+    "nome_json": "The Walking Dead - T7E10 - Novos Melhores Amigos - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp7e10.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t7e11.json",
+    "nome_json": "The Walking Dead - T7E11 - Hostilidades e Calamidades - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp7e11.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t7e12.json",
+    "nome_json": "The Walking Dead - T7E12 - Diga Sim - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp7e12.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t7e13.json",
+    "nome_json": "The Walking Dead - T7E13 - Me Enterre Aqui - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp7e13.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t7e14.json",
+    "nome_json": "The Walking Dead - T7E14 - O Outro Lado - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp7e14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t7e15.json",
+    "nome_json": "The Walking Dead - T7E15 - Algo que Eles Precisam - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp7e15.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t7e16.json",
+    "nome_json": "The Walking Dead - T7E16 - O Primeiro Dia do Resto da Sua Vida - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp7e16.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t8e1.json",
+    "nome_json": "The Walking Dead - T8E1 - Piedade - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp8e0.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t8e2.json",
+    "nome_json": "The Walking Dead - T8E2 - Os Condenados - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp8e02.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t8e4.json",
+    "nome_json": "The Walking Dead - T8E4 - Alguém Qualquer - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp8e04.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t8e6.json",
+    "nome_json": "The Walking Dead - T8E6 - O Rei, A Viúva e Rick - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp8e06.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t8e9.json",
+    "nome_json": "The Walking Dead - T8E9 - Honra - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp8e09.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t9e7.json",
+    "nome_json": "The Walking Dead - T9E7 - Stradivarius - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp9e07.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t9e8.json",
+    "nome_json": "The Walking Dead - T9E8 - Evolução - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp9e08.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t9e11.json",
+    "nome_json": "The Walking Dead - T9E11 - Recompensa - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp9e11.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t9e13.json",
+    "nome_json": "The Walking Dead - T9E13 - Encurralamento - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp9e13.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t9e15.json",
+    "nome_json": "The Walking Dead - T9E15 - A Calmaria Anterior - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp9e15.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t9e16.json",
+    "nome_json": "The Walking Dead - T9E16 - A Tormenta - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp9e16.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t10e1.json",
+    "nome_json": "The Walking Dead - T10E1 - Linhas que Cruzamos - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp10e01.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t10e2.json",
+    "nome_json": "The Walking Dead - T10E2 - Nós Somos o Fim do Mundo - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp10e02.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t10e3.json",
+    "nome_json": "The Walking Dead - T10E3 - Fantasmas - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp10e03.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t10e9.json",
+    "nome_json": "The Walking Dead - T10E9 - Espremido - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp10e09.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t10e10.json",
+    "nome_json": "The Walking Dead - T10E10 - Perseguidor - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp10e10.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t10e11.json",
+    "nome_json": "The Walking Dead - T10E11 - Estrela da Manhã - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp10e11.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t10e12.json",
+    "nome_json": "The Walking Dead - T10E12 - Ande Conosco - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp10e12.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t10e13.json",
+    "nome_json": "The Walking Dead - T10E13 - O Que Nos Tornamos - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp10e13.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t10e15.json",
+    "nome_json": "The Walking Dead - T10E15 - A Torre - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp10e15.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e1.json",
+    "nome_json": "The Walking Dead - T11E1 - Acheron: Parte I - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e01.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e2.json",
+    "nome_json": "The Walking Dead - T11E2 - Acheron: Parte II - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e02.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e3.json",
+    "nome_json": "The Walking Dead - T11E3 - Caçados - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e03.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e4.json",
+    "nome_json": "The Walking Dead - T11E4 - Performance - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e04.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e5.json",
+    "nome_json": "The Walking Dead - T11E5 - Das Cinzas - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e05.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e6.json",
+    "nome_json": "The Walking Dead - T11E6 - Por Dentro - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e06.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e7.json",
+    "nome_json": "The Walking Dead - T11E7 - Promessas Quebradas - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e07.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e8.json",
+    "nome_json": "The Walking Dead - T11E8 - Por Sangue - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e08.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e9.json",
+    "nome_json": "The Walking Dead - T11E9 - Não Tem Outro Jeito - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e09.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e10.json",
+    "nome_json": "The Walking Dead - T11E10 - Novas Assombrações - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e10.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e11.json",
+    "nome_json": "The Walking Dead - T11E11 - Elemento Rebelde - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e11.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e12.json",
+    "nome_json": "The Walking Dead - T11E12 - Os Sortudos - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e12.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e13.json",
+    "nome_json": "The Walking Dead - T11E13 - Senhores da Guerra - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e13.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e14.json",
+    "nome_json": "The Walking Dead - T11E14 - O Núcleo Podre - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e15.json",
+    "nome_json": "The Walking Dead - T11E15 - Confiar - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e15.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e16.json",
+    "nome_json": "The Walking Dead - T11E16 - Atos de Deus - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e16.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e17.json",
+    "nome_json": "The Walking Dead - T11E17 - Confinamento - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e17.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e18.json",
+    "nome_json": "The Walking Dead - T11E18 - Um Novo Acordo - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e18.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e19.json",
+    "nome_json": "The Walking Dead - T11E19 - Variante - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e19.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e20.json",
+    "nome_json": "The Walking Dead - T11E20 - O que Foi Perdido - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e20.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e21.json",
+    "nome_json": "The Walking Dead - T11E21 - Posto Avançado 22 - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e21.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e22.json",
+    "nome_json": "The Walking Dead - T11E22 - Fé - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e22.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e23.json",
+    "nome_json": "The Walking Dead - T11E23 - Família - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e23.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e24.json",
+    "nome_json": "The Walking Dead - T11E24 - Descanse em Paz - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e24.html",
+    "tentativas": 2
+  }
+]
