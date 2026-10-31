@@ -136,10 +136,14 @@ jobs:
                   raw = og['content']
               else:
                   raw = soup.h1.text if soup.h1 else (soup.title.text if soup.title else "Filme Desconhecido")
-              raw = raw.replace('𝑴arcø𝒔x⁷👾', '').replace('Marcos', '').strip()
-              partes = [p.strip() for p in raw.split(' - ') if p.strip()]
-              validas = [p for p in partes if not any(x in p.lower() for x in ['vini','grave','online','blogspot','assistir'])]
-              return max(validas, key=len) if validas else "Filme Desconhecido"
+              
+              # Separa por traço e filtra os pedaços que têm nome de site
+              partes = [p.strip() for p in re.split(r'\s+[-–—]\s+', raw) if p.strip()]
+              validas = [p for p in partes if not re.search(r'(vini|marcos|grave|online|blogspot|assistir)', p, re.I)]
+              
+              # Junta de volta o que é título real
+              titulo = ' - '.join(validas) if validas else raw.strip()
+              return titulo.strip()
 
           def extrair_ano_da_url(url_pagina):
               m = re.search(r'/([^/]+)\.html', url_pagina)
@@ -182,10 +186,14 @@ jobs:
 
                   titulo = extrair_titulo(soup)
                   ano = extrair_ano_da_url(url_pagina)
+                  
+                  # Verifica se o ano já está no título para não duplicar
+                  tem_ano_no_titulo = bool(re.search(r'(?<!\d)(?:19|20)\d{2}(?!\d)', titulo))
+
                   slug = re.sub(r'[^a-z0-9]', '_', titulo.lower())
                   slug = re.sub(r'_+', '_', slug).strip('_')
 
-                  if ano:
+                  if ano and not tem_ano_no_titulo:
                       nome_arquivo = f"{slug}_{ano}.json"
                       nome_json    = f"{titulo} ({ano}) - 🍿Clau"
                   else:
@@ -197,7 +205,7 @@ jobs:
                   if Path(nome_arquivo).exists():
                       log(f"    (Ja existe: {nome_arquivo})"); return
 
-                  log(f"    Filme: '{nome_json}' (ano={ano or 'n/a'})")
+                  log(f"    Filme: '{nome_json}'")
                   link = await extrair_video_playwright(context, url_pagina)
                   if not link:
                       if not any(p['arquivo']==nome_arquivo for p in pendentes):
