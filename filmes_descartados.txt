@@ -19,3 +19,4 @@ https_www_vini7xgrave_site_2026_08_inix_minions_monstros_2026_html.json	https://
 https_www_vini7xgrave_site_2026_08_inix_diamante_de_sangue_2006_html.json	https://www.vini7xgrave.site/2026/08/inix-diamante-de-sangue-2006.html	3 falhas
 os_fantasmas_de_scrooge_2009.json	https://www.vini7xgrave.site/2026/08/inix-os-fantasmas-de-scrooge-2009.html	3 falhas
 my_little_pony_equestria_girls_rainbow_rocks_2013.json	https://www.vini7xgrave.site/2026/08/inix-my-little-pony-equestria-girls.html	3 falhas
+https_www_vini7xgrave_site_2026_07_inix_maldicao_da_residencia_hill_2018_html.json	https://www.vini7xgrave.site/2026/07/inix-maldicao-da-residencia-hill-2018.html	3 falhas
