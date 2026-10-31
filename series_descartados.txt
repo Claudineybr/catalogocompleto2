@@ -431,3 +431,7 @@ pssica_t1e2.json	https://vini7xgseries2.blogspot.com/2025/09/inix-pssica-tp1e02.
 pssica_t1e3.json	https://vini7xgseries2.blogspot.com/2025/09/inix-pssica-tp1e03.html	3 falhas
 pssica_t1e4.json	https://vini7xgseries2.blogspot.com/2025/09/inix-pssica-tp1e04.html	3 falhas
 minha_vida_com_a_familia_walter_t2e1.json	https://viniraveon.blogspot.com/2025/08/inix-minha-vida-com-familia-walter-tp2e01.html	3 falhas
+peaky_blinders_t1e3.json	https://vini7xgseries2.blogspot.com/2025/04/inix-tp1e03_23.html	3 falhas
+peaky_blinders_t3e2.json	https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e02_24.html	3 falhas
+peaky_blinders_t3e4.json	https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e04_19.html	3 falhas
+peaky_blinders_t3e5.json	https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e05_14.html	3 falhas
