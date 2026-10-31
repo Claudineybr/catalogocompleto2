@@ -26,3 +26,4 @@ colateral_2004.json	https://www.vini7xgrave.site/2026/06/contexthttpsschema.html
 esquadrao_suicida_2021.json	https://www.vini7xgrave.site/2025/03/inix-esquadrao-suicida-2016.html	3 falhas
 arranha_ceu_coragem_sem_limite_2018.json	https://www.vini7xgrave.site/2025/03/inix-arranha-ceu-coragem-sem-limite-2018.html	3 falhas
 jexi_um_celular_sem_filtro_2019.json	https://www.vini7xgrave.site/2025/08/inix-jexi-um-celular-sem-filtro-2019.html	3 falhas
+seguindo_as_pistas_2002.json	https://www.vini7xgrave.site/2026/05/inix-seguindo-as-pistas-2002.html	3 falhas
