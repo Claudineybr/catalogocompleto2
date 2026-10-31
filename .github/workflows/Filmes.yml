@@ -137,15 +137,24 @@ jobs:
               else:
                   raw = soup.h1.text if soup.h1 else (soup.title.text if soup.title else "Filme Desconhecido")
               
-              # NORMALIZA CARACTERES FANCY (𝑽 -> V, 𝟕 -> 7)
               raw_norm = unicodedata.normalize('NFKD', str(raw))
               raw_norm = "".join([c for c in raw_norm if not unicodedata.combining(c)])
               
-              # Separa por traço e remove o nome do site (agora pega ViNi, Marcos, etc)
               partes = [p.strip() for p in re.split(r'\s+[-–—]\s+', raw_norm) if p.strip()]
               validas = [p for p in partes if not re.search(r'(vini|marcos|grave|online|blogspot|assistir)', p, re.I)]
               
               return ' - '.join(validas) if validas else raw_norm.strip()
+
+          # NOVO: Função para pegar a capa direto do site
+          def extrair_capa(soup):
+              og_img = soup.find('meta', property='og:image')
+              if og_img and og_img.get('content'):
+                  return og_img['content']
+              # Fallback para twitter:image
+              tw_img = soup.find('meta', attrs={'name': 'twitter:image'})
+              if tw_img and tw_img.get('content'):
+                  return tw_img['content']
+              return "https://via.placeholder.com/500x750?text=Sem+Capa"
 
           def extrair_ano_da_url(url_pagina):
               m = re.search(r'/([^/]+)\.html', url_pagina)
@@ -160,11 +169,12 @@ jobs:
                   if re.search(r'\bepis[oó]dio\s*\d+', a.get_text(strip=True), re.I): return True
               return False
 
-          def salvar_json(nome_arquivo, nome_json, link):
+          # Atualizado para receber a capa
+          def salvar_json(nome_arquivo, nome_json, link, capa_url):
               dados = {
                   "@context": "https://schema.org", "@type": "VideoObject",
                   "name": nome_json, "description": f"Assista {nome_json}",
-                  "thumbnailUrl": ["https://via.placeholder.com/500x750?text=Sem+Capa"],
+                  "thumbnailUrl": [capa_url], # Usa a capa do site aqui
                   "uploadDate": "2020-01-01T00:00:00+00:00", "inLanguage": "pt",
                   "contentUrl": link, "embedUrl": link,
               }
@@ -188,6 +198,7 @@ jobs:
 
                   titulo = extrair_titulo(soup)
                   ano = extrair_ano_da_url(url_pagina)
+                  capa_url = extrair_capa(soup) # Pega a capa
                   
                   tem_ano_no_titulo = bool(re.search(r'(?<!\d)(?:19|20)\d{2}(?!\d)', titulo))
 
@@ -212,8 +223,8 @@ jobs:
                       if not any(p['arquivo']==nome_arquivo for p in pendentes):
                           pendentes.append({"arquivo": nome_arquivo, "nome_json": nome_json, "url": url_pagina, "tentativas": 1})
                       return
-                  salvar_json(nome_arquivo, nome_json, link)
-                  log(f"      [+] Salvo: {nome_arquivo}")
+                  salvar_json(nome_arquivo, nome_json, link, capa_url) # Passa a capa para salvar
+                  log(f"      [+] Salvo: {nome_arquivo} (com capa do site)")
               except Exception as e:
                   log(f"    Erro em {url_pagina}: {e}")
 
@@ -237,8 +248,17 @@ jobs:
                               continue
                           log(f"--> Tentativa {item['tentativas']+1}/{MAX_TENTATIVAS}: {item['arquivo']}")
                           link = await extrair_video_playwright(ctx, item['url'])
+                          
+                          # No retry, a gente tenta pegar a capa de novo
+                          try:
+                              r = await asyncio.to_thread(requests.get, item['url'], headers=HEADERS, timeout=20)
+                              soup = BeautifulSoup(r.text, 'html.parser')
+                              capa_url = extrair_capa(soup)
+                          except:
+                              capa_url = "https://via.placeholder.com/500x750?text=Sem+Capa"
+
                           if link:
-                              salvar_json(item['arquivo'], item['nome_json'], link)
+                              salvar_json(item['arquivo'], item['nome_json'], link, capa_url)
                               log("    [+] SUCESSO")
                           else:
                               item["tentativas"] = item.get("tentativas",1) + 1
@@ -259,7 +279,7 @@ jobs:
           git add -f filmes_feitos.txt filmes_fila.txt filmes_pendentes.json filmes_descartados.txt 2>/dev/null || true
           git add -f *.json *.txt 2>/dev/null || true
           if git diff --cached --quiet; then echo "Nada novo."; exit 0; fi
-          git commit -m "feat: mega extracao de filmes"
+          git commit -m "feat: mega extracao de filmes (com capa nativa)"
 
           for i in $(seq 1 5); do
             if git push origin HEAD:main; then break; fi
