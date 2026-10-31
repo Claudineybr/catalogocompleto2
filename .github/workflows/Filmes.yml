@@ -100,7 +100,6 @@ jobs:
           todas = [u.strip() for u in ARQ_FILA.read_text(encoding="utf-8").splitlines() if u.strip()]
           fila = [u for u in todas if u not in feitas]
           
-          # MUDANÇA: Lote de 100 filmes
           lote = fila[:100]
 
           log(f"Total na fila: {len(todas)} | Ja feitos: {len(feitas)} | Faltam: {len(fila)} | Pendentes: {len(pendentes)}.")
