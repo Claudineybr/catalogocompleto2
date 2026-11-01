@@ -1476,3 +1476,11 @@ chaves_t1e28.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp2e28.html
 chaves_t1e29.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp2e29.html	3 falhas
 chaves_t1e30.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp2e30.html	3 falhas
 chaves_t1e31.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp2e31.html	3 falhas
+shingeki_no_kyojin_attack_on_titan_t1e23.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp1e22_16.html	3 falhas
+shingeki_no_kyojin_attack_on_titan_t2e3.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp2e03_17.html	3 falhas
+shingeki_no_kyojin_attack_on_titan_t2e5.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp2e05_17.html	3 falhas
+shingeki_no_kyojin_attack_on_titan_t3e4.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp4e04_10.html	3 falhas
+shingeki_no_kyojin_attack_on_titan_t3e6.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp4e06_35.html	3 falhas
+shingeki_no_kyojin_attack_on_titan_t3e9.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp4e09_9.html	3 falhas
+shingeki_no_kyojin_attack_on_titan_t3e10.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp4e10_32.html	3 falhas
+shingeki_no_kyojin_attack_on_titan_t3e11.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp4e11_19.html	3 falhas
