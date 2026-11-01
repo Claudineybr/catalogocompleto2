@@ -1476,3 +1476,14 @@ chaves_t1e28.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp2e28.html
 chaves_t1e29.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp2e29.html	3 falhas
 chaves_t1e30.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp2e30.html	3 falhas
 chaves_t1e31.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp2e31.html	3 falhas
+shingeki_no_kyojin_attack_on_titan_t3e6.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp4e06_35.html	3 falhas
+grimm_contos_de_terror_t2e22.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp2e22.html	3 falhas
+grimm_contos_de_terror_t5e10.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp5e10.html	3 falhas
+demolidor_renascido_t1e1.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp1e01_12.html	3 falhas
+demolidor_renascido_t1e2.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp1e02_12.html	3 falhas
+demolidor_renascido_t1e3.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp1e03_12.html	3 falhas
+demolidor_renascido_t1e4.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp1e04_18.html	3 falhas
+demolidor_renascido_t1e5.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp1e05_18.html	3 falhas
+demolidor_renascido_t1e6.json	https://viniseriesonline.blogspot.com/2025/03/inix-tp1e06_25.html	3 falhas
+demolidor_renascido_t1e7.json	https://viniraveon.blogspot.com/2025/04/inix-tp1e07_39.html	3 falhas
+demolidor_renascido_t1e8.json	https://viniseriesonline.blogspot.com/2025/04/inix-tp1e08.html	3 falhas
