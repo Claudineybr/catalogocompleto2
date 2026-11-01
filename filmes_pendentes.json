@@ -1,854 +1,152 @@
 [
   {
-    "arquivo": "a_visita_2015.json",
-    "nome_json": "A Visita 2015 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-visita.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "vini7x_feed_o_terror_esta_online_2022.json",
-    "nome_json": "ViNi7x👾 - Feed: O Terror Esta Online 2022 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-feed-2022.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "refens_do_mal_2007.json",
-    "nome_json": "Refens do Mal 2007 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-refens-do-mal-2007.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "super_herois_a_liga_da_injustica_2008.json",
-    "nome_json": "Super-Herois: A Liga da Injustica 2008 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/super-herois-liga-da-injustica-2008.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_minha_babysitter_e_um_vampiro_2010_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-minha-babysitter-e-um-vampiro-2010.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-minha-babysitter-e-um-vampiro-2010.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "ponto_cego.json",
-    "nome_json": "Ponto Cego - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-ponto-cego.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "pulsacao_pulse.json",
-    "nome_json": "Pulsacao (Pulse) - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-pulsacao-pulse.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "enfeiticados_2024.json",
-    "nome_json": "Enfeiticados 2024 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-enfeiticados-2024.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_nosso_sonho_2023_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-nosso-sonho-2023.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-nosso-sonho-2023.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_cacador_de_demonios_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-cacador-de-demonios.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-cacador-de-demonios.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_tubarao_touro_2020_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-tubarao-touro-2020.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-tubarao-touro-2020.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "o_tunel_2019.json",
-    "nome_json": "O Tunel 2019 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-o-tunel-2019.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "faces_da_verdade_2008.json",
-    "nome_json": "Faces da Verdade 2008 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-faces-da-verdade-2008.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "o_falsificador_2022.json",
-    "nome_json": "O Falsificador 2022 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-o-falsificador-2022.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_o_casamento_do_ano_2013_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-o-casamento-do-ano-2013.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-o-casamento-do-ano-2013.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_refem_rebelde_2021_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-refem-rebelde-2021.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-refem-rebelde-2021.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "pura_adrenalina_2011.json",
-    "nome_json": "Pura Adrenalina 2011 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-pura-adrenalina-2011.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "operacao_resgate_2015.json",
-    "nome_json": "Operacao Resgate 2015 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-operacao-resgate-2015.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "operacao_mekong_2016.json",
-    "nome_json": "Operacao Mekong 2016 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_o_ultimo_rei_2016_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-o-ultimo-rei-2016.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-o-ultimo-rei-2016.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_o_sequestro_de_daniel_rye_2019_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-o-sequestro-de-daniel-rye-2019.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-o-sequestro-de-daniel-rye-2019.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "marcando_territorio_2016.json",
-    "nome_json": "Marcando Territorio 2016 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-marcando-territorio-2016.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "honra_e_lealdade_2015.json",
-    "nome_json": "Honra e Lealdade 2015 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-honra-e-lealdade-2015.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "homens_de_coragem_2016.json",
-    "nome_json": "Homens de Coragem 2016 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-homens-de-coragem-2016.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "as_filhas_do_sol_2018.json",
-    "nome_json": "As Filhas do Sol 2018 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-as-filhas-do-sol-2018.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "coracao_sangrento_2015.json",
-    "nome_json": "Coracao Sangrento 2015 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-coracao-sangrento-2015.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_as_aventuras_de_jack_mimoun_2022_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-as-aventuras-de-jack-mimoun-2022.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-as-aventuras-de-jack-mimoun-2022.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_desafios_2025_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-desafios-2025.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-desafios-2025.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "super_velozes_mega_furiosos_2015.json",
-    "nome_json": "Super Velozes, Mega Furiosos 2015 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-super-velozes-mega-furiosos-2015.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_o_medalhao_2003_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-o-medalhao-2003.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-o-medalhao-2003.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_bater_ou_correr_em_londres_2003_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-bater-ou-correr-em-londres-2003.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-bater-ou-correr-em-londres-2003.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_volta_ao_mundo_em_80_dias_2004_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-volta-ao-mundo-em-80-dias-2004.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-volta-ao-mundo-em-80-dias-2004.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "corrida_para_a_montanha_magica_2009.json",
-    "nome_json": "Corrida para a Montanha Magica 2009 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-corrida-para-montanha-magica-2009.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "viagem_ao_centro_da_terra_2_a_ilha_misteriosa_2012.json",
-    "nome_json": "Viagem ao Centro da Terra 2: A Ilha Misteriosa 2012 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-viagem-ao-centro-da-terra-2-ilha.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "viagem_ao_centro_da_terra_2008.json",
-    "nome_json": "Viagem ao Centro da Terra 2008 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-viagem-ao-centro-da-terra-2008.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "ace_ventura_detective_animal_1994.json",
-    "nome_json": "Ace Ventura - Detective Animal 1994 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-ace-ventura-detective-animal-1994.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "ace_ventura_em_africa_1995.json",
-    "nome_json": "Ace Ventura em Africa 1995 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-ace-ventura-em-africa-1995.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "treinando_o_papai_2007.json",
-    "nome_json": "Treinando o Papai 2007 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-treinando-o-papai-2007.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "levantando_poeira_2018.json",
-    "nome_json": "Levantando Poeira 2018 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-levantando-poeira-2018.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "legiao_de_herois_2016.json",
-    "nome_json": "Legiao de Herois 2016 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-legiao-de-herois-2016.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "o_mestre_da_espada_2016.json",
-    "nome_json": "O Mestre da Espada 2016 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-o-mestre-da-espada-2016.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "pelotao_de_elite.json",
-    "nome_json": "Pelotao de Elite - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-pelotao-de-elite.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "rota_de_fuga_1999.json",
-    "nome_json": "Rota de Fuga 1999 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-rota-de-fuga-1999.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "emboscada_2022.json",
-    "nome_json": "Emboscada 2022 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-emboscada-2022.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "emboscada_2013.json",
-    "nome_json": "Emboscada 2013 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-emboscada-2013.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "emboscada_2009.json",
-    "nome_json": "Emboscada 2009 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-emboscada-2009.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "homens_em_furia_2010.json",
-    "nome_json": "Homens em Furia 2010 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-homens-em-furia-2010.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "redencao_2013.json",
-    "nome_json": "Redencao 2013 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-redencao-2013.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "adrenalina_2_alta_voltagem_2009.json",
-    "nome_json": "Adrenalina 2: Alta Voltagem 2009 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-adrenalina-2-alta-voltagem-2009.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "adrenalina_2006.json",
-    "nome_json": "Adrenalina 2006 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-adrenalina-2006.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "golpe_de_superacao_2025.json",
-    "nome_json": "Golpe de Superacao 2025 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-golpe-de-superacao-2025.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_jogo_de_sacrificio_2023_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-jogo-de-sacrificio-2023.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-jogo-de-sacrificio-2023.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_furia_2019_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-furia-2019.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-furia-2019.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_devil_may_cry_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-devil-may-cry.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-devil-may-cry.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_o_lado_bom_de_ser_traida_2023_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-o-lado-bom-de-ser-traida-2023.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-o-lado-bom-de-ser-traida-2023.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "passageiros_2016.json",
-    "nome_json": "Passageiros 2016 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-passageiros-2016.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "titanic_1997.json",
-    "nome_json": "Titanic 1997 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-titanic-1997.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "golpe_de_risco_2017.json",
-    "nome_json": "Golpe de Risco 2017 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-golpe-de-risco-2017.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "deus_nao_esta_morto_uma_luz_na_escuridao_2018.json",
-    "nome_json": "Deus Nao Esta Morto: Uma Luz na Escuridao 2018 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-deus-nao-esta-morto-uma-luz-na.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "deus_nao_esta_morto_2_2016.json",
-    "nome_json": "Deus Nao Esta Morto 2 - 2016 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-deus-nao-esta-morto-2-2016.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "deus_nao_esta_morto_2014.json",
-    "nome_json": "Deus Nao Esta Morto 2014 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-deus-nao-esta-morto-2014.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "dj_a_paisana_2025.json",
-    "nome_json": "DJ a Paisana 2025 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-dj-paisana-2025.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_vigia_2022_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-vigia-2022.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-vigia-2022.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "voce_deveria_ter_partido_2020.json",
-    "nome_json": "Voce Deveria Ter Partido 2020 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-voce-deveria-ter-partido-2020.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "a_maldicao_de_baghead_2023.json",
-    "nome_json": "A Maldicao de Baghead 2023 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-maldicao-de-baghead-2023.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "tres_espias_demais.json",
-    "nome_json": "Tres Espias Demais! - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/blog-post.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "phineas_e_ferb.json",
-    "nome_json": "Phineas e Ferb - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-phineas-e-ferb.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "feriado_sangrento_2023.json",
-    "nome_json": "Feriado Sangrento 2023 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-feriado-sangrento-2023.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "a_morte_do_demonio_a_ascensao_2023.json",
-    "nome_json": "A Morte do Demonio: A Ascensao 2023 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-morte-do-demonio-ascensao-2023.html",
-    "tentativas": 3
-  },
-  {
-    "arquivo": "isolamento_mortal_2022.json",
-    "nome_json": "Isolamento Mortal 2022 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-isolamento-mortal-2022.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "13_exorcismos_2022.json",
-    "nome_json": "13 Exorcismos 2022 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-13-exorcismos-2022.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "play_dead_nos_bastidores_da_morte_2022.json",
-    "nome_json": "Play Dead: Nos bastidores da morte 2022 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-play-dead-nos-bastidores-da-morte.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_as_cronicas_de_spiderwick_2008_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-as-cronicas-de-spiderwick-2008.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-as-cronicas-de-spiderwick-2008.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_pequenos_invasores_2009_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-pequenos-invasores-2009.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-pequenos-invasores-2009.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "um_match_surpresa_2021.json",
-    "nome_json": "Um Match Surpresa 2021 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-um-match-surpresa-2021.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "cacada_brutal_2017.json",
-    "nome_json": "Cacada Brutal 2017 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-cacada-brutal-2017.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "carga_preciosa_2016.json",
-    "nome_json": "Carga Preciosa 2016 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-carga-preciosa-2016.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "resgate_implacavel_2025.json",
-    "nome_json": "Resgate Implacavel 2025 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-resgate-implacavel-2025.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "nos_vemos_em_venus_2023.json",
-    "nome_json": "Nos Vemos em Venus 2023 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-nos-vemos-em-venus-2023.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_planeta_51_2009_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-planeta-51-2009.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-planeta-51-2009.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "one_chicago_crossover_2025.json",
-    "nome_json": "One Chicago Crossover 2025 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-one-chicago-crossover-2025.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "que_legal_scooby_doo.json",
-    "nome_json": "Que Legal, Scooby-Doo! - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-que-legal-scooby-doo.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "assassinato_na_casa_branca_2025.json",
-    "nome_json": "Assassinato na Casa Branca 2025 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-assassinato-na-casa-branca-2025.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "rei_lobo.json",
-    "nome_json": "Rei Lobo - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-rei-lobo.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "cilada.json",
-    "nome_json": "Cilada - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-cilada.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "o_segredo_de_um_milhao_de_dolares.json",
-    "nome_json": "O Segredo de Um Milhao de Dolares - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-o-segredo-de-um-milhao-de-dolares.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_vale_tudo_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-vale-tudo.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-vale-tudo.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_alguem_entre_nos_2021_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-alguem-entre-nos-2021.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-alguem-entre-nos-2021.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_um_monstro_no_caminho_2016_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-um-monstro-no-caminho-2016.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-um-monstro-no-caminho-2016.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_oferenda_ao_demonio_2022_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-oferenda-ao-demonio-2022.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-oferenda-ao-demonio-2022.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "assombrosas_2023.json",
-    "nome_json": "Assombrosas 2023 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-assombrosas-2023.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "stephanie_2017.json",
-    "nome_json": "Stephanie 2017 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-stephanie-2017.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "batem_a_porta_2023.json",
-    "nome_json": "Batem a Porta 2023 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-batem-porta-2023.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "descida_ao_inferno_2022.json",
-    "nome_json": "Descida ao Inferno 2022 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-descida-ao-inferno-2022.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "m3gan_2022.json",
-    "nome_json": "M3GAN 2022 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-m3gan-2022.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_cursed_2021_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-cursed-2021.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-cursed-2021.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_marianne_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-marianne.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/04/inix-marianne.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_03_inix_entre_armas_e_brinquedos_2020_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/03/inix-entre-armas-e-brinquedos-2020.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-entre-armas-e-brinquedos-2020.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "https_www_vini7xgrave_site_2025_03_inix_entre_tiros_e_beijos_2021_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/03/inix-entre-tiros-e-beijos-2021.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-entre-tiros-e-beijos-2021.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "the_pitt.json",
-    "nome_json": "The Pitt - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-pitt.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "coracoes_prometidos_2025.json",
-    "nome_json": "Coracoes Prometidos 2025 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-coracoes-prometidos-2025.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "hellraiser_renascido_do_inferno_2022.json",
-    "nome_json": "Hellraiser: Renascido do Inferno 2022 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-hellraiser-renascido-do-inferno.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "sorria_2_2024.json",
-    "nome_json": "Sorria 2 - 2024 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-sorria-2-2024.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "sorria_2022.json",
-    "nome_json": "Sorria 2022 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-sorria-2022.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "gemeo_maligno_2022.json",
-    "nome_json": "Gemeo Maligno 2022 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-gemeo-maligno-2022.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "zumbis_na_neve_2_2014.json",
-    "nome_json": "Zumbis na Neve 2 - 2014 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-zumbis-na-neve-2-2014.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "men_faces_do_medo_2022.json",
-    "nome_json": "Men: Faces do Medo 2022 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-men-faces-do-medo-2022.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "a_orfa_2009.json",
-    "nome_json": "A Orfa 2009 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-orfa-2009.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "morte_morte_morte_2022.json",
-    "nome_json": "Morte, Morte, Morte 2022 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/blog-post_30.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "o_olho_do_mal_2008.json",
-    "nome_json": "O Olho do Mal 2008 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-o-olho-do-mal-2008.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "dexter_pecado_original.json",
-    "nome_json": "Dexter: Pecado Original - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-dexter-pecado-original.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "mar_em_chamas_2021.json",
-    "nome_json": "Mar em Chamas 2021 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-mar-em-chamas-2021.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "na_corda_bamba_2018.json",
-    "nome_json": "Na Corda Bamba 2018 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-na-corda-bamba-2018.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "o_grande_mestre_2013.json",
-    "nome_json": "O Grande Mestre 2013 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-o-grande-mestre-2013.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "papillon_2017.json",
-    "nome_json": "Papillon 2017 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-papillon-2017.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "uma_agente_muito_louca_2017.json",
-    "nome_json": "Uma Agente Muito Louca 2017 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-uma-agente-muito-louca-2017.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "uma_licao_de_esperanca_2020.json",
-    "nome_json": "Uma Licao de Esperanca 2020 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-uma-licao-de-esperanca-2020.html",
-    "tentativas": 2
-  },
-  {
-    "arquivo": "hannibal.json",
-    "nome_json": "Hannibal - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-hannibal.html",
+    "arquivo": "espiral_o_legado_de_jogos_mortais_2021.json",
+    "nome_json": "Espiral: O Legado de Jogos Mortais 2021 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/05/inix-espiral-o-legado-de-jogos-mortais.html",
     "tentativas": 2
   },
   {
-    "arquivo": "bridgerton.json",
-    "nome_json": "Bridgerton - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-bridgerton.html",
+    "arquivo": "jogos_mortais_iii_2006.json",
+    "nome_json": "Jogos Mortais III 2006 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/05/inix-jogos-mortais-iii-2006.html",
     "tentativas": 2
   },
   {
-    "arquivo": "caca_fantasmas_o_legado_2021.json",
-    "nome_json": "Caca-Fantasmas: O Legado 2021 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-caca-fantasmas-o-legado-2021.html",
+    "arquivo": "https_www_vini7xgrave_site_2025_05_inix_jogos_mortais_2004_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/05/inix-jogos-mortais-2004.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/05/inix-jogos-mortais-2004.html",
     "tentativas": 2
   },
   {
-    "arquivo": "os_caca_fantasmas_ii_1989.json",
-    "nome_json": "Os Caca-Fantasmas II 1989 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-os-caca-fantasmas-ii-1989.html",
+    "arquivo": "gran_turismo_de_jogador_a_corredor_2023.json",
+    "nome_json": "Gran Turismo: De Jogador A Corredor 2023 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/06/arc-gran-turismo-de-jogador-corredor.html",
     "tentativas": 2
   },
   {
-    "arquivo": "os_caca_fantasmas_1984.json",
-    "nome_json": "Os Caca Fantasmas 1984 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-os-caca-fantasmas-1984.html",
+    "arquivo": "https_www_vini7xgrave_site_2026_10_inix_till_busca_por_justica_2022_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2026/10/inix-till-busca-por-justica-2022.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2026/10/inix-till-busca-por-justica-2022.html",
     "tentativas": 2
   },
   {
-    "arquivo": "encurralados_2016.json",
-    "nome_json": "Encurralados 2016 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-encurralados-2016.html",
+    "arquivo": "https_www_vini7xgrave_site_2025_05_inix_morte_te_da_parabens_2017_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/05/inix-morte-te-da-parabens-2017.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/05/inix-morte-te-da-parabens-2017.html",
     "tentativas": 2
   },
   {
-    "arquivo": "drone_2017.json",
-    "nome_json": "Drone 2017 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-drone-2017.html",
+    "arquivo": "https_www_vini7xgrave_site_2026_10_inix_o_misterio_de_candyman_1992_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2026/10/inix-o-misterio-de-candyman-1992.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2026/10/inix-o-misterio-de-candyman-1992.html",
     "tentativas": 2
   },
   {
-    "arquivo": "colheita_amarga_2017.json",
-    "nome_json": "Colheita Amarga 2017 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-colheita-amarga-2017.html",
+    "arquivo": "https_www_vini7xgrave_site_2026_10_inix_into_badlands_2015_0835136260_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2026/10/inix-into-badlands-2015_0835136260.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2026/10/inix-into-badlands-2015_0835136260.html",
     "tentativas": 2
   },
   {
-    "arquivo": "carga_mortal_2018.json",
-    "nome_json": "Carga Mortal 2018 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-carga-mortal-2018.html",
+    "arquivo": "samurai_x_o_final_2021.json",
+    "nome_json": "Samurai X: O Final 2021 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2026/10/inix-samurai-x-o-final-2021.html",
     "tentativas": 2
   },
   {
-    "arquivo": "cao_selvagem_2017.json",
-    "nome_json": "Cao Selvagem 2017 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-cao-selvagem-2017.html",
+    "arquivo": "https_www_vini7xgrave_site_2025_03_inix_robocop_o_policial_do_futuro_1987_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/03/inix-robocop-o-policial-do-futuro-1987.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/03/inix-robocop-o-policial-do-futuro-1987.html",
     "tentativas": 2
   },
   {
-    "arquivo": "bala_perdida_2014.json",
-    "nome_json": "Bala Perdida 2014 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-bala-perdida-2014.html",
+    "arquivo": "https_www_vini7xgrave_site_2025_04_inix_lilo_stitch_2002_28_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2025/04/inix-lilo-stitch-2002_28.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/04/inix-lilo-stitch-2002_28.html",
     "tentativas": 2
   },
   {
-    "arquivo": "atirador_de_elite_2012.json",
-    "nome_json": "Atirador de Elite 2012 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-atirador-de-elite-2012.html",
+    "arquivo": "conexao_perigosa_2026.json",
+    "nome_json": "Conexao Perigosa 2026 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2026/09/inix-conexao-perigosa-2026.html",
     "tentativas": 2
   },
   {
-    "arquivo": "antes_de_dormir_2014.json",
-    "nome_json": "Antes de Dormir 2014 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-antes-de-dormir-2014.html",
+    "arquivo": "a_hipotese_do_amor_2026.json",
+    "nome_json": "A Hipotese do Amor 2026 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2026/09/inix-hipotese-do-amor-2026.html",
     "tentativas": 2
   },
   {
-    "arquivo": "https_www_vini7xgrave_site_2025_03_inix_convite_maldito_2022_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/03/inix-convite-maldito-2022.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-convite-maldito-2022.html",
+    "arquivo": "https_www_vini7xgrave_site_2026_09_inix_cyberpunk_mercenarios_2022_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2026/09/inix-cyberpunk-mercenarios-2022.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2026/09/inix-cyberpunk-mercenarios-2022.html",
     "tentativas": 2
   },
   {
-    "arquivo": "https_www_vini7xgrave_site_2025_03_inix_presa_humana_2007_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/03/inix-presa-humana-2007.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-presa-humana-2007.html",
+    "arquivo": "https_www_vini7xgrave_site_2026_09_inix_kraken_terror_no_mar_2025_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2026/09/inix-kraken-terror-no-mar-2025.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2026/09/inix-kraken-terror-no-mar-2025.html",
     "tentativas": 2
   },
   {
-    "arquivo": "o_sacrificio_do_cervo_sagrado_2017.json",
-    "nome_json": "O Sacrificio do Cervo Sagrado 2017 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-o-sacrificio-do-cervo-sagrado-2017.html",
+    "arquivo": "aposta_de_alto_risco_2026.json",
+    "nome_json": "Aposta de Alto Risco 2026 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2026/09/inix-aposta-de-alto-risco-2026.html",
     "tentativas": 2
   },
   {
-    "arquivo": "https_www_vini7xgrave_site_2025_03_inix_o_ultimo_trem_2008_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/03/inix-o-ultimo-trem-2008.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-o-ultimo-trem-2008.html",
+    "arquivo": "indiana_jones_e_a_ultima_cruzada_1989.json",
+    "nome_json": "Indiana Jones e a Ultima Cruzada 1989 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2025/06/inix-indiana-jones-e-ultima-cruzada-1989.html",
     "tentativas": 2
   },
   {
-    "arquivo": "https_www_vini7xgrave_site_2025_03_inix_o_pranto_do_mal_2024_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/03/inix-o-pranto-do-mal-2024.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-o-pranto-do-mal-2024.html",
+    "arquivo": "https_www_vini7xgrave_site_2026_09_inix_corrida_contra_o_tempo_2026_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2026/09/inix-corrida-contra-o-tempo-2026.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2026/09/inix-corrida-contra-o-tempo-2026.html",
     "tentativas": 2
   },
   {
-    "arquivo": "https_www_vini7xgrave_site_2025_03_inix_guerra_contra_o_terror_2023_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/03/inix-guerra-contra-o-terror-2023.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-guerra-contra-o-terror-2023.html",
+    "arquivo": "a_mulher_secreta_2026.json",
+    "nome_json": "A Mulher Secreta 2026 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2026/09/inix-mulher-secreta-2026.html",
     "tentativas": 2
   },
   {
-    "arquivo": "https_www_vini7xgrave_site_2025_03_inix_furia_em_alto_mar_2018_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/03/inix-furia-em-alto-mar-2018.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-furia-em-alto-mar-2018.html",
+    "arquivo": "https_www_vini7xgrave_site_2026_07_inix_frutas_proibidas_2026_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2026/07/inix-frutas-proibidas-2026.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2026/07/inix-frutas-proibidas-2026.html",
     "tentativas": 2
   },
   {
-    "arquivo": "https_www_vini7xgrave_site_2025_03_inix_o_caminho_mais_facil_2013_html.json",
-    "nome_json": "https://www.vini7xgrave.site/2025/03/inix-o-caminho-mais-facil-2013.html - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-o-caminho-mais-facil-2013.html",
+    "arquivo": "proposta_indecente_1993.json",
+    "nome_json": "Proposta Indecente 1993 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2026/08/inix-proposta-indecente-1993.html",
     "tentativas": 2
   },
   {
-    "arquivo": "tempestade_acida_2023.json",
-    "nome_json": "Tempestade Acida 2023 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-tempestade-acida-2023.html",
+    "arquivo": "o_ultimo_nascer_do_sol_2026.json",
+    "nome_json": "O Ultimo Nascer do Sol 2026 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2026/08/inix-o-ultimo-nascer-do-sol-2026.html",
     "tentativas": 2
   },
   {
-    "arquivo": "relatos_de_guerra_2015.json",
-    "nome_json": "Relatos de Guerra 2015 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-relatos-de-guerra-2015.html",
+    "arquivo": "https_www_vini7xgrave_site_2026_08_inix_relatos_de_um_assassino_2025_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2026/08/inix-relatos-de-um-assassino-2025.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2026/08/inix-relatos-de-um-assassino-2025.html",
     "tentativas": 2
   },
   {
-    "arquivo": "relacao_mortal_2011.json",
-    "nome_json": "Relacao Mortal 2011 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-relacao-mortal-2011.html",
+    "arquivo": "yellow_mirror_a_realidade_paralela_de_homer_2026.json",
+    "nome_json": "Yellow Mirror: A Realidade Paralela de Homer 2026 - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2026/08/inix-yellow-mirror-realidade-paralela.html",
     "tentativas": 2
   },
   {
-    "arquivo": "heranca_de_sangue_2016.json",
-    "nome_json": "Heranca de Sangue 2016 - 🍿Clau",
-    "url": "https://www.vini7xgrave.site/2025/03/inix-heranca-de-sangue-2016.html",
+    "arquivo": "https_www_vini7xgrave_site_2026_08_inix_queda_livre_as_consequencias_do_html.json",
+    "nome_json": "https://www.vini7xgrave.site/2026/08/inix-queda-livre-as-consequencias-do.html - 🍿Clau",
+    "url": "https://www.vini7xgrave.site/2026/08/inix-queda-livre-as-consequencias-do.html",
     "tentativas": 2
   }
 ]
