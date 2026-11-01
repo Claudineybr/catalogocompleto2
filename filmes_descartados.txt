@@ -37,3 +37,4 @@ https_www_vini7xgrave_site_2026_08_inix_nando_entre_dois_mundos_um_filme_html.js
 diamante_de_sangue_2006.json	https://www.vini7xgrave.site/2026/08/inix-diamante-de-sangue-2006.html	3 falhas
 https_www_vini7xgrave_site_2026_08_inix_um_estranho_no_ninho_1975_html.json	https://www.vini7xgrave.site/2026/08/inix-um-estranho-no-ninho-1975.html	3 falhas
 https_www_vini7xgrave_site_2026_08_inix_conta_comigo_1986_html.json	https://www.vini7xgrave.site/2026/08/inix-conta-comigo-1986.html	3 falhas
+https_www_vini7xgrave_site_2026_07_inix_maldicao_da_residencia_hill_2018_html.json	https://www.vini7xgrave.site/2026/07/inix-maldicao-da-residencia-hill-2018.html	3 falhas
