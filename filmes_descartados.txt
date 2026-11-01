@@ -27,3 +27,13 @@ https_www_vini7xgrave_site_2026_09_inix_cyberpunk_mercenarios_2022_html.json	htt
 https_www_vini7xgrave_site_2026_09_inix_kraken_terror_no_mar_2025_html.json	https://www.vini7xgrave.site/2026/09/inix-kraken-terror-no-mar-2025.html	3 falhas
 indiana_jones_e_a_ultima_cruzada_1989.json	https://www.vini7xgrave.site/2025/06/inix-indiana-jones-e-ultima-cruzada-1989.html	3 falhas
 https_www_vini7xgrave_site_2026_07_inix_frutas_proibidas_2026_html.json	https://www.vini7xgrave.site/2026/07/inix-frutas-proibidas-2026.html	3 falhas
+presos_em_um_crime_2026.json	https://www.vini7xgrave.site/2026/08/inix-presos-em-um-crime-2026.html	3 falhas
+https_www_vini7xgrave_site_2026_08_inix_se_eu_tivesse_pernas_eu_te_html.json	https://www.vini7xgrave.site/2026/08/inix-se-eu-tivesse-pernas-eu-te.html	3 falhas
+a_ultima_casa_2009.json	https://www.vini7xgrave.site/2025/03/a-ultima-casa-2009.html	3 falhas
+irmaos_por_acidente_2024.json	https://www.vini7xgrave.site/2026/08/inix-irmaos-por-acidente-2024.html	3 falhas
+o_aniversario_2025.json	https://www.vini7xgrave.site/2026/08/inix-o-aniversario-2025.html	3 falhas
+a_morte_do_demonio_em_chamas_cinema_2026.json	https://www.vini7xgrave.site/2026/08/inix-morte-do-demonio-em-chamas-2026.html	3 falhas
+https_www_vini7xgrave_site_2026_08_inix_nando_entre_dois_mundos_um_filme_html.json	https://www.vini7xgrave.site/2026/08/inix-nando-entre-dois-mundos-um-filme.html	3 falhas
+diamante_de_sangue_2006.json	https://www.vini7xgrave.site/2026/08/inix-diamante-de-sangue-2006.html	3 falhas
+https_www_vini7xgrave_site_2026_08_inix_um_estranho_no_ninho_1975_html.json	https://www.vini7xgrave.site/2026/08/inix-um-estranho-no-ninho-1975.html	3 falhas
+https_www_vini7xgrave_site_2026_08_inix_conta_comigo_1986_html.json	https://www.vini7xgrave.site/2026/08/inix-conta-comigo-1986.html	3 falhas
