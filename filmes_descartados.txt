@@ -50,3 +50,6 @@ jexi_um_celular_sem_filtro_2019.json	https://www.vini7xgrave.site/2025/08/inix-j
 seguindo_as_pistas_2002.json	https://www.vini7xgrave.site/2026/05/inix-seguindo-as-pistas-2002.html	3 falhas
 https_www_vini7xgrave_site_2026_05_inix_wayward_pines_2015_html.json	https://www.vini7xgrave.site/2026/05/inix-wayward-pines-2015.html	3 falhas
 https_www_vini7xgrave_site_2026_05_inix_se_desejos_matassem_2026_html.json	https://www.vini7xgrave.site/2026/05/inix-se-desejos-matassem-2026.html	3 falhas
+https_www_vini7xgrave_site_2026_05_inix_bordertown_2016_html.json	https://www.vini7xgrave.site/2026/05/inix-bordertown-2016.html	3 falhas
+https_www_vini7xgrave_site_2026_04_inix_stranger_things_historias_de_85_html.json	https://www.vini7xgrave.site/2026/04/inix-stranger-things-historias-de-85.html	3 falhas
+fratura_2019.json	https://www.vini7xgrave.site/2026/04/inix-fratura-2019.html	3 falhas
