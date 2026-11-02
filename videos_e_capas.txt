@@ -1,0 +1,1 @@
+arquivo	video_url	capa_url	status
