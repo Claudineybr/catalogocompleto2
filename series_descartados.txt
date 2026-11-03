@@ -474,3 +474,8 @@ dan_da_dan_t2e6.json	https://viniraveon.blogspot.com/2025/09/inix-dan-da-dan-tp2
 dan_da_dan_t2e7.json	https://viniraveon.blogspot.com/2025/09/inix-dan-da-dan-tp2e07.html	6 falhas
 marvel_zumbis_t1e1.json	https://viniraveon.blogspot.com/2025/09/inix-marvel-zumbis-tp1e01.html	6 falhas
 shadowhunters_instrumentos_mortais_t2e16.json	https://viniraveon.blogspot.com/2025/05/inix-tp2e16_16.html	6 falhas
+black_clover_t1e12.json	https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e12.html	6 falhas
+black_clover_t1e13.json	https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e13.html	6 falhas
+black_clover_t1e19.json	https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e19.html	6 falhas
+black_clover_t1e20.json	https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e20.html	6 falhas
+black_clover_t1e21.json	https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e20_13.html	6 falhas
