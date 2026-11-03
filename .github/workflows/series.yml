@@ -153,6 +153,15 @@ jobs:
                   return matches[0]
               return None
 
+          def extrair_capa(soup):
+              og_img = soup.find('meta', property='og:image')
+              if og_img and og_img.get('content'):
+                  return og_img['content']
+              tw_img = soup.find('meta', attrs={'name': 'twitter:image'})
+              if tw_img and tw_img.get('content'):
+                  return tw_img['content']
+              return "https://via.placeholder.com/500x750?text=Sem+Capa"
+
           def salvar_html(nome_arquivo, nome_json, link, capa_url):
               uid = re.sub(r'[^a-zA-Z0-9]', '', nome_arquivo.replace('.html', ''))
               
@@ -309,14 +318,17 @@ jobs:
                                   f.write(f"{item['arquivo']}\t{item['url']}\t{item.get('tentativas')} falhas\n")
                               continue
                           log(f"--> Tentativa {item['tentativas']+1}/{MAX_TENTATIVAS}: {item['arquivo']}")
-                          link = await extrair_video_playwright(ctx, item['url'])
                           
+                          # CORREÇÃO AQUI: Usa a função extrair_video_da_pagina no retry
+                          link = None
                           capa_url = "https://via.placeholder.com/500x750?text=Sem+Capa"
                           try:
-                              r = await asyncio.to_thread(requests.get, item['url'], headers=HEADERS, timeout=20)
-                              soup = BeautifulSoup(r.text, 'html.parser')
+                              r_ep = await asyncio.to_thread(requests.get, item['url'], headers=HEADERS, timeout=20)
+                              link = extrair_video_da_pagina(r_ep.text)
+                              soup = BeautifulSoup(r_ep.text, 'html.parser')
                               capa_url = extrair_capa(soup)
-                          except: pass
+                          except Exception:
+                              pass
 
                           if link:
                               salvar_html(item['arquivo'], item['nome_json'], link, capa_url)
