@@ -1,1 +1,602 @@
-[]
+[
+  {
+    "arquivo": "dr_stone_t1e1.json",
+    "nome_json": "Dr. Stone - T1E1 - Stone World - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp1e01_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t1e2.json",
+    "nome_json": "Dr. Stone - T1E2 - King of the Stone World - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp1e02_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t1e3.json",
+    "nome_json": "Dr. Stone - T1E3 - Armas da Ciência - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp1e03_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t1e4.json",
+    "nome_json": "Dr. Stone - T1E4 - Dispare o Sinal de Fumaça - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp1e04_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t1e5.json",
+    "nome_json": "Dr. Stone - T1E5 - Stone World The Beginning - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp1e05_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t1e6.json",
+    "nome_json": "Dr. Stone - T1E6 - Duas Nações do Mundo de Pedra - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp1e06_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t1e7.json",
+    "nome_json": "Dr. Stone - T1E7 - Onde se passaram 2 milhões de anos - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp1e07_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t1e8.json",
+    "nome_json": "Dr. Stone - T1E8 - Stone Road - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp1e08_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t1e9.json",
+    "nome_json": "Dr. Stone - T1E9 - Faça-se a luz da ciência - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp1e09_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t1e10.json",
+    "nome_json": "Dr. Stone - T1E10 - Tênue Aliança - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp1e10_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t1e11.json",
+    "nome_json": "Dr. Stone - T1E11 - Clear World - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp1e11_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t1e12.json",
+    "nome_json": "Dr. Stone - T1E12 - Amigos de Costas contra Costas - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp1e12_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t1e13.json",
+    "nome_json": "Dr. Stone - T1E13 - Guerreiro Mascarado - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp1e13_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t1e14.json",
+    "nome_json": "Dr. Stone - T1E14 - Master of Flame - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp1e14_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t1e15.json",
+    "nome_json": "Dr. Stone - T1E15 - Cristalização de 2 Milhões de Anos - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp1e15_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t1e16.json",
+    "nome_json": "Dr. Stone - T1E16 - Um Conto de Milhares de Anos - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp1e16_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t1e17.json",
+    "nome_json": "Dr. Stone - T1E17 - Cem noites e mil céus - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp1e17_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t1e18.json",
+    "nome_json": "Dr. Stone - T1E18 - Stone Wars - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp1e18_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t1e19.json",
+    "nome_json": "Dr. Stone - T1E19 - E em direção à modernidade - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp1e19_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t1e20.json",
+    "nome_json": "Dr. Stone - T1E20 - A Era da Potência - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp1e20_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t1e21.json",
+    "nome_json": "Dr. Stone - T1E21 - Clube de Artesanato Espartano - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp1e21_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t1e22.json",
+    "nome_json": "Dr. Stone - T1E22 - O Tesouro - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp1e22_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t1e23.json",
+    "nome_json": "Dr. Stone - T1E23 - Onda da Ciência - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp1e23_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t1e24.json",
+    "nome_json": "Dr. Stone - T1E24 - Vozes a uma Distância Infinita - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp1e24_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t2e1.json",
+    "nome_json": "Dr. Stone - T2E1 - As Stone Wars começam - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp2e01_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t2e2.json",
+    "nome_json": "Dr. Stone - T2E2 - Hot Line - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp2e02_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t2e3.json",
+    "nome_json": "Dr. Stone - T2E3 - Telefone dos Mortos - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp2e03_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t2e4.json",
+    "nome_json": "Dr. Stone - T2E4 - Ataque com Força Total - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp2e04_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t2e5.json",
+    "nome_json": "Dr. Stone - T2E5 - Steam Gorilla - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp2e05_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t2e6.json",
+    "nome_json": "Dr. Stone - T2E6 - Prison Break - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp2e06_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t2e7.json",
+    "nome_json": "Dr. Stone - T2E7 - Missão Confidencial - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp2e07_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t2e8.json",
+    "nome_json": "Dr. Stone - T2E8 - Final Battle - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp2e08_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t2e9.json",
+    "nome_json": "Dr. Stone - T2E9 - Para destruir e salvar - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp2e09_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t2e10.json",
+    "nome_json": "Dr. Stone - T2E10 - A Dupla Mais Poderosa da Humanidade - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp2e10_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t2e11.json",
+    "nome_json": "Dr. Stone - T2E11 - Prologue of Dr. Stone - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp2e11_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t3e1.json",
+    "nome_json": "Dr. Stone - T3E1 - Mapa do novo mundo - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp3e01.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t3e2.json",
+    "nome_json": "Dr. Stone - T3E2 - Querer = Justiça - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp3e02.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t3e3.json",
+    "nome_json": "Dr. Stone - T3E3 - Primeiro Contato - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp3e03.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t3e4.json",
+    "nome_json": "Dr. Stone - T3E4 - Olhos da Ciência - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp3e04.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t3e5.json",
+    "nome_json": "Dr. Stone - T3E5 - O Navio Científico Perseu - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp3e05.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t3e6.json",
+    "nome_json": "Dr. Stone - T3E6 - Baú do Tesouro - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp3e06.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t3e7.json",
+    "nome_json": "Dr. Stone - T3E7 - Luz do Desespero e da Esperança - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp3e07.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t3e8.json",
+    "nome_json": "Dr. Stone - T3E8 - Carta na Manga dentro do Navio da Ciência - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp3e08.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t3e9.json",
+    "nome_json": "Dr. Stone - T3E9 - Bela Ciência - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp3e09.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t3e10.json",
+    "nome_json": "Dr. Stone - T3E10 - Guerras Científicas - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp3e10.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t3e11.json",
+    "nome_json": "Dr. Stone - T3E11 - Com este punho, um milagre - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp3e11.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t4e1.json",
+    "nome_json": "Dr. Stone - T4E1 - Ryusui vs. Senku - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp4e01_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t4e2.json",
+    "nome_json": "Dr. Stone - T4E2 - Science Journey - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp4e02_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t4e3.json",
+    "nome_json": "Dr. Stone - T4E3 - Armadilha de Luz na Escuridão - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp4e03_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t4e4.json",
+    "nome_json": "Dr. Stone - T4E4 - Dr. X - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp4e04_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t4e5.json",
+    "nome_json": "Dr. Stone - T4E5 - Doctor VS Doctor - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp4e05_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t4e6.json",
+    "nome_json": "Dr. Stone - T4E6 - A ciência é elegante - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp4e06_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t4e7.json",
+    "nome_json": "Dr. Stone - T4E7 - The Two Scientists - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp4e07_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t4e8.json",
+    "nome_json": "Dr. Stone - T4E8 - Lock On - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp4e08_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t4e9.json",
+    "nome_json": "Dr. Stone - T4E9 - Light of Science - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp4e08_56.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t4e10.json",
+    "nome_json": "Dr. Stone - T4E10 - Por estradas cheias de terra - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp4e10_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t4e11.json",
+    "nome_json": "Dr. Stone - T4E11 - Os que sabem as regras e os que fazem as regras - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp4e11_7.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "dr_stone_t4e12.json",
+    "nome_json": "Dr. Stone - T4E12 - Reencontro - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp4e12_15.html",
+    "tentativas": 5
+  },
+  {
+    "arquivo": "classe_dos_herois_fracos_t1e6.json",
+    "nome_json": "Classe dos Herois Fracos - T1E6 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/05/arc-classe-dos-herois-fraco-tp01ep06.html",
+    "tentativas": 4
+  },
+  {
+    "arquivo": "classe_dos_herois_fracos_t2e8.json",
+    "nome_json": "Classe dos Herois Fracos - T2E8 -  - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/05/arc-classe-dos-herois-fraco-tp02ep07.html",
+    "tentativas": 4
+  },
+  {
+    "arquivo": "the_walking_dead_t1e1.json",
+    "nome_json": "The Walking Dead - T1E1 - Dias Passados - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp1e01_13.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t2e12.json",
+    "nome_json": "The Walking Dead - T2E12 - Anjos Melhores - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp2e12_13.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t5e8.json",
+    "nome_json": "The Walking Dead - T5E8 - Coda - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp5e08.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t5e13.json",
+    "nome_json": "The Walking Dead - T5E13 - Esqueça - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp5e13.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t6e3.json",
+    "nome_json": "The Walking Dead - T6E3 - Obrigado - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp6e03.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t6e4.json",
+    "nome_json": "The Walking Dead - T6E4 - Aqui Não É Aqui - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp6e04.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t7e6.json",
+    "nome_json": "The Walking Dead - T7E6 - Praga - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp7e06.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t7e9.json",
+    "nome_json": "The Walking Dead - T7E9 - Pedra no Caminho - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp7e09.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t7e14.json",
+    "nome_json": "The Walking Dead - T7E14 - O Outro Lado - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp7e14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t7e16.json",
+    "nome_json": "The Walking Dead - T7E16 - O Primeiro Dia do Resto da Sua Vida - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp7e16.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t8e1.json",
+    "nome_json": "The Walking Dead - T8E1 - Piedade - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp8e0.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t8e2.json",
+    "nome_json": "The Walking Dead - T8E2 - Os Condenados - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/05/inix-tp8e02.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t8e9.json",
+    "nome_json": "The Walking Dead - T8E9 - Honra - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp8e09.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t9e7.json",
+    "nome_json": "The Walking Dead - T9E7 - Stradivarius - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp9e07.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t9e8.json",
+    "nome_json": "The Walking Dead - T9E8 - Evolução - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp9e08.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t10e13.json",
+    "nome_json": "The Walking Dead - T10E13 - O Que Nos Tornamos - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp10e13.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e1.json",
+    "nome_json": "The Walking Dead - T11E1 - Acheron: Parte I - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e01.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e2.json",
+    "nome_json": "The Walking Dead - T11E2 - Acheron: Parte II - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e02.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e3.json",
+    "nome_json": "The Walking Dead - T11E3 - Caçados - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e03.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e4.json",
+    "nome_json": "The Walking Dead - T11E4 - Performance - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e04.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e5.json",
+    "nome_json": "The Walking Dead - T11E5 - Das Cinzas - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e05.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e6.json",
+    "nome_json": "The Walking Dead - T11E6 - Por Dentro - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e06.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e7.json",
+    "nome_json": "The Walking Dead - T11E7 - Promessas Quebradas - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e07.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e8.json",
+    "nome_json": "The Walking Dead - T11E8 - Por Sangue - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e08.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e9.json",
+    "nome_json": "The Walking Dead - T11E9 - Não Tem Outro Jeito - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e09.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e10.json",
+    "nome_json": "The Walking Dead - T11E10 - Novas Assombrações - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e10.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e11.json",
+    "nome_json": "The Walking Dead - T11E11 - Elemento Rebelde - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e11.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e12.json",
+    "nome_json": "The Walking Dead - T11E12 - Os Sortudos - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e12.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e13.json",
+    "nome_json": "The Walking Dead - T11E13 - Senhores da Guerra - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e13.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e14.json",
+    "nome_json": "The Walking Dead - T11E14 - O Núcleo Podre - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e14.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e15.json",
+    "nome_json": "The Walking Dead - T11E15 - Confiar - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e15.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e16.json",
+    "nome_json": "The Walking Dead - T11E16 - Atos de Deus - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e16.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e17.json",
+    "nome_json": "The Walking Dead - T11E17 - Confinamento - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e17.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e18.json",
+    "nome_json": "The Walking Dead - T11E18 - Um Novo Acordo - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e18.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e19.json",
+    "nome_json": "The Walking Dead - T11E19 - Variante - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e19.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e20.json",
+    "nome_json": "The Walking Dead - T11E20 - O que Foi Perdido - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e20.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e21.json",
+    "nome_json": "The Walking Dead - T11E21 - Posto Avançado 22 - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e21.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e22.json",
+    "nome_json": "The Walking Dead - T11E22 - Fé - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e22.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e23.json",
+    "nome_json": "The Walking Dead - T11E23 - Família - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e23.html",
+    "tentativas": 2
+  },
+  {
+    "arquivo": "the_walking_dead_t11e24.json",
+    "nome_json": "The Walking Dead - T11E24 - Descanse em Paz - 🍿Clau",
+    "url": "https://viniseries3.blogspot.com/2025/05/inix-tp11e24.html",
+    "tentativas": 2
+  }
+]
