@@ -104,35 +104,52 @@ jobs:
 
           log(f"Total na fila: {len(todas)} | Ja feitos: {len(feitas)} | Faltam: {len(fila)} | Pendentes: {len(pendentes)}.")
 
-          def extrair_dados_pagina(html_text):
+          def extrair_dados_pagina(html_text, url_pagina):
               soup = BeautifulSoup(html_text, 'html.parser')
               
-              # 1. JSON-LD
+              # 1. H1
+              titulo = ""
+              h1 = soup.find('h1', class_='post-title')
+              if h1: titulo = h1.text.strip()
+
               dados_ld = {}
               script_ld = soup.find('script', type='application/ld+json')
               if script_ld:
-                  try: dados_ld = json.loads(script_ld.string)
+                  try: 
+                      dados_ld = json.loads(script_ld.string)
+                      if not titulo and dados_ld.get('name'): titulo = dados_ld.get('name').strip()
                   except: pass
 
-              # 2. Título (Prioriza o JSON-LD, depois a tag <title>)
-              titulo = dados_ld.get('name')
-              if not titulo or len(titulo) < 3:
-                  raw = soup.title.string if soup.title else "Serie Desconhecida"
-                  raw_norm = unicodedata.normalize('NFKD', str(raw))
-                  raw_norm = "".join([c for c in raw_norm if not unicodedata.combining(c)])
-                  partes = [p.strip() for p in re.split(r'\s+[-–—]\s+', raw_norm) if p.strip()]
-                  titulo = partes[-1] if len(partes) > 1 else partes[0]
-                  
-              # Remove o ano
+              # 2. og:title ou title
+              if not titulo:
+                  og = soup.find('meta', property='og:title')
+                  if og and og.get('content'): titulo = og['content'].strip()
+                  elif soup.title: titulo = soup.title.string.strip()
+
+              # Limpeza
+              titulo = unicodedata.normalize('NFKD', str(titulo))
+              titulo = "".join([c for c in titulo if not unicodedata.combining(c)])
+              titulo = re.sub(r'^.*?[-–—]\s*', '', titulo) if re.search(r'(vini|marcos|inix|grave)', titulo, re.I) else titulo
+              titulo = titulo.replace('🍿Clau', '').strip(' -')
+
+              # 3. FALLBACK DA URL
+              if not titulo or len(titulo) < 3 or titulo.isdigit() or "filmes e series" in titulo.lower():
+                  m = re.search(r'/([^/]+)\.html', url_pagina)
+                  if m:
+                      slug = m.group(1)
+                      slug = re.sub(r'^(inix|arc|entre-nos|inix-entre-nos)[-_]', '', slug, flags=re.I)
+                      slug = re.sub(r'[-_]\d{4}$', '', slug)
+                      titulo = slug.replace('-', ' ').title().strip()
+                      
+              # Remove o ano para as séries
               titulo = re.sub(r'\s*\(?\d{4}\)?\s*$', '', titulo).strip()
               titulo = re.sub(r'\s*-\s*(?:\d+\s*[ªº]\s*)?(?:temporada|season)\b.*$', '', titulo, flags=re.I).strip()
 
-              # 3. Capa (JSON-LD, se "h" vai pro HTML)
+              # Capa
               capa = dados_ld.get('thumbnailUrl', [''])[0]
               if not capa or capa == 'h' or len(capa) < 5:
                   m = re.search(r'https://blogger\.googleusercontent\.com/img/[^"\'\s<>]+', html_text)
                   if m: capa = m.group(0)
-                  
               if not capa:
                   og_img = soup.find('meta', property='og:image')
                   capa = og_img['content'] if og_img and og_img.get('content') else "https://via.placeholder.com/500x750?text=Sem+Capa"
@@ -257,7 +274,7 @@ jobs:
                   r = await asyncio.to_thread(requests.get, url_serie, headers=HEADERS, timeout=20)
                   soup = BeautifulSoup(r.text, 'html.parser')
                   
-                  titulo, capa_url = extrair_dados_pagina(r.text)
+                  titulo, capa_url = extrair_dados_pagina(r.text, url_serie)
                   slug = re.sub(r'[^a-z0-9]', '_', titulo.lower())
                   slug = re.sub(r'_+', '_', slug).strip('_')
 
@@ -286,7 +303,6 @@ jobs:
                       if Path(nome_arquivo).exists(): continue
                       nome_json = f"{titulo} - T{it['temp']}E{it['ep']} - {it['titulo']} - 🍿Clau"
                       
-                      # Tenta pegar o link do vídeo do episódio
                       r_ep = await asyncio.to_thread(requests.get, it['url'], headers=HEADERS, timeout=20)
                       link = extrair_video_da_pagina(r_ep.text)
                       
@@ -319,7 +335,6 @@ jobs:
                               continue
                           log(f"--> Tentativa {item['tentativas']+1}/{MAX_TENTATIVAS}: {item['arquivo']}")
                           
-                          # CORREÇÃO AQUI: Usa a função extrair_video_da_pagina no retry
                           link = None
                           capa_url = "https://via.placeholder.com/500x750?text=Sem+Capa"
                           try:
