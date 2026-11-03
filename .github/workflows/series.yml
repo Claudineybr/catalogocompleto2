@@ -43,7 +43,6 @@ jobs:
           ARQ_PENDENTES   = Path("episodios_pendentes.json")
           ARQ_DESCARTADOS = Path("series_descartados.txt")
 
-          # BLACKLIST REMOVIDA
           SERIES_MORTAS = []
           MAX_TENTATIVAS = 6
 
@@ -105,87 +104,139 @@ jobs:
 
           log(f"Total na fila: {len(todas)} | Ja feitos: {len(feitas)} | Faltam: {len(fila)} | Pendentes: {len(pendentes)}.")
 
-          async def extrair_video_playwright(context, url_ep):
-              page = await context.new_page()
-              capturados = []
-              def on_response(res):
-                  u = res.url
-                  if re.search(r"[.](mp4|m3u8)([?]|$)", u, re.I) or 'tankie' in u or 'oneplayer' in u:
-                      capturados.append(u)
-              page.on("response", on_response)
-              try:
-                  await page.goto(url_ep, wait_until="domcontentloaded", timeout=20000)
-                  try: await page.wait_for_selector("iframe", timeout=10000)
+          def extrair_dados_pagina(html_text):
+              soup = BeautifulSoup(html_text, 'html.parser')
+              
+              # 1. JSON-LD
+              dados_ld = {}
+              script_ld = soup.find('script', type='application/ld+json')
+              if script_ld:
+                  try: dados_ld = json.loads(script_ld.string)
                   except: pass
-                  await asyncio.sleep(3.0)
-                  if not capturados:
-                      html = await page.content()
-                      soup = BeautifulSoup(html, 'html.parser')
-                      for iframe in soup.find_all('iframe'):
-                          src = iframe.get('src','')
-                          if src and 'google' not in src.lower() and 'ads' not in src.lower():
-                              capturados.append(src)
-                      if not capturados:
-                          m = re.search(r'(https?://[^"\']+(?:tankie|oneplayer)[^"\']+)', html)
-                          if m: capturados.append(m.group(1))
-              except Exception: pass
-              finally: await page.close()
-              return list(dict.fromkeys(capturados))[0] if capturados else None
 
-          def extrair_capa(soup):
-              og_img = soup.find('meta', property='og:image')
-              if og_img and og_img.get('content'):
-                  return og_img['content']
-              tw_img = soup.find('meta', attrs={'name': 'twitter:image'})
-              if tw_img and tw_img.get('content'):
-                  return tw_img['content']
-              return "https://via.placeholder.com/500x750?text=Sem+Capa"
-
-          def limpar_titulo_pagina(soup):
-              if not soup: return "Serie Desconhecida"
-              candidatos = []
-              og = soup.find('meta', property='og:title')
-              if og and og.get('content'): candidatos.append(og['content'])
-              if soup.h1: candidatos.append(soup.h1.get_text())
-              if soup.title and soup.title.string: candidatos.append(soup.title.string)
-
-              for raw in candidatos:
-                  if not raw: continue
-                  
+              # 2. Título (Prioriza o JSON-LD, depois a tag <title>)
+              titulo = dados_ld.get('name')
+              if not titulo or len(titulo) < 3:
+                  raw = soup.title.string if soup.title else "Serie Desconhecida"
                   raw_norm = unicodedata.normalize('NFKD', str(raw))
                   raw_norm = "".join([c for c in raw_norm if not unicodedata.combining(c)])
+                  partes = [p.strip() for p in re.split(r'\s+[-–—]\s+', raw_norm) if p.strip()]
+                  titulo = partes[-1] if len(partes) > 1 else partes[0]
                   
-                  titulo = str(raw_norm).strip()
-                  partes = [p.strip() for p in re.split(r'\s+[-–—]\s+', titulo) if p.strip()]
+              # Remove o ano
+              titulo = re.sub(r'\s*\(?\d{4}\)?\s*$', '', titulo).strip()
+              titulo = re.sub(r'\s*-\s*(?:\d+\s*[ªº]\s*)?(?:temporada|season)\b.*$', '', titulo, flags=re.I).strip()
+
+              # 3. Capa (JSON-LD, se "h" vai pro HTML)
+              capa = dados_ld.get('thumbnailUrl', [''])[0]
+              if not capa or capa == 'h' or len(capa) < 5:
+                  m = re.search(r'https://blogger\.googleusercontent\.com/img/[^"\'\s<>]+', html_text)
+                  if m: capa = m.group(0)
                   
-                  if not partes: continue
+              if not capa:
+                  og_img = soup.find('meta', property='og:image')
+                  capa = og_img['content'] if og_img and og_img.get('content') else "https://via.placeholder.com/500x750?text=Sem+Capa"
 
-                  if len(partes) > 1:
-                      limpas = [p for p in partes if not re.search(r'(vini|marcos|grave|site|online|blogspot|assistir|download)', p, re.I)]
-                      sem_temp = [p for p in limpas if not re.search(r'^(?:\d+\s*[ªº]?\s*)?(?:temporada|season)', p, re.I)]
-                      candidato = sem_temp or limpas or partes
-                      titulo = ' - '.join(candidato)
-                  else:
-                      titulo = partes[0]
+              return titulo.strip(), capa
 
-                  titulo = re.sub(r'\s*\(?\d{4}\)?\s*$', '', titulo).strip()
-                  titulo = titulo.strip('"\'').strip()
-                  titulo = re.sub(r'[\s.:;,]+$', '', titulo).strip()
+          def extrair_video_da_pagina(html_text):
+              soup = BeautifulSoup(html_text, 'html.parser')
+              script_ld = soup.find('script', type='application/ld+json')
+              if script_ld:
+                  try:
+                      dados_ld = json.loads(script_ld.string)
+                      if dados_ld.get('contentUrl'): return dados_ld['contentUrl']
+                  except: pass
                   
-                  if titulo and len(titulo) > 2:
-                      return titulo
-              return "Serie Desconhecida"
+              matches = re.findall(r'(https?://[^"\'\s<>]+(?:\.mp4|\.m3u8|tankie\.tube/videos/embed|oneplayer\.site)[^"\'\s<>]*)', html_text)
+              if matches:
+                  return matches[0]
+              return None
 
-          def salvar_json(nome_arquivo, nome_json, link, capa_url):
+          def salvar_html(nome_arquivo, nome_json, link, capa_url):
+              uid = re.sub(r'[^a-zA-Z0-9]', '', nome_arquivo.replace('.html', ''))
+              
               dados = {
-                  "@context": "https://schema.org", "@type": "VideoObject",
-                  "name": nome_json, "description": f"Assista {nome_json}",
+                  "@context": "https://schema.org",
+                  "@type": "VideoObject",
+                  "supportPlatform": ["https://schema.org/IOSPlatform", "https://schema.org/AndroidPlatform"],
+                  "name": nome_json,
+                  "description": f"Assista {nome_json}",
                   "thumbnailUrl": [capa_url],
-                  "uploadDate": "2020-01-01T00:00:00+00:00", "inLanguage": "pt",
-                  "contentUrl": link, "embedUrl": link,
+                  "uploadDate": "2024-11-04T23:00:00+00:00",
+                  "duration": "PT00H45M00S",
+                  "contentUrl": link,
+                  "interactionStatistic": {
+                      "@type": "InteractionCounter",
+                      "interactionType": { "@type": "WatchAction" },
+                      "userInteractionCount": 9458
+                  }
               }
               js = json.dumps(dados, ensure_ascii=False, indent=2)
-              html = (f'<!DOCTYPE html>\n<html lang="pt-BR">\n<head>\n<script type="application/ld+json">\n{js}\n</script>\n<title>{nome_json}</title>\n</head>\n<body>\n<h1>{nome_json}</h1>\n</body>\n</html>')
+              
+              html = (
+                  f'<!DOCTYPE html>\n'
+                  f'<html lang="pt-BR">\n'
+                  f'<head>\n'
+                  f'<meta charset="UTF-8">\n'
+                  f'<meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
+                  f'<script type="application/ld+json">\n'
+                  f'{js}\n'
+                  f'</script>\n'
+                  f'<title>{nome_json}</title>\n'
+                  f'</head>\n'
+                  f'<body style="background-color: #0b0b12; color: #fff; font-family: sans-serif;">\n'
+                  f'<h1 class="post-title" style="margin-bottom: 20px; color: #fff;">{nome_json}</h1>\n'
+                  f'<div class="meu-card-player" style="background: linear-gradient(145deg,#0b0b12,#161625); border-radius:20px; overflow:hidden; box-shadow:0 25px 60px rgba(0,0,0,.8); margin:25px 0; border:1px solid rgba(255,255,255,.06);">\n'
+                  f'  <div class="capa-filme" id="capa-{uid}" style="cursor: pointer; position: relative;">\n'
+                  f'    <img src="{capa_url}" style="width:100%; display:block;">\n'
+                  f'    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:70px; height:70px; background:linear-gradient(135deg,#7a00ff,#c000ff); border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 0 20px rgba(120,0,255,.6); color:white; font-size:26px; border:2px solid rgba(255,255,255,.2);">\n'
+                  f'      ▶\n'
+                  f'    </div>\n'
+                  f'    <div style="position:absolute; top:12px; right:12px; background:#ff003c; padding:6px 12px; border-radius:20px; font-size:11px; color:#fff; font-weight:bold;">\n'
+                  f'      HD\n'
+                  f'    </div>\n'
+                  f'  </div>\n'
+                  f'  <div id="container-video-{uid}" style="display: none;">\n'
+                  f'    <video \n'
+                  f'      id="player-video-{uid}"\n'
+                  f'      title="{nome_json}"\n'
+                  f'      controls \n'
+                  f'      playsinline \n'
+                  f'      poster="{capa_url}" \n'
+                  f'      style="width: 100%; display: block; background: #000;">\n'
+                  f'      Seu navegador não suporta vídeo HTML5.\n'
+                  f'    </video>\n'
+                  f'    <div id="video-src-{uid}" data-src="{link}" style="display:none;"></div>\n'
+                  f'  </div>\n'
+                  f'  <div class="conteudo-card" style="padding: 18px;">\n'
+                  f'    <p style="font-size: 14px; color: #cfcfcf; line-height: 1.6; margin-bottom: 14px;">\n'
+                  f'      Assista {nome_json} online em HD.\n'
+                  f'    </p>\n'
+                  f'  </div>\n'
+                  f'</div>\n'
+                  f'<script>\n'
+                  f'  document.addEventListener("DOMContentLoaded", function() {{\n'
+                  f'    const capa = document.getElementById(\'capa-{uid}\');\n'
+                  f'    const containerVideo = document.getElementById(\'container-video-{uid}\');\n'
+                  f'    const video = document.getElementById(\'player-video-{uid}\');\n'
+                  f'    const srcData = document.getElementById(\'video-src-{uid}\');\n'
+                  f'    capa.addEventListener(\'click\', function() {{\n'
+                  f'      capa.style.display = \'none\';\n'
+                  f'      containerVideo.style.display = \'block\';\n'
+                  f'      if (!video.src) {{\n'
+                  f'          video.src = srcData.getAttribute(\'data-src\');\n'
+                  f'          video.load();\n'
+                  f'      }}\n'
+                  f'      video.play().catch(function(error) {{\n'
+                  f'        console.log("Autoplay bloqueado.");\n'
+                  f'      }});\n'
+                  f'    }});\n'
+                  f'  }});\n'
+                  f'</script>\n'
+                  f'</body>\n'
+                  f'</html>'
+              )
               Path(nome_arquivo).write_text(html, encoding='utf-8')
 
           async def processar_serie(context, url_serie):
@@ -196,10 +247,8 @@ jobs:
               try:
                   r = await asyncio.to_thread(requests.get, url_serie, headers=HEADERS, timeout=20)
                   soup = BeautifulSoup(r.text, 'html.parser')
-
-                  titulo = limpar_titulo_pagina(soup)
-                  capa_url = extrair_capa(soup)
                   
+                  titulo, capa_url = extrair_dados_pagina(r.text)
                   slug = re.sub(r'[^a-z0-9]', '_', titulo.lower())
                   slug = re.sub(r'_+', '_', slug).strip('_')
 
@@ -224,15 +273,19 @@ jobs:
                   log(f"    Serie '{titulo}' ({slug}) - {len(eps)} episodios.")
 
                   for it in eps:
-                      nome_arquivo = f"{slug}_t{it['temp']}e{it['ep']}.json"
+                      nome_arquivo = f"{slug}_t{it['temp']}e{it['ep']}.html"
                       if Path(nome_arquivo).exists(): continue
                       nome_json = f"{titulo} - T{it['temp']}E{it['ep']} - {it['titulo']} - 🍿Clau"
-                      link = await extrair_video_playwright(context, it['url'])
+                      
+                      # Tenta pegar o link do vídeo do episódio
+                      r_ep = await asyncio.to_thread(requests.get, it['url'], headers=HEADERS, timeout=20)
+                      link = extrair_video_da_pagina(r_ep.text)
+                      
                       if not link:
                           if not any(p['arquivo']==nome_arquivo for p in pendentes):
                               pendentes.append({"arquivo": nome_arquivo, "nome_json": nome_json, "url": it['url'], "tentativas": 1})
                           continue
-                      salvar_json(nome_arquivo, nome_json, link, capa_url)
+                      salvar_html(nome_arquivo, nome_json, link, capa_url)
                       log(f"      [+] Salvo: {nome_arquivo}")
               except Exception as e:
                   log(f"    Erro na serie {url_serie}: {e}")
@@ -266,7 +319,7 @@ jobs:
                           except: pass
 
                           if link:
-                              salvar_json(item['arquivo'], item['nome_json'], link, capa_url)
+                              salvar_html(item['arquivo'], item['nome_json'], link, capa_url)
                               log("    [+] SUCESSO")
                           else:
                               item["tentativas"] = item.get("tentativas",1) + 1
@@ -285,16 +338,16 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -f series_feitas.txt series_fila.txt episodios_pendentes.json series_descartados.txt 2>/dev/null || true
-          git add -f *.json *.txt 2>/dev/null || true
+          git add -f *.html *.json *.txt 2>/dev/null || true
           if git diff --cached --quiet; then echo "Nada novo."; exit 0; fi
-          git commit -m "chore: atualizar catalogo de series"
+          git commit -m "chore: atualizar catalogo de series (player HTML5)"
 
           for i in $(seq 1 5); do
             if git push origin HEAD:main; then break; fi
             git fetch origin main
             git reset --mixed origin/main
             git add -f series_feitas.txt series_fila.txt episodios_pendentes.json series_descartados.txt 2>/dev/null || true
-            git add -f *.json *.txt 2>/dev/null || true
+            git add -f *.html *.json *.txt 2>/dev/null || true
             git commit -m "chore: retry $i" || true
             sleep $((RANDOM % 10 + 5))
           done
