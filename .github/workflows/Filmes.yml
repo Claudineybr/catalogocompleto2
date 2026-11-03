@@ -104,19 +104,24 @@ jobs:
 
           log(f"Total na fila: {len(todas)} | Ja feitos: {len(feitas)} | Faltam: {len(fila)} | Pendentes: {len(pendentes)}.")
 
-          # NOVA FUNÇÃO: Extrai tudo direto do HTML de forma inteligente
+          # Recuperada: Extrai o ano da URL
+          def extrair_ano_da_url(url_pagina):
+              m = re.search(r'/([^/]+)\.html', url_pagina)
+              if not m: return ""
+              slug = m.group(1)
+              anos = re.findall(r'(?<!\d)(?:19|20)\d{2}(?!\d)', slug)
+              return anos[-1] if anos else ""
+
+          # Extrai tudo direto do HTML/JSON-LD
           def extrair_dados_pagina(html_text):
               soup = BeautifulSoup(html_text, 'html.parser')
               
-              # 1. Tenta pegar o JSON-LD
               dados_ld = {}
               script_ld = soup.find('script', type='application/ld+json')
               if script_ld:
-                  try:
-                      dados_ld = json.loads(script_ld.string)
+                  try: dados_ld = json.loads(script_ld.string)
                   except: pass
 
-              # 2. Pega o Título
               titulo = dados_ld.get('name')
               if not titulo or len(titulo) < 3:
                   raw = soup.title.string if soup.title else "Filme Desconhecido"
@@ -125,10 +130,8 @@ jobs:
                   partes = [p.strip() for p in re.split(r'\s+[-–—]\s+', raw_norm) if p.strip()]
                   titulo = partes[-1] if len(partes) > 1 else partes[0]
 
-              # 3. Pega a Capa
               capa = dados_ld.get('thumbnailUrl', [''])[0]
               if not capa or capa == 'h' or len(capa) < 5:
-                  # Se for 'h', procura no HTML
                   m = re.search(r'https://blogger\.googleusercontent\.com/img/[^"\'\s<>]+', html_text)
                   if m: capa = m.group(0)
                   
@@ -136,12 +139,10 @@ jobs:
                   og_img = soup.find('meta', property='og:image')
                   capa = og_img['content'] if og_img and og_img.get('content') else "https://via.placeholder.com/500x750?text=Sem+Capa"
 
-              # 4. Pega o Vídeo
               video = dados_ld.get('contentUrl')
               if not video:
                   matches = re.findall(r'(https?://[^"\'\s<>]+(?:\.mp4|\.m3u8|tankie\.tube/videos/embed|oneplayer\.site)[^"\'\s<>]*)', html_text)
-                  if matches:
-                      video = matches[0]
+                  if matches: video = matches[0]
 
               return titulo.strip(), capa, video
 
@@ -241,7 +242,7 @@ jobs:
                   
                   titulo, capa_url, link = extrair_dados_pagina(r.text)
                   
-                  # Se não achou o link no HTML puro, tenta com o Playwright (para páginas dinâmicas)
+                  # Se não achou o link no HTML puro, tenta com o Playwright
                   if not link:
                       async with async_playwright() as pw:
                           browser = await pw.chromium.launch(headless=True)
