@@ -222,4 +222,4 @@ jobs:
           fi
 
           sleep 30
-          gh workflow run "capas_por_name.yml" --repo "$REPO" --ref main || true
+          gh workflow run "adicionar_capas.yml" --repo "$REPO" --ref main || true
