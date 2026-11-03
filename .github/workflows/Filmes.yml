@@ -140,8 +140,9 @@ jobs:
           def extrair_dados_pagina(html_text, url_pagina):
               soup = BeautifulSoup(html_text, 'html.parser')
               
+              # 1. Tenta H1 (com classe ou genérico)
               titulo = ""
-              h1 = soup.find('h1', class_='post-title')
+              h1 = soup.find('h1', class_='post-title') or soup.find('h1')
               if h1: titulo = h1.text.strip()
 
               dados_ld = {}
@@ -152,24 +153,29 @@ jobs:
                       if not titulo and dados_ld.get('name'): titulo = dados_ld.get('name').strip()
                   except: pass
 
+              # 2. og:title ou title
               if not titulo:
                   og = soup.find('meta', property='og:title')
                   if og and og.get('content'): titulo = og['content'].strip()
                   elif soup.title: titulo = soup.title.string.strip()
 
+              # LIMPEZA PESADA
               titulo = unicodedata.normalize('NFKD', str(titulo))
               titulo = "".join([c for c in titulo if not unicodedata.combining(c)])
               titulo = re.sub(r'^.*?[-–—]\s*', '', titulo) if re.search(r'(vini|marcos|inix|grave)', titulo, re.I) else titulo
               titulo = titulo.replace('🍿Clau', '').strip(' -')
+              titulo = re.sub(r'\.html?$', '', titulo, flags=re.I).strip() # Remove .html
 
-              if not titulo or len(titulo) < 3 or titulo.isdigit() or "filmes e series" in titulo.lower():
+              # 3. FALLBACK FORTE: Se o título for inválido ou uma URL, usa a URL
+              if not titulo or len(titulo) < 3 or titulo.isdigit() or "filmes e series" in titulo.lower() or re.match(r'^[a-z0-9\-]+$', titulo):
                   m = re.search(r'/([^/]+)\.html', url_pagina)
                   if m:
                       slug = m.group(1)
                       slug = re.sub(r'^(inix|arc|entre-nos|inix-entre-nos)[-_]', '', slug, flags=re.I)
-                      slug = re.sub(r'[-_]\d{4}$', '', slug)
+                      slug = re.sub(r'[-_]\d{4}(_\d+)?$', '', slug)
                       titulo = slug.replace('-', ' ').title().strip()
 
+              # Capa
               capa = dados_ld.get('thumbnailUrl', [''])[0]
               if not capa or capa == 'h' or len(capa) < 5:
                   m = re.search(r'https://blogger\.googleusercontent\.com/img/[^"\'\s<>]+', html_text)
@@ -178,6 +184,7 @@ jobs:
                   og_img = soup.find('meta', property='og:image')
                   capa = og_img['content'] if og_img and og_img.get('content') else "https://via.placeholder.com/500x750?text=Sem+Capa"
 
+              # Vídeo
               video = dados_ld.get('contentUrl')
               if not video:
                   matches = re.findall(r'(https?://[^"\'\s<>]+(?:\.mp4|\.m3u8|tankie\.tube/videos/embed|oneplayer\.site)[^"\'\s<>]*)', html_text)
@@ -185,9 +192,8 @@ jobs:
 
               return titulo.strip(), capa, video
 
-          # NOVO MODELO DE HTML (Fullscreen player)
           def salvar_html(nome_arquivo, nome_json, link, capa_url):
-              base_url = "https://api-pobreflix-filmes.pages.dev" # Você pode trocar isso se quiser
+              base_url = "https://api-pobreflix-filmes.pages.dev"
               file_url = f"{base_url}/{nome_arquivo}"
               
               dados = {
@@ -253,6 +259,7 @@ jobs:
                   tem_ano_no_titulo = bool(re.search(r'(?<!\d)(?:19|20)\d{2}(?!\d)', titulo))
 
                   slug = re.sub(r'[^a-z0-9]', '_', titulo.lower())
+                  slug = re.sub(r'_html?$', '', slug) # Limpa o _html gerado
                   slug = re.sub(r'_+', '_', slug).strip('_')
 
                   if ano and not tem_ano_no_titulo:
