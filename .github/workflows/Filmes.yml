@@ -104,80 +104,131 @@ jobs:
 
           log(f"Total na fila: {len(todas)} | Ja feitos: {len(feitas)} | Faltam: {len(fila)} | Pendentes: {len(pendentes)}.")
 
-          async def extrair_video_playwright(context, url_ep):
-              page = await context.new_page()
-              capturados = []
-              def on_response(res):
-                  u = res.url
-                  if re.search(r"[.](mp4|m3u8)([?]|$)", u, re.I) or 'tankie' in u or 'oneplayer' in u:
-                      capturados.append(u)
-              page.on("response", on_response)
-              try:
-                  await page.goto(url_ep, wait_until="domcontentloaded", timeout=20000)
-                  try: await page.wait_for_selector("iframe", timeout=10000)
+          # NOVA FUNÇÃO: Extrai tudo direto do HTML de forma inteligente
+          def extrair_dados_pagina(html_text):
+              soup = BeautifulSoup(html_text, 'html.parser')
+              
+              # 1. Tenta pegar o JSON-LD
+              dados_ld = {}
+              script_ld = soup.find('script', type='application/ld+json')
+              if script_ld:
+                  try:
+                      dados_ld = json.loads(script_ld.string)
                   except: pass
-                  await asyncio.sleep(3.0)
-                  if not capturados:
-                      html = await page.content()
-                      soup = BeautifulSoup(html, 'html.parser')
-                      for iframe in soup.find_all('iframe'):
-                          src = iframe.get('src','')
-                          if src and 'google' not in src.lower() and 'ads' not in src.lower():
-                              capturados.append(src)
-                      if not capturados:
-                          m = re.search(r'(https?://[^"\']+(?:tankie|oneplayer)[^"\']+)', html)
-                          if m: capturados.append(m.group(1))
-              except Exception: pass
-              finally: await page.close()
-              return list(dict.fromkeys(capturados))[0] if capturados else None
 
-          def extrair_titulo(soup):
-              og = soup.find('meta', property='og:title')
-              if og and og.get('content'):
-                  raw = og['content']
-              else:
-                  raw = soup.h1.text if soup.h1 else (soup.title.text if soup.title else "Filme Desconhecido")
+              # 2. Pega o Título
+              titulo = dados_ld.get('name')
+              if not titulo or len(titulo) < 3:
+                  raw = soup.title.string if soup.title else "Filme Desconhecido"
+                  raw_norm = unicodedata.normalize('NFKD', str(raw))
+                  raw_norm = "".join([c for c in raw_norm if not unicodedata.combining(c)])
+                  partes = [p.strip() for p in re.split(r'\s+[-–—]\s+', raw_norm) if p.strip()]
+                  titulo = partes[-1] if len(partes) > 1 else partes[0]
+
+              # 3. Pega a Capa
+              capa = dados_ld.get('thumbnailUrl', [''])[0]
+              if not capa or capa == 'h' or len(capa) < 5:
+                  # Se for 'h', procura no HTML
+                  m = re.search(r'https://blogger\.googleusercontent\.com/img/[^"\'\s<>]+', html_text)
+                  if m: capa = m.group(0)
+                  
+              if not capa:
+                  og_img = soup.find('meta', property='og:image')
+                  capa = og_img['content'] if og_img and og_img.get('content') else "https://via.placeholder.com/500x750?text=Sem+Capa"
+
+              # 4. Pega o Vídeo
+              video = dados_ld.get('contentUrl')
+              if not video:
+                  matches = re.findall(r'(https?://[^"\'\s<>]+(?:\.mp4|\.m3u8|tankie\.tube/videos/embed|oneplayer\.site)[^"\'\s<>]*)', html_text)
+                  if matches:
+                      video = matches[0]
+
+              return titulo.strip(), capa, video
+
+          def salvar_html(nome_arquivo, nome_json, link, capa_url):
+              uid = re.sub(r'[^a-zA-Z0-9]', '', nome_arquivo.replace('.html', ''))
               
-              raw_norm = unicodedata.normalize('NFKD', str(raw))
-              raw_norm = "".join([c for c in raw_norm if not unicodedata.combining(c)])
-              
-              partes = [p.strip() for p in re.split(r'\s+[-–—]\s+', raw_norm) if p.strip()]
-              validas = [p for p in partes if not re.search(r'(vini|marcos|grave|online|blogspot|assistir)', p, re.I)]
-              
-              return ' - '.join(validas) if validas else raw_norm.strip()
-
-          def extrair_capa(soup):
-              og_img = soup.find('meta', property='og:image')
-              if og_img and og_img.get('content'):
-                  return og_img['content']
-              tw_img = soup.find('meta', attrs={'name': 'twitter:image'})
-              if tw_img and tw_img.get('content'):
-                  return tw_img['content']
-              return "https://via.placeholder.com/500x750?text=Sem+Capa"
-
-          def extrair_ano_da_url(url_pagina):
-              m = re.search(r'/([^/]+)\.html', url_pagina)
-              if not m: return ""
-              slug = m.group(1)
-              anos = re.findall(r'(?<!\d)(?:19|20)\d{2}(?!\d)', slug)
-              return anos[-1] if anos else ""
-
-          def eh_serie(soup):
-              for a in soup.find_all('a', href=True):
-                  if re.search(r'epis[oó]dio[-_/]\d+', a['href'], re.I): return True
-                  if re.search(r'\bepis[oó]dio\s*\d+', a.get_text(strip=True), re.I): return True
-              return False
-
-          def salvar_json(nome_arquivo, nome_json, link, capa_url):
               dados = {
-                  "@context": "https://schema.org", "@type": "VideoObject",
-                  "name": nome_json, "description": f"Assista {nome_json}",
+                  "@context": "https://schema.org",
+                  "@type": "VideoObject",
+                  "supportPlatform": ["https://schema.org/IOSPlatform", "https://schema.org/AndroidPlatform"],
+                  "name": nome_json,
+                  "description": f"Assista {nome_json}",
                   "thumbnailUrl": [capa_url],
-                  "uploadDate": "2020-01-01T00:00:00+00:00", "inLanguage": "pt",
-                  "contentUrl": link, "embedUrl": link,
+                  "uploadDate": "2024-11-04T23:00:00+00:00",
+                  "duration": "PT02H00M00S",
+                  "contentUrl": link,
+                  "interactionStatistic": {
+                      "@type": "InteractionCounter",
+                      "interactionType": { "@type": "WatchAction" },
+                      "userInteractionCount": 9458
+                  }
               }
               js = json.dumps(dados, ensure_ascii=False, indent=2)
-              html = (f'<!DOCTYPE html>\n<html lang="pt-BR">\n<head>\n<script type="application/ld+json">\n{js}\n</script>\n<title>{nome_json}</title>\n</head>\n<body>\n<h1>{nome_json}</h1>\n</body>\n</html>')
+              
+              html = (
+                  f'<!DOCTYPE html>\n'
+                  f'<html lang="pt-BR">\n'
+                  f'<head>\n'
+                  f'<meta charset="UTF-8">\n'
+                  f'<meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
+                  f'<script type="application/ld+json">\n'
+                  f'{js}\n'
+                  f'</script>\n'
+                  f'<title>{nome_json}</title>\n'
+                  f'</head>\n'
+                  f'<body style="background-color: #0b0b12; color: #fff; font-family: sans-serif;">\n'
+                  f'<h1 class="post-title" style="margin-bottom: 20px; color: #fff;">{nome_json}</h1>\n'
+                  f'<div class="meu-card-player" style="background: linear-gradient(145deg,#0b0b12,#161625); border-radius:20px; overflow:hidden; box-shadow:0 25px 60px rgba(0,0,0,.8); margin:25px 0; border:1px solid rgba(255,255,255,.06);">\n'
+                  f'  <div class="capa-filme" id="capa-{uid}" style="cursor: pointer; position: relative;">\n'
+                  f'    <img src="{capa_url}" style="width:100%; display:block;">\n'
+                  f'    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:70px; height:70px; background:linear-gradient(135deg,#7a00ff,#c000ff); border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 0 20px rgba(120,0,255,.6); color:white; font-size:26px; border:2px solid rgba(255,255,255,.2);">\n'
+                  f'      ▶\n'
+                  f'    </div>\n'
+                  f'    <div style="position:absolute; top:12px; right:12px; background:#ff003c; padding:6px 12px; border-radius:20px; font-size:11px; color:#fff; font-weight:bold;">\n'
+                  f'      HD\n'
+                  f'    </div>\n'
+                  f'  </div>\n'
+                  f'  <div id="container-video-{uid}" style="display: none;">\n'
+                  f'    <video \n'
+                  f'      id="player-video-{uid}"\n'
+                  f'      title="{nome_json}"\n'
+                  f'      controls \n'
+                  f'      playsinline \n'
+                  f'      poster="{capa_url}" \n'
+                  f'      style="width: 100%; display: block; background: #000;">\n'
+                  f'      Seu navegador não suporta vídeo HTML5.\n'
+                  f'    </video>\n'
+                  f'    <div id="video-src-{uid}" data-src="{link}" style="display:none;"></div>\n'
+                  f'  </div>\n'
+                  f'  <div class="conteudo-card" style="padding: 18px;">\n'
+                  f'    <p style="font-size: 14px; color: #cfcfcf; line-height: 1.6; margin-bottom: 14px;">\n'
+                  f'      Assista {nome_json} online em HD.\n'
+                  f'    </p>\n'
+                  f'  </div>\n'
+                  f'</div>\n'
+                  f'<script>\n'
+                  f'  document.addEventListener("DOMContentLoaded", function() {{\n'
+                  f'    const capa = document.getElementById(\'capa-{uid}\');\n'
+                  f'    const containerVideo = document.getElementById(\'container-video-{uid}\');\n'
+                  f'    const video = document.getElementById(\'player-video-{uid}\');\n'
+                  f'    const srcData = document.getElementById(\'video-src-{uid}\');\n'
+                  f'    capa.addEventListener(\'click\', function() {{\n'
+                  f'      capa.style.display = \'none\';\n'
+                  f'      containerVideo.style.display = \'block\';\n'
+                  f'      if (!video.src) {{\n'
+                  f'          video.src = srcData.getAttribute(\'data-src\');\n'
+                  f'          video.load();\n'
+                  f'      }}\n'
+                  f'      video.play().catch(function(error) {{\n'
+                  f'        console.log("Autoplay bloqueado.");\n'
+                  f'      }});\n'
+                  f'    }});\n'
+                  f'  }});\n'
+                  f'</script>\n'
+                  f'</body>\n'
+                  f'</html>'
+              )
               Path(nome_arquivo).write_text(html, encoding='utf-8')
 
           async def processar_item(context, url_pagina):
@@ -187,27 +238,32 @@ jobs:
               log(f"\n--> Verificando: {url_pagina}")
               try:
                   r = await asyncio.to_thread(requests.get, url_pagina, headers=HEADERS, timeout=20)
-                  soup = BeautifulSoup(r.text, 'html.parser')
-
-                  if eh_serie(soup):
-                      log("    (E serie. Pulando...)")
-                      with open(ARQ_FEITAS, "a", encoding="utf-8") as f: f.write(url_pagina.strip()+"\n")
-                      return
-
-                  titulo = extrair_titulo(soup)
-                  ano = extrair_ano_da_url(url_pagina)
-                  capa_url = extrair_capa(soup)
                   
+                  titulo, capa_url, link = extrair_dados_pagina(r.text)
+                  
+                  # Se não achou o link no HTML puro, tenta com o Playwright (para páginas dinâmicas)
+                  if not link:
+                      async with async_playwright() as pw:
+                          browser = await pw.chromium.launch(headless=True)
+                          page = await browser.new_page()
+                          await page.goto(url_pagina, wait_until="domcontentloaded", timeout=20000)
+                          await asyncio.sleep(3)
+                          html_render = await page.content()
+                          titulo_r, capa_r, link = extrair_dados_pagina(html_render)
+                          if not capa_url or capa_url == 'h': capa_url = capa_r
+                          await browser.close()
+
+                  ano = extrair_ano_da_url(url_pagina)
                   tem_ano_no_titulo = bool(re.search(r'(?<!\d)(?:19|20)\d{2}(?!\d)', titulo))
 
                   slug = re.sub(r'[^a-z0-9]', '_', titulo.lower())
                   slug = re.sub(r'_+', '_', slug).strip('_')
 
                   if ano and not tem_ano_no_titulo:
-                      nome_arquivo = f"{slug}_{ano}.json"
+                      nome_arquivo = f"{slug}_{ano}.html"
                       nome_json    = f"{titulo} ({ano}) - 🍿Clau"
                   else:
-                      nome_arquivo = f"{slug}.json"
+                      nome_arquivo = f"{slug}.html"
                       nome_json    = f"{titulo} - 🍿Clau"
 
                   with open(ARQ_FEITAS, "a", encoding="utf-8") as f: f.write(url_pagina.strip()+"\n")
@@ -216,12 +272,11 @@ jobs:
                       log(f"    (Ja existe: {nome_arquivo})"); return
 
                   log(f"    Filme: '{nome_json}'")
-                  link = await extrair_video_playwright(context, url_pagina)
                   if not link:
                       if not any(p['arquivo']==nome_arquivo for p in pendentes):
                           pendentes.append({"arquivo": nome_arquivo, "nome_json": nome_json, "url": url_pagina, "tentativas": 1})
                       return
-                  salvar_json(nome_arquivo, nome_json, link, capa_url)
+                  salvar_html(nome_arquivo, nome_json, link, capa_url)
                   log(f"      [+] Salvo: {nome_arquivo}")
               except Exception as e:
                   log(f"    Erro em {url_pagina}: {e}")
@@ -245,22 +300,8 @@ jobs:
                                   f.write(f"{item['arquivo']}\t{item['url']}\t{item.get('tentativas')} falhas\n")
                               continue
                           log(f"--> Tentativa {item['tentativas']+1}/{MAX_TENTATIVAS}: {item['arquivo']}")
-                          link = await extrair_video_playwright(ctx, item['url'])
-                          
-                          try:
-                              r = await asyncio.to_thread(requests.get, item['url'], headers=HEADERS, timeout=20)
-                              soup = BeautifulSoup(r.text, 'html.parser')
-                              capa_url = extrair_capa(soup)
-                          except:
-                              capa_url = "https://via.placeholder.com/500x750?text=Sem+Capa"
-
-                          if link:
-                              salvar_json(item['arquivo'], item['nome_json'], link, capa_url)
-                              log("    [+] SUCESSO")
-                          else:
-                              item["tentativas"] = item.get("tentativas",1) + 1
-                              ainda.append(item)
-                      pendentes.clear(); pendentes.extend(ainda)
+                          await processar_item(ctx, item['url'])
+                      pendentes.clear()
                   await browser.close()
 
           if __name__ == "__main__":
@@ -274,16 +315,16 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -f filmes_feitos.txt filmes_fila.txt filmes_pendentes.json filmes_descartados.txt 2>/dev/null || true
-          git add -f *.json *.txt 2>/dev/null || true
+          git add -f *.html *.json *.txt 2>/dev/null || true
           if git diff --cached --quiet; then echo "Nada novo."; exit 0; fi
-          git commit -m "feat: mega extracao de filmes (lote 100)"
+          git commit -m "feat: mega extracao de filmes (lote 100 + player HTML5)"
 
           for i in $(seq 1 5); do
             if git push origin HEAD:main; then break; fi
             git fetch origin main
             git reset --mixed origin/main
             git add -f filmes_feitos.txt filmes_fila.txt filmes_pendentes.json filmes_descartados.txt 2>/dev/null || true
-            git add -f *.json *.txt 2>/dev/null || true
+            git add -f *.html *.json *.txt 2>/dev/null || true
             git commit -m "feat: retry $i" || true
             sleep $((RANDOM % 10 + 5))
           done
