@@ -45,7 +45,7 @@ jobs:
 
           # BLACKLIST REMOVIDA
           SERIES_MORTAS = []
-          MAX_TENTATIVAS = 3
+          MAX_TENTATIVAS = 6
 
           def log(*a): print(*a, flush=True); sys.stdout.flush()
 
