@@ -7,3 +7,9 @@ https_www_vini7xgrave_site_2026_09_inix_cyberpunk_mercenarios_2022_html.json	htt
 https_www_vini7xgrave_site_2026_09_inix_assassinato_na_casa_branca_2025_html.json	https://www.vini7xgrave.site/2026/09/inix-assassinato-na-casa-branca-2025.html	3 falhas
 indiana_jones_e_a_ultima_cruzada_1989.json	https://www.vini7xgrave.site/2025/06/inix-indiana-jones-e-ultima-cruzada-1989.html	3 falhas
 portoes_do_inferno_2025.json	https://www.vini7xgrave.site/2026/07/inix-portoes-do-inferno-2025.html	3 falhas
+se_eu_tivesse_pernas_eu_te_chutaria_2025.json	https://www.vini7xgrave.site/2026/08/inix-se-eu-tivesse-pernas-eu-te.html	6 falhas
+a_ultima_casa_2009.json	https://www.vini7xgrave.site/2025/03/a-ultima-casa-2009.html	6 falhas
+https_www_vini7xgrave_site_2026_08_inix_irmaos_por_acidente_2024_html.json	https://www.vini7xgrave.site/2026/08/inix-irmaos-por-acidente-2024.html	6 falhas
+o_aniversario_2025.json	https://www.vini7xgrave.site/2026/08/inix-o-aniversario-2025.html	6 falhas
+a_morte_do_demonio_em_chamas_cinema_2026.json	https://www.vini7xgrave.site/2026/08/inix-morte-do-demonio-em-chamas-2026.html	6 falhas
+diamante_de_sangue_2006.json	https://www.vini7xgrave.site/2026/08/inix-diamante-de-sangue-2006.html	6 falhas
