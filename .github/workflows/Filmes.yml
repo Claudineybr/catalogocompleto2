@@ -1,9 +1,25 @@
-name: Mega Extrair Filmes (Lotes de 100)
+name: Mega Extrair Filmes
 
 on:
   schedule:
     - cron: '15,45 * * * *'
   workflow_dispatch:
+    inputs:
+      lote:
+        description: 'URLs para visitar por run (lote)'
+        required: false
+        default: '100'
+        type: string
+      reprocessar_tudo:
+        description: 'Reprocessar tudo (limpa cache/mapa/visitados)?'
+        required: false
+        default: false
+        type: boolean
+      auto_run:
+        description: 'Ativar auto-chain (iniciar próxima run automaticamente)?'
+        required: false
+        default: true
+        type: boolean
 
 permissions:
   contents: write
@@ -21,6 +37,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Limpar arquivos de controle (Opcional)
+        if: ${{ inputs.reprocessar_tudo == true }}
+        run: |
+          echo "Limpando fila, feitos, pendentes e descartados..."
+          rm -f filmes_fila.txt filmes_feitos.txt filmes_pendentes.json filmes_descartados.txt
+
       - name: Instalar Python e Playwright
         run: |
           pip install playwright beautifulsoup4 requests
@@ -28,9 +50,11 @@ jobs:
           playwright install-deps
 
       - name: Extrair Filmes e Retentar Falhas
+        env:
+          LOTE_SIZE: ${{ inputs.lote || '100' }}
         run: |
           cat > /tmp/mega_filmes.py << 'PYEOF'
-          import asyncio, re, json, requests, sys, unicodedata
+          import asyncio, re, json, requests, sys, unicodedata, os
           from bs4 import BeautifulSoup
           from pathlib import Path
           from playwright.async_api import async_playwright
@@ -45,6 +69,8 @@ jobs:
 
           FILMES_MORTOS = []
           MAX_TENTATIVAS = 6
+          
+          LOTE_SIZE = int(os.environ.get('LOTE_SIZE', 100))
 
           def log(*a): print(*a, flush=True); sys.stdout.flush()
 
@@ -100,9 +126,9 @@ jobs:
           todas = [u.strip() for u in ARQ_FILA.read_text(encoding="utf-8").splitlines() if u.strip()]
           fila = [u for u in todas if u not in feitas]
           
-          lote = fila[:100]
+          lote = fila[:LOTE_SIZE]
 
-          log(f"Total na fila: {len(todas)} | Ja feitos: {len(feitas)} | Faltam: {len(fila)} | Pendentes: {len(pendentes)}.")
+          log(f"Total na fila: {len(todas)} | Ja feitos: {len(feitas)} | Faltam: {len(fila)} | Pendentes: {len(pendentes)} | Lote: {LOTE_SIZE}")
 
           def extrair_ano_da_url(url_pagina):
               m = re.search(r'/([^/]+)\.html', url_pagina)
@@ -114,7 +140,6 @@ jobs:
           def extrair_dados_pagina(html_text, url_pagina):
               soup = BeautifulSoup(html_text, 'html.parser')
               
-              # 1. Tenta o H1 específico do Blogger (mais confiável)
               titulo = ""
               h1 = soup.find('h1', class_='post-title')
               if h1: titulo = h1.text.strip()
@@ -127,19 +152,16 @@ jobs:
                       if not titulo and dados_ld.get('name'): titulo = dados_ld.get('name').strip()
                   except: pass
 
-              # 2. Tenta og:title ou title
               if not titulo:
                   og = soup.find('meta', property='og:title')
                   if og and og.get('content'): titulo = og['content'].strip()
                   elif soup.title: titulo = soup.title.string.strip()
 
-              # Limpeza básica do título
               titulo = unicodedata.normalize('NFKD', str(titulo))
               titulo = "".join([c for c in titulo if not unicodedata.combining(c)])
               titulo = re.sub(r'^.*?[-–—]\s*', '', titulo) if re.search(r'(vini|marcos|inix|grave)', titulo, re.I) else titulo
               titulo = titulo.replace('🍿Clau', '').strip(' -')
 
-              # 3. FALLBACK DEFINITIVO: Se for genérico ou só número, usa a URL
               if not titulo or len(titulo) < 3 or titulo.isdigit() or "filmes e series" in titulo.lower():
                   m = re.search(r'/([^/]+)\.html', url_pagina)
                   if m:
@@ -148,7 +170,6 @@ jobs:
                       slug = re.sub(r'[-_]\d{4}$', '', slug)
                       titulo = slug.replace('-', ' ').title().strip()
 
-              # Capa
               capa = dados_ld.get('thumbnailUrl', [''])[0]
               if not capa or capa == 'h' or len(capa) < 5:
                   m = re.search(r'https://blogger\.googleusercontent\.com/img/[^"\'\s<>]+', html_text)
@@ -157,7 +178,6 @@ jobs:
                   og_img = soup.find('meta', property='og:image')
                   capa = og_img['content'] if og_img and og_img.get('content') else "https://via.placeholder.com/500x750?text=Sem+Capa"
 
-              # Vídeo
               video = dados_ld.get('contentUrl')
               if not video:
                   matches = re.findall(r'(https?://[^"\'\s<>]+(?:\.mp4|\.m3u8|tankie\.tube/videos/embed|oneplayer\.site)[^"\'\s<>]*)', html_text)
@@ -165,87 +185,44 @@ jobs:
 
               return titulo.strip(), capa, video
 
+          # NOVO MODELO DE HTML (Fullscreen player)
           def salvar_html(nome_arquivo, nome_json, link, capa_url):
-              uid = re.sub(r'[^a-zA-Z0-9]', '', nome_arquivo.replace('.html', ''))
+              base_url = "https://api-pobreflix-filmes.pages.dev" # Você pode trocar isso se quiser
+              file_url = f"{base_url}/{nome_arquivo}"
               
               dados = {
                   "@context": "https://schema.org",
                   "@type": "VideoObject",
-                  "supportPlatform": ["https://schema.org/IOSPlatform", "https://schema.org/AndroidPlatform"],
+                  "@id": file_url,
+                  "url": file_url,
                   "name": nome_json,
                   "description": f"Assista {nome_json}",
                   "thumbnailUrl": [capa_url],
-                  "uploadDate": "2024-11-04T23:00:00+00:00",
-                  "duration": "PT02H00M00S",
+                  "uploadDate": "2020-01-01T00:00:00+00:00",
+                  "inLanguage": "pt",
                   "contentUrl": link,
-                  "interactionStatistic": {
-                      "@type": "InteractionCounter",
-                      "interactionType": { "@type": "WatchAction" },
-                      "userInteractionCount": 9458
-                  }
+                  "embedUrl": link
               }
-              js = json.dumps(dados, ensure_ascii=False, indent=2)
+              js = json.dumps(dados, ensure_ascii=False, indent=4)
               
               html = (
                   f'<!DOCTYPE html>\n'
                   f'<html lang="pt-BR">\n'
                   f'<head>\n'
-                  f'<meta charset="UTF-8">\n'
-                  f'<meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
-                  f'<script type="application/ld+json">\n'
+                  f'    <meta charset="UTF-8">\n'
+                  f'    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
+                  f'    <link rel="icon" href="data:,">\n'
+                  f'    <script type="application/ld+json">\n'
                   f'{js}\n'
-                  f'</script>\n'
-                  f'<title>{nome_json}</title>\n'
+                  f'    </script>\n'
+                  f'    <title>{nome_json}</title>\n'
+                  f'    <style>\n'
+                  f'        body, html {{ margin: 0; padding: 0; background-color: #000; height: 100%; width: 100%; overflow: hidden; }}\n'
+                  f'        video {{ width: 100%; height: 100%; outline: none; }}\n'
+                  f'    </style>\n'
                   f'</head>\n'
-                  f'<body style="background-color: #0b0b12; color: #fff; font-family: sans-serif;">\n'
-                  f'<h1 class="post-title" style="margin-bottom: 20px; color: #fff;">{nome_json}</h1>\n'
-                  f'<div class="meu-card-player" style="background: linear-gradient(145deg,#0b0b12,#161625); border-radius:20px; overflow:hidden; box-shadow:0 25px 60px rgba(0,0,0,.8); margin:25px 0; border:1px solid rgba(255,255,255,.06);">\n'
-                  f'  <div class="capa-filme" id="capa-{uid}" style="cursor: pointer; position: relative;">\n'
-                  f'    <img src="{capa_url}" style="width:100%; display:block;">\n'
-                  f'    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:70px; height:70px; background:linear-gradient(135deg,#7a00ff,#c000ff); border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 0 20px rgba(120,0,255,.6); color:white; font-size:26px; border:2px solid rgba(255,255,255,.2);">\n'
-                  f'      ▶\n'
-                  f'    </div>\n'
-                  f'    <div style="position:absolute; top:12px; right:12px; background:#ff003c; padding:6px 12px; border-radius:20px; font-size:11px; color:#fff; font-weight:bold;">\n'
-                  f'      HD\n'
-                  f'    </div>\n'
-                  f'  </div>\n'
-                  f'  <div id="container-video-{uid}" style="display: none;">\n'
-                  f'    <video \n'
-                  f'      id="player-video-{uid}"\n'
-                  f'      title="{nome_json}"\n'
-                  f'      controls \n'
-                  f'      playsinline \n'
-                  f'      poster="{capa_url}" \n'
-                  f'      style="width: 100%; display: block; background: #000;">\n'
-                  f'      Seu navegador não suporta vídeo HTML5.\n'
-                  f'    </video>\n'
-                  f'    <div id="video-src-{uid}" data-src="{link}" style="display:none;"></div>\n'
-                  f'  </div>\n'
-                  f'  <div class="conteudo-card" style="padding: 18px;">\n'
-                  f'    <p style="font-size: 14px; color: #cfcfcf; line-height: 1.6; margin-bottom: 14px;">\n'
-                  f'      Assista {nome_json} online em HD.\n'
-                  f'    </p>\n'
-                  f'  </div>\n'
-                  f'</div>\n'
-                  f'<script>\n'
-                  f'  document.addEventListener("DOMContentLoaded", function() {{\n'
-                  f'    const capa = document.getElementById(\'capa-{uid}\');\n'
-                  f'    const containerVideo = document.getElementById(\'container-video-{uid}\');\n'
-                  f'    const video = document.getElementById(\'player-video-{uid}\');\n'
-                  f'    const srcData = document.getElementById(\'video-src-{uid}\');\n'
-                  f'    capa.addEventListener(\'click\', function() {{\n'
-                  f'      capa.style.display = \'none\';\n'
-                  f'      containerVideo.style.display = \'block\';\n'
-                  f'      if (!video.src) {{\n'
-                  f'          video.src = srcData.getAttribute(\'data-src\');\n'
-                  f'          video.load();\n'
-                  f'      }}\n'
-                  f'      video.play().catch(function(error) {{\n'
-                  f'        console.log("Autoplay bloqueado.");\n'
-                  f'      }});\n'
-                  f'    }});\n'
-                  f'  }});\n'
-                  f'</script>\n'
+                  f'<body>\n'
+                  f'    <video src="{link}" poster="{capa_url}" controls autoplay playsinline></video>\n'
                   f'</body>\n'
                   f'</html>'
               )
@@ -333,23 +310,22 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f filmes_feitos.txt filmes_fila.txt filmes_pendentes.json filmes_descartados.txt 2>/dev/null || true
-          git add -f *.html *.json *.txt 2>/dev/null || true
+          git add -A
+          
           if git diff --cached --quiet; then echo "Nada novo."; exit 0; fi
-          git commit -m "feat: mega extracao de filmes (lote 100 + player HTML5)"
+          git commit -m "feat: mega extracao de filmes (lote ${{ inputs.lote || '100' }})"
 
           for i in $(seq 1 5); do
             if git push origin HEAD:main; then break; fi
             git fetch origin main
             git reset --mixed origin/main
-            git add -f filmes_feitos.txt filmes_fila.txt filmes_pendentes.json filmes_descartados.txt 2>/dev/null || true
-            git add -f *.html *.json *.txt 2>/dev/null || true
+            git add -A
             git commit -m "feat: retry $i" || true
             sleep $((RANDOM % 10 + 5))
           done
 
       - name: Disparar próxima run (se fila não vazia)
-        if: success()
+        if: success() && (github.event_name == 'schedule' || inputs.auto_run == true)
         env:
           GH_TOKEN: ${{ secrets.PAT_CHAIN }}
           REPO: ${{ github.repository }}
@@ -365,7 +341,7 @@ jobs:
           fi
 
           LIMITE_ISO=$(date -u -d '60 minutes ago' +%Y-%m-%dT%H:%M:%SZ)
-          RECENTES=$(gh run list --workflow="Filmes.yml" --limit 100 --json event,createdAt --jq "[.[] | select(.event == \"workflow_dispatch\") | select(.createdAt > \"$LIMITE_ISO\")] | length" --repo "$REPO" 2>/dev/null || echo 0)
+          RECENTES=$(gh run list --workflow="Filmes.yml" --limit 100 --json event,createdAt --jq "[.[] | select(.event == \"workflow_dispatch\")] | length" --repo "$REPO" 2>/dev/null || echo 0)
           
           if [ "$RECENTES" -ge 30 ]; then
             echo "⚠️ Limite de 30 runs/hora atingido. Aguardando cron."; exit 0
