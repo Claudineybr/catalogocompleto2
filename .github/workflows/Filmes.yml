@@ -203,7 +203,6 @@ jobs:
                       slug = re.sub(r'[-_]\d{4}(_\d+)?$', '', slug)
                       titulo = slug.replace('-', ' ').title().strip()
 
-              # --- BUSCA INTELIGENTE DE CAPA ---
               capa = dados_ld.get('thumbnailUrl', [''])[0]
               
               if not capa or capa == 'h' or len(capa) < 5:
@@ -315,6 +314,9 @@ jobs:
                       nome_arquivo = f"{slug}.html"
                       nome_json    = f"{titulo} - 🍿Clau"
 
+                  # A MÁGICA ESTÁ AQUI: Salva nos feitos ANTES de checar se o arquivo existe
+                  with open(ARQ_FEITAS, "a", encoding="utf-8") as f: f.write(url_pagina.strip()+"\n")
+
                   if Path(nome_arquivo).exists():
                       log(f"    (Já existe: {nome_arquivo})")
                       try:
@@ -329,8 +331,6 @@ jobs:
                       except Exception as e:
                           log(f"    [-] Erro ao atualizar capa: {e}")
                       return
-
-                  with open(ARQ_FEITAS, "a", encoding="utf-8") as f: f.write(url_pagina.strip()+"\n")
 
                   log(f"    Filme: '{nome_json}'")
                   if not link:
@@ -377,7 +377,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
           git add -A
-          # Impede o push de arquivos da pasta .github (causava erro de permissão no token)
           git reset .github/ 2>/dev/null || true
           
           if git diff --cached --quiet; then echo "Nada novo."; exit 0; fi
@@ -414,7 +413,6 @@ jobs:
             echo "✅ Fila vazia. Chain encerrada."; exit 0
           fi
 
-          # Verifica runs recentes para evitar loop infinito (limite de 100 runs/hora)
           LIMITE_ISO=$(date -u -d '60 minutes ago' +%Y-%m-%dT%H:%M:%SZ)
           RECENTES=$(gh run list --workflow="Filmes.yml" --limit 100 --json event,createdAt --jq "[.[] | select(.event == \"workflow_dispatch\") | select(.createdAt > \"$LIMITE_ISO\")] | length" --repo "$REPO" 2>/dev/null || echo 0)
           
