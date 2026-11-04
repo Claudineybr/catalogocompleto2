@@ -376,14 +376,20 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
           git add -A
+          # CORREÇÃO: Impede o push de arquivos de workflow que causam erro de permissão
+          git reset .github/ 2>/dev/null || true
+          
           if git diff --cached --quiet; then echo "Nada novo."; exit 0; fi
           git commit -m "feat: mega extracao de filmes (lote ${{ inputs.lote || '100' }})"
+          
           for i in $(seq 1 5); do
             if git push origin HEAD:main; then break; fi
             git fetch origin main
             git reset --mixed origin/main
             git add -A
+            git reset .github/ 2>/dev/null || true
             git commit -m "feat: retry $i" || true
             sleep $((RANDOM % 10 + 5))
           done
