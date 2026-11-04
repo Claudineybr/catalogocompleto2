@@ -1,0 +1,130 @@
+name: Atualizar Filas com Novos Posts
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Roda a cada 1 hora (no minuto 0)
+  workflow_dispatch:    # Permite rodar manualmente também
+
+permissions:
+  contents: write
+
+concurrency:
+  group: atualizar-filas
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Instalar dependências
+        run: pip install requests
+
+      - name: Atualizar filas
+        run: |
+          cat > /tmp/atualizar_filas.py << 'PYEOF'
+          import requests, sys
+          from pathlib import Path
+
+          BASE_URL = "https://www.vini7xgrave.site"
+          HEADERS = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+
+          ARQ_FILA_FILMES = Path("filmes_fila.txt")
+          ARQ_FILA_SERIES = Path("series_fila.txt")
+
+          def log(*a): print(*a, flush=True); sys.stdout.flush()
+
+          def get_all_urls():
+              urls = []
+              start = 1
+              while True:
+                  url_feed = f"{BASE_URL}/feeds/posts/default?alt=json&max-results=150&start-index={start}"
+                  try:
+                      r = requests.get(url_feed, headers=HEADERS, timeout=15)
+                      if r.status_code != 200: break
+                      entries = r.json().get("feed", {}).get("entry", [])
+                      if not entries: break
+                      for e in entries:
+                          link = next((l["href"] for l in e.get("link", []) if l.get("rel") == "alternate"), None)
+                          if link:
+                              urls.append(link.split("?")[0].strip())
+                      start += 150
+                      if len(entries) < 150: break
+                  except Exception as e:
+                      log(f"Erro ao buscar feed: {e}")
+                      break
+              return urls
+
+          def main():
+              log("Buscando todas as URLs do site...")
+              todas_urls = get_all_urls()
+              log(f"Encontradas {len(todas_urls)} URLs no site.")
+
+              # Carrega as filas atuais
+              fila_filmes = []
+              if ARQ_FILA_FILMES.exists():
+                  fila_filmes = [l.strip() for l in ARQ_FILA_FILMES.read_text(encoding="utf-8").splitlines() if l.strip()]
+              
+              fila_series = []
+              if ARQ_FILA_SERIES.exists():
+                  fila_series = [l.strip() for l in ARQ_FILA_SERIES.read_text(encoding="utf-8").splitlines() if l.strip()]
+
+              # Usa sets para facilitar a comparação
+              set_filmes = set(fila_filmes)
+              set_series = set(fila_series)
+
+              # Descobre quais são novas
+              novas_urls = [u for u in todas_urls if u not in set_filmes and u not in set_series]
+              
+              if not novas_urls:
+                  log("✅ Nenhuma URL nova encontrada. As filas já estão 100% atualizadas.")
+                  return
+
+              log(f"🆕 Encontradas {len(novas_urls)} URLs novas. Adicionando às filas...")
+              
+              # --- LOG DETALHADO DAS NOVAS URLs ---
+              for url in novas_urls:
+                  log(f"  [+] Adicionada: {url}")
+              # ------------------------------------
+
+              # Adiciona às duas filas (os robôs extratores vão separar o que é filme e o que é série)
+              set_filmes.update(novas_urls)
+              set_series.update(novas_urls)
+
+              # Salva novamente
+              ARQ_FILA_FILMES.write_text("\n".join(set_filmes), encoding="utf-8")
+              ARQ_FILA_SERIES.write_text("\n".join(set_series), encoding="utf-8")
+              
+              log(f"Filmes fila agora tem: {len(set_filmes)} URLs")
+              log(f"Séries fila agora tem: {len(set_series)} URLs")
+
+          if __name__ == "__main__":
+              main()
+          PYEOF
+          python3 /tmp/atualizar_filas.py
+
+      - name: Salvar arquivos e progresso
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          git add -A
+          # Previne o erro de permissão caso haja mudanças na pasta .github
+          git reset .github/ 2>/dev/null || true
+          
+          if git diff --cached --quiet; then echo "Nada novo nas filas."; exit 0; fi
+          git commit -m "chore: atualizar filas com novos posts do site"
+          
+          for i in $(seq 1 5); do
+            if git push origin HEAD:main; then break; fi
+            echo "Conflito detectado. Sincronizando de forma segura..."
+            git pull origin main --no-rebase -X ours --no-edit
+            git add -A
+            git reset .github/ 2>/dev/null || true
+            git commit -m "chore: retry atualizar filas $i" || true
+            sleep $((RANDOM % 10 + 5))
+          done
