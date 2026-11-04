@@ -314,7 +314,7 @@ jobs:
                       nome_arquivo = f"{slug}.html"
                       nome_json    = f"{titulo} - 🍿Clau"
 
-                  # A MÁGICA ESTÁ AQUI: Salva nos feitos ANTES de checar se o arquivo existe
+                  # Salva nos feitos ANTES de checar se o arquivo existe
                   with open(ARQ_FEITAS, "a", encoding="utf-8") as f: f.write(url_pagina.strip()+"\n")
 
                   if Path(nome_arquivo).exists():
@@ -384,8 +384,8 @@ jobs:
           
           for i in $(seq 1 5); do
             if git push origin HEAD:main; then break; fi
-            git fetch origin main
-            git reset --mixed origin/main
+            echo "Conflito detectado. Sincronizando de forma segura..."
+            git pull origin main --no-rebase -X ours --no-edit
             git add -A
             git reset .github/ 2>/dev/null || true
             git commit -m "feat: retry $i" || true
