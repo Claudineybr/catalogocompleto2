@@ -129,7 +129,6 @@ jobs:
           log(f"Total na fila: {len(todas)} | Ja feitos: {len(feitas)} | Faltam: {len(fila)} | Pendentes: {len(pendentes)} | Lote: {LOTE_SIZE}")
 
           def eh_serie(soup, url_pagina):
-              # 1. JSON-LD
               for script in soup.find_all('script', type='application/ld+json'):
                   try:
                       dados = json.loads(script.string)
@@ -140,7 +139,6 @@ jobs:
                           if dados.get('@type') in ['TVSeries','TVSeason','TVEpisode']: return True
                   except: pass
 
-              # 2. Links com padrões numéricos
               for a in soup.find_all('a', href=True):
                   href = a['href'].lower()
                   texto = a.get_text(strip=True).lower()
@@ -149,21 +147,17 @@ jobs:
                   if re.search(r'\bepis[oó]dio\s+\d+', texto, re.I): return True
                   if re.search(r'\btemporada\s+\d+', texto, re.I): return True
 
-              # 3. Texto da página
               texto_pagina = soup.get_text(" ", strip=True).lower()
               if re.search(r'lista de epis[oó]dios', texto_pagina, re.I): return True
               if re.search(r'\b\d+\s*[ªº]\s*temporada', texto_pagina, re.I): return True
               if re.search(r'\bepis[oó]dio\s+\d+', texto_pagina, re.I): return True
 
-              # 4. Título
               titulo = soup.title.string.lower() if soup.title else ""
               if re.search(r'\btemporada\b', titulo, re.I): return True
               if re.search(r'\bepis[oó]dio\b', titulo, re.I): return True
               if re.search(r'\bs[eé]rie\b', titulo, re.I): return True
 
-              # 5. URL
               if re.search(r'/(?:temporada|season|episodio|episode)[/-]', url_pagina, re.I): return True
-
               return False
 
           def extrair_dados_pagina(html_text, url_pagina):
@@ -205,13 +199,23 @@ jobs:
               titulo = re.sub(r'\s*\(?\d{4}\)?\s*$', '', titulo).strip()
               titulo = re.sub(r'\s*-\s*(?:\d+\s*[ªº]\s*)?(?:temporada|season)\b.*$', '', titulo, flags=re.I).strip()
 
+              # --- BUSCA INTELIGENTE DE CAPA ---
               capa = dados_ld.get('thumbnailUrl', [''])[0]
+              
               if not capa or capa == 'h' or len(capa) < 5:
-                  m = re.search(r'https://blogger\.googleusercontent\.com/img/[^"\'\s<>]+', html_text)
-                  if m: capa = m.group(0)
-              if not capa:
                   og_img = soup.find('meta', property='og:image')
-                  capa = og_img['content'] if og_img and og_img.get('content') else "https://via.placeholder.com/500x750?text=Sem+Capa"
+                  if og_img and og_img.get('content') and 'placeholder' not in og_img['content']:
+                      capa = og_img['content']
+                  else:
+                      link_img = soup.find('a', href=re.compile(r'https://blogger\.googleusercontent\.com/img/'))
+                      if link_img:
+                          capa = link_img['href']
+                      else:
+                          m = re.search(r'https://blogger\.googleusercontent\.com/img/[^"\'\s<>]+', html_text)
+                          if m: capa = m.group(0)
+                          
+              if not capa:
+                  capa = "https://via.placeholder.com/500x750?text=Sem+Capa"
 
               return titulo.strip(), capa
 
@@ -235,7 +239,6 @@ jobs:
               if tw_img and tw_img.get('content'): return tw_img['content']
               return "https://via.placeholder.com/500x750?text=Sem+Capa"
 
-          # LOGS DETALHADOS E BUSCA ROBUSTA
           async def obter_link_episodio(context, url_ep):
               log(f"      [⏳] Buscando vídeo...")
               try:
@@ -360,8 +363,20 @@ jobs:
 
                   for it in eps:
                       nome_arquivo = f"{slug}_t{it['temp']}e{it['ep']}.html"
+                      
                       if Path(nome_arquivo).exists(): 
                           log(f"      (Já existe: {nome_arquivo})")
+                          try:
+                              conteudo = Path(nome_arquivo).read_text(encoding='utf-8')
+                              if "via.placeholder.com" in conteudo or "Sem+Capa" in conteudo:
+                                  if capa_url and "via.placeholder.com" not in capa_url:
+                                      log(f"      [🔄] Capa ausente. Atualizando com a capa do site...")
+                                      conteudo = re.sub(r'poster="[^"]*"', f'poster="{capa_url}"', conteudo)
+                                      conteudo = re.sub(r'"thumbnailUrl":\s*\[[^\]]*\]', f'"thumbnailUrl": ["{capa_url}"]', conteudo, flags=re.DOTALL)
+                                      Path(nome_arquivo).write_text(conteudo, encoding='utf-8')
+                                      log(f"      [+] Capa atualizada!")
+                          except Exception as e:
+                              log(f"      [-] Erro ao atualizar capa: {e}")
                           continue
                       
                       nome_json = f"{titulo} - T{it['temp']}E{it['ep']} - {it['titulo']} - 🍿Clau"
