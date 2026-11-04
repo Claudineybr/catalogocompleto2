@@ -205,23 +205,13 @@ jobs:
               titulo = re.sub(r'\s*\(?\d{4}\)?\s*$', '', titulo).strip()
               titulo = re.sub(r'\s*-\s*(?:\d+\s*[ªº]\s*)?(?:temporada|season)\b.*$', '', titulo, flags=re.I).strip()
 
-              # --- BUSCA INTELIGENTE DE CAPA ---
               capa = dados_ld.get('thumbnailUrl', [''])[0]
-              
               if not capa or capa == 'h' or len(capa) < 5:
-                  og_img = soup.find('meta', property='og:image')
-                  if og_img and og_img.get('content') and 'placeholder' not in og_img['content']:
-                      capa = og_img['content']
-                  else:
-                      link_img = soup.find('a', href=re.compile(r'https://blogger\.googleusercontent\.com/img/'))
-                      if link_img:
-                          capa = link_img['href']
-                      else:
-                          m = re.search(r'https://blogger\.googleusercontent\.com/img/[^"\'\s<>]+', html_text)
-                          if m: capa = m.group(0)
-                          
+                  m = re.search(r'https://blogger\.googleusercontent\.com/img/[^"\'\s<>]+', html_text)
+                  if m: capa = m.group(0)
               if not capa:
-                  capa = "https://via.placeholder.com/500x750?text=Sem+Capa"
+                  og_img = soup.find('meta', property='og:image')
+                  capa = og_img['content'] if og_img and og_img.get('content') else "https://via.placeholder.com/500x750?text=Sem+Capa"
 
               return titulo.strip(), capa
 
@@ -259,7 +249,7 @@ jobs:
                   log(f"      [🌐] Requests falhou. Abrindo Playwright...")
                   page = await context.new_page()
                   await page.goto(url_ep, wait_until="domcontentloaded", timeout=20000)
-                  await asyncio.sleep(5)  # AUMENTADO PARA 5 SEGUNDOS
+                  await asyncio.sleep(5)
                   html = await page.content()
                   link = extrair_video_da_pagina(html)
                   await page.close()
@@ -330,7 +320,11 @@ jobs:
                           browser = await pw.chromium.launch(headless=True)
                           page = await browser.new_page()
                           await page.goto(url_serie, wait_until="domcontentloaded", timeout=20000)
-                          await asyncio.sleep(5)  # AUMENTADO PARA 5 SEGUNDOS
+                          try:
+                              # AQUI ESTÁ A MÁGICA: Espera até 10s pelo seletor
+                              await page.wait_for_selector("text=Episódio, text=Temporada, text=Season", timeout=10000)
+                          except: pass
+                          await asyncio.sleep(5)
                           html_render = await page.content()
                           soup_render = BeautifulSoup(html_render, 'html.parser')
                           if not eh_serie(soup_render, url_serie):
