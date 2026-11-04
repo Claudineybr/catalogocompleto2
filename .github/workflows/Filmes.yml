@@ -137,10 +137,44 @@ jobs:
               anos = re.findall(r'(?<!\d)(?:19|20)\d{2}(?!\d)', slug)
               return anos[-1] if anos else ""
 
+          # NOVA VERIFICAÇÃO RIGOROSA DE SÉRIE
+          def eh_serie(soup, url_pagina):
+              # 1. Olha o JSON-LD
+              script_ld = soup.find('script', type='application/ld+json')
+              if script_ld:
+                  try:
+                      dados = json.loads(script_ld.string)
+                      tipo = dados.get('@type', '')
+                      if tipo in ['TVSeries', 'TVSeason', 'TVEpisode']: return True
+                  except: pass
+
+              # 2. Olha os links
+              for a in soup.find_all('a', href=True):
+                  if re.search(r'epis[oó]dio|temporada|season', a['href'], re.I): return True
+                  if re.search(r'epis[oó]dio|temporada|season', a.get_text(strip=True), re.I): return True
+
+              # 3. Olha o título e a URL
+              titulo = soup.title.string.lower() if soup.title else ""
+              texto_pagina = soup.get_text().lower()
+              slug = url_pagina.lower()
+              
+              if any(p in titulo for p in ['temporada', 'série', 'episódio', 'season']): return True
+              if any(p in slug for p in ['temporada', 'serie', 'episodio', 'season']): return True
+              
+              # 4. Heurística para documentários/séries (ex: Marília Mendonça)
+              if 'documentário' in texto_pagina or 'série documental' in texto_pagina:
+                  if 'episódio' in texto_pagina or 'temporada' in texto_pagina:
+                      return True
+
+              return False
+
           def extrair_dados_pagina(html_text, url_pagina):
               soup = BeautifulSoup(html_text, 'html.parser')
               
-              # 1. Tenta H1 (com classe ou genérico)
+              # Checa se é série antes de tentar extrair título
+              if eh_serie(soup, url_pagina):
+                  return None, None, "SÉRIE"
+
               titulo = ""
               h1 = soup.find('h1', class_='post-title') or soup.find('h1')
               if h1: titulo = h1.text.strip()
@@ -153,20 +187,17 @@ jobs:
                       if not titulo and dados_ld.get('name'): titulo = dados_ld.get('name').strip()
                   except: pass
 
-              # 2. og:title ou title
               if not titulo:
                   og = soup.find('meta', property='og:title')
                   if og and og.get('content'): titulo = og['content'].strip()
                   elif soup.title: titulo = soup.title.string.strip()
 
-              # LIMPEZA PESADA
               titulo = unicodedata.normalize('NFKD', str(titulo))
               titulo = "".join([c for c in titulo if not unicodedata.combining(c)])
               titulo = re.sub(r'^.*?[-–—]\s*', '', titulo) if re.search(r'(vini|marcos|inix|grave)', titulo, re.I) else titulo
               titulo = titulo.replace('🍿Clau', '').strip(' -')
-              titulo = re.sub(r'\.html?$', '', titulo, flags=re.I).strip() # Remove .html
+              titulo = re.sub(r'\.html?$', '', titulo, flags=re.I).strip()
 
-              # 3. FALLBACK FORTE: Se o título for inválido ou uma URL, usa a URL
               if not titulo or len(titulo) < 3 or titulo.isdigit() or "filmes e series" in titulo.lower() or re.match(r'^[a-z0-9\-]+$', titulo):
                   m = re.search(r'/([^/]+)\.html', url_pagina)
                   if m:
@@ -175,7 +206,6 @@ jobs:
                       slug = re.sub(r'[-_]\d{4}(_\d+)?$', '', slug)
                       titulo = slug.replace('-', ' ').title().strip()
 
-              # Capa
               capa = dados_ld.get('thumbnailUrl', [''])[0]
               if not capa or capa == 'h' or len(capa) < 5:
                   m = re.search(r'https://blogger\.googleusercontent\.com/img/[^"\'\s<>]+', html_text)
@@ -184,7 +214,6 @@ jobs:
                   og_img = soup.find('meta', property='og:image')
                   capa = og_img['content'] if og_img and og_img.get('content') else "https://via.placeholder.com/500x750?text=Sem+Capa"
 
-              # Vídeo
               video = dados_ld.get('contentUrl')
               if not video:
                   matches = re.findall(r'(https?://[^"\'\s<>]+(?:\.mp4|\.m3u8|tankie\.tube/videos/embed|oneplayer\.site)[^"\'\s<>]*)', html_text)
@@ -244,6 +273,11 @@ jobs:
                   
                   titulo, capa_url, link = extrair_dados_pagina(r.text, url_pagina)
                   
+                  if link == "SÉRIE":
+                      log("    (É SÉRIE. Pulando...)")
+                      with open(ARQ_FEITAS, "a", encoding="utf-8") as f: f.write(url_pagina.strip()+"\n")
+                      return
+
                   if not link:
                       async with async_playwright() as pw:
                           browser = await pw.chromium.launch(headless=True)
@@ -252,6 +286,11 @@ jobs:
                           await asyncio.sleep(3)
                           html_render = await page.content()
                           titulo_r, capa_r, link = extrair_dados_pagina(html_render, url_pagina)
+                          if link == "SÉRIE":
+                              log("    (É SÉRIE. Pulando...)")
+                              with open(ARQ_FEITAS, "a", encoding="utf-8") as f: f.write(url_pagina.strip()+"\n")
+                              await browser.close()
+                              return
                           if not capa_url or capa_url == 'h': capa_url = capa_r
                           await browser.close()
 
@@ -259,7 +298,7 @@ jobs:
                   tem_ano_no_titulo = bool(re.search(r'(?<!\d)(?:19|20)\d{2}(?!\d)', titulo))
 
                   slug = re.sub(r'[^a-z0-9]', '_', titulo.lower())
-                  slug = re.sub(r'_html?$', '', slug) # Limpa o _html gerado
+                  slug = re.sub(r'_html?$', '', slug)
                   slug = re.sub(r'_+', '_', slug).strip('_')
 
                   if ano and not tem_ano_no_titulo:
