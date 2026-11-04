@@ -377,6 +377,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
           git add -A
+          # Impede o push de arquivos da pasta .github (causava erro de permissão no token)
           git reset .github/ 2>/dev/null || true
           
           if git diff --cached --quiet; then echo "Nada novo."; exit 0; fi
@@ -413,11 +414,12 @@ jobs:
             echo "✅ Fila vazia. Chain encerrada."; exit 0
           fi
 
+          # Verifica runs recentes para evitar loop infinito (limite de 100 runs/hora)
           LIMITE_ISO=$(date -u -d '60 minutes ago' +%Y-%m-%dT%H:%M:%SZ)
-          RECENTES=$(gh run list --workflow="Filmes.yml" --limit 100 --json event,createdAt --jq "[.[] | select(.event == \"workflow_dispatch\")] | length" --repo "$REPO" 2>/dev/null || echo 0)
+          RECENTES=$(gh run list --workflow="Filmes.yml" --limit 100 --json event,createdAt --jq "[.[] | select(.event == \"workflow_dispatch\") | select(.createdAt > \"$LIMITE_ISO\")] | length" --repo "$REPO" 2>/dev/null || echo 0)
           
-          if [ "$RECENTES" -ge 30 ]; then
-            echo "⚠️ Limite de 30 runs/hora atingido. Aguardando cron."; exit 0
+          if [ "$RECENTES" -ge 100 ]; then
+            echo "⚠️ Limite de 100 runs/hora atingido. Aguardando cron."; exit 0
           fi
 
           echo "⏳ Aguardando 30 segundos antes de disparar a próxima run..."
