@@ -69,7 +69,6 @@ jobs:
 
           FILMES_MORTOS = []
           MAX_TENTATIVAS = 6
-          
           LOTE_SIZE = int(os.environ.get('LOTE_SIZE', 100))
 
           def log(*a): print(*a, flush=True); sys.stdout.flush()
@@ -125,7 +124,6 @@ jobs:
 
           todas = [u.strip() for u in ARQ_FILA.read_text(encoding="utf-8").splitlines() if u.strip()]
           fila = [u for u in todas if u not in feitas]
-          
           lote = fila[:LOTE_SIZE]
 
           log(f"Total na fila: {len(todas)} | Ja feitos: {len(feitas)} | Faltam: {len(fila)} | Pendentes: {len(pendentes)} | Lote: {LOTE_SIZE}")
@@ -137,43 +135,40 @@ jobs:
               anos = re.findall(r'(?<!\d)(?:19|20)\d{2}(?!\d)', slug)
               return anos[-1] if anos else ""
 
-          # Nova verificação cirúrgica de série
           def eh_serie(soup, url_pagina):
-              # 1. JSON-LD
-              script_ld = soup.find('script', type='application/ld+json')
-              if script_ld:
+              for script in soup.find_all('script', type='application/ld+json'):
                   try:
-                      dados = json.loads(script_ld.string)
-                      tipo = dados.get('@type', '')
-                      if tipo in ['TVSeries', 'TVSeason', 'TVEpisode']: return True
+                      dados = json.loads(script.string)
+                      if isinstance(dados, list):
+                          for d in dados:
+                              if d.get('@type') in ['TVSeries','TVSeason','TVEpisode']: return True
+                      elif isinstance(dados, dict):
+                          if dados.get('@type') in ['TVSeries','TVSeason','TVEpisode']: return True
                   except: pass
 
-              # 2. Texto da página: padrões específicos
-              texto = soup.get_text(" ", strip=True)
-              if re.search(r'Lista de Episódios', texto, re.I): return True
-              if re.search(r'\b(?:Temporada|Season)\s+\d+', texto, re.I): return True
-              if re.search(r'\b(?:Episódio|Episode)\s+\d+', texto, re.I): return True
-              if re.search(r'\d+\s*[ªº]\s*Temporada', texto, re.I): return True
-
-              # 3. Título
-              titulo = soup.title.string.lower() if soup.title else ""
-              if re.search(r'\b(?:temporada|season)\b', titulo, re.I): return True
-              if re.search(r'\b(?:episódio|episode)\b', titulo, re.I): return True
-
-              # 4. URL
-              if re.search(r'/(?:temporada|season|episodio|episode)[/-]', url_pagina, re.I): return True
-
-              # 5. Links (apenas com padrões numéricos)
               for a in soup.find_all('a', href=True):
-                  texto_link = a.get_text(strip=True)
-                  if re.search(r'\b(?:Episódio|Episode)\s+\d+', texto_link, re.I): return True
-                  if re.search(r'\b(?:Temporada|Season)\s+\d+', texto_link, re.I): return True
+                  href = a['href'].lower()
+                  texto = a.get_text(strip=True).lower()
+                  if re.search(r'epis[oó]dio[-_/]\d+', href, re.I): return True
+                  if re.search(r'temporada[-_/]\d+', href, re.I): return True
+                  if re.search(r'\bepis[oó]dio\s+\d+', texto, re.I): return True
+                  if re.search(r'\btemporada\s+\d+', texto, re.I): return True
 
+              texto_pagina = soup.get_text(" ", strip=True).lower()
+              if re.search(r'lista de epis[oó]dios', texto_pagina, re.I): return True
+              if re.search(r'\b\d+\s*[ªº]\s*temporada', texto_pagina, re.I): return True
+              if re.search(r'\bepis[oó]dio\s+\d+', texto_pagina, re.I): return True
+
+              titulo = soup.title.string.lower() if soup.title else ""
+              if re.search(r'\btemporada\b', titulo, re.I): return True
+              if re.search(r'\bepis[oó]dio\b', titulo, re.I): return True
+              if re.search(r'\bs[eé]rie\b', titulo, re.I): return True
+
+              if re.search(r'/(?:temporada|season|episodio|episode)[/-]', url_pagina, re.I): return True
               return False
 
           def extrair_dados_pagina(html_text, url_pagina):
               soup = BeautifulSoup(html_text, 'html.parser')
-              
               if eh_serie(soup, url_pagina):
                   return None, None, "SÉRIE"
 
@@ -184,7 +179,7 @@ jobs:
               dados_ld = {}
               script_ld = soup.find('script', type='application/ld+json')
               if script_ld:
-                  try: 
+                  try:
                       dados_ld = json.loads(script_ld.string)
                       if not titulo and dados_ld.get('name'): titulo = dados_ld.get('name').strip()
                   except: pass
@@ -208,13 +203,23 @@ jobs:
                       slug = re.sub(r'[-_]\d{4}(_\d+)?$', '', slug)
                       titulo = slug.replace('-', ' ').title().strip()
 
+              # --- BUSCA INTELIGENTE DE CAPA ---
               capa = dados_ld.get('thumbnailUrl', [''])[0]
+              
               if not capa or capa == 'h' or len(capa) < 5:
-                  m = re.search(r'https://blogger\.googleusercontent\.com/img/[^"\'\s<>]+', html_text)
-                  if m: capa = m.group(0)
-              if not capa:
                   og_img = soup.find('meta', property='og:image')
-                  capa = og_img['content'] if og_img and og_img.get('content') else "https://via.placeholder.com/500x750?text=Sem+Capa"
+                  if og_img and og_img.get('content') and 'placeholder' not in og_img['content']:
+                      capa = og_img['content']
+                  else:
+                      link_img = soup.find('a', href=re.compile(r'https://blogger\.googleusercontent\.com/img/'))
+                      if link_img:
+                          capa = link_img['href']
+                      else:
+                          m = re.search(r'https://blogger\.googleusercontent\.com/img/[^"\'\s<>]+', html_text)
+                          if m: capa = m.group(0)
+                          
+              if not capa:
+                  capa = "https://via.placeholder.com/500x750?text=Sem+Capa"
 
               video = dados_ld.get('contentUrl')
               if not video:
@@ -226,7 +231,7 @@ jobs:
           def salvar_html(nome_arquivo, nome_json, link, capa_url):
               base_url = "https://api-pobreflix-filmes.pages.dev"
               file_url = f"{base_url}/{nome_arquivo}"
-              
+
               dados = {
                   "@context": "https://schema.org",
                   "@type": "VideoObject",
@@ -241,7 +246,7 @@ jobs:
                   "embedUrl": link
               }
               js = json.dumps(dados, ensure_ascii=False, indent=4)
-              
+
               html = (
                   f'<!DOCTYPE html>\n'
                   f'<html lang="pt-BR">\n'
@@ -274,7 +279,7 @@ jobs:
                   r = await asyncio.to_thread(requests.get, url_pagina, headers=HEADERS, timeout=20)
                   
                   titulo, capa_url, link = extrair_dados_pagina(r.text, url_pagina)
-                  
+
                   if link == "SÉRIE":
                       log("    (É SÉRIE. Pulando...)")
                       with open(ARQ_FEITAS, "a", encoding="utf-8") as f: f.write(url_pagina.strip()+"\n")
@@ -285,7 +290,7 @@ jobs:
                           browser = await pw.chromium.launch(headless=True)
                           page = await browser.new_page()
                           await page.goto(url_pagina, wait_until="domcontentloaded", timeout=20000)
-                          await asyncio.sleep(3)
+                          await asyncio.sleep(5)
                           html_render = await page.content()
                           titulo_r, capa_r, link = extrair_dados_pagina(html_render, url_pagina)
                           if link == "SÉRIE":
@@ -310,10 +315,23 @@ jobs:
                       nome_arquivo = f"{slug}.html"
                       nome_json    = f"{titulo} - 🍿Clau"
 
-                  with open(ARQ_FEITAS, "a", encoding="utf-8") as f: f.write(url_pagina.strip()+"\n")
-
+                  # --- NOVA LÓGICA DE ATUALIZAÇÃO DE CAPA ---
                   if Path(nome_arquivo).exists():
-                      log(f"    (Ja existe: {nome_arquivo})"); return
+                      log(f"    (Já existe: {nome_arquivo})")
+                      try:
+                          conteudo = Path(nome_arquivo).read_text(encoding='utf-8')
+                          if "via.placeholder.com" in conteudo or "Sem+Capa" in conteudo:
+                              if capa_url and "via.placeholder.com" not in capa_url:
+                                  log(f"    [🔄] Capa ausente. Atualizando com a capa do site...")
+                                  conteudo = re.sub(r'poster="[^"]*"', f'poster="{capa_url}"', conteudo)
+                                  conteudo = re.sub(r'"thumbnailUrl":\s*\[[^\]]*\]', f'"thumbnailUrl": ["{capa_url}"]', conteudo, flags=re.DOTALL)
+                                  Path(nome_arquivo).write_text(conteudo, encoding='utf-8')
+                                  log(f"    [+] Capa atualizada com sucesso!")
+                      except Exception as e:
+                          log(f"    [-] Erro ao atualizar capa: {e}")
+                      return
+
+                  with open(ARQ_FEITAS, "a", encoding="utf-8") as f: f.write(url_pagina.strip()+"\n")
 
                   log(f"    Filme: '{nome_json}'")
                   if not link:
@@ -359,10 +377,8 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          
           if git diff --cached --quiet; then echo "Nada novo."; exit 0; fi
           git commit -m "feat: mega extracao de filmes (lote ${{ inputs.lote || '100' }})"
-
           for i in $(seq 1 5); do
             if git push origin HEAD:main; then break; fi
             git fetch origin main
@@ -381,22 +397,16 @@ jobs:
           TOTAL=$(wc -l < filmes_fila.txt)
           FEITOS=$(sort -u filmes_feitos.txt | wc -l)
           FALTAM=$((TOTAL - FEITOS))
-          
           echo "Total na fila: $TOTAL | Ja feitos: $FEITOS | Faltam: $FALTAM"
-          
           if [ "$FALTAM" -le 0 ]; then
             echo "✅ Fila vazia. Chain encerrada."; exit 0
           fi
-
           LIMITE_ISO=$(date -u -d '60 minutes ago' +%Y-%m-%dT%H:%M:%SZ)
           RECENTES=$(gh run list --workflow="Filmes.yml" --limit 100 --json event,createdAt --jq "[.[] | select(.event == \"workflow_dispatch\")] | length" --repo "$REPO" 2>/dev/null || echo 0)
-          
           if [ "$RECENTES" -ge 30 ]; then
             echo "⚠️ Limite de 30 runs/hora atingido. Aguardando cron."; exit 0
           fi
-
           echo "⏳ Aguardando 30 segundos antes de disparar a próxima run..."
           sleep 30
-
           echo "🔁 Disparando próxima run..."
           gh workflow run "Filmes.yml" --repo "$REPO" --ref main
