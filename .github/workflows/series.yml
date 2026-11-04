@@ -73,7 +73,6 @@ jobs:
 
           def log(*a): print(*a, flush=True); sys.stdout.flush()
 
-          # ---------- FILA ----------
           def construir_fila():
               log("Criando/atualizando fila de series...")
               urls, vistos = [], set()
@@ -129,7 +128,6 @@ jobs:
 
           log(f"Total na fila: {len(todas)} | Ja feitos: {len(feitas)} | Faltam: {len(fila)} | Pendentes: {len(pendentes)} | Lote: {LOTE_SIZE}")
 
-          # ---------- DETECÇÃO RIGOROSA DE SÉRIE ----------
           def eh_serie(soup, url_pagina):
               # 1. JSON-LD
               for script in soup.find_all('script', type='application/ld+json'):
@@ -168,7 +166,6 @@ jobs:
 
               return False
 
-          # ---------- EXTRAÇÃO DE DADOS ----------
           def extrair_dados_pagina(html_text, url_pagina):
               soup = BeautifulSoup(html_text, 'html.parser')
               if not eh_serie(soup, url_pagina):
@@ -238,6 +235,34 @@ jobs:
               if tw_img and tw_img.get('content'): return tw_img['content']
               return "https://via.placeholder.com/500x750?text=Sem+Capa"
 
+          # LOGS DETALHADOS E BUSCA ROBUSTA
+          async def obter_link_episodio(context, url_ep):
+              log(f"      [⏳] Buscando vídeo...")
+              try:
+                  r_ep = await asyncio.to_thread(requests.get, url_ep, headers=HEADERS, timeout=20)
+                  link = extrair_video_da_pagina(r_ep.text)
+                  if link:
+                      log(f"      [⚡] Vídeo encontrado via Requests.")
+                      return link
+              except Exception: pass
+              
+              try:
+                  log(f"      [🌐] Requests falhou. Abrindo Playwright...")
+                  page = await context.new_page()
+                  await page.goto(url_ep, wait_until="domcontentloaded", timeout=20000)
+                  await asyncio.sleep(3)
+                  html = await page.content()
+                  link = extrair_video_da_pagina(html)
+                  await page.close()
+                  if link:
+                      log(f"      [✅] Vídeo encontrado via Playwright.")
+                      return link
+                  else:
+                      log(f"      [❌] Playwright não encontrou a tag <video>.")
+              except Exception as e: 
+                  log(f"      [❌] Erro no Playwright: {e}")
+              return None
+
           def salvar_html(nome_arquivo, nome_json, link, capa_url):
               base_url = "https://api-pobreflix-filmes.pages.dev"
               file_url = f"{base_url}/{nome_arquivo}"
@@ -286,13 +311,12 @@ jobs:
                   return
               log(f"\n--> Verificando serie: {url_serie}")
               try:
-                  # 1. Tenta com requests primeiro (rápido)
                   r = await asyncio.to_thread(requests.get, url_serie, headers=HEADERS, timeout=20)
                   soup = BeautifulSoup(r.text, 'html.parser')
+                  html_final = r.text
 
                   if not eh_serie(soup, url_serie):
                       log("    (Não é série no HTML estático. Tentando com Playwright...)")
-                      # 2. Se não for série, tenta com Playwright (renderiza JS)
                       async with async_playwright() as pw:
                           browser = await pw.chromium.launch(headless=True)
                           page = await browser.new_page()
@@ -305,12 +329,11 @@ jobs:
                               with open(ARQ_FEITAS,"a",encoding="utf-8") as f: f.write(url_serie.strip()+"\n")
                               await browser.close()
                               return
-                          # Se for série, usa o HTML renderizado
-                          r._content = html_render.encode('utf-8')
+                          html_final = html_render
                           soup = soup_render
                           await browser.close()
 
-                  titulo, capa_url = extrair_dados_pagina(soup.text if hasattr(soup, 'text') else r.text, url_serie)
+                  titulo, capa_url = extrair_dados_pagina(html_final, url_serie)
                   slug = re.sub(r'[^a-z0-9]', '_', titulo.lower())
                   slug = re.sub(r'_html?$', '', slug)
                   slug = re.sub(r'_+', '_', slug).strip('_')
@@ -333,17 +356,21 @@ jobs:
                   with open(ARQ_FEITAS,"a",encoding="utf-8") as f: f.write(url_serie.strip()+"\n")
                   if not eps:
                       log("    (Nenhum episódio encontrado. Pulando...)"); return
-                  log(f"    Serie '{titulo}' ({slug}) - {len(eps)} episodios.")
+                  log(f"    Série '{titulo}' ({slug}) - {len(eps)} episódios mapeados.")
 
                   for it in eps:
                       nome_arquivo = f"{slug}_t{it['temp']}e{it['ep']}.html"
-                      if Path(nome_arquivo).exists(): continue
+                      if Path(nome_arquivo).exists(): 
+                          log(f"      (Já existe: {nome_arquivo})")
+                          continue
+                      
                       nome_json = f"{titulo} - T{it['temp']}E{it['ep']} - {it['titulo']} - 🍿Clau"
-
-                      r_ep = await asyncio.to_thread(requests.get, it['url'], headers=HEADERS, timeout=20)
-                      link = extrair_video_da_pagina(r_ep.text)
+                      log(f"    -> Processando T{it['temp']}E{it['ep']} - {it['titulo']}")
+                      
+                      link = await obter_link_episodio(context, it['url'])
 
                       if not link:
+                          log(f"      [-] Falhou ao obter link. Jogando para pendentes.")
                           if not any(p['arquivo']==nome_arquivo for p in pendentes):
                               pendentes.append({"arquivo": nome_arquivo, "nome_json": nome_json, "url": it['url'], "tentativas": 1})
                           continue
@@ -371,14 +398,16 @@ jobs:
                                   f.write(f"{item['arquivo']}\t{item['url']}\t{item.get('tentativas')} falhas\n")
                               continue
                           log(f"--> Tentativa {item['tentativas']+1}/{MAX_TENTATIVAS}: {item['arquivo']}")
-                          link = None
+                          
+                          link = await obter_link_episodio(ctx, item['url'])
+                          
                           capa_url = "https://via.placeholder.com/500x750?text=Sem+Capa"
                           try:
                               r_ep = await asyncio.to_thread(requests.get, item['url'], headers=HEADERS, timeout=20)
-                              link = extrair_video_da_pagina(r_ep.text)
                               soup = BeautifulSoup(r_ep.text, 'html.parser')
                               capa_url = extrair_capa(soup)
                           except Exception: pass
+
                           if link:
                               salvar_html(item['arquivo'], item['nome_json'], link, capa_url)
                               log("    [+] SUCESSO")
