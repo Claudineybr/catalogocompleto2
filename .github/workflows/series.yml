@@ -129,6 +129,7 @@ jobs:
           log(f"Total na fila: {len(todas)} | Ja feitos: {len(feitas)} | Faltam: {len(fila)} | Pendentes: {len(pendentes)} | Lote: {LOTE_SIZE}")
 
           def eh_serie(soup, url_pagina):
+              # 1. JSON-LD
               for script in soup.find_all('script', type='application/ld+json'):
                   try:
                       dados = json.loads(script.string)
@@ -139,6 +140,7 @@ jobs:
                           if dados.get('@type') in ['TVSeries','TVSeason','TVEpisode']: return True
                   except: pass
 
+              # 2. Links com padrões numéricos
               for a in soup.find_all('a', href=True):
                   href = a['href'].lower()
                   texto = a.get_text(strip=True).lower()
@@ -147,17 +149,21 @@ jobs:
                   if re.search(r'\bepis[oó]dio\s+\d+', texto, re.I): return True
                   if re.search(r'\btemporada\s+\d+', texto, re.I): return True
 
+              # 3. Texto da página
               texto_pagina = soup.get_text(" ", strip=True).lower()
               if re.search(r'lista de epis[oó]dios', texto_pagina, re.I): return True
               if re.search(r'\b\d+\s*[ªº]\s*temporada', texto_pagina, re.I): return True
               if re.search(r'\bepis[oó]dio\s+\d+', texto_pagina, re.I): return True
 
+              # 4. Título
               titulo = soup.title.string.lower() if soup.title else ""
               if re.search(r'\btemporada\b', titulo, re.I): return True
               if re.search(r'\bepis[oó]dio\b', titulo, re.I): return True
               if re.search(r'\bs[eé]rie\b', titulo, re.I): return True
 
+              # 5. URL
               if re.search(r'/(?:temporada|season|episodio|episode)[/-]', url_pagina, re.I): return True
+
               return False
 
           def extrair_dados_pagina(html_text, url_pagina):
@@ -253,7 +259,7 @@ jobs:
                   log(f"      [🌐] Requests falhou. Abrindo Playwright...")
                   page = await context.new_page()
                   await page.goto(url_ep, wait_until="domcontentloaded", timeout=20000)
-                  await asyncio.sleep(3)
+                  await asyncio.sleep(5)  # AUMENTADO PARA 5 SEGUNDOS
                   html = await page.content()
                   link = extrair_video_da_pagina(html)
                   await page.close()
@@ -324,7 +330,7 @@ jobs:
                           browser = await pw.chromium.launch(headless=True)
                           page = await browser.new_page()
                           await page.goto(url_serie, wait_until="domcontentloaded", timeout=20000)
-                          await asyncio.sleep(3)
+                          await asyncio.sleep(5)  # AUMENTADO PARA 5 SEGUNDOS
                           html_render = await page.content()
                           soup_render = BeautifulSoup(html_render, 'html.parser')
                           if not eh_serie(soup_render, url_serie):
