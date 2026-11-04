@@ -311,4 +311,124 @@ jobs:
                           await browser.close()
 
                   titulo, capa_url = extrair_dados_pagina(soup.text if hasattr(soup, 'text') else r.text, url_serie)
-                  # ... resto do código de extração de episódios ...
+                  slug = re.sub(r'[^a-z0-9]', '_', titulo.lower())
+                  slug = re.sub(r'_html?$', '', slug)
+                  slug = re.sub(r'_+', '_', slug).strip('_')
+
+                  temporada, eps = 1, []
+                  for tag in soup.find_all(['b', 'h2', 'h3', 'p', 'a', 'div']):
+                      texto = tag.get_text(strip=True)
+                      m_temp = re.search(r'(\d+)\s*[ªº]\s*Temporada', texto, re.I)
+                      if m_temp:
+                          temporada = int(m_temp.group(1)); continue
+                      if tag.name == 'a' and 'episódio' in texto.lower():
+                          href = tag.get('href')
+                          if not href: continue
+                          if href.startswith('/'): href = BASE_URL + href
+                          m_ep = re.search(r'Episódio\s*(\d+)', texto, re.I)
+                          num = m_ep.group(1) if m_ep else "0"
+                          titulo_ep = re.sub(r'Episódio\s*\d+\s*-?\s*', '', texto, flags=re.I).strip()
+                          eps.append({'temp': temporada, 'ep': num, 'titulo': titulo_ep, 'url': href})
+
+                  with open(ARQ_FEITAS,"a",encoding="utf-8") as f: f.write(url_serie.strip()+"\n")
+                  if not eps:
+                      log("    (Nenhum episódio encontrado. Pulando...)"); return
+                  log(f"    Serie '{titulo}' ({slug}) - {len(eps)} episodios.")
+
+                  for it in eps:
+                      nome_arquivo = f"{slug}_t{it['temp']}e{it['ep']}.html"
+                      if Path(nome_arquivo).exists(): continue
+                      nome_json = f"{titulo} - T{it['temp']}E{it['ep']} - {it['titulo']} - 🍿Clau"
+
+                      r_ep = await asyncio.to_thread(requests.get, it['url'], headers=HEADERS, timeout=20)
+                      link = extrair_video_da_pagina(r_ep.text)
+
+                      if not link:
+                          if not any(p['arquivo']==nome_arquivo for p in pendentes):
+                              pendentes.append({"arquivo": nome_arquivo, "nome_json": nome_json, "url": it['url'], "tentativas": 1})
+                          continue
+                      salvar_html(nome_arquivo, nome_json, link, capa_url)
+                      log(f"      [+] Salvo: {nome_arquivo}")
+              except Exception as e:
+                  log(f"    Erro na serie {url_serie}: {e}")
+
+          async def main():
+              async with async_playwright() as pw:
+                  browser = await pw.chromium.launch(headless=True)
+                  ctx = await browser.new_context(user_agent=HEADERS["User-Agent"])
+                  for i, url in enumerate(lote, 1):
+                      log(f"[{i}/{len(lote)}]")
+                      await processar_serie(ctx, url)
+
+                  if pendentes:
+                      log(f"\n=== RETENTANDO {len(pendentes)} EPISODIOS ===")
+                      ainda = []
+                      for item in pendentes:
+                          if Path(item['arquivo']).exists(): continue
+                          if any(m in item.get('url','').lower() for m in SERIES_MORTAS): continue
+                          if item.get("tentativas",0) >= MAX_TENTATIVAS:
+                              with open(ARQ_DESCARTADOS,"a",encoding="utf-8") as f:
+                                  f.write(f"{item['arquivo']}\t{item['url']}\t{item.get('tentativas')} falhas\n")
+                              continue
+                          log(f"--> Tentativa {item['tentativas']+1}/{MAX_TENTATIVAS}: {item['arquivo']}")
+                          link = None
+                          capa_url = "https://via.placeholder.com/500x750?text=Sem+Capa"
+                          try:
+                              r_ep = await asyncio.to_thread(requests.get, item['url'], headers=HEADERS, timeout=20)
+                              link = extrair_video_da_pagina(r_ep.text)
+                              soup = BeautifulSoup(r_ep.text, 'html.parser')
+                              capa_url = extrair_capa(soup)
+                          except Exception: pass
+                          if link:
+                              salvar_html(item['arquivo'], item['nome_json'], link, capa_url)
+                              log("    [+] SUCESSO")
+                          else:
+                              item["tentativas"] = item.get("tentativas",1) + 1
+                              ainda.append(item)
+                      pendentes.clear(); pendentes.extend(ainda)
+                  await browser.close()
+
+          if __name__ == "__main__":
+              asyncio.run(main())
+              ARQ_PENDENTES.write_text(json.dumps(pendentes, ensure_ascii=False, indent=2), encoding="utf-8")
+          PYEOF
+          python3 /tmp/mega_series.py
+
+      - name: Salvar arquivos e progresso
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then echo "Nada novo."; exit 0; fi
+          git commit -m "chore: atualizar catalogo de series (lote ${{ inputs.lote || '100' }})"
+          for i in $(seq 1 5); do
+            if git push origin HEAD:main; then break; fi
+            git fetch origin main
+            git reset --mixed origin/main
+            git add -A
+            git commit -m "chore: retry $i" || true
+            sleep $((RANDOM % 10 + 5))
+          done
+
+      - name: Disparar próxima run (se fila não vazia)
+        if: success() && (github.event_name == 'schedule' || inputs.auto_run == true)
+        env:
+          GH_TOKEN: ${{ secrets.PAT_CHAIN }}
+          REPO: ${{ github.repository }}
+        run: |
+          TOTAL=$(wc -l < series_fila.txt)
+          FEITOS=$(sort -u series_feitas.txt | wc -l)
+          FALTAM=$((TOTAL - FEITOS))
+          echo "Total na fila: $TOTAL | Ja feitos: $FEITOS | Faltam: $FALTAM"
+          if [ "$FALTAM" -le 0 ]; then
+            echo "✅ Fila vazia. Chain encerrada."; exit 0
+          fi
+          LIMITE_ISO=$(date -u -d '60 minutes ago' +%Y-%m-%dT%H:%M:%SZ)
+          RECENTES=$(gh run list --workflow="series.yml" --limit 100 --json event,createdAt --jq "[.[] | select(.event == \"workflow_dispatch\")] | length" --repo "$REPO" 2>/dev/null || echo 0)
+          if [ "$RECENTES" -ge 30 ]; then
+            echo "⚠️ Limite de 30 runs/hora atingido. Aguardando cron."; exit 0
+          fi
+          echo "⏳ Aguardando 30 segundos antes de disparar a próxima run..."
+          sleep 30
+          echo "🔁 Disparando próxima run..."
+          gh workflow run "series.yml" --repo "$REPO" --ref main
