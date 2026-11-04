@@ -358,7 +358,7 @@ jobs:
                           titulo_ep = re.sub(r'Episódio\s*\d+\s*-?\s*', '', texto, flags=re.I).strip()
                           eps.append({'temp': temporada, 'ep': num, 'titulo': titulo_ep, 'url': href})
 
-                  # SALVA O LINK DA SÉRIE NOS FEITOS ANTES DE PROCESSAR OS EPISÓDIOS
+                  # Salva o link da série nos feitos ANTES de processar os episódios
                   with open(ARQ_FEITAS,"a",encoding="utf-8") as f: f.write(url_serie.strip()+"\n")
                   log(f"    [💾] Salvo no controle de feitas.")
 
@@ -449,7 +449,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
           git add -A
-          # CORREÇÃO PARA O PUSH FUNCIONAR E O CONTADOR SUBIR
           git reset .github/ 2>/dev/null || true
           
           if git diff --cached --quiet; then echo "Nada novo."; exit 0; fi
@@ -457,8 +456,8 @@ jobs:
           
           for i in $(seq 1 5); do
             if git push origin HEAD:main; then break; fi
-            git fetch origin main
-            git reset --mixed origin/main
+            echo "Conflito detectado. Sincronizando de forma segura..."
+            git pull origin main --no-rebase -X ours --no-edit
             git add -A
             git reset .github/ 2>/dev/null || true
             git commit -m "chore: retry $i" || true
