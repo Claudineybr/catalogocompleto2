@@ -38,7 +38,7 @@ jobs:
           fetch-depth: 0
 
       - name: Limpar arquivos de controle (Opcional)
-        if: ${{ inputs.reprocessar_tudo == true }}
+        if: ${{ inputs.reprocessar_tudo == true || inputs.reprocessar_tudo == 'true' }}
         run: |
           echo "Limpando fila, feitos, pendentes e descartados..."
           rm -f filmes_fila.txt filmes_feitos.txt filmes_pendentes.json filmes_descartados.txt
@@ -315,7 +315,6 @@ jobs:
                       nome_arquivo = f"{slug}.html"
                       nome_json    = f"{titulo} - 🍿Clau"
 
-                  # --- NOVA LÓGICA DE ATUALIZAÇÃO DE CAPA ---
                   if Path(nome_arquivo).exists():
                       log(f"    (Já existe: {nome_arquivo})")
                       try:
@@ -378,7 +377,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           
           git add -A
-          # CORREÇÃO: Impede o push de arquivos de workflow que causam erro de permissão
           git reset .github/ 2>/dev/null || true
           
           if git diff --cached --quiet; then echo "Nada novo."; exit 0; fi
@@ -395,24 +393,36 @@ jobs:
           done
 
       - name: Disparar próxima run (se fila não vazia)
-        if: success() && (github.event_name == 'schedule' || inputs.auto_run == true)
+        if: |
+          success() && (
+            github.event_name == 'schedule' || 
+            inputs.auto_run == true || 
+            inputs.auto_run == 'true'
+          )
         env:
           GH_TOKEN: ${{ secrets.PAT_CHAIN }}
           REPO: ${{ github.repository }}
         run: |
+          echo "Verificando se há fila para próxima run..."
           TOTAL=$(wc -l < filmes_fila.txt)
           FEITOS=$(sort -u filmes_feitos.txt | wc -l)
           FALTAM=$((TOTAL - FEITOS))
           echo "Total na fila: $TOTAL | Ja feitos: $FEITOS | Faltam: $FALTAM"
+          
           if [ "$FALTAM" -le 0 ]; then
             echo "✅ Fila vazia. Chain encerrada."; exit 0
           fi
+
           LIMITE_ISO=$(date -u -d '60 minutes ago' +%Y-%m-%dT%H:%M:%SZ)
           RECENTES=$(gh run list --workflow="Filmes.yml" --limit 100 --json event,createdAt --jq "[.[] | select(.event == \"workflow_dispatch\")] | length" --repo "$REPO" 2>/dev/null || echo 0)
+          
           if [ "$RECENTES" -ge 30 ]; then
             echo "⚠️ Limite de 30 runs/hora atingido. Aguardando cron."; exit 0
           fi
+
           echo "⏳ Aguardando 30 segundos antes de disparar a próxima run..."
           sleep 30
+
           echo "🔁 Disparando próxima run..."
-          gh workflow run "Filmes.yml" --repo "$REPO" --ref main
+          gh workflow run "Filmes.yml" --repo "$REPO" --ref main -f auto_run=true -f lote="${{ inputs.lote || '100' }}" -f reprocessar_tudo=false
+          echo "✅ Próxima run disparada."
