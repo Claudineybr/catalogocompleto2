@@ -1,0 +1,11 @@
+Resumo da extracao
+==================
+JSONs varridos: 5
+Com video URL:  0
+Com capa:       0
+Sem video URL:  5
+Sem capa:       0
+Conflitos:      0
+
+capas_por_key.txt: 0 entradas
+capas_por_url.txt: 0 entradas
