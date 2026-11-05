@@ -1,11 +1,11 @@
 Resumo da extracao
 ==================
-JSONs varridos: 5
-Com video URL:  0
-Com capa:       0
-Sem video URL:  5
-Sem capa:       0
-Conflitos:      0
+Arquivos varridos: 15600 (json=5, html=15595)
+Com video URL:  15594
+Com capa:       15168
+Sem video URL:  6
+Sem capa:       426
+Conflitos:      5786
 
-capas_por_key.txt: 0 entradas
-capas_por_url.txt: 0 entradas
+capas_por_key.txt: 9217 entradas
+capas_por_url.txt: 9374 entradas
