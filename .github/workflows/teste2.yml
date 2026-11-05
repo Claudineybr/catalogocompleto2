@@ -35,9 +35,13 @@ jobs:
           echo "OUTRO_DIR=$TMP/outro" >> $GITHUB_ENV
           cd "$TMP/outro"
           echo "Total .json: $(find . -name '*.json' -not -path './.git/*' | wc -l)"
-          SAMPLE=$(find . -name '*.json' -not -path './.git/*' | head -1)
-          echo "Tamanho 1º: $(stat -c %s "$SAMPLE") bytes"
-          echo "Primeiros 80 bytes: $(head -c 80 "$SAMPLE")"
+          echo "Total .html/.htm: $(find . \( -name '*.html' -o -name '*.htm' \) -not -path './.git/*' | wc -l)"
+          SAMPLE=$(find . \( -name '*.json' -o -name '*.html' -o -name '*.htm' \) -not -path './.git/*' | head -1)
+          if [ -n "$SAMPLE" ]; then
+            echo "Amostra: $SAMPLE"
+            echo "Tamanho 1º: $(stat -c %s "$SAMPLE") bytes"
+            echo "Primeiros 80 bytes: $(head -c 80 "$SAMPLE")"
+          fi
 
       - name: Extrair com regex puro
         env:
@@ -55,6 +59,9 @@ jobs:
           # Regex simples e infalíveis — funcionam em JSON puro OU HTML
           RE_VIDEO = re.compile(r'"contentUrl"\s*:\s*"([^"]+)"', re.I)
           RE_CAPA  = re.compile(r'"thumbnailUrl"\s*:\s*(?:\[\s*)?"(https?://[^"]+)"', re.I)
+
+          # Extensões suportadas (JSON + HTML/HTM)
+          EXTENSOES = (".json", ".html", ".htm")
 
           def is_valid_cover(url):
               if not url or not isinstance(url, str): return False
@@ -75,20 +82,34 @@ jobs:
               return u.split("/")[-1].lower()
 
           print("Varrendo: " + str(OUTRO_DIR))
+          print("Extensoes: " + ", ".join(EXTENSOES))
 
           mapa_key = {}
           mapa_url = {}
           origem = {}
           total = 0
+          total_json = 0
+          total_html = 0
           com_video = 0
           com_capa = 0
           sem_video = 0
           sem_capa = 0
           conflitos = 0
 
-          for arq in sorted(OUTRO_DIR.rglob("*.json")):
-              if ".git" in arq.parts: continue
+          arquivos = sorted(
+              p for p in OUTRO_DIR.rglob("*")
+              if p.is_file()
+              and ".git" not in p.parts
+              and p.suffix.lower() in EXTENSOES
+          )
+
+          for arq in arquivos:
               total += 1
+              if arq.suffix.lower() == ".json":
+                  total_json += 1
+              else:
+                  total_html += 1
+
               try:
                   texto = arq.read_text(encoding="utf-8-sig", errors="ignore")
               except Exception:
@@ -133,7 +154,7 @@ jobs:
           resumo = NL.join([
               "Resumo da extracao",
               "==================",
-              "JSONs varridos: " + str(total),
+              "Arquivos varridos: " + str(total) + " (json=" + str(total_json) + ", html=" + str(total_html) + ")",
               "Com video URL:  " + str(com_video),
               "Com capa:       " + str(com_capa),
               "Sem video URL:  " + str(sem_video),
