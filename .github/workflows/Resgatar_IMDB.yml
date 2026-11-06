@@ -1,0 +1,160 @@
+name: Resgatar Filmes do IMDB Quebrados
+
+on:
+  workflow_dispatch:
+    inputs:
+      lote:
+        description: 'Quantos arquivos verificar por run'
+        required: false
+        default: '100'
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: resgatar-imdb
+  cancel-in-progress: false
+
+jobs:
+  consertar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Instalar dependências
+        run: pip install requests beautifulsoup4
+
+      - name: Verificar e consertar nomes
+        env:
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+          LOTE_SIZE: ${{ inputs.lote || '100' }}
+        run: |
+          cat > /tmp/resgatar_imdb.py << 'PYEOF'
+          import re, os, sys, json, requests
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+
+          API_KEY = os.environ.get("TMDB_API_KEY")
+          LOTE_SIZE = int(os.environ.get('LOTE_SIZE', 100))
+          TMDB_API = "https://api.themoviedb.org/3"
+          IMG_BASE = "https://image.tmdb.org/t/p/w500"
+
+          def log(*a): print(*a, flush=True); sys.stdout.flush()
+
+          def buscar_tmdb(imdb_id):
+              if not API_KEY: return None
+              # Tenta buscar como filme
+              try:
+                  r = requests.get(f"{TMDB_API}/find/{imdb_id}?external_source=imdb_id&api_key={API_KEY}&language=pt-BR", timeout=10)
+                  dados = r.json()
+                  if dados.get("movie_results"):
+                      m = dados["movie_results"][0]
+                      ano = m.get("release_date", "")[:4]
+                      titulo = m.get("title", "Desconhecido")
+                      if ano: titulo = f"{titulo} ({ano})"
+                      capa = IMG_BASE + m["poster_path"] if m.get("poster_path") else None
+                      return titulo, capa
+                  
+                  if dados.get("tv_results"):
+                      t = dados["tv_results"][0]
+                      ano = t.get("first_air_date", "")[:4]
+                      titulo = t.get("name", "Desconhecido")
+                      if ano: titulo = f"{titulo} ({ano})"
+                      capa = IMG_BASE + t["poster_path"] if t.get("poster_path") else None
+                      return titulo, capa
+              except Exception as e:
+                  log(f"  [x] Erro na API do TMDB: {e}")
+              return None
+
+          def main():
+              arquivos = list(Path(".").glob("https_www_*.html"))
+              log(f"Analisando {len(arquivos)} arquivos com nomes quebrados...")
+              
+              processados = 0
+              consertados = 0
+              deletados = 0
+
+              for f in arquivos:
+                  if processados >= LOTE_SIZE:
+                      log(f"Lote de {LOTE_SIZE} atingido. Parando por hoje.")
+                      break
+
+                  try:
+                      conteudo = f.read_text(encoding="utf-8")
+                      
+                      # Procura a string 'tt' seguida de números (IMDB ID)
+                      match_imdb = re.search(r'(tt\d{7,9})', conteudo)
+                      
+                      if match_imdb:
+                          imdb_id = match_imdb.group(1)
+                          processados += 1
+                          log(f"[{processados}/{LOTE_SIZE}] Encontrado {imdb_id} em: {f.name}")
+                          
+                          resultado = buscar_tmdb(imdb_id)
+                          
+                          if resultado:
+                              titulo, nova_capa = resultado
+                              log(f"  [+] Encontrado no TMDB: {titulo}")
+                              
+                              nome_json = f"{titulo} - 🍿Clau"
+                              slug = re.sub(r'[^a-z0-9]', '_', titulo.lower())
+                              slug = re.sub(r'_+', '_', slug).strip('_')
+                              novo_nome = f"{slug}.html"
+                              
+                              # Atualiza o JSON e o HTML
+                              novo_html = re.sub(r'"name":\s*"[^"]*"', f'"name": "{nome_json}"', conteudo)
+                              novo_html = re.sub(r'<title>.*?</title>', f'<title>{nome_json}</title>', novo_html)
+                              novo_html = re.sub(r'<h1.*?>.*?</h1>', f'<h1 class="post-title">{nome_json}</h1>', novo_html)
+                              
+                              if nova_capa:
+                                  novo_html = re.sub(r'"thumbnailUrl":\s*\[[^\]]*\]', f'"thumbnailUrl": ["{nova_capa}"]', novo_html)
+                                  novo_html = re.sub(r'poster="[^"]*"', f'poster="{nova_capa}"', novo_html)
+                                  novo_html = re.sub(r'<img src="[^"]*"', f'<img src="{nova_capa}"', novo_html)
+
+                              Path(novo_nome).write_text(novo_html, encoding="utf-8")
+                              f.unlink()
+                              log(f"  [+] Salvo como: {novo_nome}")
+                              consertados += 1
+                              continue
+                          else:
+                              log(f"  [-] Não achado no TMDB ou sem API Key.")
+                      
+                      # Se não achou IMDB, deleta o arquivo lixo
+                      log(f"  [X] Arquivo sem ID ou inútil. Deletando: {f.name}")
+                      f.unlink()
+                      deletados += 1
+                      
+                  except Exception as e:
+                      log(f"  [x] Erro ao processar {f.name}: {e}")
+
+              log(f"Finalizado! Analisados: {processados} | Consertados: {consertados} | Deletados: {deletados}")
+
+          if __name__ == "__main__":
+              main()
+          PYEOF
+          python3 /tmp/resgatar_imdb.py
+
+      - name: Salvar arquivos e progresso
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          git add -A
+          git reset .github/ 2>/dev/null || true
+          
+          if git diff --cached --quiet; then echo "Nada para alterar."; exit 0; fi
+          git commit -m "fix: resgatar nomes e capas via IMDB/TMDB"
+          
+          for i in $(seq 1 5); do
+            if git push origin HEAD:main; then break; fi
+            echo "Conflito detectado. Sincronizando de forma segura..."
+            git pull origin main --no-rebase -X ours --no-edit
+            git add -A
+            git reset .github/ 2>/dev/null || true
+            git commit -m "fix: retry resgatar imdb $i" || true
+            sleep $((RANDOM % 10 + 5))
+          done
