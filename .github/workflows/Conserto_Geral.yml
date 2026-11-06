@@ -63,10 +63,16 @@ jobs:
               # Remove o ano
               nome = re.sub(r'_(?:19|20)\d{2}', '', nome)
               
-              # Remove IDs curtos (ex: _20, _25)
+              # Remove IDs curtos
               nome = re.sub(r'_(?:20|21|22|23|24|25|26)$', '', nome)
               
-              # CORREÇÃO: Remove inix/arc no meio da frase também
+              # Corrige erros de digitação comuns do site
+              nome = nome.replace('Coralineo', 'Coraline e o')
+              
+              # Remove "Livre 12"
+              nome = re.sub(r'_livre_\d+', '', nome, flags=re.I)
+              
+              # Remove inix/arc
               nome = re.sub(r'[_-](?:inix|arc|entre_nos)[_-]', '_', nome, flags=re.I)
               nome = re.sub(r'^(?:inix|arc|entre_nos)[_-]', '', nome, flags=re.I)
               
@@ -74,6 +80,10 @@ jobs:
               
               nome = nome.replace('_', ' ').strip()
               nome = re.sub(r'\s+', ' ', nome)
+              
+              # Remove preposições soltas no final (ex: "Jack De" -> "Jack")
+              nome = re.sub(r'\s+(de|do|da|por|com|e|o|a)$', '', nome, flags=re.I)
+              
               return nome.title()
 
           def get_clean_search_title(nome):
@@ -150,9 +160,7 @@ jobs:
                       except: continue
 
                       nome_atual = dados.get('name', '')
-                      video_link = dados.get('contentUrl', '')
                       
-                      # 1. CORREÇÃO CRÍTICA: Não marca "Perfeitos Desconhecidos" como quebrado
                       is_broken_name = False
                       if not nome_atual or len(nome_atual) < 3:
                           is_broken_name = True
@@ -165,7 +173,6 @@ jobs:
                       elif nome_atual.strip().lower() in ['filme desconhecido', 'serie desconhecida', 'série desconhecida', 'desconhecido', 'desconhecida', '']:
                           is_broken_name = True
                       
-                      # 2. Verifica se a CAPA está quebrada
                       capa_atual = dados.get('thumbnailUrl', [''])[0] if dados.get('thumbnailUrl') else ''
                       is_broken_cover = "placeholder" in capa_atual or "Sem+Capa" in capa_atual or not capa_atual
 
@@ -184,7 +191,6 @@ jobs:
                       nova_capa = capa_atual
                       match_imdb = re.search(r'(tt\d{7,9})', conteudo)
 
-                      # 3. Conserta o Nome se estiver quebrado
                       if is_broken_name:
                           titulo_limpo = limpar_nome_arquivo(f.name)
                           if match_imdb:
@@ -207,7 +213,6 @@ jobs:
                           
                           log(f"  [+] Nome corrigido para: {novo_nome_json}")
 
-                      # 4. Conserta a Capa
                       if is_broken_cover or (is_broken_name and not nova_capa):
                           titulo_para_busca = get_clean_search_title(novo_nome_json)
                           
@@ -227,7 +232,6 @@ jobs:
                       if novo_nome_json == nome_atual and nova_capa == capa_atual:
                           continue
 
-                      # Aplica as mudanças no JSON
                       dados['name'] = novo_nome_json
                       dados['description'] = f"Assista {novo_nome_json}"
                       if nova_capa:
@@ -242,7 +246,6 @@ jobs:
                           novo_html = re.sub(r'poster="[^"]*"', f'poster="{nova_capa}"', novo_html)
                           novo_html = re.sub(r'<img src="[^"]*"', f'<img src="{nova_capa}"', novo_html)
 
-                      # 5. SÓ RENOMEIA O ARQUIVO SE O NOME ESTAVA QUEBRADO
                       if is_broken_name:
                           base_titulo = get_clean_search_title(novo_nome_json)
                           novo_slug = re.sub(r'[^a-z0-9]', '_', strip_accents(base_titulo).lower())
@@ -260,7 +263,7 @@ jobs:
                           else:
                               novo_nome = f"{novo_slug}.html"
                       else:
-                          novo_nome = f.name # Mantém o nome original se estava ok
+                          novo_nome = f.name
 
                       Path(novo_nome).write_text(novo_html, encoding="utf-8")
                       if f.name != novo_nome:
