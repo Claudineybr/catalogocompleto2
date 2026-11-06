@@ -62,11 +62,26 @@ jobs:
               
               nome = re.sub(r'_(?:19|20)\d{2}', '', nome)
               nome = re.sub(r'_\d+$', '', nome)
-              nome = re.sub(r'_html|_inix|_entre_nos', '', nome, flags=re.I)
+              nome = re.sub(r'^inix_|_inix_|_inix$', '', nome, flags=re.I)
+              nome = re.sub(r'_html|_entre_nos', '', nome, flags=re.I)
               
               nome = nome.replace('_', ' ').strip()
               nome = re.sub(r'\s+', ' ', nome)
               return nome.title()
+
+          # MÁGICA NOVA: Extrai apenas o nome principal para busca
+          def get_clean_search_title(nome):
+              nome = re.sub(r'\s*-\s*🍿Clau', '', nome)
+              nome = re.sub(r'^(?:Marcøsx7|Marcos|Vini7x|ViNi7x|inix|arc|entre_nos)[^a-zA-Z0-9]*[-]?', '', nome, flags=re.I).strip()
+              
+              # Pega a parte antes do primeiro hífen (remove T1E1 e nome do ep)
+              partes = re.split(r'\s+-\s+', nome)
+              base = partes[0].strip()
+              
+              # Limpa a base
+              base = re.sub(r'[^a-zA-Z0-9\s]', ' ', base).strip()
+              base = base.replace(' ', '_')
+              return limpar_nome_arquivo(base + ".html")
 
           def buscar_capa_tmdb(titulo):
               params = {"api_key": API_KEY, "query": titulo, "language": "pt-BR"}
@@ -78,6 +93,7 @@ jobs:
                           return d['poster_path']
               except: pass
 
+              # Fallback sem acento
               titulo_sem_acento = strip_accents(titulo)
               if titulo != titulo_sem_acento:
                   params["query"] = titulo_sem_acento
@@ -142,11 +158,9 @@ jobs:
                       capa_atual = dados.get('thumbnailUrl', [''])[0] if dados.get('thumbnailUrl') else ''
                       is_broken_cover = "placeholder" in capa_atual or "Sem+Capa" in capa_atual or not capa_atual
 
-                      # Se estiver tudo ok, pula
                       if not is_broken_name and not is_broken_cover:
                           continue
                           
-                      # Deleta lixos conhecidos
                       if any(x in f.name for x in ["catalogo", "serie_desconhecida", "index", "blog_post", "contexthttp", "html_2025", "service_unavailable"]):
                           f.unlink()
                           deletados += 1
@@ -159,14 +173,11 @@ jobs:
                       nova_capa = capa_atual
                       match_imdb = re.search(r'(tt\d{7,9})', conteudo)
 
-                      # 1. Conserta o Nome
                       if is_broken_name:
                           titulo_limpo = limpar_nome_arquivo(f.name)
                           if match_imdb:
                               capa_temp = buscar_capa_imdb(match_imdb.group(1))
-                              # Se achou pelo IMDB, vamos buscar o nome real tbm
                               if capa_temp:
-                                  # Busca o nome usando o IMDB
                                   try:
                                       r = requests.get(f"{TMDB_API}/find/{match_imdb.group(1)}?external_source=imdb_id&api_key={API_KEY}&language=pt-BR", timeout=10)
                                       d = r.json()
@@ -179,15 +190,14 @@ jobs:
                                           novo_nome_json = f"{t.get('name')} - 🍿Clau"
                                   except: pass
                           
-                          if novo_nome_json == nome_atual: # Se não achou via imdb, usa o nome do arquivo
+                          if novo_nome_json == nome_atual:
                               novo_nome_json = f"{titulo_limpo} - 🍿Clau"
                           
                           log(f"  [+] Nome corrigido para: {novo_nome_json}")
 
-                      # 2. Conserta a Capa
                       if is_broken_cover or (is_broken_name and not nova_capa):
-                          titulo_para_busca = re.sub(r'\s*-\s*🍿Clau', '', novo_nome_json)
-                          titulo_para_busca = re.sub(r'\s*\(.*?\)', '', titulo_para_busca).strip()
+                          # AQUI ELE LIMPA O NOME ANTES DE BUSCAR
+                          titulo_para_busca = get_clean_search_title(novo_nome_json)
                           
                           log(f"  [~] Buscando capa para: '{titulo_para_busca}'")
                           poster_path = buscar_capa_tmdb(titulo_para_busca)
@@ -202,11 +212,9 @@ jobs:
                           else:
                               log(f"  [-] Capa não encontrada.")
 
-                      # Se não conseguiu nem nome nem capa, pula
                       if novo_nome_json == nome_atual and nova_capa == capa_atual:
                           continue
 
-                      # Aplica as mudanças no JSON
                       dados['name'] = novo_nome_json
                       dados['description'] = f"Assista {novo_nome_json}"
                       if nova_capa:
@@ -221,12 +229,10 @@ jobs:
                           novo_html = re.sub(r'poster="[^"]*"', f'poster="{nova_capa}"', novo_html)
                           novo_html = re.sub(r'<img src="[^"]*"', f'<img src="{nova_capa}"', novo_html)
 
-                      # Renomeia o arquivo se o nome mudou
                       base_titulo = re.sub(r'\s*-\s*🍿Clau', '', novo_nome_json)
                       novo_slug = re.sub(r'[^a-z0-9]', '_', strip_accents(base_titulo).lower())
                       novo_slug = re.sub(r'_+', '_', novo_slug).strip('_')
                       
-                      # Mantém o sufixo T1E1 se for série
                       match_ep = re.search(r'_t\d+e\d+', f.name, re.I)
                       if match_ep:
                           novo_nome = f"{novo_slug}{match_ep.group(0)}.html"
