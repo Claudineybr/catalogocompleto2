@@ -56,29 +56,31 @@ jobs:
               nome = nome_arquivo.replace('.html', '')
               nome = re.sub(r'_t\d+e\d+', '', nome, flags=re.I)
               
-              # Remove lixos
-              lixo_regex = r'_(acaocomedia|comediaanimacao|infantilaventura|terrormisterio|legendado|dublado|hdcam|webdl|bluray|comedia|infantil|aventura|thriller|suspense|terror|acao|romance|drama|misterio|guerra|documentario|anime|animacao|fantasia|familia|crime|historia|musica|novela|reality|talk_show|podcast)\w*'
+              # Remove lixos no final (ex: _hdcam, _comediaanimacao)
+              lixo_regex = r'_(acaocomedia|comediaanimacao|infantilaventura|terrormisterio|legendado|dublado|hdcam|webdl|bluray|comedia|infantil|aventura|thriller|suspense|terror|acao|romance|drama|misterio|guerra|documentario|anime|animacao|fantasia|familia|crime|historia|musica|novela|reality|talk_show|podcast)(_\d+)?$'
               nome = re.sub(lixo_regex, '', nome, flags=re.I)
               
+              # Remove o ano
               nome = re.sub(r'_(?:19|20)\d{2}', '', nome)
-              nome = re.sub(r'_\d+$', '', nome)
-              nome = re.sub(r'^inix_|_inix_|_inix$', '', nome, flags=re.I)
+              
+              # A MÁGICA: Só remove IDs curtos (ex: _20, _25). NÃO remove títulos como _100, _2012, _2 (sequências).
+              nome = re.sub(r'_(?:20|21|22|23|24|25|26)$', '', nome)
+              
+              nome = re.sub(r'^o?inix_|_inix_|_inix$', '', nome, flags=re.I)
               nome = re.sub(r'_html|_entre_nos', '', nome, flags=re.I)
               
               nome = nome.replace('_', ' ').strip()
               nome = re.sub(r'\s+', ' ', nome)
               return nome.title()
 
-          # MÁGICA NOVA: Extrai apenas o nome principal para busca
           def get_clean_search_title(nome):
               nome = re.sub(r'\s*-\s*🍿Clau', '', nome)
+              nome = re.sub(r'\((?:19|20)\d{2}\)', '', nome) # Tira o ano dos parenteses
               nome = re.sub(r'^(?:Marcøsx7|Marcos|Vini7x|ViNi7x|inix|arc|entre_nos)[^a-zA-Z0-9]*[-]?', '', nome, flags=re.I).strip()
               
-              # Pega a parte antes do primeiro hífen (remove T1E1 e nome do ep)
-              partes = re.split(r'\s+-\s+', nome)
+              partes = re.split(r'\s+[-–—]\s+', nome)
               base = partes[0].strip()
               
-              # Limpa a base
               base = re.sub(r'[^a-zA-Z0-9\s]', ' ', base).strip()
               base = base.replace(' ', '_')
               return limpar_nome_arquivo(base + ".html")
@@ -93,7 +95,6 @@ jobs:
                           return d['poster_path']
               except: pass
 
-              # Fallback sem acento
               titulo_sem_acento = strip_accents(titulo)
               if titulo != titulo_sem_acento:
                   params["query"] = titulo_sem_acento
@@ -153,6 +154,7 @@ jobs:
                       if not nome_atual or len(nome_atual) < 3: is_broken_name = True
                       if "http" in nome_atual or "desconhecid" in nome_atual.lower(): is_broken_name = True
                       if re.match(r'^\d{4}\s*-', nome_atual): is_broken_name = True
+                      if re.search(r'^(marcøsx7|vini7x|inix|arc|entre_nos)', nome_atual, re.I): is_broken_name = True
                       
                       # 2. Verifica se a CAPA está quebrada
                       capa_atual = dados.get('thumbnailUrl', [''])[0] if dados.get('thumbnailUrl') else ''
@@ -173,6 +175,7 @@ jobs:
                       nova_capa = capa_atual
                       match_imdb = re.search(r'(tt\d{7,9})', conteudo)
 
+                      # 3. Conserta o Nome se estiver quebrado
                       if is_broken_name:
                           titulo_limpo = limpar_nome_arquivo(f.name)
                           if match_imdb:
@@ -190,13 +193,13 @@ jobs:
                                           novo_nome_json = f"{t.get('name')} - 🍿Clau"
                                   except: pass
                           
-                          if novo_nome_json == nome_atual:
+                          if novo_nome_json == nome_atual: # Se não achou via imdb, usa o nome do arquivo
                               novo_nome_json = f"{titulo_limpo} - 🍿Clau"
                           
                           log(f"  [+] Nome corrigido para: {novo_nome_json}")
 
+                      # 4. Conserta a Capa
                       if is_broken_cover or (is_broken_name and not nova_capa):
-                          # AQUI ELE LIMPA O NOME ANTES DE BUSCAR
                           titulo_para_busca = get_clean_search_title(novo_nome_json)
                           
                           log(f"  [~] Buscando capa para: '{titulo_para_busca}'")
@@ -215,6 +218,7 @@ jobs:
                       if novo_nome_json == nome_atual and nova_capa == capa_atual:
                           continue
 
+                      # Aplica as mudanças no JSON
                       dados['name'] = novo_nome_json
                       dados['description'] = f"Assista {novo_nome_json}"
                       if nova_capa:
@@ -229,15 +233,25 @@ jobs:
                           novo_html = re.sub(r'poster="[^"]*"', f'poster="{nova_capa}"', novo_html)
                           novo_html = re.sub(r'<img src="[^"]*"', f'<img src="{nova_capa}"', novo_html)
 
-                      base_titulo = re.sub(r'\s*-\s*🍿Clau', '', novo_nome_json)
-                      novo_slug = re.sub(r'[^a-z0-9]', '_', strip_accents(base_titulo).lower())
-                      novo_slug = re.sub(r'_+', '_', novo_slug).strip('_')
-                      
-                      match_ep = re.search(r'_t\d+e\d+', f.name, re.I)
-                      if match_ep:
-                          novo_nome = f"{novo_slug}{match_ep.group(0)}.html"
+                      # 5. SÓ RENOMEIA O ARQUIVO SE O NOME ESTAVA QUEBRADO
+                      if is_broken_name:
+                          base_titulo = get_clean_search_title(novo_nome_json)
+                          novo_slug = re.sub(r'[^a-z0-9]', '_', strip_accents(base_titulo).lower())
+                          novo_slug = re.sub(r'_+', '_', novo_slug).strip('_')
+                          
+                          ano_novo = re.search(r'\((\d{4})\)', novo_nome_json)
+                          ano_str = f"_{ano_novo.group(1)}" if ano_novo else ""
+                          
+                          match_ep = re.search(r'_t\d+e\d+', f.name, re.I)
+                          
+                          if match_ep:
+                              novo_nome = f"{novo_slug}{match_ep.group(0)}.html"
+                          elif ano_str:
+                              novo_nome = f"{novo_slug}{ano_str}.html"
+                          else:
+                              novo_nome = f"{novo_slug}.html"
                       else:
-                          novo_nome = f"{novo_slug}.html"
+                          novo_nome = f.name # Mantém o nome original se estava ok
 
                       Path(novo_nome).write_text(novo_html, encoding="utf-8")
                       if f.name != novo_nome:
