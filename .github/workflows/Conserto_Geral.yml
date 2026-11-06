@@ -56,18 +56,21 @@ jobs:
               nome = nome_arquivo.replace('.html', '')
               nome = re.sub(r'_t\d+e\d+', '', nome, flags=re.I)
               
-              # Remove lixos no final (ex: _hdcam, _comediaanimacao)
+              # Remove lixos
               lixo_regex = r'_(acaocomedia|comediaanimacao|infantilaventura|terrormisterio|legendado|dublado|hdcam|webdl|bluray|comedia|infantil|aventura|thriller|suspense|terror|acao|romance|drama|misterio|guerra|documentario|anime|animacao|fantasia|familia|crime|historia|musica|novela|reality|talk_show|podcast)(_\d+)?$'
               nome = re.sub(lixo_regex, '', nome, flags=re.I)
               
               # Remove o ano
               nome = re.sub(r'_(?:19|20)\d{2}', '', nome)
               
-              # A MÁGICA: Só remove IDs curtos (ex: _20, _25). NÃO remove títulos como _100, _2012, _2 (sequências).
+              # Remove IDs curtos (ex: _20, _25)
               nome = re.sub(r'_(?:20|21|22|23|24|25|26)$', '', nome)
               
-              nome = re.sub(r'^o?inix_|_inix_|_inix$', '', nome, flags=re.I)
-              nome = re.sub(r'_html|_entre_nos', '', nome, flags=re.I)
+              # CORREÇÃO: Remove inix/arc no meio da frase também
+              nome = re.sub(r'[_-](?:inix|arc|entre_nos)[_-]', '_', nome, flags=re.I)
+              nome = re.sub(r'^(?:inix|arc|entre_nos)[_-]', '', nome, flags=re.I)
+              
+              nome = re.sub(r'_html', '', nome, flags=re.I)
               
               nome = nome.replace('_', ' ').strip()
               nome = re.sub(r'\s+', ' ', nome)
@@ -75,7 +78,7 @@ jobs:
 
           def get_clean_search_title(nome):
               nome = re.sub(r'\s*-\s*🍿Clau', '', nome)
-              nome = re.sub(r'\((?:19|20)\d{2}\)', '', nome) # Tira o ano dos parenteses
+              nome = re.sub(r'\((?:19|20)\d{2}\)', '', nome) 
               nome = re.sub(r'^(?:Marcøsx7|Marcos|Vini7x|ViNi7x|inix|arc|entre_nos)[^a-zA-Z0-9]*[-]?', '', nome, flags=re.I).strip()
               
               partes = re.split(r'\s+[-–—]\s+', nome)
@@ -149,12 +152,18 @@ jobs:
                       nome_atual = dados.get('name', '')
                       video_link = dados.get('contentUrl', '')
                       
-                      # 1. Verifica se o NOME está quebrado
+                      # 1. CORREÇÃO CRÍTICA: Não marca "Perfeitos Desconhecidos" como quebrado
                       is_broken_name = False
-                      if not nome_atual or len(nome_atual) < 3: is_broken_name = True
-                      if "http" in nome_atual or "desconhecid" in nome_atual.lower(): is_broken_name = True
-                      if re.match(r'^\d{4}\s*-', nome_atual): is_broken_name = True
-                      if re.search(r'^(marcøsx7|vini7x|inix|arc|entre_nos)', nome_atual, re.I): is_broken_name = True
+                      if not nome_atual or len(nome_atual) < 3:
+                          is_broken_name = True
+                      elif "http" in nome_atual:
+                          is_broken_name = True
+                      elif re.match(r'^\d{4}\s*-', nome_atual):
+                          is_broken_name = True
+                      elif re.search(r'^(marcøsx7|vini7x|inix|arc|entre_nos)', nome_atual, re.I):
+                          is_broken_name = True
+                      elif nome_atual.strip().lower() in ['filme desconhecido', 'serie desconhecida', 'série desconhecida', 'desconhecido', 'desconhecida', '']:
+                          is_broken_name = True
                       
                       # 2. Verifica se a CAPA está quebrada
                       capa_atual = dados.get('thumbnailUrl', [''])[0] if dados.get('thumbnailUrl') else ''
@@ -193,7 +202,7 @@ jobs:
                                           novo_nome_json = f"{t.get('name')} - 🍿Clau"
                                   except: pass
                           
-                          if novo_nome_json == nome_atual: # Se não achou via imdb, usa o nome do arquivo
+                          if novo_nome_json == nome_atual:
                               novo_nome_json = f"{titulo_limpo} - 🍿Clau"
                           
                           log(f"  [+] Nome corrigido para: {novo_nome_json}")
