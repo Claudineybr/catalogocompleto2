@@ -1088,53 +1088,149 @@
       "status": 429,
       "detalhe": "HTTP 429",
       "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T13:14:33+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/02/duologia-homem-formiga.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T13:15:21+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/02/saga-matrix.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T13:17:21+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/02/saga-missao-impossivel.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T13:19:28+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/02/quadrilogia-thor.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T13:20:49+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/02/a-saga-dr-dolittle.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T13:21:53+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/02/a-serie-velozes-e-furiosos.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T13:23:07+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/02/a-saga-x-men.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T13:24:25+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2024/10/inix-minority-report-nova-lei.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T13:26:33+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/inix-army-of-dead-invasao-em-las-vegas.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T13:27:33+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/inix-o-filho-do-batman-2014.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T13:28:42+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/inix-historias-assustadoras-para-contar.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T13:29:42+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/inix-scooby-doo-e-o-monstro-do-lago.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 42,
-      "ok": 38,
-      "429": 4,
+      "requisicoes": 66,
+      "ok": 52,
+      "429": 12,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 4,
+      "falhas_definitivas": 12,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 4,
-      "proxy_hit": 4,
-      "pausas_evitadas": 97,
-      "http_realizados": 2,
-      "playwright_skip": 7,
-      "proxmint_listas": 4,
-      "link_em_a_href": 61,
-      "link_convertido_w2embed": 61,
-      "multifilme_paginas": 0,
-      "multifilme_arquivos": 0,
+      "proxy_fallback": 12,
+      "proxy_hit": 12,
+      "pausas_evitadas": 65,
+      "http_realizados": 14,
+      "playwright_skip": 10,
+      "proxmint_listas": 12,
+      "link_em_a_href": 3,
+      "link_convertido_w2embed": 123,
+      "multifilme_paginas": 11,
+      "multifilme_arquivos": 57,
       "robo": "filmes",
-      "quando": "2026-11-11T13:03:18+00:00",
-      "duracao_min": 13.7
+      "quando": "2026-11-11T13:31:09+00:00",
+      "duracao_min": 26.7
     },
     "acumulado": {
-      "requisicoes": 1652,
-      "ok": 1508,
-      "429": 136,
+      "requisicoes": 1718,
+      "ok": 1560,
+      "429": 148,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 136,
+      "falhas_definitivas": 148,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 136,
-      "proxy_hit": 136,
-      "pausas_evitadas": 4111,
-      "http_realizados": 47,
-      "playwright_skip": 197,
-      "proxmint_listas": 136,
-      "link_em_a_href": 91,
-      "link_convertido_w2embed": 62,
-      "multifilme_paginas": 3,
-      "multifilme_arquivos": 3
+      "proxy_fallback": 148,
+      "proxy_hit": 148,
+      "pausas_evitadas": 4176,
+      "http_realizados": 61,
+      "playwright_skip": 207,
+      "proxmint_listas": 148,
+      "link_em_a_href": 94,
+      "link_convertido_w2embed": 185,
+      "multifilme_paginas": 14,
+      "multifilme_arquivos": 60
     }
   }
 }
