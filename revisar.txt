@@ -20,3 +20,7 @@ https://www.vini7xgrave.site/2026/02/inix-this-is-us.html | série inconsistente
 https://www.vini7xgrave.site/2026/02/inix-o-cuco-de-cristal-2025.html | URL dizia 1, mas texto dizia 2 (usei 2) - link: https://viniraveon.blogspot.com/2026/02/inix-o-cuco-de-cristal-tp1e01_9.html
 https://www.vini7xgrave.site/2025/05/inix-saga-crepusculo-eclipse-2010.html | SAGA: 2 vídeos no mesmo post -> a_crepusculo_eclipse_1.html [sequencial], abrir_player.html [texto do link]
 https://www.vini7xgrave.site/2025/05/inix-saga-crepusculo-lua-nova-2009.html | SAGA: 2 vídeos no mesmo post -> a_crepusculo_lua_nova_1.html [sequencial], abrir_player.html [texto do link]
+https://www.vini7xgrave.site/2026/01/inix-skins-juventude-flor-da-pele.html | série inconsistente (skins_juventude_a_flor_da_pele): temporadas [7] existem em disco mas não foram achadas na página
+https://www.vini7xgrave.site/2025/11/inix-robin-hood-2025.html | URL dizia 5, mas texto dizia 6 (usei 6) - link: https://viniraveon.blogspot.com/2025/12/inix-robin-hood-tp1e05.html
+https://www.vini7xgrave.site/2025/10/inix-it-bem-vindos-derry-2025.html | URL dizia 1, mas texto dizia 2 (usei 2) - link: https://viniraveon.blogspot.com/2025/10/inix-it-bem-vindos-derry-tp1e01_31.html
+https://www.vini7xgrave.site/2025/10/inix-it-bem-vindos-derry-2025.html | URL dizia 7, mas texto dizia 8 (usei 8) - link: https://viniraveon.blogspot.com/2025/12/inix-it-bem-vindos-derry-tp1e07_14.html
