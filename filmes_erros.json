@@ -552,12 +552,84 @@
       "status": 429,
       "detalhe": "HTTP 429",
       "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T10:03:13+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/05/inix-saga-crepusculo-eclipse-2010.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T10:04:02+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/05/inix-saga-crepusculo-lua-nova-2009.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T10:05:25+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/06/inix-nossos-tempos-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T10:06:26+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/06/inix-mountainhead-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T10:07:26+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/06/inix-o-ultimo-mergulho-2024.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T10:09:41+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/06/inix-crise-de-identidade-2023.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T10:10:41+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/05/inix-zoe-minha-amiga-morta-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T10:11:41+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/05/inix-viagem-de-formatura-mallorca-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T10:12:41+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/05/inix-as-duas-faces-de-um-crime-1996.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 52,
-      "ok": 42,
+      "requisicoes": 53,
+      "ok": 44,
       "429": 9,
       "5xx": 0,
       "retries": 0,
@@ -567,38 +639,38 @@
       "conflitos": 0,
       "proxy_fallback": 9,
       "proxy_hit": 9,
-      "pausas_evitadas": 98,
-      "http_realizados": 1,
+      "pausas_evitadas": 97,
+      "http_realizados": 2,
       "playwright_skip": 11,
       "proxmint_listas": 9,
-      "link_em_a_href": 0,
+      "link_em_a_href": 2,
       "link_convertido_w2embed": 0,
-      "multifilme_paginas": 0,
-      "multifilme_arquivos": 0,
+      "multifilme_paginas": 2,
+      "multifilme_arquivos": 2,
       "robo": "filmes",
-      "quando": "2026-11-11T09:53:41+00:00",
-      "duracao_min": 18.7
+      "quando": "2026-11-11T10:13:41+00:00",
+      "duracao_min": 19.0
     },
     "acumulado": {
-      "requisicoes": 1122,
-      "ok": 1047,
-      "429": 69,
+      "requisicoes": 1175,
+      "ok": 1091,
+      "429": 78,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 69,
+      "falhas_definitivas": 78,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 69,
-      "proxy_hit": 69,
-      "pausas_evitadas": 2942,
-      "http_realizados": 28,
-      "playwright_skip": 113,
-      "proxmint_listas": 69,
-      "link_em_a_href": 27,
+      "proxy_fallback": 78,
+      "proxy_hit": 78,
+      "pausas_evitadas": 3039,
+      "http_realizados": 30,
+      "playwright_skip": 124,
+      "proxmint_listas": 78,
+      "link_em_a_href": 29,
       "link_convertido_w2embed": 1,
-      "multifilme_paginas": 1,
-      "multifilme_arquivos": 1
+      "multifilme_paginas": 3,
+      "multifilme_arquivos": 3
     }
   }
 }
