@@ -168,51 +168,179 @@
       "status": 429,
       "detalhe": "HTTP 429",
       "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T06:14:35+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2026/03/inix-o-segredo-da-chef-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T06:15:25+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2026/03/inix-song-sung-blue-um-sonho-dois-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T06:16:25+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-coisa-1985.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T06:17:25+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/12/inix-mahavatar-narsimha-2025-legendado.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T06:28:18+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-coisa-1985.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T06:39:48+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/12/inix-mahavatar-narsimha-2025-legendado.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T07:41:46+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-o-protetor-2-2013.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T07:42:53+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-marcas-do-passado-2022.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T07:53:29+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-doente-de-amor-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T07:56:12+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-o-protetor-2-2013.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T08:08:14+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-o-protetor-2-2013.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T08:09:02+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-doente-de-amor-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T08:20:24+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-marcas-do-passado-2022.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T08:21:11+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-sequestro-1971-2024.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T08:22:35+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-o-protetor-2-2013.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-11T08:23:35+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-doente-de-amor-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 38,
-      "ok": 36,
-      "429": 2,
+      "requisicoes": 41,
+      "ok": 37,
+      "429": 4,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 2,
+      "falhas_definitivas": 4,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 2,
-      "proxy_hit": 2,
-      "pausas_evitadas": 99,
-      "http_realizados": 0,
+      "proxy_fallback": 4,
+      "proxy_hit": 4,
+      "pausas_evitadas": 98,
+      "http_realizados": 1,
       "playwright_skip": 5,
-      "proxmint_listas": 2,
-      "link_em_a_href": 1,
+      "proxmint_listas": 4,
+      "link_em_a_href": 2,
       "link_convertido_w2embed": 0,
       "multifilme_paginas": 0,
       "multifilme_arquivos": 0,
       "robo": "filmes",
-      "quando": "2026-11-11T06:04:39+00:00",
-      "duracao_min": 11.6
+      "quando": "2026-11-11T08:24:35+00:00",
+      "duracao_min": 13.4
     },
     "acumulado": {
-      "requisicoes": 459,
-      "ok": 438,
-      "429": 21,
+      "requisicoes": 880,
+      "ok": 839,
+      "429": 37,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 21,
+      "falhas_definitivas": 37,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 21,
-      "proxy_hit": 21,
-      "pausas_evitadas": 1279,
-      "http_realizados": 8,
-      "playwright_skip": 34,
-      "proxmint_listas": 21,
-      "link_em_a_href": 7,
-      "link_convertido_w2embed": 0,
+      "proxy_fallback": 37,
+      "proxy_hit": 37,
+      "pausas_evitadas": 2460,
+      "http_realizados": 15,
+      "playwright_skip": 61,
+      "proxmint_listas": 37,
+      "link_em_a_href": 24,
+      "link_convertido_w2embed": 1,
       "multifilme_paginas": 1,
       "multifilme_arquivos": 1
     }
