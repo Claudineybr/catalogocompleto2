@@ -536,12 +536,100 @@
       "status": 429,
       "detalhe": "HTTP 429",
       "tentativas": 1
+    },
+    {
+      "quando": "2026-11-12T07:13:28+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/inix-hora-do-espanto-2-2013.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-12T07:36:49+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/duologia-o-auto-da-compadecida.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-12T07:49:56+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/02/duologia-divertidamente.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-12T07:51:27+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/02/colecao-tinker-bell.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-12T07:55:43+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/02/a-saga-dr-dolittle.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-12T07:56:40+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/02/a-serie-velozes-e-furiosos.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-12T07:58:22+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2024/10/inix-minority-report-nova-lei.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-12T08:00:11+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/inix-hora-do-espanto-2-2013.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-12T08:02:51+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/duologia-o-auto-da-compadecida.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-12T09:01:23+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/inix-historias-assustadoras-para-contar.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-12T09:02:35+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/duologia-o-auto-da-compadecida.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 39,
-      "ok": 37,
+      "requisicoes": 40,
+      "ok": 38,
       "429": 2,
       "5xx": 0,
       "retries": 0,
@@ -551,37 +639,37 @@
       "conflitos": 0,
       "proxy_fallback": 2,
       "proxy_hit": 2,
-      "pausas_evitadas": 99,
+      "pausas_evitadas": 0,
       "http_realizados": 0,
-      "playwright_skip": 6,
+      "playwright_skip": 7,
       "proxmint_listas": 2,
       "link_em_a_href": 0,
       "link_convertido_w2embed": 0,
       "multifilme_paginas": 0,
       "multifilme_arquivos": 0,
       "robo": "filmes",
-      "quando": "2026-11-12T07:01:32+00:00",
-      "duracao_min": 12.0
+      "quando": "2026-11-12T09:04:27+00:00",
+      "duracao_min": 12.4
     },
     "acumulado": {
-      "requisicoes": 1459,
-      "ok": 1391,
-      "429": 67,
+      "requisicoes": 1675,
+      "ok": 1596,
+      "429": 78,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 67,
+      "falhas_definitivas": 78,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 67,
-      "proxy_hit": 67,
-      "pausas_evitadas": 3822,
-      "http_realizados": 39,
-      "playwright_skip": 175,
-      "proxmint_listas": 67,
-      "link_em_a_href": 16,
-      "link_convertido_w2embed": 1,
-      "multifilme_paginas": 4,
+      "proxy_fallback": 78,
+      "proxy_hit": 78,
+      "pausas_evitadas": 4178,
+      "http_realizados": 59,
+      "playwright_skip": 213,
+      "proxmint_listas": 78,
+      "link_em_a_href": 23,
+      "link_convertido_w2embed": 128,
+      "multifilme_paginas": 15,
       "multifilme_arquivos": 1
     }
   }
