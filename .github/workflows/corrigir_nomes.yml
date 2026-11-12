@@ -4,12 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       remover_duplicatas:
-        description: 'Remover arquivos marc_sx7/vini7x que são duplicata EXATA de um arquivo limpo?'
-        required: false
-        default: false
-        type: boolean
-      buscar_anos_no_feed:
-        description: 'Consultar o feed do site para descobrir o ano?'
+        description: 'Remover duplicatas exatas?'
         required: false
         default: false
         type: boolean
@@ -50,24 +45,16 @@ jobs:
 
           SUFIXO = "🍿Clau"
           DRY = (os.environ.get("DRY_RUN") or "0") == "1"
-          USAR_FEED = (os.environ.get("USAR_FEED") or "0") == "1"
           REMOVER_DUPLICATAS = (os.environ.get("REMOVER_DUPLICATAS") or "0") == "1"
-          BASE_URL = "https://www.vini7xgrave.site"
 
-          LIXO = re.compile(r"\U0001F47E+️?|(?:\bdo\s+)?@?vini\s*7x\w*|marc[øo_]\s*s\s*x\s*7\w*|marc_sx7\w*", re.I)
-          LIXO_STEM = re.compile(r"(?:^|_)(?:marc_?[o0]?_?sx7|vini7x[a-z0-9]*)(?=_|$)", re.I)
-
+          # Remove o lixo do começo/meio do nome do arquivo (marc_sx7, vini7x, etc)
+          LIXO_STEM = re.compile(r"(?:^|_)(?:marc_?[o0]?_?sx7|vini7x[a-z0-9]*|marc_sx7)(?=_|$)", re.I)
+          
+          # Remove tags do final do título (legendado, hdcam, etc)
           TAGS_FIM = re.compile(
               r'(?:\s*[-–—|]\s*)?\b(?:legendado|legendada|dublado|dublada|dublagem(?:\s+nao\s+oficial)?'
               r'|hdcam|hdrip|cam|leg|dub|nacional|completo|infantil|comedia|aventura|terror|suspense|acao|romance|drama'
               r'|ficcao\s+cientifica|acao\s+e\s+ficcao\s+cientifica)\b\s*$', re.I)
-
-          AUX_RE = re.compile(r"^(?:abrir_player(?:_\d+)?|tp\d+_e\d+)\.html$", re.I)
-
-          SERIE_ARQ = re.compile(r"^(?P<stem>.+?)_t(?P<t>\d+)e(?:p)?(?P<e>\d+)(?:_\d+)?\.html$", re.I)
-          SERIE_NOME = re.compile(r"^(?P<serie>.*?)\s*(?:[-–—]\s*)?\bT(?P<t>\d+)E(?P<e>\d+)\b\s*(?:[-–—]\s*(?P<tit>.*))?$", re.I | re.S)
-          PADRAO_FILME = re.compile(r"^[a-z0-9]+(?:_[a-z0-9]+)*_(?:19|20)\d{2}\.html$")
-          PADRAO_SERIE = re.compile(r"^[a-z0-9]+(?:_[a-z0-9]+)*_t\d{2}ep\d{2}\.html$")
 
           RX_NAME = re.compile(r'("name":\s*")((?:[^"\\]|\\.)*)(")')
           RX_DESC = re.compile(r'("description":\s*")((?:[^"\\]|\\.)*)(")')
@@ -80,112 +67,52 @@ jobs:
               t = "".join(c for c in t if not unicodedata.combining(c))
               return re.sub(r"_+", "_", re.sub(r"[^a-z0-9]", "_", t.lower())).strip("_")
 
-          def limpar_base(n):
-              n = html.unescape(str(n or ""))
-              nk = unicodedata.normalize("NFKC", n)
-              if LIXO.search(nk) and not LIXO.search(n):
-                  n = nk
-              n = LIXO.sub(" ", n)
-              n = re.sub(r"\s*[-–—]*\s*🍿\s*Clau\s*", " ", n, flags=re.I)
-              n = re.sub(r"(?:\s*[-–—]\s*){2,}", " - ", n)
-              n = re.sub(r"\s+", " ", n)
-              return n.strip(" -–—|:")
-
           def limpar_titulo(t):
               if not t:
                   return t
-              for _ in range(3): # Roda 3 vezes para limpar coisas como "HDCAM - LEG"
+              for _ in range(3):
                   t = TAGS_FIM.sub("", t)
-              t2 = re.sub(r"\s+", " ", t).strip(" -–—|:")
-              return t2 if len(t2) >= 2 else t
+              return re.sub(r"\s+", " ", t).strip(" -–—|:")
 
           def ano_do_arquivo(f):
-              m = re.findall(r"_((?:19|20)\d{2})(?=_|$)", f[:-5])
+              # Pega QUALQUER ano de 4 dígitos no nome do arquivo, ignorando o resto
+              m = re.findall(r"((?:19|20)\d{2})", f)
               return m[-1] if m else ""
 
           def nome_filme(base, dica_ano=""):
               ano, t = "", base
+              
+              # Tenta achar o ano no título do JSON-LD
               parens = re.findall(r"\(\s*((?:19|20)\d{2})\s*\)", t)
               if parens:
                   ano = parens[-1]
-              
-              if not ano:
+              else:
                   m = re.search(r"\s+((?:19|20)\d{2})\s*$", t)
-                  if m:
-                      ano = m.group(1)
+                  if m: ano = m.group(1)
               
-              # A MÁGICA AQUI: Se não achou, usa a dica do arquivo (ano no nome) SEM RECLAMAR
+              # Se não achou, usa a dica (ano do nome do arquivo) na MARRA
               if not ano and dica_ano:
                   ano = dica_ano
                   
+              # Arranca o ano do título
               if ano:
-                  # Arranca o ano de qualquer lugar do titulo
                   t = re.sub(r"\s*\(\s*" + re.escape(ano) + r"\s*\)", "", t)
                   t = re.sub(r"(?<!\d)" + re.escape(ano) + r"(?!\d)", "", t)
                   
-              t = re.sub(r"\s+", " ", t).strip(" -–—|:")
-              return t, ano
-
-          def montar_nome_serie(serie, t, e, tit):
-              n = f"{serie} - T{int(t)}E{int(e)}"
-              if tit:
-                  n += f" – {tit}"
-              return f"{n} - {SUFIXO}"
-
-          def montar_nome_filme(titulo, ano):
-              return f"{titulo} ({ano}) - {SUFIXO}" if ano else f"{titulo} - {SUFIXO}"
+              return re.sub(r"\s+", " ", t).strip(" -–—|:"), ano
 
           def ler_campos(texto):
               m = RX_NAME.search(texto)
-              if not m:
-                  return None
-              try:
-                  return json.loads('"' + m.group(2) + '"')
-              except Exception:
-                  return None
-
-          def planejar(f, texto, ano_feed=""):
-              nome = ler_campos(texto)
-              if nome is None:
-                  return {"skip": "sem JSON-LD/name"}
-              
-              base = limpar_titulo(limpar_base(nome))
-              m_nome = SERIE_NOME.match(base)
-              m_arq = SERIE_ARQ.match(f)
-
-              if m_nome or m_arq:
-                  if m_arq and m_nome and (int(m_arq["t"]), int(m_arq["e"])) != (int(m_nome["t"]), int(m_nome["e"])):
-                      return {"skip": f"arquivo T{int(m_arq['t'])}E{int(m_arq['e'])} x nome T{int(m_nome['t'])}E{int(m_nome['e'])}"}
-                  if m_nome:
-                      t, e = int(m_nome["t"]), int(m_nome["e"])
-                      serie = limpar_titulo(m_nome["serie"].strip(" -–—|:"))
-                      tit = limpar_titulo((m_nome["tit"] or "").strip(" -–—|:"))
-                  else:
-                      t, e = int(m_arq["t"]), int(m_arq["e"])
-                      serie = limpar_titulo(base.strip(" -–—|:"))
-                      tit = ""
-                  if m_arq:
-                      stem = LIXO_STEM.sub("", m_arq["stem"]).strip("_")
-                      stem = re.sub(r"_+", "_", stem)
-                  else:
-                      stem = slug(serie)
-                  if not stem:
-                      return {"skip": "stem vazio"}
-                  return {"tipo": "serie", "arquivo": f"{stem}_t{t:02d}ep{e:02d}.html",
-                          "nome": montar_nome_serie(serie, t, e, tit)}
-
-              titulo, ano = nome_filme(base, ano_do_arquivo(f) or ano_feed)
-              titulo = limpar_titulo(titulo)
-              if len(titulo) < 2:
-                  return {"skip": "título vazio"}
-              novo_nome = montar_nome_filme(titulo, ano)
-              if not ano:
-                  limpo = re.sub(r"_+", "_", LIXO_STEM.sub("", f[:-5])).strip("_") + ".html"
-                  return {"tipo": "filme_sem_ano", "arquivo": limpo if limpo != f and len(limpo) > 5 else None, "nome": novo_nome}
-              return {"tipo": "filme", "arquivo": f"{slug(titulo)}_{ano}.html", "nome": novo_nome}
+              if not m: return None
+              try: return json.loads('"' + m.group(2) + '"')
+              except: return None
 
           def json_str(s):
               return json.dumps(s, ensure_ascii=False)[1:-1].replace("</", "<\\/")
+
+          def _igual(bruto, esperado):
+              try: return json.loads('"' + bruto + '"') == esperado
+              except: return False
 
           def aplicar_conteudo(texto, nome, arq_antigo, arq_novo):
               orig = texto
@@ -198,113 +125,97 @@ jobs:
                   texto = texto.replace("/" + arq_antigo, "/" + arq_novo)
               return texto, texto != orig
 
-          def _igual(bruto, esperado):
-              try:
-                  return json.loads('"' + bruto + '"') == esperado
-              except Exception:
-                  return False
-
-          def anos_do_feed():
-              if not USAR_FEED:
-                  return {}
-              import urllib.request, urllib.error
-              por_link = collections.defaultdict(set)
-              start = 1
-              try:
-                  while True:
-                      url = f"{BASE_URL}/feeds/posts/default?alt=json&max-results=150&start-index={start}"
-                      req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-                      try:
-                          feed = json.loads(urllib.request.urlopen(req, timeout=30).read().decode("utf-8")).get("feed", {})
-                      except urllib.error.HTTPError:
-                          break
-                      ents = feed.get("entry", []) or []
-                      for e in ents:
-                          titulo = unicodedata.normalize("NFKC", (e.get("title") or {}).get("$t", ""))
-                          corpo = (e.get("content") or {}).get("$t", "")
-                          m = re.search(r"\(\s*((?:19|20)\d{2})\s*\)\s*$|\s((?:19|20)\d{2})\s*$", titulo.strip())
-                          ano = (m.group(1) or m.group(2)) if m else ""
-                          for lk in re.findall(r'"contentUrl":\s*"([^"]+)"', corpo):
-                              por_link[lk].add(ano)
-                      if len(ents) < 150:
-                          break
-                      start += 150
-                      time.sleep(15)
-              except Exception:
-                  return {}
-              return {lk: next(iter(a)) for lk, a in por_link.items() if len(a) == 1 and next(iter(a))}
-
           def main():
               raiz = Path(".")
               arquivos = sorted(p.name for p in raiz.glob("*.html"))
               st = collections.Counter()
               renomeios, alterados, ignorados, conflitos = [], [], [], []
               textos = {f: (raiz / f).read_text(encoding="utf-8") for f in arquivos}
-              st["lidos"] = len(arquivos)
-
-              ano_por_link = {}
-              precisa = [f for f in arquivos if not AUX_RE.match(f) and not PADRAO_FILME.match(f) and not PADRAO_SERIE.match(f) and not ano_do_arquivo(f)]
-              if precisa:
-                  ano_por_link = anos_do_feed()
-
-              planos = {}
-              for f in arquivos:
-                  if AUX_RE.match(f):
-                      planos[f] = {"skip": "arquivo auxiliar/fora do padrão"}
-                      continue
-                  lk = RX_LINK.search(textos[f])
-                  ano_feed = ano_por_link.get(lk.group(1), "") if lk else ""
-                  planos[f] = planejar(f, textos[f], ano_feed)
-
+              
               existentes = set(arquivos)
               reservados = {}
-              mapa, duplicatas = {}, []
+              planos = {}
 
-              def link_de(nome_arq):
-                  m = RX_LINK.search(textos.get(nome_arq, ""))
-                  return m.group(1) if m else None
+              for f in arquivos:
+                  if f.startswith("abrir_player") or re.match(r"^tp\d+_e\d+", f):
+                      planos[f] = {"skip": "arquivo auxiliar"}
+                      continue
+                  
+                  nome_json = ler_campos(textos[f])
+                  if not nome_json:
+                      planos[f] = {"skip": "sem JSON-LD"}
+                      continue
+
+                  base = limpar_titulo(nome_json)
+                  
+                  # CASO SÉRIE
+                  m_arq = re.search(r"_t(\d+)e(?:p)?(\d+)(?:_\d+)?\.html$", f, re.I)
+                  m_nome = re.search(r"\bT(\d+)E(\d+)\b", base, re.I)
+                  
+                  if m_arq or m_nome:
+                      t, e = (m_arq.group(1), m_arq.group(2)) if m_arq else (m_nome.group(1), m_nome.group(2))
+                      serie = base.split("- T")[0].strip() if m_nome else base
+                      tit = ""
+                      if m_nome:
+                          partes = re.split(r"[-–—]", base, maxsplit=1)
+                          if len(partes) > 1: tit = partes[1].strip()
+                      
+                      stem = LIXO_STEM.sub("", f[:-5]).strip("_")
+                      stem = re.sub(r"_t\d+e\d+.*", "", stem, flags=re.I)
+                      if not stem: stem = slug(serie)
+                      
+                      planos[f] = {
+                          "tipo": "serie",
+                          "arquivo": f"{stem}_t{int(t):02d}ep{int(e):02d}.html",
+                          "nome": f"{serie} - T{int(t)}E{int(e)}" + (f" – {tit}" if tit else "") + f" - {SUFIXO}"
+                      }
+                  
+                  # CASO FILME
+                  else:
+                      # Arranca o ano do arquivo e limpa o título
+                      titulo, ano = nome_filme(base, ano_do_arquivo(f))
+                      titulo = limpar_titulo(titulo)
+                      
+                      if not titulo:
+                          planos[f] = {"skip": "título vazio"}
+                          continue
+                          
+                      novo_nome = f"{titulo} ({ano}) - {SUFIXO}" if ano else f"{titulo} - {SUFIXO}"
+                      if ano:
+                          novo_arquivo = f"{slug(titulo)}_{ano}.html"
+                      else:
+                          # Remove o marc_sx7 do nome mesmo sem ano
+                          limpo = re.sub(r"_+", "_", LIXO_STEM.sub("", f[:-5])).strip("_") + ".html"
+                          novo_arquivo = limpo if limpo != f else None
+                          
+                      planos[f] = {"tipo": "filme", "arquivo": novo_arquivo, "nome": novo_nome}
 
               for f in arquivos:
                   p = planos[f]
                   if "skip" in p:
                       ignorados.append((f, p["skip"]))
                       continue
+                  
                   novo = p["arquivo"] or f
+                  
                   if novo != f:
                       dono = novo if novo in existentes else reservados.get(novo)
                       if dono is None:
                           reservados[novo] = f
-                          mapa[f] = novo
                       else:
-                          lk_a, lk_b = link_de(f), link_de(dono)
-                          if lk_a and lk_a == lk_b:
-                              duplicatas.append((f, novo))
-                              conflitos.append((f, novo, f"DUPLICATA do mesmo vídeo de {dono}"))
-                              novo = f
-                          elif re.fullmatch(re.escape(novo[:-5]) + r"_\d+\.html", f):
-                              ignorados.append((f, f"mantido desambiguado; canônico {novo} é outro vídeo"))
-                              novo = f
-                          elif p["tipo"] in ("filme", "filme_sem_ano") and LIXO_STEM.search(f[:-5]):
-                              base = novo[:-5]
-                              n = 2
-                              while f"{base}_{n}.html" in existentes or f"{base}_{n}.html" in reservados:
-                                  n += 1
-                              novo = f"{base}_{n}.html"
-                              reservados[novo] = f
-                              mapa[f] = novo
-                          else:
-                              conflitos.append((f, novo, "destino já existe com OUTRO vídeo" if novo in existentes else "outro arquivo já vai para este destino"))
-                              novo = f
+                          # Já existe, mantém o nome atual pra não sobrescrever
+                          conflitos.append((f, novo, "destino já existe"))
+                          novo = f
+                  
                   p["final"] = novo
 
               for f in arquivos:
                   p = planos[f]
-                  if "skip" in p:
-                      continue
+                  if "skip" in p: continue
+                  
                   novo = p["final"]
                   texto, mudou = aplicar_conteudo(textos[f], p["nome"], f, novo)
-                  if mudou:
-                      alterados.append(f)
+                  
                   if novo == f:
                       if mudou and not DRY:
                           (raiz / f).write_text(texto, encoding="utf-8")
@@ -313,43 +224,12 @@ jobs:
                       if not DRY:
                           (raiz / novo).write_text(texto, encoding="utf-8")
                           (raiz / f).unlink()
-                  if p["tipo"] == "filme_sem_ano" and novo == f:
-                      ignorados.append((f, "filme sem ano conhecido (não invento ano)"))
-
-              removidas, mapa_aux = [], dict(mapa)
-              if REMOVER_DUPLICATAS and not DRY:
-                  for f, destino in duplicatas:
-                      alvo = raiz / destino
-                      if not alvo.exists() or LIXO_STEM.search(destino[:-5]):
-                          continue
-                      m = RX_LINK.search(alvo.read_text(encoding="utf-8"))
-                      if m and link_de(f) == m.group(1):
-                          (raiz / f).unlink()
-                          removidas.append(f)
-                          mapa_aux[f] = destino
-
-              if mapa_aux and not DRY:
-                  aux = list(raiz.glob("relatorio_*.txt")) + [raiz / "filmes_pendentes.json", raiz / "episodios_pendentes.json"]
-                  for a in aux:
-                      if not a.exists():
-                          continue
-                      t0 = a.read_text(encoding="utf-8")
-                      t1 = re.sub(r"[A-Za-z0-9_]+\.html", lambda m: mapa_aux.get(m.group(0), m.group(0)), t0)
-                      if a.suffix == ".json":
-                          stems = {v[:-5]: n[:-5] for v, n in mapa_aux.items()}
-                          t1 = re.sub(r'"([a-z0-9_]+)"', lambda m: '"' + stems.get(m.group(1), m.group(1)) + '"', t1)
-                      if t1 != t0:
-                          a.write_text(t1, encoding="utf-8")
-
-              st["renomeados"], st["conteudo_alterado"] = len(renomeios), len(alterados)
-              st["ignorados"], st["conflitos_de_nome"] = len(ignorados), len(conflitos)
-              st["duplicatas_exatas"], st["duplicatas_removidas"] = len(duplicatas), len(removidas)
 
               rel = [f"{a}  ->  {b}" for a, b in renomeios]
-              Path(os.environ.get("RELATORIO") or "/tmp/relatorio_corrigir_nomes.txt").write_text(
+              Path("/tmp/relatorio_corrigir_nomes.txt").write_text(
                   "RENOMEADOS (antes -> depois)\n" + "\n".join(rel) +
-                  "\n\nCONFLITOS (não renomeados, nada foi apagado)\n" + "\n".join(f"{a}  ->  {b}  [{m}]" for a, b, m in conflitos) +
-                  "\n\nREMOVIDAS (duplicata exata, REMOVER_DUPLICATAS=1)\n" + "\n".join(removidas) + "\n\nIGNORADOS\n" + "\n".join(f"{a}  [{m}]" for a, m in ignorados) + "\n", encoding="utf-8")
+                  "\n\nCONFLITOS (não renomeados)\n" + "\n".join(f"{a}  ->  {b}  [{m}]" for a, b, m in conflitos) +
+                  "\n\nIGNORADOS\n" + "\n".join(f"{a}  [{m}]" for a, m in ignorados) + "\n", encoding="utf-8")
 
           if __name__ == "__main__":
               main()
@@ -358,9 +238,7 @@ jobs:
 
       - name: Corrigir, commitar e dar push
         env:
-          USAR_FEED: ${{ (inputs.buscar_anos_no_feed == true || inputs.buscar_anos_no_feed == 'true') && '1' || '0' }}
           REMOVER_DUPLICATAS: ${{ (inputs.remover_duplicatas == true || inputs.remover_duplicatas == 'true') && '1' || '0' }}
-          RELATORIO: /tmp/relatorio_corrigir_nomes.txt
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
