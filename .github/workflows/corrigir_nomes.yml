@@ -55,18 +55,7 @@ jobs:
         run: |
           cat > /tmp/corrigir_nomes.py << 'PYEOF'
           # -*- coding: utf-8 -*-
-          """Normaliza nomes de arquivo e conteúdo dos .html do catálogo.  (Este código é embutido no corrigir_nomes.yml)
-
-          Padrão de NOME DE ARQUIVO
-            filme : nome_do_filme_ano.html          ex.: 007_casino_royale_2006.html
-            série : nome_da_serie_t01ep01.html      ex.: 9_1_1_t02ep11.html
-          Padrão de CONTEÚDO ("name", "description" e <title> terminam com ' - 🍿Clau')
-            filme : Nome (Ano) - 🍿Clau
-            série : Nome - T2E11 – Título - 🍿Clau      (T/E em maiúsculo, sem zero à esquerda, travessão antes do título)
-
-          Garantias: nunca apaga arquivo, nunca sobrescreve um destino que já existe, nunca mexe em URLs/links, e
-          rodar duas vezes não altera nada na segunda. Variáveis: DRY_RUN=1 (só mostra), USAR_FEED=1 (consulta o feed para achar o ano; 1 página a cada 15 s).
-          """
+          """Normaliza nomes de arquivo e conteúdo dos .html do catálogo.  (Este código é embutido no corrigir_nomes.yml)"""
           import re, os, sys, json, html, time, glob, unicodedata, collections
           from pathlib import Path
 
@@ -84,7 +73,7 @@ jobs:
           # tags de qualidade que costumam aparecer no fim do filename ou do title
           TAGS_FIM = re.compile(
               r"((?:\s*[-–—|]\s*)?\s*\b(?:legendado|legendada|dublado|dublada|dublagem(?:\s+nao\s+oficial)?"
-              r"|hdcam|hdrip|cam|nacional|completo|infantil|comedia|aventura|terror|suspense|acao|romance|drama"
+              r"|hdcam|hdrip|cam|leg|dub|nacional|completo|infantil|comedia|aventura|terror|suspense|acao|romance|drama"
               r"|ficcao\s+cientifica|acao\s+e\s+ficcao\s+cientifica)\b)+$", re.I)
 
           # arquivos auxiliares que não fazem parte do catálogo
@@ -102,16 +91,12 @@ jobs:
           RX_VTITLE = re.compile(r'(<video\b[^>]*?\btitle=")([^"]*)(")')
           RX_LINK = re.compile(r'"contentUrl":\s*"([^"]*)"')
 
-
           def slug(t):
               t = unicodedata.normalize("NFKD", str(t or ""))
               t = "".join(c for c in t if not unicodedata.combining(c))
               return re.sub(r"_+", "_", re.sub(r"[^a-z0-9]", "_", t.lower())).strip("_")
 
-
-          # ------------------------------------------------------------------ texto
           def limpar_base(n):
-              """Tira lixo do site, o sufixo (em qualquer grafia) e traços soltos; NÃO mexe em acentos/pontuação."""
               n = html.unescape(str(n or ""))
               nk = unicodedata.normalize("NFKC", n)
               if LIXO.search(nk) and not LIXO.search(n):
@@ -122,26 +107,19 @@ jobs:
               n = re.sub(r"\s+", " ", n)
               return n.strip(" -–—|:")
 
-
           def limpar_titulo(t):
-              """Remove tags de qualidade ('Legendado', 'HDCAM', etc.) do final do título."""
               if not t:
                   return t
               t2 = TAGS_FIM.sub("", t)
               t2 = re.sub(r"\s+", " ", t2).strip(" -–—|:")
               return t2 if len(t2) >= 2 else t
 
-
           def ano_do_arquivo(f):
-              """Último YYYY no filename (precedido por _), em qualquer posição. Ignora 'YYYY' colado no início."""
               m = re.findall(r"_((?:19|20)\d{2})(?=_|$)", f[:-5])
               return m[-1] if m else ""
 
-
           def nome_filme(base, dica_ano=""):
-              """Retorna (titulo, ano). ano='' quando não dá para decidir sem inventar/duplicar."""
               ano, t = "", base
-              # ano entre parênteses em QUALQUER posição (pega o último)
               parens = re.findall(r"\(\s*((?:19|20)\d{2})\s*\)", t)
               if parens:
                   ano = parens[-1]
@@ -150,7 +128,6 @@ jobs:
                   if ms:
                       last = ms[-1]
                       t = t[:last.start()] + t[last.end():]
-              # ano solto no final
               if not ano:
                   m = re.search(r"\s+((?:19|20)\d{2})\s*$", t)
                   if m:
@@ -159,10 +136,9 @@ jobs:
               t = re.sub(r"\s+", " ", t).strip(" -–—|:")
               if not ano and dica_ano:
                   if re.search(r"(?<!\d)" + re.escape(dica_ano) + r"(?!\d)", t):
-                      return t, ""        # o ano está no meio do título: não invento
+                      return t, ""
                   ano = dica_ano
               return t, ano
-
 
           def montar_nome_serie(serie, t, e, tit):
               n = f"{serie} - T{int(t)}E{int(e)}"
@@ -170,12 +146,9 @@ jobs:
                   n += f" – {tit}"
               return f"{n} - {SUFIXO}"
 
-
           def montar_nome_filme(titulo, ano):
               return f"{titulo} ({ano}) - {SUFIXO}" if ano else f"{titulo} - {SUFIXO}"
 
-
-          # ------------------------------------------------------------------ arquivo
           def ler_campos(texto):
               m = RX_NAME.search(texto)
               if not m:
@@ -185,13 +158,13 @@ jobs:
               except Exception:
                   return None
 
-
           def planejar(f, texto, ano_feed=""):
-              """Retorna dict(arquivo, nome) ou dict(skip=...)."""
               nome = ler_campos(texto)
               if nome is None:
                   return {"skip": "sem JSON-LD/name"}
-              base = limpar_base(nome)
+              
+              # AQUI ESTÁ A CORREÇÃO PRINCIPAL: limpar_titulo ANTES de extrair o ano!
+              base = limpar_titulo(limpar_base(nome))
               m_nome = SERIE_NOME.match(base)
               m_arq = SERIE_ARQ.match(f)
 
@@ -203,7 +176,6 @@ jobs:
                       serie = limpar_titulo(m_nome["serie"].strip(" -–—|:"))
                       tit = limpar_titulo((m_nome["tit"] or "").strip(" -–—|:"))
                   else:
-                      # INFERIDO DO FILENAME: 'serie_t1e1.html' etc.
                       t, e = int(m_arq["t"]), int(m_arq["e"])
                       serie = limpar_titulo(base.strip(" -–—|:"))
                       tit = ""
@@ -227,13 +199,10 @@ jobs:
                   return {"tipo": "filme_sem_ano", "arquivo": limpo if limpo != f and len(limpo) > 5 else None, "nome": novo_nome}
               return {"tipo": "filme", "arquivo": f"{slug(titulo)}_{ano}.html", "nome": novo_nome}
 
-
           def json_str(s):
               return json.dumps(s, ensure_ascii=False)[1:-1].replace("</", "<\\/")
 
-
           def aplicar_conteudo(texto, nome, arq_antigo, arq_novo):
-              """Troca name/description/<title> (e o title="" do <video> dos arquivos antigos; só estes campos) e o nome do arquivo em @id/url. Retorna (novo_texto, mudou)."""
               orig = texto
               texto = RX_NAME.sub(lambda m: m.group(1) + (m.group(2) if _igual(m.group(2), nome) else json_str(nome)) + m.group(3), texto, 1)
               desc = "Assista " + nome
@@ -244,15 +213,12 @@ jobs:
                   texto = texto.replace("/" + arq_antigo, "/" + arq_novo)
               return texto, texto != orig
 
-
           def _igual(bruto, esperado):
               try:
                   return json.loads('"' + bruto + '"') == esperado
               except Exception:
                   return False
 
-
-          # ------------------------------------------------------------------ feed (opcional): ano dos filmes sem ano
           def anos_do_feed():
               if not USAR_FEED:
                   return {}
@@ -285,8 +251,6 @@ jobs:
                   return {}
               return {lk: next(iter(a)) for lk, a in por_link.items() if len(a) == 1 and next(iter(a))}
 
-
-          # ------------------------------------------------------------------ main
           def main():
               raiz = Path(".")
               arquivos = sorted(p.name for p in raiz.glob("*.html"))
@@ -295,7 +259,6 @@ jobs:
               textos = {f: (raiz / f).read_text(encoding="utf-8") for f in arquivos}
               st["lidos"] = len(arquivos)
 
-              # filmes sem ano: tenta descobrir pelo feed (só se existir algum)
               ano_por_link = {}
               precisa = [f for f in arquivos
                          if not AUX_RE.match(f)
@@ -340,8 +303,6 @@ jobs:
                               conflitos.append((f, novo, f"DUPLICATA do mesmo vídeo de {dono}"))
                               novo = f
                           elif re.fullmatch(re.escape(novo[:-5]) + r"_\d+\.html", f):
-                              # já é _N desambiguado e o canônico está ocupado por outro vídeo:
-                              # mantém o nome (só normaliza o conteúdo) sem ficar reportando conflito
                               ignorados.append((f, f"mantido desambiguado; canônico {novo} é outro vídeo"))
                               novo = f
                           elif p["tipo"] in ("filme", "filme_sem_ano") and LIXO_STEM.search(f[:-5]):
@@ -388,7 +349,6 @@ jobs:
                           removidas.append(f)
                           mapa_aux[f] = destino
 
-              # arquivos auxiliares que citam nomes de arquivo (relatórios e filas de retentativa)
               if mapa_aux and not DRY:
                   aux = list(raiz.glob("relatorio_*.txt")) + [raiz / "filmes_pendentes.json", raiz / "episodios_pendentes.json"]
                   for a in aux:
@@ -430,11 +390,8 @@ jobs:
                       print(f"  {n}  {m}")
               print("=" * 70)
 
-
           if __name__ == "__main__":
               main()
-
-
           PYEOF
           python3 -c "import ast;ast.parse(open('/tmp/corrigir_nomes.py').read());print('script ok')"
 
