@@ -136,53 +136,149 @@
       "status": 429,
       "detalhe": "HTTP 429",
       "tentativas": 1
+    },
+    {
+      "quando": "2026-11-12T02:43:30+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-marcas-do-passado-2022.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-12T02:54:21+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-o-protetor-2-2013.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-12T03:05:27+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-doente-de-amor-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-12T03:07:14+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-marcas-do-passado-2022.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-12T03:19:14+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-marcas-do-passado-2022.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-12T03:20:01+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-sequestro-1971-2024.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-12T03:21:19+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-o-protetor-2-2013.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-12T03:22:46+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/08/blog-post.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-12T03:33:57+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-sequestro-1971-2024.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-12T03:45:34+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/08/inix-ilha-das-sombras-2023.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-12T03:47:31+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-sequestro-1971-2024.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-12T03:49:16+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-doente-de-amor-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 31,
-      "ok": 31,
-      "429": 0,
+      "requisicoes": 41,
+      "ok": 38,
+      "429": 3,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 0,
+      "falhas_definitivas": 3,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 0,
-      "proxy_hit": 0,
-      "pausas_evitadas": 99,
-      "http_realizados": 0,
-      "playwright_skip": 0,
-      "proxmint_listas": 0,
-      "link_em_a_href": 0,
-      "link_convertido_w2embed": 0,
-      "multifilme_paginas": 0,
-      "multifilme_arquivos": 0,
-      "robo": "filmes",
-      "quando": "2026-11-12T02:24:09+00:00",
-      "duracao_min": 8.9
-    },
-    "acumulado": {
-      "requisicoes": 650,
-      "ok": 632,
-      "429": 17,
-      "5xx": 0,
-      "retries": 0,
-      "falhas_definitivas": 17,
-      "html_invalido": 0,
-      "serie_inconsistente": 0,
-      "conflitos": 0,
-      "proxy_fallback": 17,
-      "proxy_hit": 17,
-      "pausas_evitadas": 1873,
-      "http_realizados": 8,
-      "playwright_skip": 42,
-      "proxmint_listas": 17,
-      "link_em_a_href": 7,
+      "proxy_fallback": 3,
+      "proxy_hit": 3,
+      "pausas_evitadas": 97,
+      "http_realizados": 2,
+      "playwright_skip": 5,
+      "proxmint_listas": 3,
+      "link_em_a_href": 1,
       "link_convertido_w2embed": 0,
       "multifilme_paginas": 1,
-      "multifilme_arquivos": 0
+      "multifilme_arquivos": 1,
+      "robo": "filmes",
+      "quando": "2026-11-12T03:50:16+00:00",
+      "duracao_min": 13.2
+    },
+    "acumulado": {
+      "requisicoes": 905,
+      "ok": 875,
+      "429": 29,
+      "5xx": 0,
+      "retries": 0,
+      "falhas_definitivas": 29,
+      "html_invalido": 0,
+      "serie_inconsistente": 0,
+      "conflitos": 0,
+      "proxy_fallback": 29,
+      "proxy_hit": 29,
+      "pausas_evitadas": 2559,
+      "http_realizados": 15,
+      "playwright_skip": 66,
+      "proxmint_listas": 29,
+      "link_em_a_href": 14,
+      "link_convertido_w2embed": 1,
+      "multifilme_paginas": 2,
+      "multifilme_arquivos": 1
     }
   }
 }

@@ -40,3 +40,4 @@ https://www.vini7xgrave.site/2025/11/inix-arcanjo-renegado-2020.html | série in
 https://www.vini7xgrave.site/2025/11/inix-marvel-os-defensores-2017.html | URL dizia 0, mas texto dizia 2 (usei 2) - link: https://viniraveon.blogspot.com/2025/11/inix-marvel-os-defensores-tp1e0.html
 https://www.vini7xgrave.site/2025/11/inix-diarios-de-uma-apoticaria-2023.html | série inconsistente (diarios_de_uma_apoticaria): temporadas [1] existem em disco mas não foram achadas na página
 https://www.vini7xgrave.site/2025/04/inix-witcher-2019.html | série inconsistente (the_witcher): T1: faltam episódios [1, 2, 3, 4, 5, 6]
+https://www.vini7xgrave.site/2025/08/inix-saga-crepusculo-amanhecer-parte-2.html | SAGA: 2 vídeos no mesmo post -> a_crepusculo_amanhecer_parte_2_2012_1.html [sequencial], abrir_player.html [texto do link]
