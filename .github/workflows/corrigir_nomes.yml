@@ -60,22 +60,26 @@ jobs:
               t = "".join(c for c in t if not unicodedata.combining(c))
               return re.sub(r"_+", "_", re.sub(r"[^a-z0-9]", "_", t.lower())).strip("_")
 
-          def limpar_texto(t):
-              if not t: return ""
-              t = html.unescape(t)
-              # Remove marcas d'água, lixos e emojis
-              t = re.sub(r"(?i)(?:\bdo\s+)?marc[øo_]\s*s\s*x\s*7\w*", " ", t)
-              t = re.sub(r"(?i)(?:\bdo\s+)?@?vini\s*7x\w*", " ", t)
-              t = re.sub(r"\U0001F47E+️?", " ", t) # 👾
+          def limpar_tudo(texto):
+              """Faxina pesada: remove marc_sx7, _clau, _20 e retorna o texto limpo."""
+              if not texto: return ""
+              t = html.unescape(texto)
               
-              # Remove o sufixo 🍿Clau e variações soltas
-              t = re.sub(r"(?i)[-_ ]*🍿?[-_ ]*clau\b", " ", t)
+              # 1. Remove o lixo _20 ou _19 no final (bug do script antigo)
+              t = re.sub(r"[\s_-]+(?:19|20)$", "", t)
               
-              # Remove o lixo _20 ou _19 no final (erro do script antigo)
-              t = re.sub(r"[\s_-]+(19|20)$", "", t)
+              # 2. Remove marc_sx7, marcøsx7, vini7x, etc. de qualquer lugar
+              t = re.sub(r"(?i)marc[øo_]?s?x?7[\s_-]*", " ", t)
+              t = re.sub(r"(?i)vini7x[\s_-]*", " ", t)
               
-              # Limpa traços e espaços
+              # 3. Remove o sufixo 🍿Clau (com ou sem emoji, com ou sem traços)
+              t = re.sub(r"(?i)[\s_-]*🍿?[\s_-]*clau\b", " ", t)
+              t = re.sub(r"(?i)[\s_-]*🍿?[\s_-]*clau[\s_-]*", " ", t)
+              
+              # 4. Remove traços duplos soltos (-- virou -)
               t = re.sub(r"(?:\s*[-–—]\s*){2,}", " - ", t)
+              
+              # 5. Limpa espaços extras
               t = re.sub(r"\s+", " ", t)
               return t.strip(" -–—|:")
 
@@ -84,7 +88,7 @@ jobs:
               arquivos = sorted(p.name for p in raiz.glob("*.html"))
               planos = {}
               
-              # 1. Analisar JSON e montar os planos
+              # 1. Analisar e limpar tudo
               for f in arquivos:
                   if f in AUX_FILES:
                       continue
@@ -94,50 +98,62 @@ jobs:
                   except:
                       continue
 
+                  # Pega o nome do JSON
                   m = RX_NAME.search(txt)
-                  if not m: continue
-                  
-                  try:
-                      nome_json = json.loads('"' + m.group(2) + '"')
-                  except:
-                      continue
+                  nome_json = ""
+                  if m:
+                      try:
+                          nome_json = json.loads('"' + m.group(2) + '"')
+                      except:
+                          pass
 
-                  base = limpar_texto(nome_json)
+                  # Aplica a limpeza no JSON e no Nome do Arquivo
+                  base_json = limpar_tudo(nome_json)
+                  base_file = limpar_tudo(f[:-5]) # remove .html
 
-                  # Verifica se é série (T1E1, T01E01, etc)
-                  m_serie = re.search(r"(?i)\bT(\d+)\s*E(?:P)?(\d+)\b", base)
+                  # Verifica se é série (T1E1, T01E01, etc) no JSON ou no nome do arquivo
+                  m_serie = re.search(r"(?i)\bT(\d+)[\s_-]*E(?:P)?(\d+)\b", base_json)
                   if not m_serie:
-                      m_serie = re.search(r"(?i)_t(\d+)e(?:p)?(\d+)", base)
-
+                      m_serie = re.search(r"(?i)\bT(\d+)[\s_-]*E(?:P)?(\d+)\b", base_file)
+                      
                   if m_serie:
                       t, e = int(m_serie.group(1)), int(m_serie.group(2))
-                      serie_raw = base[:m_serie.start()].strip()
-                      serie_clean = limpar_texto(serie_raw).strip(" -_|:")
-                      if not serie_clean: serie_clean = "Serie"
                       
-                      tit_raw = base[m_serie.end():].strip(" -_|:")
-                      tit_clean = limpar_texto(tit_raw).strip(" -_|:")
-                      tit_clean = re.sub(r"(?i)\bT\d+\s*E(?:P)?\d+\b", "", tit_clean).strip(" -_|:")
+                      # Tenta pegar o nome da série do JSON, se não tiver, usa o do arquivo
+                      serie_raw = base_json[:m_serie.start()].strip()
+                      if not serie_raw: serie_raw = base_file[:m_serie.start()].strip()
+                      serie_clean = limpar_tudo(serie_raw).strip(" -_|:")
+                      
+                      # Tenta pegar o título do episódio
+                      tit_raw = base_json[m_serie.end():].strip(" -_|:")
+                      tit_clean = limpar_tudo(tit_raw).strip(" -_|:")
                       
                       novo_nome = f"{serie_clean} - T{t}E{e}"
                       if tit_clean: novo_nome += f" – {tit_clean}"
                       novo_nome += f" - {SUFIXO}"
                       novo_arquivo = f"{slug(serie_clean)}_t{t:02d}ep{e:02d}.html"
+                      
                   else:
-                      # É filme
-                      anos = re.findall(r"\b((?:19|20)\d{2})\b", base)
-                      ano = anos[-1] if anos else ""
+                      # É filme. Pega o ano do JSON, se não tiver, pega do nome do arquivo
+                      anos_json = re.findall(r"\b((?:19|20)\d{2})\b", base_json)
+                      anos_file = re.findall(r"\b((?:19|20)\d{2})\b", base_file)
                       
-                      titulo = base
+                      ano = ""
+                      if anos_json: ano = anos_json[-1]
+                      elif anos_file: ano = anos_file[-1]
+                      
+                      # Define o título base
+                      titulo = base_json
+                      if not titulo: titulo = base_file
+                      
+                      # Arranca o ano do título
                       if ano:
-                          titulo = re.sub(r"\b" + ano + r"\b", "", titulo)
-                      
-                      titulo = re.sub(r"\(\s*\)", "", titulo)
-                      titulo = re.sub(r"\[\s*\]", "", titulo)
-                      titulo = limpar_texto(titulo).strip(" -_|:")
-                      
+                          partes = re.split(r"\b" + ano + r"\b", titulo)
+                          titulo = partes[0].strip(" -_|:()")
+                          
+                      titulo = limpar_tudo(titulo).strip(" -_|:()")
                       if not titulo: titulo = "Filme"
-
+                      
                       if ano:
                           novo_arquivo = f"{slug(titulo)}_{ano}.html"
                           novo_nome = f"{titulo} ({ano}) - {SUFIXO}"
@@ -152,7 +168,7 @@ jobs:
                       "link": (RX_LINK.search(txt).group(1) if RX_LINK.search(txt) else "")
                   }
 
-              # 2. Resolver conflitos de nomes
+              # 2. Resolver conflitos e duplicatas
               reservados = {}
               for f, p in planos.items():
                   novo = p["novo_arquivo"]
@@ -184,6 +200,7 @@ jobs:
                       except: return False
                   def get_fmt(s): return json.dumps(s, ensure_ascii=False)[1:-1].replace("</", "<\\/")
 
+                  # Atualiza os metadados no HTML
                   txt = RX_NAME.sub(lambda x: x.group(1) + (x.group(2) if _eq(x.group(2), novo_nome) else get_fmt(novo_nome)) + x.group(3), txt, 1)
                   txt = RX_DESC.sub(lambda x: x.group(1) + (x.group(2) if _eq(x.group(2), "Assista " + novo_nome) else get_fmt("Assista " + novo_nome)) + x.group(3), txt, 1)
                   txt = RX_TITLE.sub(lambda x: x.group(1) + (x.group(2) if html.unescape(x.group(2)) == novo_nome else html.escape(novo_nome)) + x.group(3), txt, 1)
@@ -211,7 +228,7 @@ jobs:
 
       - name: Corrigir, commitar e dar push
         env:
-          REMOVER_DUPLICATAS: "1" # Força a limpeza das duplicatas exatas
+          REMOVER_DUPLICATAS: "1"
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -229,7 +246,7 @@ jobs:
               ok=1; break
             fi
 
-            git commit -m "fix: corrige desastre de nomes e remove lixo do sufixo"
+            git commit -m "fix: limpa marc_sx7, corrige anos e remove lixo dos nomes"
             if git push origin HEAD:main; then ok=1; break; fi
 
             git fetch origin main
