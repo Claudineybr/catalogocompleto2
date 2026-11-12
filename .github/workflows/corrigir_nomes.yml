@@ -6,7 +6,7 @@ on:
       remover_duplicatas:
         description: 'Remover duplicatas exatas?'
         required: false
-        default: false
+        default: true
         type: boolean
   push:
     branches: [main]
@@ -60,26 +60,40 @@ jobs:
               t = "".join(c for c in t if not unicodedata.combining(c))
               return re.sub(r"_+", "_", re.sub(r"[^a-z0-9]", "_", t.lower())).strip("_")
 
-          def clean_str(s):
-              if not s: return ""
-              s = html.unescape(s)
-              # Remove sufixos e lixos (clau, marc_sx7, vini7x)
-              s = re.sub(r"(?i)[-_ ]*🍿?[-_ ]*clau", "", s)
-              s = re.sub(r"(?i)[-_ ]*marc_sx7[-_ ]*", "", s)
-              s = re.sub(r"(?i)[-_ ]*vini7x[-_ ]*", "", s)
-              s = re.sub(r"[\s_-]+", " ", s).strip()
-              return s
+          def limpar_texto(t):
+              if not t: return ""
+              t = html.unescape(t)
+              # Remove marcas d'água, lixos e emojis
+              t = re.sub(r"(?i)(?:\bdo\s+)?marc[øo_]\s*s\s*x\s*7\w*", " ", t)
+              t = re.sub(r"(?i)(?:\bdo\s+)?@?vini\s*7x\w*", " ", t)
+              t = re.sub(r"\U0001F47E+️?", " ", t) # 👾
+              
+              # Remove o sufixo 🍿Clau e variações soltas
+              t = re.sub(r"(?i)[-_ ]*🍿?[-_ ]*clau\b", " ", t)
+              
+              # Remove o lixo _20 ou _19 no final (erro do script antigo)
+              t = re.sub(r"[\s_-]+(19|20)$", "", t)
+              
+              # Limpa traços e espaços
+              t = re.sub(r"(?:\s*[-–—]\s*){2,}", " - ", t)
+              t = re.sub(r"\s+", " ", t)
+              return t.strip(" -–—|:")
 
           def main():
               raiz = Path(".")
               arquivos = sorted(p.name for p in raiz.glob("*.html"))
               planos = {}
               
+              # 1. Analisar JSON e montar os planos
               for f in arquivos:
                   if f in AUX_FILES:
                       continue
                   
-                  txt = (raiz / f).read_text(encoding="utf-8")
+                  try:
+                      txt = (raiz / f).read_text(encoding="utf-8")
+                  except:
+                      continue
+
                   m = RX_NAME.search(txt)
                   if not m: continue
                   
@@ -88,9 +102,9 @@ jobs:
                   except:
                       continue
 
-                  base = clean_str(nome_json)
+                  base = limpar_texto(nome_json)
 
-                  # Tenta achar padrão de série (T1E1, T01E01, _t1e1, etc)
+                  # Verifica se é série (T1E1, T01E01, etc)
                   m_serie = re.search(r"(?i)\bT(\d+)\s*E(?:P)?(\d+)\b", base)
                   if not m_serie:
                       m_serie = re.search(r"(?i)_t(\d+)e(?:p)?(\d+)", base)
@@ -98,11 +112,11 @@ jobs:
                   if m_serie:
                       t, e = int(m_serie.group(1)), int(m_serie.group(2))
                       serie_raw = base[:m_serie.start()].strip()
-                      serie_clean = clean_str(serie_raw).strip(" -_|:")
+                      serie_clean = limpar_texto(serie_raw).strip(" -_|:")
                       if not serie_clean: serie_clean = "Serie"
                       
                       tit_raw = base[m_serie.end():].strip(" -_|:")
-                      tit_clean = clean_str(tit_raw).strip(" -_|:")
+                      tit_clean = limpar_texto(tit_raw).strip(" -_|:")
                       tit_clean = re.sub(r"(?i)\bT\d+\s*E(?:P)?\d+\b", "", tit_clean).strip(" -_|:")
                       
                       novo_nome = f"{serie_clean} - T{t}E{e}"
@@ -111,13 +125,17 @@ jobs:
                       novo_arquivo = f"{slug(serie_clean)}_t{t:02d}ep{e:02d}.html"
                   else:
                       # É filme
-                      anos = re.findall(r"\b(19|20)\d{2}\b", base)
+                      anos = re.findall(r"\b((?:19|20)\d{2})\b", base)
                       ano = anos[-1] if anos else ""
+                      
                       titulo = base
                       if ano:
-                          titulo = re.sub(r"\b" + ano + r"\b", "", titulo).strip(" -_|:")
+                          titulo = re.sub(r"\b" + ano + r"\b", "", titulo)
                       
-                      titulo = clean_str(titulo).strip(" -_|:")
+                      titulo = re.sub(r"\(\s*\)", "", titulo)
+                      titulo = re.sub(r"\[\s*\]", "", titulo)
+                      titulo = limpar_texto(titulo).strip(" -_|:")
+                      
                       if not titulo: titulo = "Filme"
 
                       if ano:
@@ -134,7 +152,7 @@ jobs:
                       "link": (RX_LINK.search(txt).group(1) if RX_LINK.search(txt) else "")
                   }
 
-              # Processar renomeações
+              # 2. Resolver conflitos de nomes
               reservados = {}
               for f, p in planos.items():
                   novo = p["novo_arquivo"]
@@ -142,18 +160,21 @@ jobs:
                   
                   if novo in arquivos or novo in reservados:
                       dono = novo if novo in planos else reservados[novo]
-                      # Se for o mesmo vídeo, é duplicata
                       if p["link"] and planos.get(dono, {}).get("link") == p["link"]:
                           p["status"] = "duplicata"
                           p["dono"] = dono
                       else:
-                          # Conflito de nomes diferentes
-                          p["status"] = "conflito"
+                          base_nome = novo[:-5]
+                          n = 2
+                          while f"{base_nome}_{n}.html" in arquivos or f"{base_nome}_{n}.html" in reservados:
+                              n += 1
+                          p["novo_arquivo"] = f"{base_nome}_{n}.html"
+                          reservados[p["novo_arquivo"]] = f
                   else:
                       reservados[novo] = f
                       p["status"] = "renomear"
 
-              # Aplicar no arquivo
+              # 3. Aplicar mudanças e renomear
               for f, p in planos.items():
                   txt = p["txt"]
                   novo_nome = p["novo_nome"]
@@ -173,18 +194,12 @@ jobs:
                   if status == "duplicata":
                       if REMOVER_DUPLICATAS and not DRY:
                           (raiz / f).unlink()
-                          print(f"DUPLICATA REMOVIDA: {f}")
-                  elif status == "conflito":
-                      # Mantém o nome atual, apenas corrige o conteúdo
-                      if not DRY:
-                          (raiz / f).write_text(txt, encoding="utf-8")
                   elif status == "renomear":
                       novo = p["novo_arquivo"]
                       txt = txt.replace(f"/{f}", f"/{novo}")
                       if not DRY:
                           (raiz / novo).write_text(txt, encoding="utf-8")
                           (raiz / f).unlink()
-                      print(f"RENOMEADO: {f} -> {novo}")
                   else:
                       if not DRY:
                           (raiz / f).write_text(txt, encoding="utf-8")
@@ -196,7 +211,7 @@ jobs:
 
       - name: Corrigir, commitar e dar push
         env:
-          REMOVER_DUPLICATAS: ${{ (inputs.remover_duplicatas == true || inputs.remover_duplicatas == 'true') && '1' || '0' }}
+          REMOVER_DUPLICATAS: "1" # Força a limpeza das duplicatas exatas
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -214,7 +229,7 @@ jobs:
               ok=1; break
             fi
 
-            git commit -m "chore: normaliza nomes e sufixo 🍿Clau"
+            git commit -m "fix: corrige desastre de nomes e remove lixo do sufixo"
             if git push origin HEAD:main; then ok=1; break; fi
 
             git fetch origin main
