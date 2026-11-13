@@ -64,12 +64,28 @@
       "status": 429,
       "detalhe": "HTTP 429",
       "tentativas": 1
+    },
+    {
+      "quando": "2026-11-13T00:48:03+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2026/03/inix-finja-se-de-morta-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-13T00:49:33+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-coisa-1985.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 38,
-      "ok": 36,
+      "requisicoes": 40,
+      "ok": 37,
       "429": 2,
       "5xx": 0,
       "retries": 0,
@@ -83,34 +99,34 @@
       "http_realizados": 1,
       "playwright_skip": 5,
       "proxmint_listas": 2,
-      "link_em_a_href": 0,
+      "link_em_a_href": 1,
       "link_convertido_w2embed": 0,
-      "multifilme_paginas": 0,
-      "multifilme_arquivos": 0,
+      "multifilme_paginas": 1,
+      "multifilme_arquivos": 2,
       "robo": "filmes",
-      "quando": "2026-11-13T00:37:03+00:00",
-      "duracao_min": 11.4
+      "quando": "2026-11-13T00:50:33+00:00",
+      "duracao_min": 12.3
     },
     "acumulado": {
-      "requisicoes": 336,
-      "ok": 328,
-      "429": 8,
+      "requisicoes": 376,
+      "ok": 365,
+      "429": 10,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 8,
+      "falhas_definitivas": 10,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 8,
-      "proxy_hit": 8,
-      "pausas_evitadas": 985,
-      "http_realizados": 6,
-      "playwright_skip": 18,
-      "proxmint_listas": 8,
-      "link_em_a_href": 6,
+      "proxy_fallback": 10,
+      "proxy_hit": 10,
+      "pausas_evitadas": 1083,
+      "http_realizados": 7,
+      "playwright_skip": 23,
+      "proxmint_listas": 10,
+      "link_em_a_href": 7,
       "link_convertido_w2embed": 0,
-      "multifilme_paginas": 0,
-      "multifilme_arquivos": 0
+      "multifilme_paginas": 1,
+      "multifilme_arquivos": 2
     }
   }
 }
