@@ -2,126 +2,6 @@
   "contagem": {},
   "eventos": [
     {
-      "quando": "2026-11-13T17:13:33+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/09/inix-gen-v-tp1e07.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-13T17:14:33+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/09/inix-gen-v-tp1e08.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-13T17:16:00+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/09/inix-gen-v-tp2e02.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-13T17:17:00+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/09/inix-gen-v-tp2e03.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-13T17:19:13+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://marcosx7.blogspot.com/2025/12/gen-v-tp02-ep07.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-13T17:20:43+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://marcosx7.blogspot.com/2025/12/gen-v-tp02-ep08.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-13T17:22:13+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/12/inix-la-brea-terra-perdida-tp1e01.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-13T17:24:10+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/12/inix-la-brea-terra-perdida-tp1e03.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-13T17:25:40+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/12/inix-la-brea-terra-perdida-tp1e04.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-13T17:27:10+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/12/inix-la-brea-terra-perdida-tp1e05.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-13T17:28:40+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/12/inix-la-brea-terra-perdida-tp1e06.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-13T17:30:10+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/12/inix-la-brea-terra-perdida-tp1e07.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-13T17:31:40+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/12/inix-la-brea-terra-perdida-tp1e08.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-13T17:32:40+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/12/inix-la-brea-terra-perdida-tp1e09.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-13T17:33:40+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/12/inix-la-brea-terra-perdida-tp1e10.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
       "quando": "2026-11-13T17:34:40+00:00",
       "tipo": "http_esgotado",
       "url": "https://viniraveon.blogspot.com/2025/12/inix-la-brea-terra-perdida-tp2e01.html",
@@ -4029,53 +3909,153 @@
       "status": 429,
       "detalhe": "HTTP 429",
       "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T04:24:42+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2026/01/inix-doctor-who-tp02ep11.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T04:32:34+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2026/01/inix-doctor-who-tp02ep11.html",
+      "serie": "https://www.vini7xgrave.site/2026/01/arc-doctor-who-2024.html"
+    },
+    {
+      "quando": "2026-11-14T04:32:34+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2026/01/arc-doctor-who-2024.html",
+      "seguidos": 1
+    },
+    {
+      "quando": "2026-11-14T04:34:09+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2025/11/inix-tp01ep21.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T04:44:11+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2025/11/inix-tp01ep21.html",
+      "serie": "https://www.vini7xgrave.site/2025/11/inix-diarios-de-uma-apoticaria-2023.html"
+    },
+    {
+      "quando": "2026-11-14T04:44:11+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2025/11/inix-diarios-de-uma-apoticaria-2023.html",
+      "seguidos": 2
+    },
+    {
+      "quando": "2026-11-14T04:47:06+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2025/11/inix-mushoku-tensei-tp02ep06.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T04:57:10+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2025/11/inix-mushoku-tensei-tp02ep06.html",
+      "serie": "https://www.vini7xgrave.site/2025/11/inix-mushuku-tensei-2021.html"
+    },
+    {
+      "quando": "2026-11-14T04:57:10+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2025/11/inix-mushuku-tensei-2021.html",
+      "seguidos": 3
+    },
+    {
+      "quando": "2026-11-14T05:00:41+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2025/10/arc-walking-dead-daryl-tp03ep06.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T05:10:44+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2025/10/arc-walking-dead-daryl-tp03ep06.html",
+      "serie": "https://www.vini7xgrave.site/2025/10/arc-walking-deaddaryl-dixon.html"
+    },
+    {
+      "quando": "2026-11-14T05:10:44+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2025/10/arc-walking-deaddaryl-dixon.html",
+      "seguidos": 4
+    },
+    {
+      "quando": "2026-11-14T05:16:01+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2025/10/inix-bom-dia-veronica-tp02ep01.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T05:26:04+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2025/10/inix-bom-dia-veronica-tp02ep01.html",
+      "serie": "https://www.vini7xgrave.site/2025/10/inix.html"
+    },
+    {
+      "quando": "2026-11-14T05:26:04+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2025/10/inix.html",
+      "seguidos": 5
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 711,
-      "ok": 366,
-      "429": 220,
+      "requisicoes": 139,
+      "ok": 34,
+      "429": 5,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 220,
+      "falhas_definitivas": 5,
       "html_invalido": 0,
-      "serie_inconsistente": 3,
+      "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 220,
-      "proxy_hit": 215,
-      "proxmint_listas": 220,
-      "link_em_a_href": 4,
-      "link_convertido_w2embed": 0,
-      "skip_perfeito": 70,
-      "feed_hit": 0,
-      "http_necessario": 339,
-      "playwright_skip": 1,
-      "episodios_tp_encontrados": 998,
-      "robo": "series",
-      "quando": "2026-11-14T04:14:43+00:00",
-      "duracao_min": 345.5
-    },
-    "acumulado": {
-      "requisicoes": 4083,
-      "ok": 2800,
-      "429": 1001,
-      "5xx": 1,
-      "retries": 0,
-      "falhas_definitivas": 1002,
-      "html_invalido": 0,
-      "serie_inconsistente": 9,
-      "conflitos": 4,
-      "proxy_fallback": 1001,
-      "proxy_hit": 990,
-      "proxmint_listas": 1001,
-      "link_em_a_href": 8,
+      "proxy_fallback": 5,
+      "proxy_hit": 0,
+      "proxmint_listas": 5,
+      "link_em_a_href": 0,
       "link_convertido_w2embed": 0,
       "skip_perfeito": 93,
       "feed_hit": 0,
-      "http_necessario": 2611,
-      "playwright_skip": 28,
-      "episodios_tp_encontrados": 5258
+      "http_necessario": 8,
+      "playwright_skip": 3,
+      "episodios_tp_encontrados": 42,
+      "robo": "series",
+      "quando": "2026-11-14T05:26:04+00:00",
+      "duracao_min": 69.9
+    },
+    "acumulado": {
+      "requisicoes": 4222,
+      "ok": 2834,
+      "429": 1006,
+      "5xx": 1,
+      "retries": 0,
+      "falhas_definitivas": 1007,
+      "html_invalido": 0,
+      "serie_inconsistente": 9,
+      "conflitos": 4,
+      "proxy_fallback": 1006,
+      "proxy_hit": 990,
+      "proxmint_listas": 1006,
+      "link_em_a_href": 8,
+      "link_convertido_w2embed": 0,
+      "skip_perfeito": 186,
+      "feed_hit": 0,
+      "http_necessario": 2619,
+      "playwright_skip": 31,
+      "episodios_tp_encontrados": 5300
     }
   }
 }
