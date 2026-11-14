@@ -128,52 +128,204 @@
       "status": 429,
       "detalhe": "HTTP 429",
       "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T16:37:58+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/05/inix-saga-crepusculo-eclipse-2010.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T16:39:10+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/05/inix-saga-crepusculo-lua-nova-2009.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T16:41:07+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-saga-molusco-anoitecer-2012.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T16:43:28+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-jogo-de-sacrificio-2023.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T16:45:25+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/inix-pearl-harbor-2001.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T16:48:08+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/inix-army-of-dead-invasao-em-las-vegas.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T16:51:14+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/06/inix-indiana-jones-e-ultima-cruzada-1989.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T16:52:44+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2026/04/inix-um-sonho-de-natal-2024.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T16:54:14+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2026/03/inix-finja-se-de-morta-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T16:56:58+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/12/inix-mahavatar-narsimha-2025-legendado.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T16:59:12+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-sequestro-1971-2024.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T17:00:59+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-o-protetor-2-2013.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T17:02:29+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-doente-de-amor-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T17:04:50+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/06/inix-mountainhead-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T17:06:20+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/06/inix-o-ultimo-mergulho-2024.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T17:08:17+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/06/inix-pronto-falei-2018.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T17:11:04+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/05/inix-viagem-de-formatura-mallorca-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T17:12:34+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/05/inix-as-duas-faces-de-um-crime-1996.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-14T17:14:04+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/05/inix-conduzido-para-matar-2009.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 73,
-      "ok": 57,
-      "429": 8,
+      "requisicoes": 109,
+      "ok": 71,
+      "429": 19,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 8,
+      "falhas_definitivas": 19,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 8,
-      "proxy_hit": 8,
-      "pausas_evitadas": 980,
-      "http_realizados": 19,
-      "playwright_skip": 24,
-      "proxmint_listas": 8,
-      "link_em_a_href": 5,
-      "link_convertido_w2embed": 0,
-      "multifilme_paginas": 1,
-      "multifilme_arquivos": 0,
-      "robo": "filmes",
-      "quando": "2026-11-14T16:28:20+00:00",
-      "duracao_min": 28.1
-    },
-    "acumulado": {
-      "requisicoes": 165,
-      "ok": 133,
-      "429": 16,
-      "5xx": 0,
-      "retries": 0,
-      "falhas_definitivas": 16,
-      "html_invalido": 0,
-      "serie_inconsistente": 0,
-      "conflitos": 0,
-      "proxy_fallback": 16,
-      "proxy_hit": 16,
-      "pausas_evitadas": 2970,
-      "http_realizados": 27,
-      "playwright_skip": 37,
-      "proxmint_listas": 16,
-      "link_em_a_href": 11,
+      "proxy_fallback": 19,
+      "proxy_hit": 19,
+      "pausas_evitadas": 983,
+      "http_realizados": 16,
+      "playwright_skip": 36,
+      "proxmint_listas": 19,
+      "link_em_a_href": 2,
       "link_convertido_w2embed": 0,
       "multifilme_paginas": 2,
+      "multifilme_arquivos": 0,
+      "robo": "filmes",
+      "quando": "2026-11-14T17:15:34+00:00",
+      "duracao_min": 46.1
+    },
+    "acumulado": {
+      "requisicoes": 274,
+      "ok": 204,
+      "429": 35,
+      "5xx": 0,
+      "retries": 0,
+      "falhas_definitivas": 35,
+      "html_invalido": 0,
+      "serie_inconsistente": 0,
+      "conflitos": 0,
+      "proxy_fallback": 35,
+      "proxy_hit": 35,
+      "pausas_evitadas": 3953,
+      "http_realizados": 43,
+      "playwright_skip": 73,
+      "proxmint_listas": 35,
+      "link_em_a_href": 13,
+      "link_convertido_w2embed": 0,
+      "multifilme_paginas": 4,
       "multifilme_arquivos": 0
     }
   }
