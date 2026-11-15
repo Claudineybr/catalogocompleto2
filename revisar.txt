@@ -347,3 +347,46 @@ https://www.vini7xgrave.site/2025/04/inix-os-originais-originals.html | URL dizi
 https://www.vini7xgrave.site/2025/04/inix-os-originais-originals.html | URL dizia 2, mas texto dizia 3 (usei 3) - link: https://viniraveon.blogspot.com/2025/04/inix-tp2e02_7.html
 https://www.vini7xgrave.site/2025/04/inix-os-originais-originals.html | série inconsistente (os_originais_the_originals): T1E2 aparece 2x com URLs diferentes; T1E6 aparece 2x com URLs diferentes; T1E16 aparece 2x com URLs diferentes; T1E18 aparece 2x com URLs diferentes; T1E19 aparece 2x com URLs diferentes; T1E21 aparece 2x com URLs diferentes; T2: faltam episódios [2, 6, 16, 18, 19, 21]
 https://www.vini7xgrave.site/2025/04/inix-ponto-cego.html | série inconsistente (ponto_cego): T1E13 aparece 2x com URLs diferentes; T1: faltam episódios [12]; T2: faltam episódios [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 17]
+https://www.vini7xgrave.site/2025/04/blog-post_6.html | URL dizia 2, mas texto dizia 3 (usei 3) - link: https://viniraveon.blogspot.com/2025/04/inix-tp1e02_24.html
+https://www.vini7xgrave.site/2025/04/blog-post_6.html | URL dizia 6, mas texto dizia 5 (usei 5) - link: https://viniraveon.blogspot.com/2025/04/inix-tp1e06_58.html
+https://www.vini7xgrave.site/2025/04/inix-phineas-e-ferb.html | série inconsistente (phineas_e_ferb): T1E18 aparece 2x com URLs diferentes; T1: faltam episódios [1, 19]
+https://www.vini7xgrave.site/2025/04/inix-que-legal-scooby-doo.html | link dizia T1E13, mas o título do post diz T2E22 (usei o título) - link: https://viniraveon.blogspot.com/2025/04/inix-tp1e13.html
+https://www.vini7xgrave.site/2025/04/inix-que-legal-scooby-doo.html | link dizia T1E23, mas era continuação da T2 (usei T2) - link: https://viniraveon.blogspot.com/2025/04/inix-tp1e23.html
+https://www.vini7xgrave.site/2025/04/inix-que-legal-scooby-doo.html | série inconsistente (que_legal_scooby_doo): T1E19 aparece 2x com URLs diferentes; T1: faltam episódios [13, 20, 23]; T2: faltam episódios [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+https://www.vini7xgrave.site/2025/03/inix-lost.html | URL dizia 11, mas texto dizia 10 (usei 10) - link: https://viniraveon.blogspot.com/2025/03/inix-tp2e11_31.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | URL dizia 12, mas texto dizia 11 (usei 11) - link: https://viniraveon.blogspot.com/2025/03/inix-tp2e12_31.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | URL dizia 13, mas texto dizia 12 (usei 12) - link: https://viniraveon.blogspot.com/2025/03/inix-tp2e13_31.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | URL dizia 15, mas texto dizia 14 (usei 14) - link: https://viniraveon.blogspot.com/2025/03/inix-tp2e15_31.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | URL dizia 16, mas texto dizia 15 (usei 15) - link: https://viniraveon.blogspot.com/2025/03/inix-tp2e16_31.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | URL dizia 17, mas texto dizia 16 (usei 16) - link: https://viniraveon.blogspot.com/2025/03/inix-tp2e17_31.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | URL dizia 18, mas texto dizia 17 (usei 17) - link: https://viniraveon.blogspot.com/2025/03/inix-tp2e18_31.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | URL dizia 19, mas texto dizia 18 (usei 18) - link: https://viniraveon.blogspot.com/2025/03/inix-tp2e19_31.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | URL dizia 20, mas texto dizia 19 (usei 19) - link: https://viniraveon.blogspot.com/2025/03/inix-tp2e20_31.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | URL dizia 21, mas texto dizia 20 (usei 20) - link: https://viniraveon.blogspot.com/2025/03/inix-tp2e21_31.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | URL dizia 22, mas texto dizia 21 (usei 21) - link: https://viniraveon.blogspot.com/2025/03/inix-tp2e22.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | URL dizia 23, mas texto dizia 22 (usei 22) - link: https://viniraveon.blogspot.com/2025/03/inix-tp2e23.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | URL dizia 24, mas texto dizia 23 (usei 23) - link: https://vini7xgseries2.blogspot.com/2025/03/inix-tp2e24.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | URL dizia 3, mas texto dizia 2 (usei 2) - link: https://vini7xgseries2.blogspot.com/2025/03/inix-tp3e03.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | URL dizia 3, mas texto dizia 13 (usei 13) - link: https://vini7xgseries2.blogspot.com/2025/03/inix-tp3e03_71.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | link dizia T4E10, mas o título do post diz T5E10 (usei o título) - link: https://viniraveon.blogspot.com/2025/04/inix-tp4e10.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | link dizia T4E11, mas era continuação da T5 (usei T5) - link: https://viniraveon.blogspot.com/2025/04/inix-tp4e11.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | link dizia T4E12, mas era continuação da T5 (usei T5) - link: https://viniraveon.blogspot.com/2025/04/inix-tp4e12.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | link dizia T5E2, mas era continuação da T1 (usei T1) - link: https://viniraveon.blogspot.com/2025/04/inix-tp5e02.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | link dizia T5E3, mas era continuação da T1 (usei T1) - link: https://viniraveon.blogspot.com/2025/04/inix-tp5e03.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | link dizia T5E4, mas era continuação da T1 (usei T1) - link: https://viniraveon.blogspot.com/2025/04/inix-tp5e04.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | link dizia T5E5, mas era continuação da T1 (usei T1) - link: https://viniraveon.blogspot.com/2025/04/inix-tp5e05.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | link dizia T5E6, mas era continuação da T1 (usei T1) - link: https://viniraveon.blogspot.com/2025/04/inix-tp5e06.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | link dizia T5E7, mas era continuação da T1 (usei T1) - link: https://viniraveon.blogspot.com/2025/04/inix-tp5e07.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | link dizia T6E1, mas o título do post diz T6E17 (usei o título) - link: https://viniraveon.blogspot.com/2025/04/inix-tp6e01.html
+https://www.vini7xgrave.site/2025/03/inix-lost.html | série inconsistente (lost): T1E1 aparece 2x com URLs diferentes; T1E2 aparece 2x com URLs diferentes; T1E3 aparece 2x com URLs diferentes; T1E4 aparece 2x com URLs diferentes; T1E5 aparece 2x com URLs diferentes; T1E6 aparece 2x com URLs diferentes; T1E7 aparece 2x com URLs diferentes; T5E10 aparece 2x com URLs diferentes; T5E11 aparece 2x com URLs diferentes; T5E12 aparece 2x com URLs diferentes; T6E17 aparece 2x com URLs diferentes; T4: faltam episódios [10, 11, 12]; T5: faltam episódios [1, 2, 3, 4, 5, 6, 7]; T6: faltam episódios [1]
+https://www.vini7xgrave.site/2025/03/inix-hannibal.html | série inconsistente (hannibal): T1E9 aparece 2x com URLs diferentes; T2E2 aparece 2x com URLs diferentes; T3E4 aparece 2x com URLs diferentes; T1: faltam episódios [8]; T3: faltam episódios [2, 5]
+https://www.vini7xgrave.site/2025/03/inix-bridgerton.html | série inconsistente (bridgerton): T2: faltam episódios [1, 2, 3, 4]; temporadas [4] existem em disco mas não foram achadas na página
+https://www.vini7xgrave.site/2025/03/inix-x-men-evolution-2000.html | série inconsistente (x_men_evolution): T1E3 aparece 2x com URLs diferentes; T3E5 aparece 2x com URLs diferentes; T4E7 aparece 2x com URLs diferentes; T3: faltam episódios [6]; T4: faltam episódios [3, 6]
+https://www.vini7xgrave.site/2025/03/chapolin-colorado-1973.html | série inconsistente (chapolin_colorado): T1: faltam episódios [12, 24]
+https://www.vini7xgrave.site/2025/03/inix-super-choque-2000.html | série inconsistente (super_choque): T1E12 aparece 2x com URLs diferentes; T2E11 aparece 2x com URLs diferentes; T1: faltam episódios [4]; T2: faltam episódios [12]; T4: faltam episódios [1, 2, 3]
+https://www.vini7xgrave.site/2025/03/inix-drake-e-josh.html | série inconsistente (drake_e_josh): T2E6 aparece 2x com URLs diferentes; T1: faltam episódios [6]; T2: faltam episódios [1]
+https://www.vini7xgrave.site/2025/03/inix-todo-mundo-odeia-o-chris.html | URL dizia 20, mas texto dizia 21 (usei 21) - link: https://viniraveon.blogspot.com/2025/03/inix-tp2e20_24.html
+https://www.vini7xgrave.site/2025/03/inix-todo-mundo-odeia-o-chris.html | URL dizia 21, mas texto dizia 22 (usei 22) - link: https://viniraveon.blogspot.com/2025/03/inix-tp2e21.html
+https://www.vini7xgrave.site/2025/03/inix-todo-mundo-odeia-o-chris.html | link dizia T2E10, mas era continuação da T3 (usei T3) - link: https://viniraveon.blogspot.com/2025/03/inix-tp2e10_24.html
+https://www.vini7xgrave.site/2025/03/inix-chaves.html | URL dizia 0, mas texto dizia 6 (usei 6) - link: https://viniseriesonline.blogspot.com/2025/03/inix-tp1e0.html
+https://www.vini7xgrave.site/2025/03/inix-chaves.html | URL dizia 12, mas texto dizia 22 (usei 22) - link: https://viniseriesonline.blogspot.com/2025/03/inix-tp1e12_49.html
