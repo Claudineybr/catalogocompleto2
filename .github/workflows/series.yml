@@ -10,6 +10,11 @@ on:
         required: false
         default: '25'
         type: string
+      refazer_url:
+        description: 'Refazer UMA série (cole a URL do post; ela é tirada da lista de "já feitas")'
+        required: false
+        default: ''
+        type: string
       reprocessar_tudo:
         description: 'Recomeçar do zero? (apaga só o progresso; a fila NUNCA é apagada)'
         required: false
@@ -51,6 +56,26 @@ jobs:
         if: ${{ inputs.reprocessar_tudo == true || inputs.reprocessar_tudo == 'true' }}
         run: |
           rm -f series_feitas.txt series_consertadas.txt episodios_pendentes.json series_descartados.txt series_erros.json series_inconsistentes.txt
+
+      - name: Refazer uma série específica (Opcional)
+        if: ${{ inputs.refazer_url != '' }}
+        env:
+          URL_REFAZER: ${{ inputs.refazer_url }}
+        run: |
+          python3 - << 'PYX'
+          import os
+          from pathlib import Path
+          alvo = os.environ["URL_REFAZER"].strip().rstrip("/")
+          for nome in ("series_feitas.txt", "series_consertadas.txt", "series_descartados.txt"):
+              p = Path(nome)
+              if not p.exists():
+                  continue
+              linhas = p.read_text(encoding="utf-8").splitlines()
+              novas = [l for l in linhas if l.strip().rstrip("/") != alvo]
+              if len(novas) != len(linhas):
+                  p.write_text("\n".join(novas) + ("\n" if novas else ""), encoding="utf-8")
+              print(f"{nome}: removidas {len(linhas) - len(novas)} linha(s)")
+          PYX
 
       - name: Instalar Python e Playwright
         run: |
@@ -1171,6 +1196,24 @@ jobs:
               return None
 
 
+          _RX_TITULO_TE = re.compile(r"\bT[Pp]?\s*(\d{1,2})\s*[|:\-–—/.x ]*\s*E[Pp]?\s*(\d{1,3})\b", re.I)
+          _FEED_POR_CAMINHO = {}
+
+
+          def feed_te(href_abs):
+              """(temporada, episodio) lidos do TÍTULO do post do episódio no feed (ex.: 'Elite TP3|E06'), ou (None, None).
+              O título costuma estar certo mesmo quando o endereço (slug) foi digitado errado.
+              O feed é indexado pelo CAMINHO da URL, pois o href pode estar em outro domínio (viniraveon.blogspot.com)."""
+              if FEED_POSTS and not _FEED_POR_CAMINHO:
+                  for u_feed, ent in FEED_POSTS.items():
+                      _FEED_POR_CAMINHO[urlparse(u_feed).path] = ent
+              ent = _FEED_POR_CAMINHO.get(urlparse(href_abs).path)
+              if not ent:
+                  return None, None
+              m = _RX_TITULO_TE.search(unicodedata.normalize("NFKC", ent.get("titulo", "") or ""))
+              return (int(m.group(1)), int(m.group(2))) if m else (None, None)
+
+
           def extrair_episodios(soup, temp_inicial=1, url=""):
               temporada, eps, vistos = temp_inicial, [], set()
               ultimo_ep = 0
@@ -1219,6 +1262,16 @@ jobs:
                   elif m_texto_num:
                       num_texto = int(m_texto_num.group(1))
 
+                  t_feed, n_feed = feed_te(href_abs)
+                  if t_feed is not None and (t_feed != temp_ep or n_feed != num_href):
+                      if temp_ep is not None or num_href is not None:
+                          log(f"    [⚠️] link dizia T{temp_ep}E{num_href}, mas o título do post diz T{t_feed}E{n_feed}: usando o título ({href_abs})")
+                          evento("href_vs_titulo", url, href=href_abs, temp_href=temp_ep, ep_href=num_href, temp_titulo=t_feed, ep_titulo=n_feed)
+                          registrar_revisao(url, f"link dizia T{temp_ep}E{num_href}, mas o título do post diz T{t_feed}E{n_feed} (usei o título) - link: {href_abs}")
+                      temp_ep, num_href = t_feed, n_feed
+                      if num_texto is not None and num_texto != n_feed:
+                          num_texto = n_feed
+
                   if num_href is not None and num_texto is not None and num_href != num_texto:
                       # O admin erra o endereço, mas o texto do link está certo: o TEXTO vence.
                       log(f"    [⚠️] URL dizia {num_href}, mas texto dizia {num_texto}: usando {num_texto} ({href_abs})")
@@ -1229,7 +1282,13 @@ jobs:
                       num = num_href if num_href is not None else num_texto
 
                   if temp_ep and temp_ep != temporada:
-                      temporada, ultimo_ep = temp_ep, 0
+                      if t_feed is None and num is not None and ultimo_ep > 0 and num == ultimo_ep + 1:
+                          # Troca de temporada de verdade começa no episódio 1. Número = seguinte ao anterior => erro de digitação no endereço.
+                          log(f"    [⚠️] link dizia T{temp_ep}E{num}, mas é continuação da T{temporada}: mantendo T{temporada} ({href_abs})")
+                          evento("href_temporada_errada", url, href=href_abs, temp_href=temp_ep, temp_usada=temporada, ep=num)
+                          registrar_revisao(url, f"link dizia T{temp_ep}E{num}, mas era continuação da T{temporada} (usei T{temporada}) - link: {href_abs}")
+                      else:
+                          temporada, ultimo_ep = temp_ep, 0
 
                   if num is None:
                       num = sum(1 for e in eps if e["temp"] == temporada) + 1
