@@ -136,55 +136,175 @@
       "status": 429,
       "detalhe": "HTTP 429",
       "tentativas": 1
+    },
+    {
+      "quando": "2026-11-16T02:13:31+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2026/03/inix-finja-se-de-morta-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-16T02:14:24+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2026/03/inix-o-segredo-da-chef-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-16T02:16:15+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/12/inix-mahavatar-narsimha-2025-legendado.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-16T02:19:08+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-doente-de-amor-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-16T02:21:43+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/06/inix-ate-ultima-gota-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-16T02:23:59+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/05/inix-zoe-minha-amiga-morta-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-16T02:24:58+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/05/inix-viagem-de-formatura-mallorca-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-16T02:26:26+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/05/inix-conduzido-para-matar-2009.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-16T02:27:25+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/05/inix-contra-o-tempo-2012.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-16T02:28:52+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-stitches-o-retorno-do-palhaco.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-16T02:31:08+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/inix-pearl-harbor-2001.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-16T02:32:35+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/inix-hora-do-espanto-2-2013.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-16T02:34:27+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/inix-historias-assustadoras-para-contar.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-16T02:35:27+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/inix-scooby-doo-e-o-monstro-do-lago.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-16T02:36:57+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/duologia-o-auto-da-compadecida.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 111,
-      "ok": 91,
-      "429": 17,
+      "requisicoes": 87,
+      "ok": 71,
+      "429": 15,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 17,
+      "falhas_definitivas": 15,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 17,
-      "proxy_hit": 17,
-      "pausas_evitadas": 4224,
-      "http_realizados": 60,
-      "playwright_skip": 41,
-      "proxmint_listas": 35,
-      "link_em_a_href": 19,
-      "link_convertido_w2embed": 127,
-      "multifilme_paginas": 15,
+      "proxy_fallback": 15,
+      "proxy_hit": 15,
+      "pausas_evitadas": 0,
+      "http_realizados": 0,
+      "playwright_skip": 40,
+      "proxmint_listas": 30,
+      "link_em_a_href": 1,
+      "link_convertido_w2embed": 0,
+      "multifilme_paginas": 0,
       "multifilme_arquivos": 0,
-      "proxy_validados": 289,
+      "proxy_validados": 222,
       "robo": "filmes",
-      "quando": "2026-11-16T01:45:21+00:00",
-      "duracao_min": 45.1
+      "quando": "2026-11-16T02:38:49+00:00",
+      "duracao_min": 34.0
     },
     "acumulado": {
-      "requisicoes": 111,
-      "ok": 91,
-      "429": 17,
+      "requisicoes": 198,
+      "ok": 162,
+      "429": 32,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 17,
+      "falhas_definitivas": 32,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 17,
-      "proxy_hit": 17,
+      "proxy_fallback": 32,
+      "proxy_hit": 32,
       "pausas_evitadas": 4224,
       "http_realizados": 60,
-      "playwright_skip": 41,
-      "proxmint_listas": 35,
-      "link_em_a_href": 19,
+      "playwright_skip": 81,
+      "proxmint_listas": 65,
+      "link_em_a_href": 20,
       "link_convertido_w2embed": 127,
       "multifilme_paginas": 15,
       "multifilme_arquivos": 0,
-      "proxy_validados": 289
+      "proxy_validados": 511
     }
   }
 }
