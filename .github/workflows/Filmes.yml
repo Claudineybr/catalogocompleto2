@@ -10,6 +10,11 @@ on:
         required: false
         default: '100'
         type: string
+      refazer_url:
+        description: 'Refazer UM filme (cole a URL do post; ela é tirada da lista de "já feitos")'
+        required: false
+        default: ''
+        type: string
       reprocessar_tudo:
         description: 'Recomeçar do zero? (apaga só o progresso; a fila NUNCA é apagada)'
         required: false
@@ -52,6 +57,26 @@ jobs:
         run: |
           rm -f filmes_feitos.txt filmes_consertados.txt filmes_pendentes.json filmes_descartados.txt filmes_erros.json
 
+      - name: Refazer um filme específico (Opcional)
+        if: ${{ inputs.refazer_url != '' }}
+        env:
+          URL_REFAZER: ${{ inputs.refazer_url }}
+        run: |
+          python3 - << 'PYX'
+          import os
+          from pathlib import Path
+          alvo = os.environ["URL_REFAZER"].strip().rstrip("/")
+          for nome in ("filmes_feitos.txt", "filmes_consertados.txt", "filmes_descartados.txt"):
+              p = Path(nome)
+              if not p.exists():
+                  continue
+              linhas = p.read_text(encoding="utf-8").splitlines()
+              novas = [l for l in linhas if l.strip().rstrip("/") != alvo]
+              if len(novas) != len(linhas):
+                  p.write_text("\n".join(novas) + ("\n" if novas else ""), encoding="utf-8")
+              print(f"{nome}: removidas {len(linhas) - len(novas)} linha(s)")
+          PYX
+
       - name: Instalar Python e Playwright
         run: |
           pip install playwright beautifulsoup4 requests proxmint
@@ -88,21 +113,109 @@ jobs:
           PROXY_CACHE = []
           PROXY_CACHE_TIME = 0
           PROXY_CACHE_TTL = 300
+          PROXY_RETRY_APOS = 0          # se nenhum proxy passou no teste, não refaz a busca por 2 min
+          PROXY_MAX = 20                # tamanho máximo da escadinha
+          PROXY_POR_FONTE = 40          # candidatos pegos de cada fonte antes do teste
+          PROXY_TESTE_TIMEOUT = 8
+          FONTE_ORDEM = {"geonode": 0, "proxyscrape": 1, "proxmint": 2}   # desempate quando a velocidade é igual
+          _PROXY_FONTE = {}
+          _PROXY_RUINS = set()          # proxies que falharam: não entram de novo nas próximas buscas
+          _IPPORT = re.compile(r"\d{1,3}(?:\.\d{1,3}){3}:\d{2,5}")
+
+
+          def _proxies_geonode():
+              ultimo = None
+              for ordem in ("upTime", "lastChecked"):
+                  try:
+                      r = requests.get("https://proxylist.geonode.com/api/proxy-list",
+                                       params={"limit": 100, "page": 1, "sort_by": ordem, "sort_type": "desc", "protocols": "http,https"},
+                                       headers=HEADERS, timeout=15)   # sem User-Agent o GeoNode devolve 403
+                      r.raise_for_status()
+                      saida = []
+                      for d in r.json().get("data", []):
+                          if d.get("ip") and d.get("port"):
+                              saida.append(f"http://{d['ip']}:{d['port']}")
+                      if saida:
+                          return saida[:PROXY_POR_FONTE]
+                  except Exception as e:
+                      ultimo = e
+              raise RuntimeError(ultimo or "lista vazia")
+
+
+          def _proxies_proxyscrape():
+              r = requests.get("https://api.proxyscrape.com/v4/free-proxy-list/get",
+                               params={"request": "display_proxies", "protocol": "http", "proxy_format": "ipport", "format": "text"},
+                               headers=HEADERS, timeout=15)
+              r.raise_for_status()
+              linhas = [l.strip() for l in r.text.splitlines() if _IPPORT.fullmatch(l.strip())]
+              random.shuffle(linhas)
+              return ["http://" + l for l in linhas[:PROXY_POR_FONTE]]
+
+
+          def _proxies_proxmint():
+              from proxmint import proxy_urls
+              lista = list(proxy_urls(protocol="http", limit=PROXY_POR_FONTE))
+              return [p if "://" in p else "http://" + p for p in lista]
+
+
+          def _testar_proxy(proxy):
+              """Tempo de resposta (s) se o proxy entrega o feed do site de verdade (200 + JSON do Blogger); senão None."""
+              t0 = time.time()
+              try:
+                  r = requests.get(f"{BASE_URL}/feeds/posts/default?alt=json&max-results=1", headers=HEADERS,
+                                   timeout=PROXY_TESTE_TIMEOUT, proxies={"http": proxy, "https": proxy})
+                  if r.status_code == 200 and '"feed"' in r.text[:600]:
+                      return time.time() - t0
+              except Exception:
+                  pass
+              return None
+
 
           def obter_proxies():
-              global PROXY_CACHE, PROXY_CACHE_TIME
-              if PROXY_CACHE and (time.time() - PROXY_CACHE_TIME) < PROXY_CACHE_TTL:
+              """Escadinha: GeoNode + ProxyScrape + Proxmint juntos, TESTADOS contra o site, do mais rápido para o mais lento."""
+              global PROXY_CACHE, PROXY_CACHE_TIME, PROXY_RETRY_APOS
+              agora = time.time()
+              if PROXY_CACHE and (agora - PROXY_CACHE_TIME) < PROXY_CACHE_TTL:
                   return PROXY_CACHE
-              try:
-                  from proxmint import proxy_urls
-                  PROXY_CACHE = proxy_urls(protocol="http", limit=20)
-                  PROXY_CACHE_TIME = time.time()
-                  log(f"🔄 Proxmint: {len(PROXY_CACHE)} proxies carregados.")
-              except Exception as e:
-                  log(f"⚠️ Proxmint indisponível: {str(e)[:100]}")
-                  PROXY_CACHE = []
-                  PROXY_CACHE_TIME = time.time()
+              if not PROXY_CACHE and agora < PROXY_RETRY_APOS:
+                  return []
+              candidatos = []
+              for nome, fn in (("geonode", _proxies_geonode), ("proxyscrape", _proxies_proxyscrape), ("proxmint", _proxies_proxmint)):
+                  try:
+                      lista = fn()
+                  except Exception as e:
+                      log(f"⚠️ {nome} indisponível: {str(e)[:100]}")
+                      continue
+                  # a lista é re-testada a cada renovação (inclusive os proxies já conhecidos); só os que falharam ficam de fora
+                  novos = [p for p in lista if p not in _PROXY_RUINS and p not in candidatos]
+                  for p in novos:
+                      _PROXY_FONTE.setdefault(p, nome)
+                  candidatos += novos
+                  log(f"🔄 {nome}: {len(novos)} candidatos.")
+                  METRICAS["proxmint_listas"] += 1
+              if not candidatos:
+                  PROXY_CACHE, PROXY_CACHE_TIME, PROXY_RETRY_APOS = [], agora, agora + 120
+                  return []
+              from concurrent.futures import ThreadPoolExecutor
+              with ThreadPoolExecutor(max_workers=30) as ex:
+                  tempos = list(ex.map(_testar_proxy, candidatos))
+              bons = [(t, p) for t, p in zip(tempos, candidatos) if t is not None]
+              bons.sort(key=lambda x: (round(x[0], 1), FONTE_ORDEM.get(_PROXY_FONTE.get(x[1]), 9)))
+              METRICAS["proxy_validados"] = METRICAS.get("proxy_validados", 0) + len(bons)
+              PROXY_CACHE = [p for _, p in bons][:PROXY_MAX]
+              PROXY_CACHE_TIME = time.time()
+              if not PROXY_CACHE:
+                  PROXY_RETRY_APOS = time.time() + 120
+              log(f"🪜 Proxies: {len(bons)}/{len(candidatos)} passaram no teste. Escadinha (melhor primeiro): "
+                  + " > ".join(f"{_PROXY_FONTE.get(p, '?')} {t:.1f}s" for t, p in bons[:5]) + (" ..." if len(bons) > 5 else ""))
               return PROXY_CACHE
+
+
+          def _descartar_proxy(proxy):
+              _PROXY_RUINS.add(proxy)
+              if proxy in PROXY_CACHE:
+                  PROXY_CACHE.remove(proxy)
+
 
           METRICAS = {"requisicoes": 0, "ok": 0, "429": 0, "5xx": 0, "retries": 0,
                       "falhas_definitivas": 0, "html_invalido": 0, "serie_inconsistente": 0,
@@ -224,7 +337,7 @@ jobs:
               METRICAS["proxy_fallback"] += 1
               METRICAS["proxmint_listas"] += 1
               log(f"    [429] Direto bloqueado. Testando {len(proxies)} proxies do Proxmint...")
-              for i, proxy in enumerate(proxies):
+              for i, proxy in enumerate(list(proxies)):
                   try:
                       _esperar_vez()
                       METRICAS["requisicoes"] += 1
@@ -235,11 +348,13 @@ jobs:
                       if r.status_code == 200 and len(r.text) > 2000:
                           METRICAS["ok"] += 1
                           METRICAS["proxy_hit"] += 1
-                          log(f"    [PROXY {i+1}/{len(proxies)}] OK em {dt:.1f}s ({len(r.text)} bytes)")
+                          log(f"    [PROXY {i+1}/{len(proxies)} {_PROXY_FONTE.get(proxy, '?')}] OK em {dt:.1f}s ({len(r.text)} bytes)")
                           return 200, r.text
-                      log(f"    [PROXY {i+1}/{len(proxies)}] {r.status_code} em {dt:.1f}s - próxima")
+                      log(f"    [PROXY {i+1}/{len(proxies)} {_PROXY_FONTE.get(proxy, '?')}] {r.status_code} em {dt:.1f}s - próxima")
+                      _descartar_proxy(proxy)
                   except Exception as e:
-                      log(f"    [PROXY {i+1}/{len(proxies)}] Erro: {str(e)[:60]}")
+                      log(f"    [PROXY {i+1}/{len(proxies)} {_PROXY_FONTE.get(proxy, '?')}] Erro: {str(e)[:60]}")
+                      _descartar_proxy(proxy)
               log(f"    [PROXY] Todos falharam.")
               return 429, ""
 
@@ -1346,9 +1461,12 @@ jobs:
               construir_indice()
               FEED_POSTS.update(indice_do_feed())
 
-              log("\n⏳ Feed carregado. Aguardando 60s para esvaziar janela de rate limit...")
-              time.sleep(60)
-              log("✅ Cooldown concluído. Iniciando processamento de filmes.\n")
+              if METRICAS["429"] > 0:
+                  log("\n⏳ Feed carregado com 429. Aguardando 60s para esvaziar janela de rate limit...")
+                  time.sleep(60)
+                  log("✅ Cooldown concluído. Iniciando processamento de filmes.\n")
+              else:
+                  log("\n✅ Feed carregado sem 429: sem cooldown. Iniciando processamento de filmes.\n")
 
               if not ARQ_FILA.exists():
                   log("Criando fila de filmes...")
