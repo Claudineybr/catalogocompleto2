@@ -15,6 +15,11 @@ on:
         required: false
         default: ''
         type: string
+      refazer_inconsistentes:
+        description: 'Refazer TODAS as séries marcadas como inconsistentes (lê series_inconsistentes.txt e as devolve para a fila)'
+        required: false
+        default: false
+        type: boolean
       reprocessar_tudo:
         description: 'Recomeçar do zero? (apaga só o progresso; a fila NUNCA é apagada)'
         required: false
@@ -75,6 +80,41 @@ jobs:
               if len(novas) != len(linhas):
                   p.write_text("\n".join(novas) + ("\n" if novas else ""), encoding="utf-8")
               print(f"{nome}: removidas {len(linhas) - len(novas)} linha(s)")
+          p = Path("series_inconsistentes.txt")
+          if p.exists():
+              linhas = p.read_text(encoding="utf-8").splitlines()
+              novas = [l for l in linhas if l.split("  #")[0].strip().rstrip("/") != alvo]
+              if len(novas) != len(linhas):
+                  p.write_text("\n".join(novas) + ("\n" if novas else ""), encoding="utf-8")
+              print(f"series_inconsistentes.txt: removidas {len(linhas) - len(novas)} linha(s)")
+          PYX
+
+      - name: Refazer TODAS as séries inconsistentes (Opcional)
+        if: ${{ inputs.refazer_inconsistentes == true || inputs.refazer_inconsistentes == 'true' }}
+        run: |
+          python3 - << 'PYX'
+          import re
+          from pathlib import Path
+          arq = Path("series_inconsistentes.txt")
+          if not arq.exists():
+              print("series_inconsistentes.txt não existe: nada a refazer.")
+              raise SystemExit(0)
+          urls = set()
+          for l in arq.read_text(encoding="utf-8").splitlines():
+              u = re.split(r"\s+#", l, maxsplit=1)[0].strip().rstrip("/")
+              if u.startswith("http"):
+                  urls.add(u)
+          print(f"{len(urls)} série(s) inconsistente(s) voltando para a fila.")
+          for nome in ("series_feitas.txt", "series_consertadas.txt", "series_descartados.txt"):
+              p = Path(nome)
+              if not p.exists():
+                  continue
+              linhas = p.read_text(encoding="utf-8").splitlines()
+              novas = [l for l in linhas if l.strip().rstrip("/") not in urls]
+              p.write_text("\n".join(novas) + ("\n" if novas else ""), encoding="utf-8")
+              print(f"{nome}: removidas {len(linhas) - len(novas)} linha(s)")
+          # as que continuarem inconsistentes são registradas de novo pelo robô
+          arq.write_text("", encoding="utf-8")
           PYX
 
       - name: Instalar Python e Playwright
@@ -112,21 +152,109 @@ jobs:
           PROXY_CACHE = []
           PROXY_CACHE_TIME = 0
           PROXY_CACHE_TTL = 300
+          PROXY_RETRY_APOS = 0          # se nenhum proxy passou no teste, não refaz a busca por 2 min
+          PROXY_MAX = 20                # tamanho máximo da escadinha
+          PROXY_POR_FONTE = 40          # candidatos pegos de cada fonte antes do teste
+          PROXY_TESTE_TIMEOUT = 8
+          FONTE_ORDEM = {"geonode": 0, "proxyscrape": 1, "proxmint": 2}   # desempate quando a velocidade é igual
+          _PROXY_FONTE = {}
+          _PROXY_RUINS = set()          # proxies que falharam: não entram de novo nas próximas buscas
+          _IPPORT = re.compile(r"\d{1,3}(?:\.\d{1,3}){3}:\d{2,5}")
+
+
+          def _proxies_geonode():
+              ultimo = None
+              for ordem in ("upTime", "lastChecked"):
+                  try:
+                      r = requests.get("https://proxylist.geonode.com/api/proxy-list",
+                                       params={"limit": 100, "page": 1, "sort_by": ordem, "sort_type": "desc", "protocols": "http,https"},
+                                       headers=HEADERS, timeout=15)   # sem User-Agent o GeoNode devolve 403
+                      r.raise_for_status()
+                      saida = []
+                      for d in r.json().get("data", []):
+                          if d.get("ip") and d.get("port"):
+                              saida.append(f"http://{d['ip']}:{d['port']}")
+                      if saida:
+                          return saida[:PROXY_POR_FONTE]
+                  except Exception as e:
+                      ultimo = e
+              raise RuntimeError(ultimo or "lista vazia")
+
+
+          def _proxies_proxyscrape():
+              r = requests.get("https://api.proxyscrape.com/v4/free-proxy-list/get",
+                               params={"request": "display_proxies", "protocol": "http", "proxy_format": "ipport", "format": "text"},
+                               headers=HEADERS, timeout=15)
+              r.raise_for_status()
+              linhas = [l.strip() for l in r.text.splitlines() if _IPPORT.fullmatch(l.strip())]
+              random.shuffle(linhas)
+              return ["http://" + l for l in linhas[:PROXY_POR_FONTE]]
+
+
+          def _proxies_proxmint():
+              from proxmint import proxy_urls
+              lista = list(proxy_urls(protocol="http", limit=PROXY_POR_FONTE))
+              return [p if "://" in p else "http://" + p for p in lista]
+
+
+          def _testar_proxy(proxy):
+              """Tempo de resposta (s) se o proxy entrega o feed do site de verdade (200 + JSON do Blogger); senão None."""
+              t0 = time.time()
+              try:
+                  r = requests.get(f"{BASE_URL}/feeds/posts/default?alt=json&max-results=1", headers=HEADERS,
+                                   timeout=PROXY_TESTE_TIMEOUT, proxies={"http": proxy, "https": proxy})
+                  if r.status_code == 200 and '"feed"' in r.text[:600]:
+                      return time.time() - t0
+              except Exception:
+                  pass
+              return None
+
 
           def obter_proxies():
-              global PROXY_CACHE, PROXY_CACHE_TIME
-              if PROXY_CACHE and (time.time() - PROXY_CACHE_TIME) < PROXY_CACHE_TTL:
+              """Escadinha: GeoNode + ProxyScrape + Proxmint juntos, TESTADOS contra o site, do mais rápido para o mais lento."""
+              global PROXY_CACHE, PROXY_CACHE_TIME, PROXY_RETRY_APOS
+              agora = time.time()
+              if PROXY_CACHE and (agora - PROXY_CACHE_TIME) < PROXY_CACHE_TTL:
                   return PROXY_CACHE
-              try:
-                  from proxmint import proxy_urls
-                  PROXY_CACHE = proxy_urls(protocol="http", limit=20)
-                  PROXY_CACHE_TIME = time.time()
-                  log(f"🔄 Proxmint: {len(PROXY_CACHE)} proxies carregados.")
-              except Exception as e:
-                  log(f"⚠️ Proxmint indisponível: {str(e)[:100]}")
-                  PROXY_CACHE = []
-                  PROXY_CACHE_TIME = time.time()
+              if not PROXY_CACHE and agora < PROXY_RETRY_APOS:
+                  return []
+              candidatos = []
+              for nome, fn in (("geonode", _proxies_geonode), ("proxyscrape", _proxies_proxyscrape), ("proxmint", _proxies_proxmint)):
+                  try:
+                      lista = fn()
+                  except Exception as e:
+                      log(f"⚠️ {nome} indisponível: {str(e)[:100]}")
+                      continue
+                  # a lista é re-testada a cada renovação (inclusive os proxies já conhecidos); só os que falharam ficam de fora
+                  novos = [p for p in lista if p not in _PROXY_RUINS and p not in candidatos]
+                  for p in novos:
+                      _PROXY_FONTE.setdefault(p, nome)
+                  candidatos += novos
+                  log(f"🔄 {nome}: {len(novos)} candidatos.")
+                  METRICAS["proxmint_listas"] += 1
+              if not candidatos:
+                  PROXY_CACHE, PROXY_CACHE_TIME, PROXY_RETRY_APOS = [], agora, agora + 120
+                  return []
+              from concurrent.futures import ThreadPoolExecutor
+              with ThreadPoolExecutor(max_workers=30) as ex:
+                  tempos = list(ex.map(_testar_proxy, candidatos))
+              bons = [(t, p) for t, p in zip(tempos, candidatos) if t is not None]
+              bons.sort(key=lambda x: (round(x[0], 1), FONTE_ORDEM.get(_PROXY_FONTE.get(x[1]), 9)))
+              METRICAS["proxy_validados"] = METRICAS.get("proxy_validados", 0) + len(bons)
+              PROXY_CACHE = [p for _, p in bons][:PROXY_MAX]
+              PROXY_CACHE_TIME = time.time()
+              if not PROXY_CACHE:
+                  PROXY_RETRY_APOS = time.time() + 120
+              log(f"🪜 Proxies: {len(bons)}/{len(candidatos)} passaram no teste. Escadinha (melhor primeiro): "
+                  + " > ".join(f"{_PROXY_FONTE.get(p, '?')} {t:.1f}s" for t, p in bons[:5]) + (" ..." if len(bons) > 5 else ""))
               return PROXY_CACHE
+
+
+          def _descartar_proxy(proxy):
+              _PROXY_RUINS.add(proxy)
+              if proxy in PROXY_CACHE:
+                  PROXY_CACHE.remove(proxy)
+
 
           METRICAS = {"requisicoes": 0, "ok": 0, "429": 0, "5xx": 0, "retries": 0,
                       "falhas_definitivas": 0, "html_invalido": 0, "serie_inconsistente": 0,
@@ -248,7 +376,7 @@ jobs:
               METRICAS["proxy_fallback"] += 1
               METRICAS["proxmint_listas"] += 1
               log(f"    [429] Direto bloqueado. Testando {len(proxies)} proxies do Proxmint...")
-              for i, proxy in enumerate(proxies):
+              for i, proxy in enumerate(list(proxies)):
                   try:
                       _esperar_vez()
                       METRICAS["requisicoes"] += 1
@@ -259,11 +387,13 @@ jobs:
                       if r.status_code == 200 and len(r.text) > 2000:
                           METRICAS["ok"] += 1
                           METRICAS["proxy_hit"] += 1
-                          log(f"    [PROXY {i+1}/{len(proxies)}] OK em {dt:.1f}s ({len(r.text)} bytes)")
+                          log(f"    [PROXY {i+1}/{len(proxies)} {_PROXY_FONTE.get(proxy, '?')}] OK em {dt:.1f}s ({len(r.text)} bytes)")
                           return 200, r.text
-                      log(f"    [PROXY {i+1}/{len(proxies)}] {r.status_code} em {dt:.1f}s - próxima")
+                      log(f"    [PROXY {i+1}/{len(proxies)} {_PROXY_FONTE.get(proxy, '?')}] {r.status_code} em {dt:.1f}s - próxima")
+                      _descartar_proxy(proxy)
                   except Exception as e:
-                      log(f"    [PROXY {i+1}/{len(proxies)}] Erro: {str(e)[:60]}")
+                      log(f"    [PROXY {i+1}/{len(proxies)} {_PROXY_FONTE.get(proxy, '?')}] Erro: {str(e)[:60]}")
+                      _descartar_proxy(proxy)
               log(f"    [PROXY] Todos falharam.")
               return 429, ""
 
@@ -1187,7 +1317,12 @@ jobs:
 
           def numero_temporada(texto):
               texto = unicodedata.normalize("NFKC", texto or "").strip()
-              if not texto or len(texto) > 80 or re.search(r"epis[oó]dio\s*\d", texto, re.I):
+              # Cabeçalho "Temporada 2 - Episódio 1" vale (a temporada vem ANTES do episódio).
+              # Frase solta como "Assista o Episódio 3 da Temporada 2" NÃO é cabeçalho: ignora.
+              m_ep_txt = re.search(r"epis[oó]dio\s*\d", texto, re.I)
+              if m_ep_txt:
+                  texto = texto[:m_ep_txt.start()].strip(" -–—:|")
+              if not texto or len(texto) > 120:
                   return None
               for p in _TEMP_PATS:
                   m = p.search(texto)
@@ -1200,14 +1335,19 @@ jobs:
           _FEED_POR_CAMINHO = {}
 
 
+          def feed_ent(href_abs):
+              """Post do feed pelo CAMINHO da URL (o href pode estar em viniraveon.blogspot.com e o feed em vini7xgrave.site)."""
+              if FEED_POSTS and not _FEED_POR_CAMINHO:
+                  for u_feed, ent in FEED_POSTS.items():
+                      _FEED_POR_CAMINHO[urlparse(u_feed).path] = ent
+              return _FEED_POR_CAMINHO.get(urlparse(href_abs).path)
+
+
           def feed_te(href_abs):
               """(temporada, episodio) lidos do TÍTULO do post do episódio no feed (ex.: 'Elite TP3|E06'), ou (None, None).
               O título costuma estar certo mesmo quando o endereço (slug) foi digitado errado.
               O feed é indexado pelo CAMINHO da URL, pois o href pode estar em outro domínio (viniraveon.blogspot.com)."""
-              if FEED_POSTS and not _FEED_POR_CAMINHO:
-                  for u_feed, ent in FEED_POSTS.items():
-                      _FEED_POR_CAMINHO[urlparse(u_feed).path] = ent
-              ent = _FEED_POR_CAMINHO.get(urlparse(href_abs).path)
+              ent = feed_ent(href_abs)
               if not ent:
                   return None, None
               m = _RX_TITULO_TE.search(unicodedata.normalize("NFKC", ent.get("titulo", "") or ""))
@@ -1222,11 +1362,17 @@ jobs:
                   if tag.name in ("script", "style", "head", "title", "meta", "link"):
                       continue
                   if tag.name != "a":
-                      if tag.find("a"):
-                          continue
-                      n = numero_temporada(tag.get_text(" ", strip=True))
-                      if n is not None and n != temporada:
-                          temporada, ultimo_ep = n, 0
+                      # CORRIGIDO: antes era `if tag.find("a"): continue`, o que fazia
+                      # cabeçalhos como "<h2>2ª Temporada <a>ver todos</a></h2>" serem invisíveis
+                      # para a detecção de temporada. Agora usamos APENAS o texto DIRETO do nó
+                      # (sem filhos), então cabeçalhos com links continuam funcionando, e
+                      # containers que têm o texto só dentro de filhos (ex.: <div> com <h2> dentro)
+                      # continuam sendo ignorados como antes.
+                      texto_direto = "".join(t for t in tag.find_all(string=True, recursive=False) if type(t) is NavigableString).strip()
+                      if texto_direto:
+                          n = numero_temporada(texto_direto)
+                          if n is not None and n != temporada:
+                              temporada, ultimo_ep = n, 0
                       continue
 
                   texto = tag.get_text(" ", strip=True)
@@ -1281,14 +1427,30 @@ jobs:
                   else:
                       num = num_href if num_href is not None else num_texto
 
+                  # CORRIGIDO: só aceita o "salto" de temporada sugerido pelo link quando:
+                  #   - é um salto para FRENTE (temp_ep > temporada), e
+                  #   - NÃO é caso de "continuação" (num == ultimo_ep + 1 com ultimo_ep > 0).
+                  # Quando o link diz uma temporada ATRÁS da atual (ex.: tp1e01 numa página em T2,
+                  # porque o admin errou o prefixo ao listar a 2ª temporada), MANTÉM a temporada
+                  # da página — antes o robô revertia e gerava T1E1..T1E6 duplicados.
                   if temp_ep and temp_ep != temporada:
-                      if t_feed is None and num is not None and ultimo_ep > 0 and num == ultimo_ep + 1:
-                          # Troca de temporada de verdade começa no episódio 1. Número = seguinte ao anterior => erro de digitação no endereço.
-                          log(f"    [⚠️] link dizia T{temp_ep}E{num}, mas é continuação da T{temporada}: mantendo T{temporada} ({href_abs})")
-                          evento("href_temporada_errada", url, href=href_abs, temp_href=temp_ep, temp_usada=temporada, ep=num)
-                          registrar_revisao(url, f"link dizia T{temp_ep}E{num}, mas era continuação da T{temporada} (usei T{temporada}) - link: {href_abs}")
-                      else:
+                      if temp_ep > temporada:
+                          if t_feed is None and num is not None and ultimo_ep > 0 and num == ultimo_ep + 1:
+                              # Overshoot clássico: URL diz tp3e07, mas é continuação da T2 (ultimo_ep=6). Mantém.
+                              log(f"    [⚠️] link dizia T{temp_ep}E{num}, mas é continuação da T{temporada}: mantendo T{temporada} ({href_abs})")
+                              evento("href_temporada_errada", url, href=href_abs, temp_href=temp_ep, temp_usada=temporada, ep=num)
+                              registrar_revisao(url, f"link dizia T{temp_ep}E{num}, mas era continuação da T{temporada} (usei T{temporada}) - link: {href_abs}")
+                          else:
+                              temporada, ultimo_ep = temp_ep, 0
+                      elif ultimo_ep > 0 and num is not None and num != ultimo_ep + 1:
+                          # Sem cabeçalho e o número NÃO continua a sequência (ex.: T2E3 e depois T1E1): é uma lista em ordem
+                          # decrescente de verdade, então a troca vale.
                           temporada, ultimo_ep = temp_ep, 0
+                      else:
+                          # Prefixo do link está ATRASADO (tp1 quando já estamos na T2): mantém a temporada atual.
+                          log(f"    [⚠️] link dizia T{temp_ep}E{num}, mas estamos na T{temporada}: mantendo T{temporada} ({href_abs})")
+                          evento("href_temporada_anterior", url, href=href_abs, temp_href=temp_ep, temp_atual=temporada, ep=num)
+                          registrar_revisao(url, f"link dizia T{temp_ep}E{num}, mas estávamos na T{temporada} (usei T{temporada}) - link: {href_abs}")
 
                   if num is None:
                       num = sum(1 for e in eps if e["temp"] == temporada) + 1
@@ -1344,7 +1506,7 @@ jobs:
 
 
           async def obter_link_episodio(ctx, url_ep):
-              ent = FEED_POSTS.get(url_ep)
+              ent = FEED_POSTS.get(url_ep) or feed_ent(url_ep)
               if ent and len(ent.get("conteudo", "")) >= CONTEUDO_MIN:
                   texto = pagina_do_feed(ent)
                   link = extrair_link_estatico(texto)
@@ -1380,6 +1542,7 @@ jobs:
           async def processar_serie(ctx, url_serie, pendentes, totais):
               log(f"\n--> Verificando série: {url_serie}")
               soup = None
+              eps = None
               ent = FEED_POSTS.get(url_serie)
               if ent:
                   if ent.get("tipo") == "filme":
@@ -1387,9 +1550,12 @@ jobs:
                       return "filme"
                   texto_f = pagina_do_feed(ent)
                   soup_f = BeautifulSoup(texto_f, "html.parser")
-                  if eh_serie(soup_f) and extrair_episodios(soup_f, 1, url_serie):
-                      soup, texto = soup_f, texto_f
-                      log("    (Dados do feed: sem requisição à página da série.)")
+                  if eh_serie(soup_f):
+                      brutos_f = candidatos_titulo(soup_f)
+                      eps_f = extrair_episodios(soup_f, temporada_inicial(brutos_f[0] if brutos_f else "", url_serie), url_serie)
+                      if eps_f:
+                          soup, texto, eps = soup_f, texto_f, eps_f
+                          log("    (Dados do feed: sem requisição à página da série.)")
 
               if soup is None:
                   status, texto = await asyncio.to_thread(http_get_com_proxy, url_serie, timeout=25)
@@ -1416,7 +1582,8 @@ jobs:
               brutos = candidatos_titulo(soup)
               capa = escolher_capa(soup, texto)
               slug = fazer_slug(titulo, url_serie)
-              eps = extrair_episodios(soup, temporada_inicial(brutos[0] if brutos else "", url_serie), url_serie)
+              if eps is None:
+                  eps = extrair_episodios(soup, temporada_inicial(brutos[0] if brutos else "", url_serie), url_serie)
 
               if not eps:
                   log("    (Nenhum episódio encontrado. Pulando...)")
@@ -1485,9 +1652,12 @@ jobs:
               construir_indice()
               FEED_POSTS.update(indice_do_feed())
 
-              log("\n⏳ Feed carregado. Aguardando 60s para esvaziar janela de rate limit...")
-              time.sleep(60)
-              log("✅ Cooldown concluído. Iniciando processamento de séries.\n")
+              if METRICAS["429"] > 0:
+                  log("\n⏳ Feed carregado com 429. Aguardando 60s para esvaziar janela de rate limit...")
+                  time.sleep(60)
+                  log("✅ Cooldown concluído. Iniciando processamento de séries.\n")
+              else:
+                  log("\n✅ Feed carregado sem 429: sem cooldown. Iniciando processamento de séries.\n")
 
               if not ARQ_FILA.exists():
                   log("Criando fila de séries...")
