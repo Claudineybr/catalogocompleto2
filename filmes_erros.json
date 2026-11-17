@@ -162,12 +162,12 @@
       "multifilme_paginas": 0,
       "multifilme_arquivos": 0,
       "robo": "filmes",
-      "quando": "2026-11-17T15:20:40+00:00",
-      "duracao_min": 7.9
+      "quando": "2026-11-17T15:30:11+00:00",
+      "duracao_min": 8.0
     },
     "acumulado": {
-      "requisicoes": 236,
-      "ok": 218,
+      "requisicoes": 268,
+      "ok": 250,
       "429": 16,
       "5xx": 1,
       "retries": 0,
@@ -177,9 +177,9 @@
       "conflitos": 0,
       "proxy_fallback": 16,
       "proxy_hit": 16,
-      "pausas_evitadas": 4521,
+      "pausas_evitadas": 4620,
       "http_realizados": 62,
-      "playwright_skip": 44,
+      "playwright_skip": 45,
       "proxmint_listas": 40,
       "link_em_a_href": 21,
       "link_convertido_w2embed": 127,
