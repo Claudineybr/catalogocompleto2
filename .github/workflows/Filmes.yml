@@ -1117,7 +1117,8 @@ jobs:
                   d = checar_defeitos(existente)
                   # Filmes: só renomeia se o nome atual estiver FORA do padrão (gênero, 'legendado'...).
                   # Se vários posts usam o mesmo vídeo, o arquivo NÃO fica trocando de nome a cada run.
-                  renomear = not nome_ok(existente.name, stem) and (ep or nome_fora_do_padrao(existente.name))
+                  # Renomear arquivo existente: SÓ no modo "apenas_consertar". Nos outros modos o nome do arquivo nunca é mexido.
+                  renomear = (modo == "apenas_consertar") and not nome_ok(existente.name, stem) and (ep or nome_fora_do_padrao(existente.name))
                   log(f"{ind}(Arquivo existente: {existente.name})")
                   if modo == "apenas_baixar":
                       log(f"{ind}Modo Apenas Baixar: ignorando conserto.")
@@ -1364,7 +1365,7 @@ jobs:
               existente = buscar_por_stem(stem_pela_url(url))
               if existente:
                   d = checar_defeitos(existente)
-                  if not (not nome_ok(existente.name, stem_pela_url(url)) or d["n"] or d["c"] or d["f"] or d["l"]):
+                  if not ((MODO == "apenas_consertar" and not nome_ok(existente.name, stem_pela_url(url))) or d["n"] or d["c"] or d["f"] or d["l"]):
                       log(f"    (Atalho) Já está perfeito: {existente.name}")
                       return "perfeito", None
                   log(f"    (Atalho) Existe '{existente.name}' mas tem defeito (n={d['n']} c={d['c']} f={d['f']} l={d['l']}), vou buscar de novo.")
