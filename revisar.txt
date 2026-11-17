@@ -568,3 +568,9 @@ https://www.vini7xgrave.site/2025/03/inix-drake-e-josh.html | link dizia T1E7, m
 https://www.vini7xgrave.site/2025/03/inix-drake-e-josh.html | série inconsistente (drake_e_josh): T2E6 aparece 2x com URLs diferentes; T2E7 aparece 2x com URLs diferentes; T2: faltam episódios [1]
 https://www.vini7xgrave.site/2025/03/inix-o-que-ha-de-novo-scooby-doo.html | link dizia T1E14, mas estávamos na T2 (usei T2) - link: https://viniseriesonline.blogspot.com/2025/03/inix-tp1e14_61.html
 https://www.vini7xgrave.site/2025/03/inix-o-que-ha-de-novo-scooby-doo.html | série inconsistente (o_que_ha_de_novo_scooby_doo): T1E10 aparece 2x com URLs diferentes; T2E14 aparece 2x com URLs diferentes; T1: faltam episódios [9, 15]; T2: faltam episódios [1, 2, 3, 4, 5, 6]
+https://www.vini7xgrave.site/2025/06/inix-haikyu-2014.html | texto dos links usa numeração contínua (T2 começa em 26); usei a numeração da temporada
+https://www.vini7xgrave.site/2025/06/inix-haikyu-2014.html | URL dizia 16, mas texto dizia 17 (usei 17) - link: https://vini7xgseries2.blogspot.com/2025/06/inix-tp2e16_25.html
+https://www.vini7xgrave.site/2025/06/inix-haikyu-2014.html | texto dos links usa numeração contínua (T3 começa em 51); usei a numeração da temporada
+https://www.vini7xgrave.site/2025/06/inix-haikyu-2014.html | texto dos links usa numeração contínua (T4 começa em 61); usei a numeração da temporada
+https://www.vini7xgrave.site/2025/06/inix-shangri-la-frontier-2023.html | texto dos links usa numeração contínua (T2 começa em 26); usei a numeração da temporada
+https://www.vini7xgrave.site/2025/06/inix-shangri-la-frontier-2023.html | URL dizia 3, mas texto dizia 2 (usei 2) - link: https://vini7xgseries2.blogspot.com/2025/06/inix-tp2e03_8.html
