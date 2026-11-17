@@ -1949,55 +1949,236 @@
       "status": 429,
       "detalhe": "HTTP 429",
       "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T17:45:49+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e07.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 7
+    },
+    {
+      "quando": "2026-11-17T17:45:49+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e10.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 10
+    },
+    {
+      "quando": "2026-11-17T17:45:49+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e11.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 11
+    },
+    {
+      "quando": "2026-11-17T17:45:49+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e13.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 13
+    },
+    {
+      "quando": "2026-11-17T17:45:49+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e14.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 14
+    },
+    {
+      "quando": "2026-11-17T17:45:49+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e15.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 15
+    },
+    {
+      "quando": "2026-11-17T17:45:49+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e16.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 16
+    },
+    {
+      "quando": "2026-11-17T17:45:49+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e17.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 17
+    },
+    {
+      "quando": "2026-11-17T17:45:49+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e18.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 18
+    },
+    {
+      "quando": "2026-11-17T17:46:04+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp5e09.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T17:54:08+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp5e09.html",
+      "serie": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html"
+    },
+    {
+      "quando": "2026-11-17T17:54:08+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "seguidos": 1
+    },
+    {
+      "quando": "2026-11-17T17:55:42+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2026/01/inix-suits-tp8e08.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T18:06:01+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2026/01/inix-suits-tp8e08.html",
+      "serie": "https://www.vini7xgrave.site/2026/01/inix-suits-homens-de-terno-2011.html"
+    },
+    {
+      "quando": "2026-11-17T18:06:01+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2026/01/inix-suits-homens-de-terno-2011.html",
+      "seguidos": 2
+    },
+    {
+      "quando": "2026-11-17T18:08:30+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2025/12/inix-os-abandonados-tp1e07.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T18:18:38+00:00",
+      "tipo": "rate_limit",
+      "url": "https://viniraveon.blogspot.com/2025/12/inix-os-abandonados-tp1e07.html",
+      "serie": "https://www.vini7xgrave.site/2025/12/inix-os-abandonados-2025.html"
+    },
+    {
+      "quando": "2026-11-17T18:18:38+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2025/12/inix-os-abandonados-2025.html",
+      "seguidos": 3
+    },
+    {
+      "quando": "2026-11-17T18:22:11+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2025/11/inix-tp01ep21.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T18:31:20+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2025/11/inix-tp01ep21.html",
+      "serie": "https://www.vini7xgrave.site/2025/11/inix-diarios-de-uma-apoticaria-2023.html"
+    },
+    {
+      "quando": "2026-11-17T18:31:20+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2025/11/inix-diarios-de-uma-apoticaria-2023.html",
+      "seguidos": 4
+    },
+    {
+      "quando": "2026-11-17T18:35:58+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2025/11/inix-mushoku-tensei-tp02ep05_2.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T18:44:53+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2025/11/inix-mushoku-tensei-tp02ep05_2.html",
+      "serie": "https://www.vini7xgrave.site/2025/11/inix-mushuku-tensei-2021.html"
+    },
+    {
+      "quando": "2026-11-17T18:44:53+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2025/11/inix-mushuku-tensei-2021.html",
+      "seguidos": 5
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 157,
-      "ok": 45,
-      "429": 19,
+      "requisicoes": 131,
+      "ok": 31,
+      "429": 5,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 19,
+      "falhas_definitivas": 5,
       "html_invalido": 0,
-      "serie_inconsistente": 1,
+      "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 19,
-      "proxy_hit": 14,
-      "proxmint_listas": 43,
+      "proxy_fallback": 5,
+      "proxy_hit": 0,
+      "proxmint_listas": 20,
       "link_em_a_href": 0,
       "link_convertido_w2embed": 0,
-      "skip_perfeito": 462,
+      "skip_perfeito": 248,
       "feed_hit": 0,
-      "http_necessario": 15,
-      "playwright_skip": 10,
-      "episodios_tp_encontrados": 448,
-      "proxy_validados": 186,
+      "http_necessario": 5,
+      "playwright_skip": 0,
+      "episodios_tp_encontrados": 266,
+      "proxy_validados": 138,
       "robo": "series",
-      "quando": "2026-11-17T17:36:52+00:00",
-      "duracao_min": 83.2
+      "quando": "2026-11-17T18:44:53+00:00",
+      "duracao_min": 66.6
     },
     "acumulado": {
-      "requisicoes": 441,
-      "ok": 189,
-      "429": 35,
+      "requisicoes": 572,
+      "ok": 220,
+      "429": 40,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 35,
+      "falhas_definitivas": 40,
       "html_invalido": 0,
       "serie_inconsistente": 3,
       "conflitos": 4,
-      "proxy_fallback": 35,
+      "proxy_fallback": 40,
       "proxy_hit": 24,
-      "proxmint_listas": 92,
+      "proxmint_listas": 112,
       "link_em_a_href": 0,
       "link_convertido_w2embed": 0,
-      "skip_perfeito": 2734,
+      "skip_perfeito": 2982,
       "feed_hit": 0,
-      "http_necessario": 31,
+      "http_necessario": 36,
       "playwright_skip": 16,
-      "episodios_tp_encontrados": 2887,
-      "proxy_validados": 556
+      "episodios_tp_encontrados": 3153,
+      "proxy_validados": 694
     }
   }
 }
