@@ -122,6 +122,22 @@
       "status": 429,
       "detalhe": "HTTP 429",
       "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T15:00:55+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/06/inix-indiana-jones-e-ultima-cruzada-1989.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T15:11:06+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/06/inix-indiana-jones-e-ultima-cruzada-1989.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
     }
   ],
   "metricas": {
@@ -137,40 +153,40 @@
       "conflitos": 0,
       "proxy_fallback": 1,
       "proxy_hit": 1,
-      "pausas_evitadas": 0,
-      "http_realizados": 1,
-      "playwright_skip": 0,
+      "pausas_evitadas": 99,
+      "http_realizados": 0,
+      "playwright_skip": 1,
       "proxmint_listas": 4,
-      "link_em_a_href": 0,
-      "link_convertido_w2embed": 8,
-      "multifilme_paginas": 1,
+      "link_em_a_href": 1,
+      "link_convertido_w2embed": 0,
+      "multifilme_paginas": 0,
       "multifilme_arquivos": 0,
       "proxy_validados": 45,
       "robo": "filmes",
-      "quando": "2026-11-17T06:11:50+00:00",
-      "duracao_min": 8.4
+      "quando": "2026-11-17T15:11:43+00:00",
+      "duracao_min": 8.5
     },
     "acumulado": {
-      "requisicoes": 138,
-      "ok": 122,
-      "429": 14,
+      "requisicoes": 204,
+      "ok": 186,
+      "429": 16,
       "5xx": 1,
       "retries": 0,
-      "falhas_definitivas": 15,
+      "falhas_definitivas": 17,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 14,
-      "proxy_hit": 14,
-      "pausas_evitadas": 4225,
-      "http_realizados": 61,
-      "playwright_skip": 41,
-      "proxmint_listas": 32,
-      "link_em_a_href": 19,
+      "proxy_fallback": 16,
+      "proxy_hit": 16,
+      "pausas_evitadas": 4422,
+      "http_realizados": 62,
+      "playwright_skip": 43,
+      "proxmint_listas": 40,
+      "link_em_a_href": 21,
       "link_convertido_w2embed": 127,
       "multifilme_paginas": 15,
       "multifilme_arquivos": 0,
-      "proxy_validados": 266
+      "proxy_validados": 361
     }
   }
 }
