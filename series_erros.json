@@ -1396,55 +1396,264 @@
       "tipo": "rate_limit",
       "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
       "seguidos": 1
+    },
+    {
+      "quando": "2026-11-17T15:29:02+00:00",
+      "tipo": "href_vs_texto",
+      "url": "https://www.vini7xgrave.site/2026/04/inix-big-bang-teoria-2007.html",
+      "href": "https://viniraveon.blogspot.com/2026/04/inix-big-bang-teoria-tp5e07_0964997324.html",
+      "numero_href": 7,
+      "numero_texto": 8,
+      "texto": "Episódio 8 – Permutação da Isca para o Isolamento"
+    },
+    {
+      "quando": "2026-11-17T15:29:02+00:00",
+      "tipo": "href_vs_texto",
+      "url": "https://www.vini7xgrave.site/2026/04/inix-big-bang-teoria-2007.html",
+      "href": "https://viniraveon.blogspot.com/2026/05/inix-big-bang-teoria-tp5e25.html",
+      "numero_href": 25,
+      "numero_texto": 24,
+      "texto": "Episódio 24 – Countdown Reflection"
+    },
+    {
+      "quando": "2026-11-17T15:29:41+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e07.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 7
+    },
+    {
+      "quando": "2026-11-17T15:29:41+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e10.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 10
+    },
+    {
+      "quando": "2026-11-17T15:29:41+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e11.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 11
+    },
+    {
+      "quando": "2026-11-17T15:29:41+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e13.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 13
+    },
+    {
+      "quando": "2026-11-17T15:29:41+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e14.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 14
+    },
+    {
+      "quando": "2026-11-17T15:29:41+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e15.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 15
+    },
+    {
+      "quando": "2026-11-17T15:29:41+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e16.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 16
+    },
+    {
+      "quando": "2026-11-17T15:29:41+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e17.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 17
+    },
+    {
+      "quando": "2026-11-17T15:29:41+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e18.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 18
+    },
+    {
+      "quando": "2026-11-17T15:29:42+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp5e09.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T15:37:41+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp5e09.html",
+      "serie": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html"
+    },
+    {
+      "quando": "2026-11-17T15:37:41+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "seguidos": 1
+    },
+    {
+      "quando": "2026-11-17T15:39:09+00:00",
+      "tipo": "href_vs_texto",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-o-cuco-de-cristal-2025.html",
+      "href": "https://viniraveon.blogspot.com/2026/02/inix-o-cuco-de-cristal-tp1e01_9.html",
+      "numero_href": 1,
+      "numero_texto": 2,
+      "texto": "Episódio 2 –"
+    },
+    {
+      "quando": "2026-11-17T15:40:15+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2026/01/inix-suits-tp8e08.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T15:50:42+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2026/01/inix-suits-tp8e08.html",
+      "serie": "https://www.vini7xgrave.site/2026/01/inix-suits-homens-de-terno-2011.html"
+    },
+    {
+      "quando": "2026-11-17T15:50:42+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2026/01/inix-suits-homens-de-terno-2011.html",
+      "seguidos": 1
+    },
+    {
+      "quando": "2026-11-17T15:53:21+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2025/12/inix-percy-jackson-e-os-olimpianos_26.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T15:53:52+00:00",
+      "tipo": "remapeamento_bloqueado",
+      "url": "",
+      "arquivo": "percy_jackson_e_os_olimpianos_t01ep04.html",
+      "novo": "percy_jackson_e_os_olimpianos_t02ep04.html",
+      "link": "https://cdn3.playmycnvs.com/Percy%20Jackson%20e%20os%20Olimpianos%20S01%20E04_103540.mp4"
+    },
+    {
+      "quando": "2026-11-17T15:58:32+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2025/12/inix-greys-anatomy-tp2e25.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T15:59:06+00:00",
+      "tipo": "remapeamento_bloqueado",
+      "url": "",
+      "arquivo": "grey_s_anatomy_t02ep02.html",
+      "novo": "grey_s_anatomy_t02ep25.html",
+      "link": "http://shd2.oneplayer.site/5yu456y45tge4rtfg4w3ertf34t43retg54y65uj65npw/SHD2/1416/2x2.mp4"
+    },
+    {
+      "quando": "2026-11-17T16:00:15+00:00",
+      "tipo": "href_vs_texto",
+      "url": "https://www.vini7xgrave.site/2025/11/inix-robin-hood-2025.html",
+      "href": "https://viniraveon.blogspot.com/2025/12/inix-robin-hood-tp1e05.html",
+      "numero_href": 5,
+      "numero_texto": 6,
+      "texto": "Episódio 6 - Unidos Pelo Amor, Separados por Mentiras"
+    },
+    {
+      "quando": "2026-11-17T16:00:39+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2025/12/inix-os-abandonados-tp1e07.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T16:11:05+00:00",
+      "tipo": "rate_limit",
+      "url": "https://viniraveon.blogspot.com/2025/12/inix-os-abandonados-tp1e07.html",
+      "serie": "https://www.vini7xgrave.site/2025/12/inix-os-abandonados-2025.html"
+    },
+    {
+      "quando": "2026-11-17T16:11:05+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2025/12/inix-os-abandonados-2025.html",
+      "seguidos": 1
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 81,
-      "ok": 37,
-      "429": 3,
+      "requisicoes": 100,
+      "ok": 35,
+      "429": 5,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 3,
+      "falhas_definitivas": 5,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 2,
-      "proxy_fallback": 3,
-      "proxy_hit": 1,
-      "proxmint_listas": 12,
+      "proxy_fallback": 5,
+      "proxy_hit": 2,
+      "proxmint_listas": 17,
       "link_em_a_href": 0,
       "link_convertido_w2embed": 0,
-      "skip_perfeito": 840,
+      "skip_perfeito": 828,
       "feed_hit": 0,
-      "http_necessario": 8,
-      "playwright_skip": 4,
-      "episodios_tp_encontrados": 904,
-      "proxy_validados": 106,
+      "http_necessario": 7,
+      "playwright_skip": 2,
+      "episodios_tp_encontrados": 656,
+      "proxy_validados": 105,
       "robo": "series",
-      "quando": "2026-11-17T15:20:00+00:00",
-      "duracao_min": 38.5
+      "quando": "2026-11-17T16:12:10+00:00",
+      "duracao_min": 50.6
     },
     "acumulado": {
-      "requisicoes": 184,
-      "ok": 109,
-      "429": 11,
+      "requisicoes": 284,
+      "ok": 144,
+      "429": 16,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 11,
+      "falhas_definitivas": 16,
       "html_invalido": 0,
       "serie_inconsistente": 2,
-      "conflitos": 2,
-      "proxy_fallback": 11,
-      "proxy_hit": 8,
-      "proxmint_listas": 32,
+      "conflitos": 4,
+      "proxy_fallback": 16,
+      "proxy_hit": 10,
+      "proxmint_listas": 49,
       "link_em_a_href": 0,
       "link_convertido_w2embed": 0,
-      "skip_perfeito": 1444,
+      "skip_perfeito": 2272,
       "feed_hit": 0,
-      "http_necessario": 9,
-      "playwright_skip": 4,
-      "episodios_tp_encontrados": 1783,
-      "proxy_validados": 265
+      "http_necessario": 16,
+      "playwright_skip": 6,
+      "episodios_tp_encontrados": 2439,
+      "proxy_validados": 370
     }
   }
 }
