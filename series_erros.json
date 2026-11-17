@@ -1605,55 +1605,399 @@
       "tipo": "rate_limit",
       "url": "https://www.vini7xgrave.site/2025/12/inix-os-abandonados-2025.html",
       "seguidos": 1
+    },
+    {
+      "quando": "2026-11-17T16:21:14+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e07.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 7
+    },
+    {
+      "quando": "2026-11-17T16:21:14+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e10.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 10
+    },
+    {
+      "quando": "2026-11-17T16:21:14+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e11.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 11
+    },
+    {
+      "quando": "2026-11-17T16:21:14+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e13.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 13
+    },
+    {
+      "quando": "2026-11-17T16:21:14+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e14.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 14
+    },
+    {
+      "quando": "2026-11-17T16:21:14+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e15.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 15
+    },
+    {
+      "quando": "2026-11-17T16:21:14+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e16.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 16
+    },
+    {
+      "quando": "2026-11-17T16:21:14+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e17.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 17
+    },
+    {
+      "quando": "2026-11-17T16:21:14+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "href": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp3e18.html",
+      "temp_href": 3,
+      "temp_atual": 8,
+      "ep": 18
+    },
+    {
+      "quando": "2026-11-17T16:21:27+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp5e09.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T16:29:29+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp5e09.html",
+      "serie": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html"
+    },
+    {
+      "quando": "2026-11-17T16:29:29+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2026/02/inix-this-is-us.html",
+      "seguidos": 1
+    },
+    {
+      "quando": "2026-11-17T16:31:01+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2026/01/inix-suits-tp8e08.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T16:41:06+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2026/01/inix-suits-tp8e08.html",
+      "serie": "https://www.vini7xgrave.site/2026/01/inix-suits-homens-de-terno-2011.html"
+    },
+    {
+      "quando": "2026-11-17T16:41:06+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2026/01/inix-suits-homens-de-terno-2011.html",
+      "seguidos": 2
+    },
+    {
+      "quando": "2026-11-17T16:43:43+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2025/12/inix-os-abandonados-tp1e07.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T16:54:03+00:00",
+      "tipo": "rate_limit",
+      "url": "https://viniraveon.blogspot.com/2025/12/inix-os-abandonados-tp1e07.html",
+      "serie": "https://www.vini7xgrave.site/2025/12/inix-os-abandonados-2025.html"
+    },
+    {
+      "quando": "2026-11-17T16:54:03+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2025/12/inix-os-abandonados-2025.html",
+      "seguidos": 3
+    },
+    {
+      "quando": "2026-11-17T16:57:30+00:00",
+      "tipo": "href_vs_texto",
+      "url": "https://www.vini7xgrave.site/2025/10/inix-it-bem-vindos-derry-2025.html",
+      "href": "https://viniraveon.blogspot.com/2025/10/inix-it-bem-vindos-derry-tp1e01_31.html",
+      "numero_href": 1,
+      "numero_texto": 2,
+      "texto": "Episódio 2 - Bem-Vindos a Escuridão"
+    },
+    {
+      "quando": "2026-11-17T16:57:30+00:00",
+      "tipo": "href_vs_texto",
+      "url": "https://www.vini7xgrave.site/2025/10/inix-it-bem-vindos-derry-2025.html",
+      "href": "https://viniraveon.blogspot.com/2025/12/inix-it-bem-vindos-derry-tp1e07_14.html",
+      "numero_href": 7,
+      "numero_texto": 8,
+      "texto": "Episódio 8 -"
+    },
+    {
+      "quando": "2026-11-17T16:59:21+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/11/arc-o-castelo-no-ceu-1997-legendado.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T17:00:36+00:00",
+      "tipo": "href_vs_texto",
+      "url": "https://www.vini7xgrave.site/2025/11/inix-icarly-reuniao-2021.html",
+      "href": "https://vini7xgseries2.blogspot.com/2025/11/inix-icarly-reuniao-tp2e06_27.html",
+      "numero_href": 6,
+      "numero_texto": 7,
+      "texto": "Episódio 7 – Acabei Com Ele"
+    },
+    {
+      "quando": "2026-11-17T17:00:57+00:00",
+      "tipo": "serie_inconsistente",
+      "url": "https://www.vini7xgrave.site/2025/11/inix-arcanjo-renegado-2020.html",
+      "slug": "arcanjo_renegado",
+      "problemas": [
+        "T3: faltam episódios [8]"
+      ],
+      "encontrado": {
+        "T1": 10,
+        "T2": 10,
+        "T3": 9,
+        "T4": 10
+      }
+    },
+    {
+      "quando": "2026-11-17T17:01:42+00:00",
+      "tipo": "href_vs_texto",
+      "url": "https://www.vini7xgrave.site/2025/11/inix-marvel-os-defensores-2017.html",
+      "href": "https://viniraveon.blogspot.com/2025/11/inix-marvel-os-defensores-tp1e0.html",
+      "numero_href": 0,
+      "numero_texto": 2,
+      "texto": "Episódio 2 - Gancho de Direita"
+    },
+    {
+      "quando": "2026-11-17T17:02:07+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e01.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T17:03:07+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e02.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T17:04:07+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e03.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T17:05:07+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e04.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T17:06:07+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e05.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T17:07:07+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e06.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T17:08:07+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e07.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T17:09:07+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e08.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T17:10:07+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e09.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T17:11:07+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e10.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T17:12:38+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2025/11/inix-tp01ep21.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T17:23:02+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2025/11/inix-tp01ep21.html",
+      "serie": "https://www.vini7xgrave.site/2025/11/inix-diarios-de-uma-apoticaria-2023.html"
+    },
+    {
+      "quando": "2026-11-17T17:23:02+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2025/11/inix-diarios-de-uma-apoticaria-2023.html",
+      "seguidos": 1
+    },
+    {
+      "quando": "2026-11-17T17:24:55+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/11/arc-o-conto-da-princesa-kaguya-2013.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T17:26:34+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2025/11/inix-mushoku-tensei-tp02ep05_2.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T17:32:58+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2025/11/inix-mushoku-tensei-tp02ep05_2.html",
+      "serie": "https://www.vini7xgrave.site/2025/11/inix-mushuku-tensei-2021.html"
+    },
+    {
+      "quando": "2026-11-17T17:32:58+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2025/11/inix-mushuku-tensei-2021.html",
+      "seguidos": 1
+    },
+    {
+      "quando": "2026-11-17T17:34:50+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/11/arc-as-memorias-de-marnie-2014.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T17:35:51+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/11/arc-castelo-animado-2004.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 100,
-      "ok": 35,
-      "429": 5,
+      "requisicoes": 157,
+      "ok": 45,
+      "429": 19,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 5,
+      "falhas_definitivas": 19,
       "html_invalido": 0,
-      "serie_inconsistente": 0,
-      "conflitos": 2,
-      "proxy_fallback": 5,
-      "proxy_hit": 2,
-      "proxmint_listas": 17,
+      "serie_inconsistente": 1,
+      "conflitos": 0,
+      "proxy_fallback": 19,
+      "proxy_hit": 14,
+      "proxmint_listas": 43,
       "link_em_a_href": 0,
       "link_convertido_w2embed": 0,
-      "skip_perfeito": 828,
+      "skip_perfeito": 462,
       "feed_hit": 0,
-      "http_necessario": 7,
-      "playwright_skip": 2,
-      "episodios_tp_encontrados": 656,
-      "proxy_validados": 105,
+      "http_necessario": 15,
+      "playwright_skip": 10,
+      "episodios_tp_encontrados": 448,
+      "proxy_validados": 186,
       "robo": "series",
-      "quando": "2026-11-17T16:12:10+00:00",
-      "duracao_min": 50.6
+      "quando": "2026-11-17T17:36:52+00:00",
+      "duracao_min": 83.2
     },
     "acumulado": {
-      "requisicoes": 284,
-      "ok": 144,
-      "429": 16,
+      "requisicoes": 441,
+      "ok": 189,
+      "429": 35,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 16,
+      "falhas_definitivas": 35,
       "html_invalido": 0,
-      "serie_inconsistente": 2,
+      "serie_inconsistente": 3,
       "conflitos": 4,
-      "proxy_fallback": 16,
-      "proxy_hit": 10,
-      "proxmint_listas": 49,
+      "proxy_fallback": 35,
+      "proxy_hit": 24,
+      "proxmint_listas": 92,
       "link_em_a_href": 0,
       "link_convertido_w2embed": 0,
-      "skip_perfeito": 2272,
+      "skip_perfeito": 2734,
       "feed_hit": 0,
-      "http_necessario": 16,
-      "playwright_skip": 6,
-      "episodios_tp_encontrados": 2439,
-      "proxy_validados": 370
+      "http_necessario": 31,
+      "playwright_skip": 16,
+      "episodios_tp_encontrados": 2887,
+      "proxy_validados": 556
     }
   }
 }
