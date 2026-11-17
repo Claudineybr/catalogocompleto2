@@ -488,55 +488,127 @@
       "status": 429,
       "detalhe": "HTTP 429",
       "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T04:29:30+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2026/03/inix-song-sung-blue-um-sonho-dois-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T04:34:18+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/06/inix-mountainhead-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T04:36:16+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/06/inix-quebrando-regras-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T04:37:36+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/05/inix-zoe-minha-amiga-morta-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T04:39:27+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/05/inix-conduzido-para-matar-2009.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T04:40:55+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-nao-se-preocupe-querida-2022.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T04:42:46+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-jogo-de-sacrificio-2023.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T04:44:13+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/inix-pearl-harbor-2001.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T04:47:56+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/inix-mudanca-de-habito-2-de-volta-ao.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 84,
+      "requisicoes": 80,
       "ok": 71,
-      "429": 12,
+      "429": 9,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 12,
+      "falhas_definitivas": 9,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 12,
-      "proxy_hit": 12,
+      "proxy_fallback": 9,
+      "proxy_hit": 9,
       "pausas_evitadas": 0,
       "http_realizados": 0,
       "playwright_skip": 40,
-      "proxmint_listas": 24,
+      "proxmint_listas": 18,
       "link_em_a_href": 1,
       "link_convertido_w2embed": 0,
       "multifilme_paginas": 0,
       "multifilme_arquivos": 0,
-      "proxy_validados": 197,
+      "proxy_validados": 150,
       "robo": "filmes",
-      "quando": "2026-11-17T03:27:07+00:00",
-      "duracao_min": 31.5
+      "quando": "2026-11-17T04:49:06+00:00",
+      "duracao_min": 29.0
     },
     "acumulado": {
-      "requisicoes": 442,
-      "ok": 375,
-      "429": 61,
+      "requisicoes": 522,
+      "ok": 446,
+      "429": 70,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 61,
+      "falhas_definitivas": 70,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 61,
-      "proxy_hit": 61,
+      "proxy_fallback": 70,
+      "proxy_hit": 70,
       "pausas_evitadas": 4224,
       "http_realizados": 60,
-      "playwright_skip": 201,
-      "proxmint_listas": 121,
-      "link_em_a_href": 23,
+      "playwright_skip": 241,
+      "proxmint_listas": 139,
+      "link_em_a_href": 24,
       "link_convertido_w2embed": 127,
       "multifilme_paginas": 15,
       "multifilme_arquivos": 0,
-      "proxy_validados": 919
+      "proxy_validados": 1069
     }
   }
 }
