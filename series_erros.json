@@ -2130,55 +2130,210 @@
       "tipo": "rate_limit",
       "url": "https://www.vini7xgrave.site/2025/11/inix-mushuku-tensei-2021.html",
       "seguidos": 5
+    },
+    {
+      "quando": "2026-11-17T22:41:59+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/10/inix-into-badlands-2015_0835136260.html",
+      "href": "https://viniraveon.blogspot.com/2026/10/inix-into-badlands-2015-tp1e01_0716321220.html",
+      "temp_href": 1,
+      "temp_atual": 2,
+      "ep": 1
+    },
+    {
+      "quando": "2026-11-17T22:41:59+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/10/inix-into-badlands-2015_0835136260.html",
+      "href": "https://viniraveon.blogspot.com/2026/10/inix-into-badlands-2015-tp1e02_01761615356.html",
+      "temp_href": 1,
+      "temp_atual": 2,
+      "ep": 2
+    },
+    {
+      "quando": "2026-11-17T22:41:59+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/10/inix-into-badlands-2015_0835136260.html",
+      "href": "https://viniraveon.blogspot.com/2026/10/inix-into-badlands-2015-tp1e03_0371522796.html",
+      "temp_href": 1,
+      "temp_atual": 2,
+      "ep": 3
+    },
+    {
+      "quando": "2026-11-17T22:41:59+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/10/inix-into-badlands-2015_0835136260.html",
+      "href": "https://viniraveon.blogspot.com/2026/10/inix-into-badlands-2015-tp1e04_0738853011.html",
+      "temp_href": 1,
+      "temp_atual": 2,
+      "ep": 4
+    },
+    {
+      "quando": "2026-11-17T22:41:59+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/10/inix-into-badlands-2015_0835136260.html",
+      "href": "https://viniraveon.blogspot.com/2026/10/inix-into-badlands-2015-tp1e05_01066649620.html",
+      "temp_href": 1,
+      "temp_atual": 2,
+      "ep": 5
+    },
+    {
+      "quando": "2026-11-17T22:41:59+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/10/inix-into-badlands-2015_0835136260.html",
+      "href": "https://viniraveon.blogspot.com/2026/10/inix-into-badlands-2015-tp1e06_01547804610.html",
+      "temp_href": 1,
+      "temp_atual": 2,
+      "ep": 6
+    },
+    {
+      "quando": "2026-11-17T22:41:59+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/10/inix-into-badlands-2015_0835136260.html",
+      "href": "https://viniraveon.blogspot.com/2026/10/inix-into-badlands-2015-tp1e07.html",
+      "temp_href": 1,
+      "temp_atual": 2,
+      "ep": 7
+    },
+    {
+      "quando": "2026-11-17T22:41:59+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/10/inix-into-badlands-2015_0835136260.html",
+      "href": "https://viniraveon.blogspot.com/2026/10/inix-into-badlands-2015-tp1e08.html",
+      "temp_href": 1,
+      "temp_atual": 2,
+      "ep": 8
+    },
+    {
+      "quando": "2026-11-17T22:41:59+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/10/inix-into-badlands-2015_0835136260.html",
+      "href": "https://viniraveon.blogspot.com/2026/10/inix-into-badlands-2015-tp1e09.html",
+      "temp_href": 1,
+      "temp_atual": 2,
+      "ep": 9
+    },
+    {
+      "quando": "2026-11-17T22:41:59+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2026/10/inix-into-badlands-2015_0835136260.html",
+      "href": "https://viniraveon.blogspot.com/2026/10/inix-into-badlands-2015-tp1e10.html",
+      "temp_href": 1,
+      "temp_atual": 2,
+      "ep": 10
+    },
+    {
+      "quando": "2026-11-17T22:41:59+00:00",
+      "tipo": "href_vs_texto",
+      "url": "https://www.vini7xgrave.site/2026/10/inix-into-badlands-2015_0835136260.html",
+      "href": "https://viniraveon.blogspot.com/2026/10/inix-into-badlands-2015-tp3e03.html",
+      "numero_href": 3,
+      "numero_texto": 2,
+      "texto": "Episódio 2 – Chapter XVIII: Moon Rises, Raven Seeks (A Lua Sobe, o Corvo Procura"
+    },
+    {
+      "quando": "2026-11-17T22:43:08+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2026/07/inix-elize-sombras-de-uma-mulher-2026.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T22:45:38+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2026/06/inix-alem-do-ceu-2020.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T22:48:15+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2026/06/inix-violet-evergarden-gaiden.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T22:49:14+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2026/06/inix-violet-evergarden-memorias-2021.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T22:50:32+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2026/06/inix-ni-no-kuni-2019.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T22:51:32+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2026/06/inix-bubble-2022.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T22:52:47+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2026/05/inix-scarlet-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 131,
-      "ok": 31,
-      "429": 5,
+      "requisicoes": 47,
+      "ok": 39,
+      "429": 7,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 5,
+      "falhas_definitivas": 7,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 5,
-      "proxy_hit": 0,
-      "proxmint_listas": 20,
+      "proxy_fallback": 7,
+      "proxy_hit": 7,
+      "proxmint_listas": 13,
       "link_em_a_href": 0,
       "link_convertido_w2embed": 0,
-      "skip_perfeito": 248,
+      "skip_perfeito": 218,
       "feed_hit": 0,
-      "http_necessario": 5,
+      "http_necessario": 0,
       "playwright_skip": 0,
-      "episodios_tp_encontrados": 266,
-      "proxy_validados": 138,
+      "episodios_tp_encontrados": 206,
+      "proxy_validados": 103,
       "robo": "series",
-      "quando": "2026-11-17T18:44:53+00:00",
-      "duracao_min": 66.6
+      "quando": "2026-11-17T22:54:05+00:00",
+      "duracao_min": 21.2
     },
     "acumulado": {
-      "requisicoes": 572,
-      "ok": 220,
-      "429": 40,
+      "requisicoes": 619,
+      "ok": 259,
+      "429": 47,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 40,
+      "falhas_definitivas": 47,
       "html_invalido": 0,
       "serie_inconsistente": 3,
       "conflitos": 4,
-      "proxy_fallback": 40,
-      "proxy_hit": 24,
-      "proxmint_listas": 112,
+      "proxy_fallback": 47,
+      "proxy_hit": 31,
+      "proxmint_listas": 125,
       "link_em_a_href": 0,
       "link_convertido_w2embed": 0,
-      "skip_perfeito": 2982,
+      "skip_perfeito": 3200,
       "feed_hit": 0,
       "http_necessario": 36,
       "playwright_skip": 16,
-      "episodios_tp_encontrados": 3153,
-      "proxy_validados": 694
+      "episodios_tp_encontrados": 3359,
+      "proxy_validados": 797
     }
   }
 }
