@@ -566,3 +566,5 @@ https://www.vini7xgrave.site/2025/03/inix-bridgerton.html | link dizia T1E9, mas
 https://www.vini7xgrave.site/2025/03/inix-bridgerton.html | série inconsistente (bridgerton): T1: faltam episódios [9]; T2: faltam episódios [1, 2, 3, 4]; temporadas [4] existem em disco mas não foram achadas na página
 https://www.vini7xgrave.site/2025/03/inix-drake-e-josh.html | link dizia T1E7, mas estávamos na T2 (usei T2) - link: https://viniseriesonline.blogspot.com/2025/03/inix-tp1e07_25.html
 https://www.vini7xgrave.site/2025/03/inix-drake-e-josh.html | série inconsistente (drake_e_josh): T2E6 aparece 2x com URLs diferentes; T2E7 aparece 2x com URLs diferentes; T2: faltam episódios [1]
+https://www.vini7xgrave.site/2025/03/inix-o-que-ha-de-novo-scooby-doo.html | link dizia T1E14, mas estávamos na T2 (usei T2) - link: https://viniseriesonline.blogspot.com/2025/03/inix-tp1e14_61.html
+https://www.vini7xgrave.site/2025/03/inix-o-que-ha-de-novo-scooby-doo.html | série inconsistente (o_que_ha_de_novo_scooby_doo): T1E10 aparece 2x com URLs diferentes; T2E14 aparece 2x com URLs diferentes; T1: faltam episódios [9, 15]; T2: faltam episódios [1, 2, 3, 4, 5, 6]
