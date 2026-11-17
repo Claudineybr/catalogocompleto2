@@ -1136,7 +1136,8 @@ jobs:
                   d = checar_defeitos(existente)
                   # Filmes: só renomeia se o nome atual estiver FORA do padrão (gênero, 'legendado'...).
                   # Se vários posts usam o mesmo vídeo, o arquivo NÃO fica trocando de nome a cada run.
-                  renomear = not nome_ok(existente.name, stem) and (ep or nome_fora_do_padrao(existente.name))
+                  # Renomear arquivo existente: SÓ no modo "apenas_consertar". Nos outros modos o nome do arquivo nunca é mexido.
+                  renomear = (modo == "apenas_consertar") and not nome_ok(existente.name, stem) and (ep or nome_fora_do_padrao(existente.name))
                   log(f"{ind}(Arquivo existente: {existente.name})")
                   if modo == "apenas_baixar":
                       log(f"{ind}Modo Apenas Baixar: ignorando conserto.")
@@ -1354,9 +1355,18 @@ jobs:
               return (int(m.group(1)), int(m.group(2))) if m else (None, None)
 
 
+          _RX_POST_EP = re.compile(r"(?:.+?[\s\-–—]+)?T[Pp]?\s*\d{1,2}\s*[|:/\-x ]\s*E[Pp]?\s*\d{1,3}", re.I)
+
+
+          def eh_post_de_episodio(titulo):
+              """True para posts de UM episódio ('TP7|E13', 'Elite TP3|E06'): não são páginas de série."""
+              return bool(_RX_POST_EP.fullmatch(unicodedata.normalize("NFKC", titulo or "").strip()))
+
+
           def extrair_episodios(soup, temp_inicial=1, url=""):
               temporada, eps, vistos = temp_inicial, [], set()
               ultimo_ep = 0
+              offset_por_temp = {}      # temporada -> quanto o TEXTO dos links soma (numeração contínua: T2 começa em "Episódio 26")
 
               for tag in soup.find_all(True):
                   if tag.name in ("script", "style", "head", "title", "meta", "link"):
@@ -1409,23 +1419,38 @@ jobs:
                       num_texto = int(m_texto_num.group(1))
 
                   t_feed, n_feed = feed_te(href_abs)
-                  if t_feed is not None and (t_feed != temp_ep or n_feed != num_href):
-                      if temp_ep is not None or num_href is not None:
+                  if t_feed is not None:
+                      # O título do post no feed é a fonte mais confiável: tem prioridade sobre endereço E sobre o texto do link.
+                      if (t_feed != temp_ep or n_feed != num_href) and (temp_ep is not None or num_href is not None):
                           log(f"    [⚠️] link dizia T{temp_ep}E{num_href}, mas o título do post diz T{t_feed}E{n_feed}: usando o título ({href_abs})")
                           evento("href_vs_titulo", url, href=href_abs, temp_href=temp_ep, ep_href=num_href, temp_titulo=t_feed, ep_titulo=n_feed)
                           registrar_revisao(url, f"link dizia T{temp_ep}E{num_href}, mas o título do post diz T{t_feed}E{n_feed} (usei o título) - link: {href_abs}")
-                      temp_ep, num_href = t_feed, n_feed
-                      if num_texto is not None and num_texto != n_feed:
-                          num_texto = n_feed
+                      temp_ep, num_href, num_texto = t_feed, n_feed, None
 
-                  if num_href is not None and num_texto is not None and num_href != num_texto:
-                      # O admin erra o endereço, mas o texto do link está certo: o TEXTO vence.
-                      log(f"    [⚠️] URL dizia {num_href}, mas texto dizia {num_texto}: usando {num_texto} ({href_abs})")
-                      evento("href_vs_texto", url, href=href_abs, numero_href=num_href, numero_texto=num_texto, texto=texto[:80])
-                      registrar_revisao(url, f"URL dizia {num_href}, mas texto dizia {num_texto} (usei {num_texto}) - link: {href_abs}")
-                      num = num_texto
+                  # Em algumas séries o TEXTO do link usa numeração contínua entre temporadas (T2 começa em "Episódio 26") e só o
+                  # endereço (tp2e01) traz temporada/episódio certos. No início de cada temporada o endereço diz "e01" enquanto o texto
+                  # diz outro número: a diferença vira um deslocamento, usado nos links seguintes daquela temporada.
+                  inicio_temp = num_href == 1 and (ultimo_ep == 0 or (temp_ep is not None and temp_ep != temporada))
+                  temp_alvo = temp_ep if (inicio_temp and temp_ep) else temporada
+                  if inicio_temp and num_texto is not None and num_texto > 1:
+                      offset_por_temp[temp_alvo] = num_texto - 1
+                      log(f"    (Texto em numeração contínua: T{temp_alvo} começa em 'Episódio {num_texto}'; usando a numeração da temporada.)")
+                      registrar_revisao(url, f"texto dos links usa numeração contínua (T{temp_alvo} começa em {num_texto}); usei a numeração da temporada")
+                  off = offset_por_temp.get(temp_alvo, 0)
+                  num_texto_rel = num_texto - off if (num_texto is not None and off and num_texto > off) else num_texto
+
+                  if num_href is not None and num_texto_rel is not None and num_href != num_texto_rel:
+                      # Endereço e texto discordam: vale o que CONTINUA a sequência da temporada (ultimo_ep + 1).
+                      if num_href == ultimo_ep + 1 and num_texto_rel != ultimo_ep + 1:
+                          num = num_href
+                      else:
+                          # (inclui o caso clássico: URL com número errado, texto certo)
+                          log(f"    [⚠️] URL dizia {num_href}, mas texto dizia {num_texto_rel}: usando {num_texto_rel} ({href_abs})")
+                          evento("href_vs_texto", url, href=href_abs, numero_href=num_href, numero_texto=num_texto_rel, texto=texto[:80])
+                          registrar_revisao(url, f"URL dizia {num_href}, mas texto dizia {num_texto_rel} (usei {num_texto_rel}) - link: {href_abs}")
+                          num = num_texto_rel
                   else:
-                      num = num_href if num_href is not None else num_texto
+                      num = num_href if num_href is not None else num_texto_rel
 
                   # CORRIGIDO: só aceita o "salto" de temporada sugerido pelo link quando:
                   #   - é um salto para FRENTE (temp_ep > temporada), e
@@ -1544,6 +1569,9 @@ jobs:
               soup = None
               eps = None
               ent = FEED_POSTS.get(url_serie)
+              if ent and eh_post_de_episodio(ent.get("titulo", "")):
+                  log(f"    (Post de UM episódio '{ent.get('titulo', '')}', não é uma série: pulando. A série dona dele cobre este episódio.)")
+                  return "ok"
               if ent:
                   if ent.get("tipo") == "filme":
                       log("    (Feed classificou como filme; pulando sem HTTP)")
@@ -1579,6 +1607,9 @@ jobs:
                       return "filme"
 
               titulo, _ = escolher_titulo(soup, url_serie, serie=True)
+              if eh_post_de_episodio(titulo):
+                  log(f"    (Post de UM episódio '{titulo}', não é uma série: pulando.)")
+                  return "ok"
               brutos = candidatos_titulo(soup)
               capa = escolher_capa(soup, texto)
               slug = fazer_slug(titulo, url_serie)
