@@ -1,125 +1,5 @@
 [
   {
-    "arquivo": "percy_jackson_e_os_olimpianos_t02ep06.html",
-    "stem": "percy_jackson_e_os_olimpianos_t02ep06",
-    "nome_json": "Percy Jackson e os Olimpianos - T2E6 – Capítulo Seis - 🍿Clau",
-    "url": "https://marcosx7.blogspot.com/2026/01/inix-percy-jackson-e-os-olimpianos_9.html",
-    "capa": "https://image.tmdb.org/t/p/original/5PPjIlgY17DNBqTDnCzZs2p6jM0.jpg",
-    "tentativas": 5
-  },
-  {
-    "arquivo": "os_abandonados_t01ep07.html",
-    "stem": "os_abandonados_t01ep07",
-    "nome_json": "Os Abandonados - T1E7 – Episódio 7 - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/12/inix-os-abandonados-tp1e07.html",
-    "capa": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZVaaSUdAD-j2tRtjtLHW6tEPeLQuPXPNZ_dnKuKq8hUGaZdDaW_tObD0aUVQ36DYzb90_-GeLRN1aNcsf3DuPtycHUiDlbKnxUwneiCzyn9kwF8gxThKM4AFyd73IW0cXcmEghwbHs5CcE_e06TYUdRYyfnC8IZhAWwbIqrz4yvoZf-tnC_SgIfLLXLo/s400/yExbpOGgyhyAa3SVvO7hMfRJget.jpg",
-    "tentativas": 5
-  },
-  {
-    "arquivo": "marvel_punho_de_ferro_t02ep01.html",
-    "stem": "marvel_punho_de_ferro_t02ep01",
-    "nome_json": "Marvel - Punho de Ferro - T2E1 – A Fúria do Punho de Ferro - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e01.html",
-    "capa": "https://image.tmdb.org/t/p/original/qRs4CY1ujtheAilVlwHEPZzNQqk.jpg",
-    "tentativas": 5
-  },
-  {
-    "arquivo": "marvel_punho_de_ferro_t02ep02.html",
-    "stem": "marvel_punho_de_ferro_t02ep02",
-    "nome_json": "Marvel - Punho de Ferro - T2E2 – A Cidade não é para Queimar - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e02.html",
-    "capa": "https://image.tmdb.org/t/p/original/qRs4CY1ujtheAilVlwHEPZzNQqk.jpg",
-    "tentativas": 5
-  },
-  {
-    "arquivo": "marvel_punho_de_ferro_t02ep03.html",
-    "stem": "marvel_punho_de_ferro_t02ep03",
-    "nome_json": "Marvel - Punho de Ferro - T2E3 – Este Segredo Mortal - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e03.html",
-    "capa": "https://image.tmdb.org/t/p/original/qRs4CY1ujtheAilVlwHEPZzNQqk.jpg",
-    "tentativas": 5
-  },
-  {
-    "arquivo": "marvel_punho_de_ferro_t02ep04.html",
-    "stem": "marvel_punho_de_ferro_t02ep04",
-    "nome_json": "Marvel - Punho de Ferro - T2E4 – Alvo: Punho de Ferro - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e04.html",
-    "capa": "https://image.tmdb.org/t/p/original/qRs4CY1ujtheAilVlwHEPZzNQqk.jpg",
-    "tentativas": 5
-  },
-  {
-    "arquivo": "marvel_punho_de_ferro_t02ep05.html",
-    "stem": "marvel_punho_de_ferro_t02ep05",
-    "nome_json": "Marvel - Punho de Ferro - T2E5 – Coração do Dragão - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e05.html",
-    "capa": "https://image.tmdb.org/t/p/original/qRs4CY1ujtheAilVlwHEPZzNQqk.jpg",
-    "tentativas": 5
-  },
-  {
-    "arquivo": "marvel_punho_de_ferro_t02ep06.html",
-    "stem": "marvel_punho_de_ferro_t02ep06",
-    "nome_json": "Marvel - Punho de Ferro - T2E6 – O Dragão Morre ao Amanhecer - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e06.html",
-    "capa": "https://image.tmdb.org/t/p/original/qRs4CY1ujtheAilVlwHEPZzNQqk.jpg",
-    "tentativas": 5
-  },
-  {
-    "arquivo": "marvel_punho_de_ferro_t02ep07.html",
-    "stem": "marvel_punho_de_ferro_t02ep07",
-    "nome_json": "Marvel - Punho de Ferro - T2E7 – Manhã da Mente - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e07.html",
-    "capa": "https://image.tmdb.org/t/p/original/qRs4CY1ujtheAilVlwHEPZzNQqk.jpg",
-    "tentativas": 5
-  },
-  {
-    "arquivo": "marvel_punho_de_ferro_t02ep08.html",
-    "stem": "marvel_punho_de_ferro_t02ep08",
-    "nome_json": "Marvel - Punho de Ferro - T2E8 – Cidade à Beira da Vingança - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e08.html",
-    "capa": "https://image.tmdb.org/t/p/original/qRs4CY1ujtheAilVlwHEPZzNQqk.jpg",
-    "tentativas": 5
-  },
-  {
-    "arquivo": "marvel_punho_de_ferro_t02ep09.html",
-    "stem": "marvel_punho_de_ferro_t02ep09",
-    "nome_json": "Marvel - Punho de Ferro - T2E9 – Guerra sem Fim - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e09.html",
-    "capa": "https://image.tmdb.org/t/p/original/qRs4CY1ujtheAilVlwHEPZzNQqk.jpg",
-    "tentativas": 5
-  },
-  {
-    "arquivo": "marvel_punho_de_ferro_t02ep10.html",
-    "stem": "marvel_punho_de_ferro_t02ep10",
-    "nome_json": "Marvel - Punho de Ferro - T2E10 – Um Duelo de Ferro - 🍿Clau",
-    "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e10.html",
-    "capa": "https://image.tmdb.org/t/p/original/qRs4CY1ujtheAilVlwHEPZzNQqk.jpg",
-    "tentativas": 5
-  },
-  {
-    "arquivo": "mushuku_tensei_t02ep05.html",
-    "stem": "mushuku_tensei_t02ep05",
-    "nome_json": "Mushuku Tensei - T2E5 – Episódio 5 - 🍿Clau",
-    "url": "https://marcosx7.blogspot.com/2025/11/inix-mushoku-tensei-tp02ep05_2.html",
-    "capa": "https://image.tmdb.org/t/p/original/81j82xSVO8jXHsHVByQLYm2XZ3s.jpg",
-    "tentativas": 5
-  },
-  {
-    "arquivo": "o_ato_t01ep07.html",
-    "stem": "o_ato_t01ep07",
-    "nome_json": "O Ato - T1E7 – Episódio 7 - 🍿Clau",
-    "url": "https://marcosx7.blogspot.com/2025/10/arc-act-tp01ep07.html",
-    "capa": "https://image.tmdb.org/t/p/original/yA7bMpjtNuFDsZIsjgs98u5ijM1.jpg",
-    "tentativas": 5
-  },
-  {
-    "arquivo": "9_1_1_t01ep09.html",
-    "stem": "9_1_1_t01ep09",
-    "nome_json": "9-1-1 - T1E9 – Sem Saída - 🍿Clau",
-    "url": "https://viniseries3.blogspot.com/2025/10/inix-911-tp1e09.html",
-    "capa": "https://image.tmdb.org/t/p/original/i3qYGx6uVZNV1r7qCNkDUgFrJUz.jpg",
-    "tentativas": 5
-  },
-  {
     "arquivo": "bom_dia_veronica_t01ep07.html",
     "stem": "bom_dia_veronica_t01ep07",
     "nome_json": "Bom Dia Verônica. - T1E7 – Episódio 7 - 🍿Clau",
@@ -733,6 +613,30 @@
     "nome_json": "American Horror Story - T4E1 – Monstros Entre Nós - 🍿Clau",
     "url": "https://viniraveon.blogspot.com/2025/09/inix-american-horror-story-tp4e01.html",
     "capa": "https://image.tmdb.org/t/p/original/nQLa2hrEoG3HMXTuteLQ9LmQBnb.jpg",
+    "tentativas": 1
+  },
+  {
+    "arquivo": "naruto_shippuden_t17ep02.html",
+    "stem": "naruto_shippuden_t17ep02",
+    "nome_json": "Naruto Shippuden - T17E2 – O Clã Yamanaka: Ninjutsu Secreto - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/09/inix-naruto-shippuden-tp172.html",
+    "capa": "https://image.tmdb.org/t/p/original/v1ncLO2S1i2ryr1LzGCiTnN0597.jpg",
+    "tentativas": 1
+  },
+  {
+    "arquivo": "naruto_shippuden_t18ep13.html",
+    "stem": "naruto_shippuden_t18ep13",
+    "nome_json": "Naruto Shippuden - T18E13 – Título a determinar - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/09/inix-naruto-shippuden-tp18e13.html",
+    "capa": "https://image.tmdb.org/t/p/original/v1ncLO2S1i2ryr1LzGCiTnN0597.jpg",
+    "tentativas": 1
+  },
+  {
+    "arquivo": "naruto_shippuden_t18ep14.html",
+    "stem": "naruto_shippuden_t18ep14",
+    "nome_json": "Naruto Shippuden - T18E14 – Título a determinar - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/09/inix-naruto-shippuden-tp18e14.html",
+    "capa": "https://image.tmdb.org/t/p/original/v1ncLO2S1i2ryr1LzGCiTnN0597.jpg",
     "tentativas": 1
   }
 ]
