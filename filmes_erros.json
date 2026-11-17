@@ -1026,55 +1026,95 @@
       "status": 429,
       "detalhe": "HTTP 429",
       "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T22:16:45+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-jogo-de-sacrificio-2023.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T22:18:05+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/05/inix-contra-o-tempo-2012.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T22:20:05+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-nao-se-preocupe-querida-2022.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T22:21:05+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-stitches-o-retorno-do-palhaco.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T22:22:05+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/04/arc-halloween-2-1981.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
     }
   ],
   "metricas": {
     "ultima_run": {
       "requisicoes": 43,
-      "ok": 38,
-      "429": 3,
+      "ok": 36,
+      "429": 5,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 3,
+      "falhas_definitivas": 5,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 3,
-      "proxy_hit": 3,
-      "pausas_evitadas": 96,
-      "http_realizados": 3,
-      "playwright_skip": 6,
-      "proxmint_listas": 6,
+      "proxy_fallback": 5,
+      "proxy_hit": 5,
+      "pausas_evitadas": 98,
+      "http_realizados": 1,
+      "playwright_skip": 5,
+      "proxmint_listas": 8,
       "link_em_a_href": 0,
       "link_convertido_w2embed": 0,
       "multifilme_paginas": 0,
       "multifilme_arquivos": 0,
-      "proxy_validados": 53,
+      "proxy_validados": 48,
       "robo": "filmes",
-      "quando": "2026-11-17T22:07:44+00:00",
-      "duracao_min": 13.3
+      "quando": "2026-11-17T22:22:35+00:00",
+      "duracao_min": 13.6
     },
     "acumulado": {
-      "requisicoes": 1450,
-      "ok": 1297,
-      "429": 127,
+      "requisicoes": 1493,
+      "ok": 1333,
+      "429": 132,
       "5xx": 1,
       "retries": 0,
-      "falhas_definitivas": 128,
+      "falhas_definitivas": 133,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 127,
-      "proxy_hit": 127,
-      "pausas_evitadas": 7459,
-      "http_realizados": 94,
-      "playwright_skip": 187,
-      "proxmint_listas": 252,
+      "proxy_fallback": 132,
+      "proxy_hit": 132,
+      "pausas_evitadas": 7557,
+      "http_realizados": 95,
+      "playwright_skip": 192,
+      "proxmint_listas": 260,
       "link_em_a_href": 36,
       "link_convertido_w2embed": 127,
       "multifilme_paginas": 19,
       "multifilme_arquivos": 0,
-      "proxy_validados": 2023
+      "proxy_validados": 2071
     }
   }
 }
