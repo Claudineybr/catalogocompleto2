@@ -490,11 +490,35 @@
       "status": 429,
       "detalhe": "HTTP 429",
       "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T19:31:45+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-marcas-do-passado-2022.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T19:33:52+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-o-protetor-2-2013.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-17T19:34:52+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/09/inix-doente-de-amor-2025.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 39,
+      "requisicoes": 40,
       "ok": 36,
       "429": 3,
       "5xx": 0,
@@ -509,36 +533,36 @@
       "http_realizados": 0,
       "playwright_skip": 5,
       "proxmint_listas": 6,
-      "link_em_a_href": 2,
+      "link_em_a_href": 1,
       "link_convertido_w2embed": 0,
       "multifilme_paginas": 0,
       "multifilme_arquivos": 0,
-      "proxy_validados": 44,
+      "proxy_validados": 40,
       "robo": "filmes",
-      "quando": "2026-11-17T19:22:25+00:00",
-      "duracao_min": 11.6
+      "quando": "2026-11-17T19:35:52+00:00",
+      "duracao_min": 12.1
     },
     "acumulado": {
-      "requisicoes": 999,
-      "ok": 923,
-      "429": 60,
+      "requisicoes": 1039,
+      "ok": 959,
+      "429": 63,
       "5xx": 1,
       "retries": 0,
-      "falhas_definitivas": 61,
+      "falhas_definitivas": 64,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 60,
-      "proxy_hit": 60,
-      "pausas_evitadas": 6588,
+      "proxy_fallback": 63,
+      "proxy_hit": 63,
+      "pausas_evitadas": 6687,
       "http_realizados": 74,
-      "playwright_skip": 97,
-      "proxmint_listas": 132,
-      "link_em_a_href": 32,
+      "playwright_skip": 102,
+      "proxmint_listas": 138,
+      "link_em_a_href": 33,
       "link_convertido_w2embed": 127,
       "multifilme_paginas": 16,
       "multifilme_arquivos": 0,
-      "proxy_validados": 1113
+      "proxy_validados": 1153
     }
   }
 }
