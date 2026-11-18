@@ -3745,55 +3745,264 @@
       "tipo": "rate_limit",
       "url": "https://viniraveon.blogspot.com/2026/04/inix-big-bang-teoria-tp5e01.html",
       "retentativa": true
+    },
+    {
+      "quando": "2026-11-18T02:02:51+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2025/11/inix-mushoku-tensei-tp02ep05_2.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-18T02:10:51+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2025/11/inix-mushoku-tensei-tp02ep05_2.html",
+      "serie": "https://www.vini7xgrave.site/2025/11/inix-mushuku-tensei-2021.html"
+    },
+    {
+      "quando": "2026-11-18T02:10:51+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2025/11/inix-mushuku-tensei-2021.html",
+      "seguidos": 1
+    },
+    {
+      "quando": "2026-11-18T02:13:27+00:00",
+      "tipo": "href_vs_texto",
+      "url": "https://www.vini7xgrave.site/2025/09/american-horror-story-sinopse-uma.html",
+      "href": "https://viniraveon.blogspot.com/2025/09/inix-american-horror-story-tp5e0.html",
+      "numero_href": 0,
+      "numero_texto": 2,
+      "texto": "Episódio 2 - Calhas e Escadas"
+    },
+    {
+      "quando": "2026-11-18T02:13:27+00:00",
+      "tipo": "href_vs_texto",
+      "url": "https://www.vini7xgrave.site/2025/09/american-horror-story-sinopse-uma.html",
+      "href": "https://viniraveon.blogspot.com/2025/09/inix-american-horror-story-tp5e13.html",
+      "numero_href": 13,
+      "numero_texto": 1,
+      "texto": "Episódio 1 - Capítulo 1"
+    },
+    {
+      "quando": "2026-11-18T02:13:27+00:00",
+      "tipo": "href_temporada_anterior",
+      "url": "https://www.vini7xgrave.site/2025/09/american-horror-story-sinopse-uma.html",
+      "href": "https://viniraveon.blogspot.com/2025/09/inix-american-horror-story-tp5e13.html",
+      "temp_href": 5,
+      "temp_atual": 6,
+      "ep": 1
+    },
+    {
+      "quando": "2026-11-18T02:13:27+00:00",
+      "tipo": "href_vs_texto",
+      "url": "https://www.vini7xgrave.site/2025/09/american-horror-story-sinopse-uma.html",
+      "href": "https://viniraveon.blogspot.com/2025/09/inix-american-horror-story-tp6e01.html",
+      "numero_href": 1,
+      "numero_texto": 2,
+      "texto": "Episódio 2 - Capítulo 2"
+    },
+    {
+      "quando": "2026-11-18T02:13:27+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2025/09/inix-american-horror-story-tp2e09.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-18T02:14:27+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2025/09/inix-american-horror-story-tp3e01.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-18T02:25:20+00:00",
+      "tipo": "rate_limit",
+      "url": "https://viniraveon.blogspot.com/2025/09/inix-american-horror-story-tp3e01.html",
+      "serie": "https://www.vini7xgrave.site/2025/09/american-horror-story-sinopse-uma.html"
+    },
+    {
+      "quando": "2026-11-18T02:25:20+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2025/09/american-horror-story-sinopse-uma.html",
+      "seguidos": 1
+    },
+    {
+      "quando": "2026-11-18T02:28:09+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2025/10/arc-walking-dead-daryl-tp03ep07_26.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-18T02:38:33+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2025/10/arc-walking-dead-daryl-tp03ep07_26.html",
+      "serie": "https://www.vini7xgrave.site/2025/10/arc-walking-deaddaryl-dixon.html"
+    },
+    {
+      "quando": "2026-11-18T02:38:33+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2025/10/arc-walking-deaddaryl-dixon.html",
+      "seguidos": 1
+    },
+    {
+      "quando": "2026-11-18T02:40:27+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2025/10/inix-bom-dia-veronica-tp01ep07.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-18T02:50:52+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2025/10/inix-bom-dia-veronica-tp01ep07.html",
+      "serie": "https://www.vini7xgrave.site/2025/10/inix.html"
+    },
+    {
+      "quando": "2026-11-18T02:50:52+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2025/10/inix.html",
+      "seguidos": 1
+    },
+    {
+      "quando": "2026-11-18T02:52:16+00:00",
+      "tipo": "href_vs_texto",
+      "url": "https://www.vini7xgrave.site/2025/03/inix-o-dia-do-chacal-2024.html",
+      "href": "https://viniraveon.blogspot.com/2025/03/inix-tp1e08_30.html",
+      "numero_href": 8,
+      "numero_texto": 7,
+      "texto": "Episódio 7 - O Ataque"
+    },
+    {
+      "quando": "2026-11-18T02:53:51+00:00",
+      "tipo": "href_vs_texto",
+      "url": "https://www.vini7xgrave.site/2025/03/inix-solo-leveling.html",
+      "href": "https://vini7xgseries2.blogspot.com/2025/09/inix-solo-leveling-tp2e0.html",
+      "numero_href": 0,
+      "numero_texto": 1,
+      "texto": "Episódio 1 - Você não é um Rank E, né?"
+    },
+    {
+      "quando": "2026-11-18T02:54:13+00:00",
+      "tipo": "href_vs_texto",
+      "url": "https://www.vini7xgrave.site/2025/08/inix-dragon-ball-super-2015.html",
+      "href": "https://vini7xgseries2.blogspot.com/2025/08/inix-dragon-ball-super-tp1e05_31.html",
+      "numero_href": 5,
+      "numero_texto": 6,
+      "texto": "Episódio 6 - Não Irritem o Deus da Destruição! A Festa de Aniversário Empolgante"
+    },
+    {
+      "quando": "2026-11-18T02:55:04+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniseries3.blogspot.com/2025/10/inix-911-tp1e09.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-18T02:57:59+00:00",
+      "tipo": "href_vs_texto",
+      "url": "https://www.vini7xgrave.site/2025/10/inix-monstro-historia-de-ed-gein-2025.html",
+      "href": "https://viniraveon.blogspot.com/2025/10/inix-monstro-historia-de-ed-gein-tp1e0.html",
+      "numero_href": 0,
+      "numero_texto": 1,
+      "texto": "Episódio 1 - Mamãe!"
+    },
+    {
+      "quando": "2026-11-18T02:58:20+00:00",
+      "tipo": "href_vs_texto",
+      "url": "https://www.vini7xgrave.site/2025/10/inix-as-aventuras-de-tintim-1991.html",
+      "href": "https://viniraveon.blogspot.com/2025/10/inix-as-aventuras-de-tintim-tp2e0.html",
+      "numero_href": 0,
+      "numero_texto": 1,
+      "texto": "Episódio 1 – A Estrela Cadente"
+    },
+    {
+      "quando": "2026-11-18T02:58:20+00:00",
+      "tipo": "href_vs_texto",
+      "url": "https://www.vini7xgrave.site/2025/10/inix-as-aventuras-de-tintim-1991.html",
+      "href": "https://viniraveon.blogspot.com/2025/10/inix-as-aventuras-de-tintim-tp3e0.html",
+      "numero_href": 0,
+      "numero_texto": 1,
+      "texto": "Episódio 1 – Voo 714: Parte 1"
+    },
+    {
+      "quando": "2026-11-18T02:58:40+00:00",
+      "tipo": "href_vs_texto",
+      "url": "https://www.vini7xgrave.site/2025/10/inix-o-maskara-serie-animada-1995.html",
+      "href": "https://viniraveon.blogspot.com/2025/10/inix-o-maskara-serie-animada-tp1e0.html",
+      "numero_href": 0,
+      "numero_texto": 1,
+      "texto": "Episódio 1 - O Máscara Contra-Ataca (Parte 1)"
+    },
+    {
+      "quando": "2026-11-18T02:59:27+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2026/04/inix-big-bang-teoria-tp5e01.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-18T03:08:22+00:00",
+      "tipo": "rate_limit",
+      "url": "https://viniraveon.blogspot.com/2026/04/inix-big-bang-teoria-tp5e01.html",
+      "retentativa": true
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 151,
-      "ok": 47,
-      "429": 8,
+      "requisicoes": 148,
+      "ok": 41,
+      "429": 7,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 8,
+      "falhas_definitivas": 7,
       "html_invalido": 0,
-      "serie_inconsistente": 1,
+      "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 8,
-      "proxy_hit": 3,
-      "proxmint_listas": 26,
+      "proxy_fallback": 7,
+      "proxy_hit": 2,
+      "proxmint_listas": 22,
       "link_em_a_href": 0,
       "link_convertido_w2embed": 0,
-      "skip_perfeito": 365,
+      "skip_perfeito": 521,
       "feed_hit": 0,
-      "http_necessario": 17,
-      "playwright_skip": 12,
-      "episodios_tp_encontrados": 328,
-      "proxy_validados": 194,
+      "http_necessario": 14,
+      "playwright_skip": 9,
+      "episodios_tp_encontrados": 495,
+      "proxy_validados": 181,
       "robo": "series",
-      "quando": "2026-11-18T01:52:14+00:00",
-      "duracao_min": 71.9
+      "quando": "2026-11-18T03:08:22+00:00",
+      "duracao_min": 74.8
     },
     "acumulado": {
-      "requisicoes": 972,
-      "ok": 416,
-      "429": 65,
+      "requisicoes": 1120,
+      "ok": 457,
+      "429": 72,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 65,
+      "falhas_definitivas": 72,
       "html_invalido": 0,
       "serie_inconsistente": 6,
       "conflitos": 4,
-      "proxy_fallback": 65,
-      "proxy_hit": 40,
-      "proxmint_listas": 182,
+      "proxy_fallback": 72,
+      "proxy_hit": 42,
+      "proxmint_listas": 204,
       "link_em_a_href": 0,
       "link_convertido_w2embed": 0,
-      "skip_perfeito": 5439,
+      "skip_perfeito": 5960,
       "feed_hit": 0,
-      "http_necessario": 72,
-      "playwright_skip": 39,
-      "episodios_tp_encontrados": 5389,
-      "proxy_validados": 1283
+      "http_necessario": 86,
+      "playwright_skip": 48,
+      "episodios_tp_encontrados": 5884,
+      "proxy_validados": 1464
     }
   }
 }
