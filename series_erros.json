@@ -3499,55 +3499,132 @@
       "tipo": "rate_limit",
       "url": "https://viniraveon.blogspot.com/2026/04/inix-big-bang-teoria-tp5e01.html",
       "retentativa": true
+    },
+    {
+      "quando": "2026-11-18T00:04:27+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2026/02/inix-uma-familia-da-pesada-tp2e15.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-18T00:12:27+00:00",
+      "tipo": "rate_limit",
+      "url": "https://viniraveon.blogspot.com/2026/02/inix-uma-familia-da-pesada-tp2e15.html",
+      "serie": "https://www.vini7xgrave.site/2025/04/inix-uma-familia-da-pesada.html"
+    },
+    {
+      "quando": "2026-11-18T00:12:27+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-uma-familia-da-pesada.html",
+      "seguidos": 1
+    },
+    {
+      "quando": "2026-11-18T00:16:09+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2025/12/inix-percy-jackson-e-os-olimpianos_26.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-18T00:21:42+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2025/12/inix-greys-anatomy-tp2e25.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-18T00:24:22+00:00",
+      "tipo": "href_vs_texto",
+      "url": "https://www.vini7xgrave.site/2025/11/inix-robin-hood-2025.html",
+      "href": "https://viniraveon.blogspot.com/2025/12/inix-robin-hood-tp1e05.html",
+      "numero_href": 5,
+      "numero_texto": 6,
+      "texto": "Episódio 6 - Unidos Pelo Amor, Separados por Mentiras"
+    },
+    {
+      "quando": "2026-11-18T00:25:05+00:00",
+      "tipo": "href_vs_texto",
+      "url": "https://www.vini7xgrave.site/2025/10/inix-it-bem-vindos-derry-2025.html",
+      "href": "https://viniraveon.blogspot.com/2025/10/inix-it-bem-vindos-derry-tp1e01_31.html",
+      "numero_href": 1,
+      "numero_texto": 2,
+      "texto": "Episódio 2 - Bem-Vindos a Escuridão"
+    },
+    {
+      "quando": "2026-11-18T00:25:05+00:00",
+      "tipo": "href_vs_texto",
+      "url": "https://www.vini7xgrave.site/2025/10/inix-it-bem-vindos-derry-2025.html",
+      "href": "https://viniraveon.blogspot.com/2025/12/inix-it-bem-vindos-derry-tp1e07_14.html",
+      "numero_href": 7,
+      "numero_texto": 8,
+      "texto": "Episódio 8 -"
+    },
+    {
+      "quando": "2026-11-18T00:26:59+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp5e09.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-18T00:36:05+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp5e09.html",
+      "retentativa": true
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 82,
-      "ok": 36,
-      "429": 5,
+      "requisicoes": 85,
+      "ok": 40,
+      "429": 4,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 5,
+      "falhas_definitivas": 4,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 5,
-      "proxy_hit": 3,
-      "proxmint_listas": 14,
+      "proxy_fallback": 4,
+      "proxy_hit": 2,
+      "proxmint_listas": 13,
       "link_em_a_href": 0,
       "link_convertido_w2embed": 0,
-      "skip_perfeito": 779,
+      "skip_perfeito": 566,
       "feed_hit": 0,
-      "http_necessario": 7,
-      "playwright_skip": 3,
-      "episodios_tp_encontrados": 679,
-      "proxy_validados": 131,
+      "http_necessario": 11,
+      "playwright_skip": 7,
+      "episodios_tp_encontrados": 350,
+      "proxy_validados": 108,
       "robo": "series",
-      "quando": "2026-11-17T23:55:01+00:00",
-      "duracao_min": 41.2
+      "quando": "2026-11-18T00:36:05+00:00",
+      "duracao_min": 39.6
     },
     "acumulado": {
-      "requisicoes": 736,
-      "ok": 329,
-      "429": 53,
+      "requisicoes": 821,
+      "ok": 369,
+      "429": 57,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 53,
+      "falhas_definitivas": 57,
       "html_invalido": 0,
       "serie_inconsistente": 5,
       "conflitos": 4,
-      "proxy_fallback": 53,
-      "proxy_hit": 35,
-      "proxmint_listas": 143,
+      "proxy_fallback": 57,
+      "proxy_hit": 37,
+      "proxmint_listas": 156,
       "link_em_a_href": 0,
       "link_convertido_w2embed": 0,
-      "skip_perfeito": 4508,
+      "skip_perfeito": 5074,
       "feed_hit": 0,
-      "http_necessario": 44,
-      "playwright_skip": 20,
-      "episodios_tp_encontrados": 4711,
-      "proxy_validados": 981
+      "http_necessario": 55,
+      "playwright_skip": 27,
+      "episodios_tp_encontrados": 5061,
+      "proxy_validados": 1089
     }
   }
 }
