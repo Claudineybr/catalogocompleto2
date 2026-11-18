@@ -1368,6 +1368,19 @@ jobs:
               ultimo_ep = 0
               offset_por_temp = {}      # temporada -> quanto o TEXTO dos links soma (numeração contínua: T2 começa em "Episódio 26")
 
+              # TEMPORADA ÚNICA (ex.: Cavaleiros do Zodíaco, 114 episódios numa temporada só):
+              # se (quase) TODOS os links de episódio da página trazem a MESMA temporada no endereço
+              # (tp1e01..tp1e114), os cabeçalhos "Temporada 2/3/..." da página são apenas blocos
+              # visuais do post e NÃO valem como temporada de verdade. Vale o T do link/título do post.
+              temporada_fixa = None
+              _ts = [int(m.group(1)) for m in (_HREF_TE.search(a.get("href") or "") for a in soup.find_all("a", href=True)) if m]
+              if len(_ts) >= 5:
+                  _mais, _qtd = max(((t, _ts.count(t)) for t in set(_ts)), key=lambda x: x[1])
+                  if _qtd >= len(_ts) * 0.9:
+                      temporada_fixa = _mais
+                      temporada = _mais
+                      log(f"    (Temporada única: {_qtd}/{len(_ts)} links são da T{_mais}; cabeçalhos de temporada da página ignorados.)")
+
               for tag in soup.find_all(True):
                   if tag.name in ("script", "style", "head", "title", "meta", "link"):
                       continue
@@ -1381,7 +1394,7 @@ jobs:
                       texto_direto = "".join(t for t in tag.find_all(string=True, recursive=False) if type(t) is NavigableString).strip()
                       if texto_direto:
                           n = numero_temporada(texto_direto)
-                          if n is not None and n != temporada:
+                          if n is not None and n != temporada and temporada_fixa is None:
                               temporada, ultimo_ep = n, 0
                       continue
 
@@ -1400,7 +1413,12 @@ jobs:
                   m_texto_num = _TEXTO_NUM.match(texto)
                   tem_hint    = _EP_HINT.search(texto)
 
-                  if not (m_href_te or m_href_ep or m_texto_ep or m_texto_num or tem_hint):
+                  # O TÍTULO do post do feed (o que tem o link do vídeo, ex.: 'Cavaleiros Do Zodíaco TP1|E114')
+                  # é a fonte mais confiável: vale já como indicação de que este link é um episódio,
+                  # mesmo quando o texto/endereço não trazem "Episódio N" nem "tpNeNN".
+                  t_feed, n_feed = feed_te(href_abs)
+
+                  if not (t_feed is not None or m_href_te or m_href_ep or m_texto_ep or m_texto_num or tem_hint):
                       continue
 
                   vistos.add(href_abs)
@@ -1418,7 +1436,6 @@ jobs:
                   elif m_texto_num:
                       num_texto = int(m_texto_num.group(1))
 
-                  t_feed, n_feed = feed_te(href_abs)
                   if t_feed is not None:
                       # O título do post no feed é a fonte mais confiável: tem prioridade sobre endereço E sobre o texto do link.
                       if (t_feed != temp_ep or n_feed != num_href) and (temp_ep is not None or num_href is not None):
@@ -1458,9 +1475,22 @@ jobs:
                   # Quando o link diz uma temporada ATRÁS da atual (ex.: tp1e01 numa página em T2,
                   # porque o admin errou o prefixo ao listar a 2ª temporada), MANTÉM a temporada
                   # da página — antes o robô revertia e gerava T1E1..T1E6 duplicados.
-                  if temp_ep and temp_ep != temporada:
+                  if temp_ep and t_feed is not None:
+                      # O TÍTULO do post (o que tem o link do vídeo) é a palavra final: a temporada do título
+                      # vale sempre, mesmo que a página esteja sob um cabeçalho "Temporada 2" ou que o
+                      # endereço/texto do link digam outra coisa.
+                      if temp_ep != temporada:
+                          log(f"    (Título do post diz T{temp_ep}E{num}: obedecendo ao título e não à página T{temporada} ({href_abs}))")
+                          evento("titulo_temporada_vence", url, href=href_abs, temp_titulo=temp_ep, temp_pagina=temporada, ep=num)
+                          temporada, ultimo_ep = temp_ep, 0
+                  elif temp_ep and temp_ep != temporada and temporada_fixa is not None:
+                      # Página de temporada única (sem título do post): o T do endereço não abre temporada nova.
+                      if temp_ep != temporada_fixa:
+                          log(f"    (Temporada única T{temporada_fixa}: ignorando T{temp_ep} do link em {href_abs})")
+                          evento("temporada_unica_ignorada", url, href=href_abs, temp_link=temp_ep, temp_unica=temporada_fixa, ep=num)
+                  elif temp_ep and temp_ep != temporada:
                       if temp_ep > temporada:
-                          if t_feed is None and num is not None and ultimo_ep > 0 and num == ultimo_ep + 1:
+                          if num is not None and ultimo_ep > 0 and num == ultimo_ep + 1:
                               # Overshoot clássico: URL diz tp3e07, mas é continuação da T2 (ultimo_ep=6). Mantém.
                               log(f"    [⚠️] link dizia T{temp_ep}E{num}, mas é continuação da T{temporada}: mantendo T{temporada} ({href_abs})")
                               evento("href_temporada_errada", url, href=href_abs, temp_href=temp_ep, temp_usada=temporada, ep=num)
@@ -1480,7 +1510,8 @@ jobs:
                   if num is None:
                       num = sum(1 for e in eps if e["temp"] == temporada) + 1
 
-                  if num == 1 and ultimo_ep > 1 and any(e["temp"] == temporada and int(e["ep"]) == 1 for e in eps):
+                  # A heurística "voltou a 1" NUNCA sobrepõe o título do post: se o título diz T1E01, é T1E01.
+                  if t_feed is None and temporada_fixa is None and num == 1 and ultimo_ep > 1 and any(e["temp"] == temporada and int(e["ep"]) == 1 for e in eps):
                       temporada, ultimo_ep = temporada + 1, 0
                       evento("temporada_inferida", url, nova_temporada=temporada, motivo="episódio voltou a 1")
                       log(f"    (Episódio voltou a 1 sem cabeçalho: assumindo T{temporada}.)")
