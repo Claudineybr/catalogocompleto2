@@ -1298,12 +1298,28 @@
       "status": 429,
       "detalhe": "HTTP 429",
       "tentativas": 1
+    },
+    {
+      "quando": "2026-11-18T00:15:17+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/inix-mudanca-de-habito-2-de-volta-ao.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-18T00:18:08+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/inix-historias-assustadoras-para-contar.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
     }
   ],
   "metricas": {
     "ultima_run": {
       "requisicoes": 41,
-      "ok": 39,
+      "ok": 38,
       "429": 2,
       "5xx": 0,
       "retries": 0,
@@ -1313,40 +1329,40 @@
       "conflitos": 0,
       "proxy_fallback": 2,
       "proxy_hit": 2,
-      "pausas_evitadas": 98,
-      "http_realizados": 1,
+      "pausas_evitadas": 97,
+      "http_realizados": 2,
       "playwright_skip": 7,
       "proxmint_listas": 5,
-      "link_em_a_href": 0,
-      "link_convertido_w2embed": 0,
+      "link_em_a_href": 6,
+      "link_convertido_w2embed": 6,
       "multifilme_paginas": 0,
       "multifilme_arquivos": 0,
-      "proxy_validados": 48,
+      "proxy_validados": 47,
       "robo": "filmes",
-      "quando": "2026-11-18T00:05:50+00:00",
-      "duracao_min": 12.0
+      "quando": "2026-11-18T00:19:01+00:00",
+      "duracao_min": 11.9
     },
     "acumulado": {
-      "requisicoes": 1792,
-      "ok": 1600,
-      "429": 161,
+      "requisicoes": 1833,
+      "ok": 1638,
+      "429": 163,
       "5xx": 1,
       "retries": 0,
-      "falhas_definitivas": 162,
+      "falhas_definitivas": 164,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 161,
-      "proxy_hit": 161,
-      "pausas_evitadas": 8240,
-      "http_realizados": 105,
-      "playwright_skip": 240,
-      "proxmint_listas": 316,
-      "link_em_a_href": 36,
-      "link_convertido_w2embed": 127,
+      "proxy_fallback": 163,
+      "proxy_hit": 163,
+      "pausas_evitadas": 8337,
+      "http_realizados": 107,
+      "playwright_skip": 247,
+      "proxmint_listas": 321,
+      "link_em_a_href": 42,
+      "link_convertido_w2embed": 133,
       "multifilme_paginas": 19,
       "multifilme_arquivos": 0,
-      "proxy_validados": 2527
+      "proxy_validados": 2574
     }
   }
 }
