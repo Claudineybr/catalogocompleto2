@@ -1402,55 +1402,111 @@
       "status": 429,
       "detalhe": "HTTP 429",
       "tentativas": 1
+    },
+    {
+      "quando": "2026-11-18T04:22:25+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/inix-army-of-dead-invasao-em-las-vegas.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-18T04:23:15+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/inix-o-filho-do-batman-2014.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-18T04:24:15+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/inix-historias-assustadoras-para-contar.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-18T04:25:15+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/inix-scooby-doo-e-o-monstro-do-lago.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-18T04:26:15+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/duologia-o-auto-da-compadecida.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-18T04:27:15+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/03/inix-mudanca-de-habito-2-de-volta-ao.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-18T04:28:15+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/02/a-serie-velozes-e-furiosos.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 64,
-      "ok": 52,
-      "429": 11,
+      "requisicoes": 46,
+      "ok": 39,
+      "429": 7,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 11,
+      "falhas_definitivas": 7,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 11,
-      "proxy_hit": 11,
-      "pausas_evitadas": 71,
-      "http_realizados": 14,
-      "playwright_skip": 10,
-      "proxmint_listas": 20,
-      "link_em_a_href": 1,
-      "link_convertido_w2embed": 121,
-      "multifilme_paginas": 11,
+      "proxy_fallback": 7,
+      "proxy_hit": 7,
+      "pausas_evitadas": 0,
+      "http_realizados": 0,
+      "playwright_skip": 8,
+      "proxmint_listas": 13,
+      "link_em_a_href": 0,
+      "link_convertido_w2embed": 0,
+      "multifilme_paginas": 0,
       "multifilme_arquivos": 0,
-      "proxy_validados": 156,
+      "proxy_validados": 126,
       "robo": "filmes",
-      "quando": "2026-11-18T00:44:38+00:00",
-      "duracao_min": 24.5
+      "quando": "2026-11-18T04:29:15+00:00",
+      "duracao_min": 14.7
     },
     "acumulado": {
-      "requisicoes": 1897,
-      "ok": 1690,
-      "429": 174,
+      "requisicoes": 1943,
+      "ok": 1729,
+      "429": 181,
       "5xx": 1,
       "retries": 0,
-      "falhas_definitivas": 175,
+      "falhas_definitivas": 182,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 174,
-      "proxy_hit": 174,
+      "proxy_fallback": 181,
+      "proxy_hit": 181,
       "pausas_evitadas": 8408,
       "http_realizados": 121,
-      "playwright_skip": 257,
-      "proxmint_listas": 341,
+      "playwright_skip": 265,
+      "proxmint_listas": 354,
       "link_em_a_href": 43,
       "link_convertido_w2embed": 254,
       "multifilme_paginas": 30,
       "multifilme_arquivos": 0,
-      "proxy_validados": 2730
+      "proxy_validados": 2856
     }
   }
 }
