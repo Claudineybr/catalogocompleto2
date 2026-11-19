@@ -5,7 +5,7 @@
     "nome_json": "Big Bang: A Teoria - T5E1 – Análise do Reflexo do Skank - 🍿Clau",
     "url": "https://viniraveon.blogspot.com/2026/04/inix-big-bang-teoria-tp5e01.html",
     "capa": "https://image.tmdb.org/t/p/original/zx5DJbzqhQFATMnQP763LBhsL8H.jpg",
-    "tentativas": 3
+    "tentativas": 4
   },
   {
     "arquivo": "armazem_13_t04ep20.html",
@@ -13,7 +13,7 @@
     "nome_json": "Armazém 13 - T4E20 – Episódio 20 - 🍿Clau",
     "url": "https://marcosx7.blogspot.com/2026/03/inix-armazem-13-tp4ep20.html",
     "capa": "https://image.tmdb.org/t/p/original/veIu3hM6z5luuT87yu6h8pA9ppE.jpg",
-    "tentativas": 3
+    "tentativas": 4
   },
   {
     "arquivo": "uma_familia_da_pesada_t02ep03.html",
@@ -349,6 +349,62 @@
     "nome_json": "Gatilho - T1E3 – Episódio 3 - 🍿Clau",
     "url": "https://viniraveon.blogspot.com/2025/09/inix-gatilho-tp1e03.html",
     "capa": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2F2DR1FUpywbypOeboD0wO9ShoiJ6xgBQ2LGg_k66sqZnP636EScszneLibiT8hmLCecZR4as632m34FjFyIT4dnKF0R2LTUTcFVjKaUSKxG9KRN3qEInJHLwRE7ODO441A-Kn1T0rcevUk2SZ1Txs7k7ICkeCoRJtJgFTxfxwBkHSD4ylIPPCBTBSPU/s400/Picsart_25-09-16_09-31-48-413.jpg",
+    "tentativas": 1
+  },
+  {
+    "arquivo": "american_horror_story_t04ep01.html",
+    "stem": "american_horror_story_t04ep01",
+    "nome_json": "American Horror Story - T4E1 – Monstros Entre Nós - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/09/inix-american-horror-story-tp4e01.html",
+    "capa": "https://image.tmdb.org/t/p/original/nQLa2hrEoG3HMXTuteLQ9LmQBnb.jpg",
+    "tentativas": 1
+  },
+  {
+    "arquivo": "the_walking_dead_daryl_dixon_t03ep07.html",
+    "stem": "the_walking_dead_daryl_dixon_t03ep07",
+    "nome_json": "The Walking Dead: Daryl Dixon - T3E7 – O Último Horizonte - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/10/arc-walking-dead-daryl-tp03ep07_26.html",
+    "capa": "https://image.tmdb.org/t/p/original/oZzeDMIsUkAnndE9IaP8U8eQSKp.jpg",
+    "tentativas": 1
+  },
+  {
+    "arquivo": "dead_like_me_t01ep02.html",
+    "stem": "dead_like_me_t01ep02",
+    "nome_json": "Dead Like Me - T1E2 – Dead Girl Walking (Os últimos passos de uma garota) - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/08/inix-dead-like-me-tp1e02.html",
+    "capa": "https://image.tmdb.org/t/p/original/kbBSHXsEGSlkBjWKi3vMksSMF0h.jpg",
+    "tentativas": 1
+  },
+  {
+    "arquivo": "overlord_t03ep01.html",
+    "stem": "overlord_t03ep01",
+    "nome_json": "Overlord - T3E1 – A Melancolia de um Líder - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp3e01_10.html",
+    "capa": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPcFGP2o1SvQqPC1iHzF6lSxRi_zolU3I-Ioa6uSu4TR1vwJ32NZ6c3yJr5tE5QKRWNer_fC0V9b0bUAmwKNSocF8hFgcOeKXP6DpdR4rynplZd3mLE1jCl7TXvaRgT03_UzIqo_JpX-bIFnE066V3AeneCL4PE6E9nr8hLELYAy5ma8qtNIgbsB9o5RU/s320/jO67QvGtGs32L2wGBUUqf7QhY4i-2.jpg",
+    "tentativas": 1
+  },
+  {
+    "arquivo": "overlord_t04ep02.html",
+    "stem": "overlord_t04ep02",
+    "nome_json": "Overlord - T4E2 – Reino de Re-Estize - 🍿Clau",
+    "url": "https://viniraveon.blogspot.com/2025/06/inix-tp4e02_10.html",
+    "capa": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPcFGP2o1SvQqPC1iHzF6lSxRi_zolU3I-Ioa6uSu4TR1vwJ32NZ6c3yJr5tE5QKRWNer_fC0V9b0bUAmwKNSocF8hFgcOeKXP6DpdR4rynplZd3mLE1jCl7TXvaRgT03_UzIqo_JpX-bIFnE066V3AeneCL4PE6E9nr8hLELYAy5ma8qtNIgbsB9o5RU/s320/jO67QvGtGs32L2wGBUUqf7QhY4i-2.jpg",
+    "tentativas": 1
+  },
+  {
+    "arquivo": "era_uma_vez_once_upon_a_time_t01ep22.html",
+    "stem": "era_uma_vez_once_upon_a_time_t01ep22",
+    "nome_json": "Era Uma Vez/Once Upon a Time - T1E22 – O Dia da Morte - 🍿Clau",
+    "url": "https://marcosx7.blogspot.com/2025/06/arc-era-uma-vez-tp01ep22-2011.html7",
+    "capa": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjF3_BApa5fvQ0UcHuVZkb23FXTPlVTKCSondagomJ2uyXvcrqqp1noNBZfH7J-MYiPy3-dJhZLsoeuqB8e4BlptDCzSTLCYb8GXkd5HaNRJZluc1R5aR-OuKv0lJjG6ZjKf3E6ikp-Kpk_aPV9OttTFEt6WOQCDyAAvFjrIAdBJyrUGBIdmPmjyEGDiE8/s320/Picsart_25-06-04_21-28-52-563.jpg",
+    "tentativas": 1
+  },
+  {
+    "arquivo": "berserk_t01ep06.html",
+    "stem": "berserk_t01ep06",
+    "nome_json": "Berserk - T1E6 – Episódio 6. Festim Noturno: Queimando na Fogueira - 🍿Clau",
+    "url": "https://vini7xgseries2.blogspot.com/2025/06/inix-tp1e06_1.html",
+    "capa": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi7-6wSds69LENsPDXfmGOCXa19hkee62adUn-GnNGl5gyZe6stkVNkEPDEHkZpKEAthVJviW050QDazjh2At4pqrZtFbEELaOqyoim3IaB3E9CyrCsYirsQNclOBoc9LL6a-OD6u9taezDTXUAvuAVnZgLUK0v_avIO6S_IIyZgnhyphenhyphenInU1EcJF5ZSa55E/s320/Picsart_25-06-01_18-36-16-904.jpg",
     "tentativas": 1
   }
 ]
