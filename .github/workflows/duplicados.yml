@@ -1,0 +1,195 @@
+name: Achar Duplicados (pela URL do vídeo)
+
+# Procura arquivos .html (filmes e séries) que apontam para o MESMO vídeo e lista no log (e em duplicados.txt).
+# Cada grupo mostra um ⭐ sugerido para MANTER. Nada é apagado, a menos que você peça:
+#   - 'apagar': códigos do relatório (ex.: 3.2, 7.2) e/ou nomes de arquivo, separados por vírgula/espaço
+#   - 'apagar_sobras': apaga TODOS os não-⭐ de uma vez
+# Fluxo recomendado: 1) rode vazio e leia o log; 2) rode de novo preenchendo 'apagar'.
+
+on:
+  workflow_dispatch:
+    inputs:
+      apagar:
+        description: 'Apagar quais? Códigos do relatório (ex.: 3.2, 7.2) e/ou nomes de arquivo. Vazio = só relatório'
+        required: false
+        default: ''
+        type: string
+      apagar_sobras:
+        description: 'Apagar automaticamente todos os que NÃO são o ⭐ (cuidado)'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: duplicados
+  cancel-in-progress: false
+
+jobs:
+  duplicados:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v5
+
+      - name: Procurar duplicados
+        env:
+          APAGAR: ${{ inputs.apagar }}
+          SOBRAS: ${{ inputs.apagar_sobras }}
+        run: |
+          cat > /tmp/dup.py << 'PYEOF'
+          import os, re, json, sys, html as html_lib
+          from pathlib import Path
+          from collections import defaultdict
+
+          APAGAR = os.environ.get("APAGAR", "").strip()
+          SOBRAS = os.environ.get("SOBRAS", "false").strip().lower() == "true"
+          IGNORAR = {"index.html", "serie.html", "404.html"}
+
+
+          def chave_video(link):
+              link = str(link or "").strip()
+              m = re.search(r"tankie\.tube/(?:w|v|videos/embed)/([A-Za-z0-9_-]+)", link)
+              if m:
+                  return "tankie:" + m.group(1)
+              l = re.sub(r"^https?://(?:www\.)?", "", link.lower())
+              l = re.sub(r"[?#].*$", "", l).rstrip("/")
+              return l
+
+
+          def ler_arquivo(f):
+              """Devolve (link_do_video, nome) lidos do JSON-LD (contentUrl / name) do arquivo."""
+              try:
+                  txt = f.read_text(encoding="utf-8", errors="ignore")
+              except Exception:
+                  return None, ""
+              for m in re.finditer(r'<script[^>]*application/ld\+json[^>]*>(.*?)</script>', txt, re.S | re.I):
+                  try:
+                      d = json.loads(m.group(1).replace("<\\/", "</"))
+                  except Exception:
+                      continue
+                  for it in (d if isinstance(d, list) else [d]):
+                      if isinstance(it, dict) and isinstance(it.get("contentUrl"), str) and it["contentUrl"].startswith("http"):
+                          return it["contentUrl"], str(it.get("name") or "")
+              m = re.search(r'<a\s[^>]*href="(https?://[^"]+)"', txt, re.I)   # arquivo antigo sem JSON-LD
+              return (m.group(1), "") if m else (None, "")
+
+
+          def pontos(f, nome):
+              """Menor = melhor candidato a ficar. Prefere nome 'limpo', sem sufixo _2/_3 e sem 'abrir_player'."""
+              stem = f.stem
+              ruim = bool(re.search(r"abrir_?player|sem_titulo|^player|^assistir|vini7x|http", stem))
+              sufixo = bool(re.search(r"_\d{1,2}$", stem))          # termina em _2, _3 (e não em ano)
+              sem_ano = not re.search(r"(?:19|20)\d{2}$", stem)
+              nome_ruim = (not nome) or bool(re.search(r"https?:|\bNone\b|vini\s*7x|abrir player", nome, re.I))
+              return (ruim, nome_ruim, sufixo, sem_ano, len(stem), stem)
+
+
+          por_video = defaultdict(list)
+          total = 0
+          for f in sorted(Path(".").glob("*.html")):
+              if f.name in IGNORAR:
+                  continue
+              link, nome = ler_arquivo(f)
+              total += 1
+              if not link:
+                  continue
+              por_video[chave_video(link)].append((f, nome, link))
+
+          grupos = []
+          for k, itens in por_video.items():
+              if len(itens) > 1:
+                  itens.sort(key=lambda x: pontos(x[0], x[1]))
+                  grupos.append((k, itens))
+          grupos.sort(key=lambda g: g[1][0][0].name)
+
+          linhas = []
+          codigos = {}
+          for gi, (k, itens) in enumerate(grupos, 1):
+              linhas.append(f"GRUPO {gi}  (mesmo vídeo: {itens[0][2]})")
+              for ii, (f, nome, link) in enumerate(itens, 1):
+                  cod = f"{gi}.{ii}"
+                  codigos[cod] = f.name
+                  marca = "⭐ MANTER (sugestão)" if ii == 1 else "   apagar?          "
+                  linhas.append(f"   [{cod:>5}] {marca}  {f.name}   | nome: {nome or '(sem nome)'}")
+              linhas.append("")
+
+          print(f"Arquivos .html lidos: {total}")
+          print(f"Grupos de vídeos duplicados: {len(grupos)}  |  arquivos a mais (sobras): {sum(len(i) - 1 for _, i in grupos)}")
+          print("=" * 78)
+          print("\n".join(linhas) if linhas else "Nenhum vídeo duplicado encontrado. 🎉")
+          print("=" * 78)
+
+          cab = [f"Duplicados por URL do vídeo - {len(grupos)} grupo(s)", "Para apagar: rode de novo e preencha 'apagar' com os códigos (ex.: 3.2, 7.2) ou nomes de arquivo.", ""]
+          Path("duplicados.txt").write_text("\n".join(cab + linhas) + "\n", encoding="utf-8")
+          if os.environ.get("GITHUB_STEP_SUMMARY"):
+              with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as s:
+                  s.write("```\n" + "\n".join(cab + linhas) + "\n```\n")
+
+          # ---------- apagar ----------
+          apagar = set()
+          if SOBRAS:
+              for _, itens in grupos:
+                  for f, _, _ in itens[1:]:
+                      apagar.add(f.name)
+              print(f"Modo 'apagar sobras': {len(apagar)} arquivo(s) (fica só o ⭐ de cada grupo).")
+
+          nomes_dup = {f.name for _, itens in grupos for f, _, _ in itens}
+          for tok in re.split(r"[,\s;]+", APAGAR):
+              if not tok:
+                  continue
+              if tok in codigos:
+                  apagar.add(codigos[tok])
+              elif tok in nomes_dup:
+                  apagar.add(tok)
+              elif tok.lower().endswith(".html") and tok.lower() in {n.lower() for n in nomes_dup}:
+                  apagar.add(next(n for n in nomes_dup if n.lower() == tok.lower()))
+              else:
+                  print(f"  [aviso] '{tok}' não é um código/arquivo da lista de duplicados; ignorado (só apago arquivos que estão em um grupo).")
+
+          # nunca apagar TODOS de um grupo
+          for _, itens in grupos:
+              nomes = [f.name for f, _, _ in itens]
+              if all(n in apagar for n in nomes):
+                  print(f"  [aviso] a seleção apagaria TODOS os arquivos do grupo ({', '.join(nomes)}); mantendo {nomes[0]}.")
+                  apagar.discard(nomes[0])
+
+          apagados = 0
+          for n in sorted(apagar):
+              p = Path(n)
+              if p.exists():
+                  p.unlink()
+                  apagados += 1
+                  print(f"  🗑️  apagado: {n}")
+          if apagar:
+              print(f"Total apagado: {apagados}")
+              print("Obs.: os links da fila/progresso não foram tocados. Se quiser que o robô refaça algum desses posts, use 'refazer_url'.")
+          else:
+              print("Nada foi apagado (modo só relatório).")
+
+          PYEOF
+          python3 /tmp/dup.py
+
+      - name: Commit e push (relatório e arquivos apagados)
+        env:
+          APAGAR: ${{ inputs.apagar }}
+          SOBRAS: ${{ inputs.apagar_sobras }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          ok=0
+          for i in 1 2 3 4 5; do
+            git add -A
+            if git diff --cached --quiet; then echo "Nada para commitar."; ok=1; break; fi
+            git commit -m "chore: relatório de duplicados / remoção de duplicados"
+            if git push origin HEAD:main; then ok=1; break; fi
+            git fetch origin main
+            cp duplicados.txt /tmp/duplicados.txt 2>/dev/null || true
+            git reset --hard origin/main
+            python3 /tmp/dup.py || true
+            sleep $((RANDOM % 10 + 5))
+          done
+          if [ "$ok" != "1" ]; then echo "::error::Não consegui dar push"; exit 1; fi
