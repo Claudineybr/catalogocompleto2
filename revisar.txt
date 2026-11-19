@@ -760,3 +760,42 @@ https://www.vini7xgrave.site/2025/05/s.html | link dizia T1E8, mas o título do 
 https://www.vini7xgrave.site/2025/05/blog-post.html | link dizia T2E16, mas o título do post diz T2E17 (usei o título) - link: https://vini7xgseries2.blogspot.com/2025/05/inix-tp2e16_4.html
 https://www.vini7xgrave.site/2025/05/blog-post.html | link dizia T3E17, mas o título do post diz T3E18 (usei o título) - link: https://vini7xgseries2.blogspot.com/2025/05/inix-tp3e17_5.html
 https://www.vini7xgrave.site/2025/05/blog-post.html | série inconsistente (friends): T2E4 aparece 2x com URLs diferentes
+https://www.vini7xgrave.site/2025/04/inix-tulsa-king.html | título do post dizia T1E10, mas a página dizia T2E1 (usei a página) - link: https://viniseries3.blogspot.com/2025/04/inix-tp1e10.html
+https://www.vini7xgrave.site/2025/04/inix-tulsa-king.html | título do post dizia T1E3, mas a página dizia T2E3 (usei a página) - link: https://viniseries3.blogspot.com/2025/04/inix-tp1e03_65.html
+https://www.vini7xgrave.site/2025/04/inix-tulsa-king.html | título do post dizia T1E3, mas a página dizia T3E3 (usei a página) - link: https://viniraveon.blogspot.com/2025/10/inix-tulsa-king-tp1e03.html
+https://www.vini7xgrave.site/2025/09/inix-naruto-shippuden-2007.html | título do post dizia T12E6, mas a página dizia T16E6 (usei a página) - link: https://marcosx7.blogspot.com/2025/09/inix-naruto-shippuden-tp12e6_6.html
+https://www.vini7xgrave.site/2025/09/inix-naruto-shippuden-2007.html | série inconsistente (naruto_shippuden): T17: faltam episódios [8]
+https://www.vini7xgrave.site/2025/05/inix-o-conta-da-aia.html | série inconsistente (o_conta_da_aia): T3E4 aparece 2x com URLs diferentes; T3: faltam episódios [3, 5]; T5: faltam episódios [5, 7, 8]
+https://www.vini7xgrave.site/2025/05/inix-round-6.html | link dizia T1E2, mas o título do post diz T2E2 (usei o título) - link: https://viniseries3.blogspot.com/2025/05/inix-tp1e02.html
+https://www.vini7xgrave.site/2025/05/inix-round-6.html | link dizia T1E3, mas o título do post diz T2E3 (usei o título) - link: https://viniseries3.blogspot.com/2025/05/inix-tp1e03.html
+https://www.vini7xgrave.site/2025/05/inix-round-6.html | link dizia T1E4, mas o título do post diz T2E4 (usei o título) - link: https://viniseries3.blogspot.com/2025/05/inix-tp1e04.html
+https://www.vini7xgrave.site/2025/05/inix-round-6.html | título do post dizia T3E2, mas a página dizia T2E2 (usei a página) - link: https://viniraveon.blogspot.com/2025/06/inix-tp3e02_27.html
+https://www.vini7xgrave.site/2025/05/inix-round-6.html | título do post dizia T3E3, mas a página dizia T2E3 (usei a página) - link: https://viniraveon.blogspot.com/2025/06/inix-tp3e03_27.html
+https://www.vini7xgrave.site/2025/05/inix-round-6.html | título do post dizia T3E4, mas a página dizia T2E4 (usei a página) - link: https://viniraveon.blogspot.com/2025/06/inix-tp3e04_27.html
+https://www.vini7xgrave.site/2025/05/inix-round-6.html | título do post dizia T3E5, mas a página dizia T2E5 (usei a página) - link: https://viniraveon.blogspot.com/2025/06/inix-tp3e05_28.html
+https://www.vini7xgrave.site/2025/05/inix-round-6.html | título do post dizia T3E6, mas a página dizia T2E6 (usei a página) - link: https://viniraveon.blogspot.com/2025/06/inix-tp3e06_28.html
+https://www.vini7xgrave.site/2025/05/inix-round-6.html | série inconsistente (round_6): T2E2 aparece 2x com URLs diferentes; T2E3 aparece 2x com URLs diferentes; T2E4 aparece 2x com URLs diferentes; T2E5 aparece 2x com URLs diferentes; T2E6 aparece 2x com URLs diferentes
+https://www.vini7xgrave.site/2025/05/inix-alquimia-das-almas.html | link dizia T1E16, mas o título do post diz T1E17 (usei o título) - link: https://vini7xgseries2.blogspot.com/2025/05/inix-tp1e16_14.html
+https://www.vini7xgrave.site/2025/05/inix-com-carinho-kitty.html | link dizia T1E11, mas o título do post diz T2E1 (usei o título) - link: https://vini7xgseries2.blogspot.com/2025/05/inix-tp1e11.html
+https://www.vini7xgrave.site/2025/05/inix-meu-demonio-favorito.html | link dizia T1E9, mas o título do post diz T1E10 (usei o título) - link: https://viniraveon.blogspot.com/2025/05/inix-tp1e09_38.html
+https://www.vini7xgrave.site/2025/05/inix-meu-demonio-favorito.html | série inconsistente (meu_demonio_favorito): T1: faltam episódios [5]
+https://www.vini7xgrave.site/2025/05/inix-all-of-us-are-dead.html | link dizia T1E4, mas o título do post diz T1E5 (usei o título) - link: https://viniraveon.blogspot.com/2025/05/inix-tp1e04_83.html
+https://www.vini7xgrave.site/2025/05/inix-cacadores-de-demonios.html | link dizia T2E3, mas o título do post diz T2E4 (usei o título) - link: https://viniraveon.blogspot.com/2025/05/inix-tp2e03_54.html
+https://www.vini7xgrave.site/2025/05/inix-outsider.html | link dizia T1E9, mas o título do post diz T1E10 (usei o título) - link: https://viniraveon.blogspot.com/2025/05/inix-tp1e09_2.html
+https://www.vini7xgrave.site/2025/05/inix-breaking-bad.html | link dizia T4E6, mas o título do post diz T4E7 (usei o título) - link: https://viniraveon.blogspot.com/2025/05/inix-tp4e06_2.html
+https://www.vini7xgrave.site/2025/05/inix-breaking-bad.html | link dizia T5E6, mas o título do post diz T5E8 (usei o título) - link: https://viniraveon.blogspot.com/2025/05/inix-tp5e06_2.html
+https://www.vini7xgrave.site/2025/05/inix-breaking-bad.html | link dizia T5E8, mas o título do post diz T5E9 (usei o título) - link: https://viniraveon.blogspot.com/2025/05/inix-tp5e08.html
+https://www.vini7xgrave.site/2025/04/inix-supernatural.html | título do post dizia T1E22, mas a página dizia T2E22 (usei a página) - link: https://vini7xgseries2.blogspot.com/2025/04/inix-tp2e22_26.html
+https://www.vini7xgrave.site/2025/04/inix-supernatural.html | link dizia T3E4, mas o título do post diz T3E5 (usei o título) - link: https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e04_30.html
+https://www.vini7xgrave.site/2025/04/inix-supernatural.html | link dizia T3E17, mas o título do post diz T4E1 (usei o título) - link: https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e17_27.html
+https://www.vini7xgrave.site/2025/04/inix-supernatural.html | link dizia T3E18, mas o título do post diz T4E2 (usei o título) - link: https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e18_27.html
+https://www.vini7xgrave.site/2025/04/inix-supernatural.html | link dizia T3E19, mas o título do post diz T4E3 (usei o título) - link: https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e19_27.html
+https://www.vini7xgrave.site/2025/04/inix-supernatural.html | link dizia T3E20, mas o título do post diz T4E4 (usei o título) - link: https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e20.html
+https://www.vini7xgrave.site/2025/04/inix-supernatural.html | link dizia T3E21, mas o título do post diz T4E5 (usei o título) - link: https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e21.html
+https://www.vini7xgrave.site/2025/04/inix-supernatural.html | link dizia T3E22, mas o título do post diz T4E6 (usei o título) - link: https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e22.html
+https://www.vini7xgrave.site/2025/04/inix-supernatural.html | link dizia T4E6, mas o título do post diz T4E7 (usei o título) - link: https://vini7xgseries2.blogspot.com/2025/04/inix-tp4e06_28.html
+https://www.vini7xgrave.site/2025/04/inix-supernatural.html | link dizia T8E0, mas o título do post diz T8E1 (usei o título) - link: https://vini7xgseries2.blogspot.com/2025/04/inix-tp8e0.html
+https://www.vini7xgrave.site/2025/04/inix-supernatural.html | link dizia T9E3, mas o título do post diz T9E4 (usei o título) - link: https://vini7xgseries2.blogspot.com/2025/04/inix-tp9e03_29.html
+https://www.vini7xgrave.site/2025/04/inix-supernatural.html | link dizia T14E0, mas o título do post diz T14E1 (usei o título) - link: https://viniseries3.blogspot.com/2025/05/inix-tp14e0.html
+https://www.vini7xgrave.site/2025/04/inix-supernatural.html | link dizia T14E21, mas o título do post diz T15E1 (usei o título) - link: https://viniseries3.blogspot.com/2025/05/inix-tp14e21.html
+https://www.vini7xgrave.site/2025/04/inix-supernatural.html | link dizia T2E2, mas o título do post diz T15E2 (usei o título) - link: https://viniseries3.blogspot.com/2025/05/inix-tp2e02.html
