@@ -2,46 +2,6 @@
   "contagem": {},
   "eventos": [
     {
-      "quando": "2026-11-19T03:43:51+00:00",
-      "tipo": "titulo_vs_cabecalho",
-      "url": "https://www.vini7xgrave.site/2025/04/inix-tulsa-king.html",
-      "href": "https://viniraveon.blogspot.com/2025/10/inix-tulsa-king-tp1e03.html",
-      "temp_titulo": 1,
-      "ep_titulo": 3,
-      "temp_cab": 3,
-      "ep_texto": 3
-    },
-    {
-      "quando": "2026-11-19T03:44:13+00:00",
-      "tipo": "href_vs_titulo",
-      "url": "https://www.vini7xgrave.site/2025/09/inix-naruto-shippuden-2007.html",
-      "href": "https://marcosx7.blogspot.com/2025/09/inix-naruto-shippuden-tp1e08.html",
-      "temp_href": 1,
-      "ep_href": 8,
-      "temp_titulo": 1,
-      "ep_titulo": 7
-    },
-    {
-      "quando": "2026-11-19T03:44:13+00:00",
-      "tipo": "href_vs_titulo",
-      "url": "https://www.vini7xgrave.site/2025/09/inix-naruto-shippuden-2007.html",
-      "href": "https://marcosx7.blogspot.com/2025/09/inix-naruto-shippuden-tp2e05.html",
-      "temp_href": 2,
-      "ep_href": 5,
-      "temp_titulo": 2,
-      "ep_titulo": 4
-    },
-    {
-      "quando": "2026-11-19T03:44:13+00:00",
-      "tipo": "href_vs_titulo",
-      "url": "https://www.vini7xgrave.site/2025/09/inix-naruto-shippuden-2007.html",
-      "href": "https://viniraveon.blogspot.com/2025/09/inix-naruto-shippuden-tp3e0.html",
-      "temp_href": 3,
-      "ep_href": 0,
-      "temp_titulo": 3,
-      "ep_titulo": 1
-    },
-    {
       "quando": "2026-11-19T03:44:13+00:00",
       "tipo": "href_vs_titulo",
       "url": "https://www.vini7xgrave.site/2025/09/inix-naruto-shippuden-2007.html",
@@ -4673,55 +4633,83 @@
       "tipo": "rate_limit",
       "url": "https://viniraveon.blogspot.com/2026/01/inix-uma-familia-da-pesada-tp2e03.html",
       "retentativa": true
+    },
+    {
+      "quando": "2026-11-19T19:38:13+00:00",
+      "tipo": "feed_dominio",
+      "url": "https://viniraveon.blogspot.com",
+      "posts": 4926,
+      "completo": true
+    },
+    {
+      "quando": "2026-11-19T19:41:35+00:00",
+      "tipo": "feed_dominio",
+      "url": "https://marcosx7.blogspot.com",
+      "posts": 1653,
+      "completo": true
+    },
+    {
+      "quando": "2026-11-19T19:41:50+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp5e09.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-19T19:49:57+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2026/02/inix-this-is-us-tp5e09.html",
+      "retentativa": true
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 117,
-      "ok": 87,
-      "429": 8,
+      "requisicoes": 98,
+      "ok": 77,
+      "429": 1,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 8,
+      "falhas_definitivas": 1,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 8,
-      "proxy_hit": 7,
-      "proxmint_listas": 17,
+      "proxy_fallback": 1,
+      "proxy_hit": 0,
+      "proxmint_listas": 4,
       "link_em_a_href": 0,
       "link_convertido_w2embed": 0,
-      "skip_perfeito": 11,
+      "skip_perfeito": 0,
       "feed_hit": 0,
-      "http_necessario": 18,
+      "http_necessario": 2,
       "playwright_skip": 1,
-      "episodios_tp_encontrados": 28,
-      "proxy_validados": 122,
+      "episodios_tp_encontrados": 0,
+      "proxy_validados": 56,
       "robo": "series",
-      "quando": "2026-11-19T14:12:02+00:00",
-      "duracao_min": 37.7
+      "quando": "2026-11-19T19:49:57+00:00",
+      "duracao_min": 27.6
     },
     "acumulado": {
-      "requisicoes": 4216,
-      "ok": 2163,
-      "429": 300,
+      "requisicoes": 4314,
+      "ok": 2240,
+      "429": 301,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 300,
+      "falhas_definitivas": 301,
       "html_invalido": 2,
       "serie_inconsistente": 46,
       "conflitos": 4,
-      "proxy_fallback": 300,
+      "proxy_fallback": 301,
       "proxy_hit": 209,
-      "proxmint_listas": 732,
+      "proxmint_listas": 736,
       "link_em_a_href": 1,
       "link_convertido_w2embed": 0,
       "skip_perfeito": 13262,
       "feed_hit": 2,
-      "http_necessario": 714,
-      "playwright_skip": 233,
+      "http_necessario": 716,
+      "playwright_skip": 234,
       "episodios_tp_encontrados": 17145,
-      "proxy_validados": 4632
+      "proxy_validados": 4688
     }
   }
 }
