@@ -1441,6 +1441,10 @@ jobs:
                       temporada = _mais
                       log(f"    (Temporada única: {_qtd}/{len(_ts)} links são da T{_mais}; cabeçalhos de temporada da página ignorados.)")
 
+              # Cabeçalho da página ("2ª Temporada") só é confiável quando o 1º link embaixo dele é o "Episódio 1"
+              # (Tulsa King). Em Cavaleiros do Zodíaco o cabeçalho "Temporada 2" começa em "Episódio 21": não vale.
+              cab_temp, cab_ult, cab_valido = None, 0, None
+
               for tag in soup.find_all(True):
                   if tag.name in ("script", "style", "head", "title", "meta", "link"):
                       continue
@@ -1454,6 +1458,8 @@ jobs:
                       texto_direto = "".join(t for t in tag.find_all(string=True, recursive=False) if type(t) is NavigableString).strip()
                       if texto_direto:
                           n = numero_temporada(texto_direto)
+                          if n is not None and (n != cab_temp):
+                              cab_temp, cab_ult, cab_valido = n, 0, None
                           if n is not None and n != temporada and temporada_fixa is None:
                               temporada, ultimo_ep = n, 0
                       continue
@@ -1496,9 +1502,22 @@ jobs:
                   elif m_texto_num:
                       num_texto = int(m_texto_num.group(1))
 
+                  num_texto_orig = num_texto
+                  pag_vence = False
+                  if cab_temp is not None and temporada_fixa is None and num_texto is not None:
+                      if cab_valido is None:
+                          cab_valido = (num_texto == 1)
+                      if t_feed is not None and cab_valido and num_texto == cab_ult + 1 and t_feed != cab_temp:
+                          # O título do post discorda da temporada do cabeçalho, mas o texto do link continua a sequência
+                          # daquele cabeçalho (T2 "Episódio 1, 2, 3..."): o título deste post está errado (post copiado).
+                          log(f"    [⚠️] título do post diz T{t_feed}E{n_feed}, mas a página (cabeçalho T{cab_temp}, 'Episódio {num_texto}') diz T{cab_temp}E{num_texto}: usando a página ({href_abs})")
+                          evento("titulo_vs_cabecalho", url, href=href_abs, temp_titulo=t_feed, ep_titulo=n_feed, temp_cab=cab_temp, ep_texto=num_texto)
+                          registrar_revisao(url, f"título do post dizia T{t_feed}E{n_feed}, mas a página dizia T{cab_temp}E{num_texto} (usei a página) - link: {href_abs}")
+                          t_feed, n_feed, pag_vence = cab_temp, num_texto, True
+
                   if t_feed is not None:
                       # O título do post no feed é a fonte mais confiável: tem prioridade sobre endereço E sobre o texto do link.
-                      if (t_feed != temp_ep or n_feed != num_href) and (temp_ep is not None or num_href is not None):
+                      if not pag_vence and (t_feed != temp_ep or n_feed != num_href) and (temp_ep is not None or num_href is not None):
                           log(f"    [⚠️] link dizia T{temp_ep}E{num_href}, mas o título do post diz T{t_feed}E{n_feed}: usando o título ({href_abs})")
                           evento("href_vs_titulo", url, href=href_abs, temp_href=temp_ep, ep_href=num_href, temp_titulo=t_feed, ep_titulo=n_feed)
                           registrar_revisao(url, f"link dizia T{temp_ep}E{num_href}, mas o título do post diz T{t_feed}E{n_feed} (usei o título) - link: {href_abs}")
@@ -1577,6 +1596,8 @@ jobs:
                       log(f"    (Episódio voltou a 1 sem cabeçalho: assumindo T{temporada}.)")
 
                   ultimo_ep = num
+                  if cab_temp is not None:
+                      cab_ult = num_texto_orig if num_texto_orig is not None else cab_ult + 1
 
                   titulo_ep = _TEXTO_NUM.sub("", texto)
                   titulo_ep = re.sub(r"^Epis[oó]dio\s*\d+\s*[-–:]\s*", "", titulo_ep, flags=re.I)
