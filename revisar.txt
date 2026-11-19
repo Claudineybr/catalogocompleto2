@@ -760,3 +760,5 @@ https://www.vini7xgrave.site/2025/05/s.html | link dizia T1E8, mas o título do 
 https://www.vini7xgrave.site/2025/05/blog-post.html | link dizia T2E16, mas o título do post diz T2E17 (usei o título) - link: https://vini7xgseries2.blogspot.com/2025/05/inix-tp2e16_4.html
 https://www.vini7xgrave.site/2025/05/blog-post.html | link dizia T3E17, mas o título do post diz T3E18 (usei o título) - link: https://vini7xgseries2.blogspot.com/2025/05/inix-tp3e17_5.html
 https://www.vini7xgrave.site/2025/05/blog-post.html | série inconsistente (friends): T2E4 aparece 2x com URLs diferentes
+https://www.vini7xgrave.site/2025/05/inix-saga-crepusculo-amanhecer-parte-1.html | SAGA: 2 vídeos no mesmo post -> a_crepusculo_amanhecer_parte_1_2011_1_1.html [sequencial], a_crepusculo_amanhecer_parte_1_2011_1_2.html [sequencial]
+https://www.vini7xgrave.site/2025/08/inix-saga-crepusculo-amanhecer-parte-2.html | SAGA: 2 vídeos no mesmo post -> a_crepusculo_amanhecer_parte_2_2012_1.html [sequencial], a_crepusculo_amanhecer_parte_2_2012_2.html [sequencial]
