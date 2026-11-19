@@ -839,6 +839,7 @@ jobs:
               soup = soup or BeautifulSoup(html_text, "html.parser")
               links = []
               vistos = set()
+              _chaves = set()
 
               for ld in ler_ld(soup):
                   v = ld.get("contentUrl")
@@ -871,7 +872,17 @@ jobs:
                           vistos.add(src)
                           links.append({"link": src, "texto": ""})
 
-              return links
+              # mesmo vídeo em formatos diferentes (/w/, /v/, /embed/) conta uma vez só; o texto do botão fica
+              unicos, vistos_k = [], {}
+              for it in links:
+                  k = chave_video(it["link"])
+                  if k in vistos_k:
+                      if not unicos[vistos_k[k]]["texto"] and it["texto"]:
+                          unicos[vistos_k[k]]["texto"] = it["texto"]
+                      continue
+                  vistos_k[k] = len(unicos)
+                  unicos.append(it)
+              return unicos
 
 
           _TEMPLATE = """<!DOCTYPE html>
@@ -1280,6 +1291,33 @@ jobs:
           _GENERICO_LINK = re.compile(
               r"^(?:filme|parte|part|vol(?:ume)?|cd|link|op[çc][ãa]o|player|assistir|download|baixar|clique aqui|"
               r"video|vídeo|fonte|source|aqui|filmes)?\s*\d*$", re.I)
+          # Texto de BOTÃO ("Abrir Player", "Assistir agora", "Baixar filme"...): nunca é nome de filme.
+          _TEXTO_BOTAO = re.compile(
+              r"\b(?:abrir|abra|assistir|assista|ver|veja|baixar|baixe|download|clique|clicar|play|reproduzir|"
+              r"player|dublado|legendado|online|agora|aqui)\b", re.I)
+
+
+          def texto_e_titulo(texto):
+              t = str(texto or "").strip()
+              if len(t) < 3 or _GENERICO_LINK.match(t):
+                  return False
+              if _TEXTO_BOTAO.search(t) and not re.search(r"(?:19|20)\d{2}", t):
+                  return False
+              return True
+
+
+          def chave_video(link):
+              """Mesma chave para /w/ID, /v/ID e /videos/embed/ID do tankie.tube (é o mesmo vídeo)."""
+              m = re.search(r"tankie\.tube/(?:w|v|videos/embed)/([A-Za-z0-9_-]+)", str(link or ""))
+              return ("tankie", m.group(1)) if m else str(link or "").split("#")[0]
+
+
+          def titulo_de_filme_unico(url, titulo_bruto=""):
+              """'A Saga Crepúsculo: Eclipse 2010' = UM filme (a URL termina em UM ano), mesmo tendo a palavra saga.
+              'Saga Tinker Bell' (sem ano) / 'Coleção X 2001-2005' (intervalo) continuam sendo coleção."""
+              if not ano_da_url(url):
+                  return False
+              return not re.search(r"(?:19|20)\d{2}\s*[-–—/]\s*(?:19|20)?\d{2}", str(titulo_bruto or ""))
 
 
           def base_da_saga(titulo):
@@ -1330,7 +1368,7 @@ jobs:
                       time.sleep(2)
                   tit, ano = titulo_do_embed(link_unico)
                   origem = "player"
-                  if not tit and texto and not _GENERICO_LINK.match(texto):
+                  if not tit and texto_e_titulo(texto):
                       tit = limpar_titulo_bruto(texto, "", fallback=False)
                       ano = extrair_ano(texto, "") if len(tit) >= 3 else ""
                       origem = "texto do link"
@@ -1382,7 +1420,7 @@ jobs:
                       log("    (É SÉRIE. Pulando...)")
                       return "serie", None
 
-                  if _TITULO_MULTI.search(titulo_feed):
+                  if _TITULO_MULTI.search(titulo_feed) and not titulo_de_filme_unico(url, titulo_feed):
                       log(f"    (Título '{titulo_feed}' sugere coleção/saga — vou abrir a página para pegar TODOS)")
                       soup = link = None
                   else:
@@ -1440,6 +1478,9 @@ jobs:
                   stem = slug
                   nome_json = f"{titulo} - {SUFIXO}"
 
+              if len(links_todos) > 1 and _TITULO_MULTI.search(titulo) and titulo_de_filme_unico(url, titulo):
+                  log(f"    (Título '{titulo}' tem ano único na URL: é UM filme, usando só o primeiro vídeo.)")
+                  links_todos = links_todos[:1]
               if links_todos and len(links_todos) > 1:
                   _salvar_multifilme(stem, titulo, ano, links_todos, capa, pendentes, url)
                   return "novo", None
