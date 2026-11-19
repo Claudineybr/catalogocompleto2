@@ -2,352 +2,6 @@
   "contagem": {},
   "eventos": [
     {
-      "quando": "2026-11-18T19:37:32+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://marcosx7.blogspot.com/2025/10/arc-walking-dead-daryl-tp03ep07_26.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-18T19:47:34+00:00",
-      "tipo": "rate_limit",
-      "url": "https://marcosx7.blogspot.com/2025/10/arc-walking-dead-daryl-tp03ep07_26.html",
-      "serie": "https://www.vini7xgrave.site/2025/10/arc-walking-deaddaryl-dixon.html"
-    },
-    {
-      "quando": "2026-11-18T19:47:34+00:00",
-      "tipo": "rate_limit",
-      "url": "https://www.vini7xgrave.site/2025/10/arc-walking-deaddaryl-dixon.html",
-      "seguidos": 3
-    },
-    {
-      "quando": "2026-11-18T19:51:04+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/inix-naruto-shippuden-2007.html",
-      "href": "https://marcosx7.blogspot.com/2025/09/inix-naruto-shippuden-tp1e08.html",
-      "numero_href": 8,
-      "numero_texto": 7,
-      "texto": "Episódio 7 - Corra, Kankuro"
-    },
-    {
-      "quando": "2026-11-18T19:51:04+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/inix-naruto-shippuden-2007.html",
-      "href": "https://marcosx7.blogspot.com/2025/09/inix-naruto-shippuden-tp2e05.html",
-      "numero_href": 5,
-      "numero_texto": 4,
-      "texto": "Episódio 4 - A Formação da Equipe Kakashi!"
-    },
-    {
-      "quando": "2026-11-18T19:51:04+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/inix-naruto-shippuden-2007.html",
-      "href": "https://viniraveon.blogspot.com/2025/09/inix-naruto-shippuden-tp3e0.html",
-      "numero_href": 0,
-      "numero_texto": 1,
-      "texto": "Episódio 1 - Pesadelo"
-    },
-    {
-      "quando": "2026-11-18T19:51:04+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/inix-naruto-shippuden-2007.html",
-      "href": "https://viniraveon.blogspot.com/2025/09/inix-naruto-shippuden-tp4e0.html",
-      "numero_href": 0,
-      "numero_texto": 1,
-      "texto": "Episódio 1 - A Ameaça que se Aproxima Sorrateiramente"
-    },
-    {
-      "quando": "2026-11-18T19:51:04+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/inix-naruto-shippuden-2007.html",
-      "href": "https://marcosx7.blogspot.com/2025/09/inix-naruto-shippuden-tp11e5_5.html",
-      "numero_href": 5,
-      "numero_texto": 15,
-      "texto": "Episódio 15 - Amigos Em Quem Confiar"
-    },
-    {
-      "quando": "2026-11-18T19:51:04+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/inix-naruto-shippuden-2007.html",
-      "href": "https://marcosx7.blogspot.com/2025/09/inix-naruto-shippuden-tp12e21.html",
-      "numero_href": 21,
-      "numero_texto": 20,
-      "texto": "Episódio 20 - Começa a Guerra!"
-    },
-    {
-      "quando": "2026-11-18T19:51:04+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/inix-naruto-shippuden-2007.html",
-      "href": "https://viniraveon.blogspot.com/2025/10/inix-naruto-shippuden-tp15e03.html",
-      "numero_href": 3,
-      "numero_texto": 14,
-      "texto": "Episódio 14 - O Plano do Hokage"
-    },
-    {
-      "quando": "2026-11-18T19:51:04+00:00",
-      "tipo": "href_temporada_anterior",
-      "url": "https://www.vini7xgrave.site/2025/09/inix-naruto-shippuden-2007.html",
-      "href": "https://marcosx7.blogspot.com/2025/09/inix-naruto-shippuden-tp12e6_6.html",
-      "temp_href": 12,
-      "temp_atual": 16,
-      "ep": 6
-    },
-    {
-      "quando": "2026-11-18T19:51:04+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/inix-naruto-shippuden-2007.html",
-      "href": "https://marcosx7.blogspot.com/2025/09/inix-naruto-shippuden-tp17e8.html",
-      "numero_href": 8,
-      "numero_texto": 7,
-      "texto": "Episódio 7 – O Julgamento de Neji"
-    },
-    {
-      "quando": "2026-11-18T19:51:04+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/inix-naruto-shippuden-2007.html",
-      "href": "https://marcosx7.blogspot.com/2025/09/inix-naruto-shippuden-tp17e10.html",
-      "numero_href": 10,
-      "numero_texto": 9,
-      "texto": "Episódio 9 – À Beira da Morte"
-    },
-    {
-      "quando": "2026-11-18T19:51:04+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/inix-naruto-shippuden-2007.html",
-      "href": "https://marcosx7.blogspot.com/2025/09/inix-naruto-shippuden-tp18e16_6.html",
-      "numero_href": 16,
-      "numero_texto": 17,
-      "texto": "Episódio 17 – Título a determinar"
-    },
-    {
-      "quando": "2026-11-18T19:51:05+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://marcosx7.blogspot.com/2025/09/inix-naruto-shippuden-tp1e30.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-18T19:52:05+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://marcosx7.blogspot.com/2025/09/inix-naruto-shippuden-tp2e20.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-18T19:53:05+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/09/inix-naruto-shippuden-tp5e21.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-18T19:55:02+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/09/inix-naruto-shippuden-tp5e23.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-18T19:56:29+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/09/inix-naruto-shippuden-tp14e04.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-18T20:06:23+00:00",
-      "tipo": "rate_limit",
-      "url": "https://viniraveon.blogspot.com/2025/09/inix-naruto-shippuden-tp14e04.html",
-      "serie": "https://www.vini7xgrave.site/2025/09/inix-naruto-shippuden-2007.html"
-    },
-    {
-      "quando": "2026-11-18T20:06:23+00:00",
-      "tipo": "rate_limit",
-      "url": "https://www.vini7xgrave.site/2025/09/inix-naruto-shippuden-2007.html",
-      "seguidos": 4
-    },
-    {
-      "quando": "2026-11-18T20:11:17+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
-      "href": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e13_13.html",
-      "numero_href": 13,
-      "numero_texto": 15,
-      "texto": "Episódio 15 - O Mago de Diamond"
-    },
-    {
-      "quando": "2026-11-18T20:11:17+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
-      "href": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e20_13.html",
-      "numero_href": 20,
-      "numero_texto": 21,
-      "texto": "Episódio 21 - Motim na Capital"
-    },
-    {
-      "quando": "2026-11-18T20:11:17+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
-      "href": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e25_13.html",
-      "numero_href": 25,
-      "numero_texto": 26,
-      "texto": "Episódio 26 - Feras Feridas"
-    },
-    {
-      "quando": "2026-11-18T20:11:17+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
-      "href": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e26.html",
-      "numero_href": 26,
-      "numero_texto": 27,
-      "texto": "Episódio 27 - Luz"
-    },
-    {
-      "quando": "2026-11-18T20:11:17+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
-      "href": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e29_13.html",
-      "numero_href": 29,
-      "numero_texto": 30,
-      "texto": "Episódio 30 - O Mago Espelho"
-    },
-    {
-      "quando": "2026-11-18T20:11:17+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
-      "href": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e33.html",
-      "numero_href": 33,
-      "numero_texto": 31,
-      "texto": "Episódio 31 - Perseguição na Neve"
-    },
-    {
-      "quando": "2026-11-18T20:11:17+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
-      "href": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e32_13.html",
-      "numero_href": 32,
-      "numero_texto": 33,
-      "texto": "Episódio 33 - Para Ajudar Alguém um Dia"
-    },
-    {
-      "quando": "2026-11-18T20:11:17+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
-      "href": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e49.html",
-      "numero_href": 49,
-      "numero_texto": 48,
-      "texto": "Episódio 48 - Desespero vs. Esperança"
-    },
-    {
-      "quando": "2026-11-18T20:11:17+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
-      "href": "https://vini7xgseries2.blogspot.com/2025/09/inix-black-clover-tp2e07_13.html",
-      "numero_href": 7,
-      "numero_texto": 8,
-      "texto": "Episódio 8 - Chamas de Ódio"
-    },
-    {
-      "quando": "2026-11-18T20:11:21+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e12.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-18T20:20:44+00:00",
-      "tipo": "rate_limit",
-      "url": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e12.html",
-      "serie": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html"
-    },
-    {
-      "quando": "2026-11-18T20:20:44+00:00",
-      "tipo": "rate_limit",
-      "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
-      "seguidos": 1
-    },
-    {
-      "quando": "2026-11-18T20:22:20+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/lendas-do-amanha-legends-of-tomorrow.html",
-      "href": "https://viniraveon.blogspot.com/2025/09/inix-lendas-do-amanha-tp1e0.html",
-      "numero_href": 0,
-      "numero_texto": 1,
-      "texto": "Episódio 1 - Piloto: Parte Um"
-    },
-    {
-      "quando": "2026-11-18T20:22:20+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/lendas-do-amanha-legends-of-tomorrow.html",
-      "href": "https://viniraveon.blogspot.com/2025/09/inix-lendas-do-amanha-tp2e0.html",
-      "numero_href": 0,
-      "numero_texto": 1,
-      "texto": "Episódio 1 - Fora do Tempo"
-    },
-    {
-      "quando": "2026-11-18T20:22:20+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/lendas-do-amanha-legends-of-tomorrow.html",
-      "href": "https://viniraveon.blogspot.com/2025/09/inix-lendas-do-amanha-tp2e04_9.html",
-      "numero_href": 4,
-      "numero_texto": 5,
-      "texto": "Episódio 5 - Comprometido"
-    },
-    {
-      "quando": "2026-11-18T20:22:48+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/09/inix-lendas-do-amanha-tp5e04.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-18T20:30:42+00:00",
-      "tipo": "rate_limit",
-      "url": "https://viniraveon.blogspot.com/2025/09/inix-lendas-do-amanha-tp5e04.html",
-      "serie": "https://www.vini7xgrave.site/2025/09/lendas-do-amanha-legends-of-tomorrow.html"
-    },
-    {
-      "quando": "2026-11-18T20:30:42+00:00",
-      "tipo": "rate_limit",
-      "url": "https://www.vini7xgrave.site/2025/09/lendas-do-amanha-legends-of-tomorrow.html",
-      "seguidos": 2
-    },
-    {
-      "quando": "2026-11-18T20:33:10+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/inix-arqueiro-verde-arrow-2012.html",
-      "href": "https://viniseries3.blogspot.com/2025/09/inix-arqueiro-tp1e18_7.html",
-      "numero_href": 18,
-      "numero_texto": 19,
-      "texto": "Episódio 19 - Negócios Inacabados"
-    },
-    {
-      "quando": "2026-11-18T20:33:10+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/inix-arqueiro-verde-arrow-2012.html",
-      "href": "https://viniseries3.blogspot.com/2025/09/inix-arqueiro-tp3e04_8.html",
-      "numero_href": 4,
-      "numero_texto": 5,
-      "texto": "Episódio 5 - A Origem Secreta de Felicity Smoak"
-    },
-    {
-      "quando": "2026-11-18T20:33:10+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/inix-arqueiro-verde-arrow-2012.html",
-      "href": "https://viniseries3.blogspot.com/2025/09/inix-arqueiro-tp4e0.html",
-      "numero_href": 0,
-      "numero_texto": 1,
-      "texto": "Episódio 1 - Arqueiro Verde"
-    },
-    {
       "quando": "2026-11-18T20:33:10+00:00",
       "tipo": "href_vs_texto",
       "url": "https://www.vini7xgrave.site/2025/09/inix-arqueiro-verde-arrow-2012.html",
@@ -4690,55 +4344,446 @@
       "tipo": "rate_limit",
       "url": "https://viniraveon.blogspot.com/2026/04/inix-big-bang-teoria-tp5e01.html",
       "retentativa": true
+    },
+    {
+      "quando": "2026-11-19T06:08:17+00:00",
+      "tipo": "feed_dominio",
+      "url": "https://marcosx7.blogspot.com",
+      "posts": 1653,
+      "completo": true
+    },
+    {
+      "quando": "2026-11-19T06:08:17+00:00",
+      "tipo": "href_vs_titulo",
+      "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
+      "href": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e13_13.html",
+      "temp_href": 1,
+      "ep_href": 13,
+      "temp_titulo": 1,
+      "ep_titulo": 15
+    },
+    {
+      "quando": "2026-11-19T06:08:17+00:00",
+      "tipo": "href_vs_texto",
+      "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
+      "href": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e20_13.html",
+      "numero_href": 20,
+      "numero_texto": 21,
+      "texto": "Episódio 21 - Motim na Capital"
+    },
+    {
+      "quando": "2026-11-19T06:08:17+00:00",
+      "tipo": "href_vs_titulo",
+      "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
+      "href": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e25_13.html",
+      "temp_href": 1,
+      "ep_href": 25,
+      "temp_titulo": 1,
+      "ep_titulo": 26
+    },
+    {
+      "quando": "2026-11-19T06:08:17+00:00",
+      "tipo": "href_vs_titulo",
+      "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
+      "href": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e26.html",
+      "temp_href": 1,
+      "ep_href": 26,
+      "temp_titulo": 1,
+      "ep_titulo": 27
+    },
+    {
+      "quando": "2026-11-19T06:08:17+00:00",
+      "tipo": "href_vs_titulo",
+      "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
+      "href": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e29_13.html",
+      "temp_href": 1,
+      "ep_href": 29,
+      "temp_titulo": 1,
+      "ep_titulo": 30
+    },
+    {
+      "quando": "2026-11-19T06:08:17+00:00",
+      "tipo": "href_vs_titulo",
+      "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
+      "href": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e33.html",
+      "temp_href": 1,
+      "ep_href": 33,
+      "temp_titulo": 1,
+      "ep_titulo": 31
+    },
+    {
+      "quando": "2026-11-19T06:08:17+00:00",
+      "tipo": "href_vs_titulo",
+      "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
+      "href": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e32_13.html",
+      "temp_href": 1,
+      "ep_href": 32,
+      "temp_titulo": 1,
+      "ep_titulo": 33
+    },
+    {
+      "quando": "2026-11-19T06:08:17+00:00",
+      "tipo": "href_vs_titulo",
+      "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
+      "href": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e49.html",
+      "temp_href": 1,
+      "ep_href": 49,
+      "temp_titulo": 1,
+      "ep_titulo": 48
+    },
+    {
+      "quando": "2026-11-19T06:12:32+00:00",
+      "tipo": "feed_dominio",
+      "url": "https://vini7xgseries2.blogspot.com",
+      "posts": 2443,
+      "completo": true
+    },
+    {
+      "quando": "2026-11-19T06:12:32+00:00",
+      "tipo": "href_vs_titulo",
+      "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
+      "href": "https://vini7xgseries2.blogspot.com/2025/09/inix-black-clover-tp2e07_13.html",
+      "temp_href": 2,
+      "ep_href": 7,
+      "temp_titulo": 2,
+      "ep_titulo": 8
+    },
+    {
+      "quando": "2026-11-19T06:12:48+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e12.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-19T06:20:49+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e12.html",
+      "serie": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html"
+    },
+    {
+      "quando": "2026-11-19T06:20:49+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
+      "seguidos": 1
+    },
+    {
+      "quando": "2026-11-19T06:30:35+00:00",
+      "tipo": "feed_dominio",
+      "url": "https://viniraveon.blogspot.com",
+      "posts": 4926,
+      "completo": true
+    },
+    {
+      "quando": "2026-11-19T06:30:35+00:00",
+      "tipo": "href_vs_titulo",
+      "url": "https://www.vini7xgrave.site/2025/04/star-contra-as-forcas-do-mal.html",
+      "href": "https://viniraveon.blogspot.com/2025/04/inix-tp1e01_55.html",
+      "temp_href": 1,
+      "ep_href": 1,
+      "temp_titulo": 1,
+      "ep_titulo": 2
+    },
+    {
+      "quando": "2026-11-19T06:30:35+00:00",
+      "tipo": "href_vs_titulo",
+      "url": "https://www.vini7xgrave.site/2025/04/star-contra-as-forcas-do-mal.html",
+      "href": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e06_19.html",
+      "temp_href": 3,
+      "ep_href": 6,
+      "temp_titulo": 3,
+      "ep_titulo": 7
+    },
+    {
+      "quando": "2026-11-19T06:30:35+00:00",
+      "tipo": "titulo_vs_cabecalho",
+      "url": "https://www.vini7xgrave.site/2025/04/star-contra-as-forcas-do-mal.html",
+      "href": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e13.html",
+      "temp_titulo": 5,
+      "ep_titulo": 9,
+      "temp_cab": 3,
+      "ep_texto": 13
+    },
+    {
+      "quando": "2026-11-19T06:32:35+00:00",
+      "tipo": "feed_dominio",
+      "url": "https://viniseries3.blogspot.com",
+      "posts": 1187,
+      "completo": true
+    },
+    {
+      "quando": "2026-11-19T06:32:51+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e12_14.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-19T06:41:04+00:00",
+      "tipo": "rate_limit",
+      "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e12_14.html",
+      "serie": "https://www.vini7xgrave.site/2025/04/star-contra-as-forcas-do-mal.html"
+    },
+    {
+      "quando": "2026-11-19T06:41:04+00:00",
+      "tipo": "rate_limit",
+      "url": "https://www.vini7xgrave.site/2025/04/star-contra-as-forcas-do-mal.html",
+      "seguidos": 2
+    },
+    {
+      "quando": "2026-11-19T06:43:54+00:00",
+      "tipo": "href_vs_titulo",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-vis-vis-2015.html",
+      "href": "https://viniraveon.blogspot.com/2025/04/inix-tp1e12_22.html",
+      "temp_href": 1,
+      "ep_href": 12,
+      "temp_titulo": 2,
+      "ep_titulo": 1
+    },
+    {
+      "quando": "2026-11-19T06:43:54+00:00",
+      "tipo": "href_vs_titulo",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-vis-vis-2015.html",
+      "href": "https://viniraveon.blogspot.com/2025/04/inix-tp1e13_22.html",
+      "temp_href": 1,
+      "ep_href": 13,
+      "temp_titulo": 2,
+      "ep_titulo": 2
+    },
+    {
+      "quando": "2026-11-19T06:45:27+00:00",
+      "tipo": "href_vs_titulo",
+      "url": "https://www.vini7xgrave.site/2025/04/cobra-kai-2018.html",
+      "href": "https://viniraveon.blogspot.com/2025/04/inix-tp2e10_20.html",
+      "temp_href": 2,
+      "ep_href": 10,
+      "temp_titulo": 1,
+      "ep_titulo": 10
+    },
+    {
+      "quando": "2026-11-19T06:45:27+00:00",
+      "tipo": "href_vs_titulo",
+      "url": "https://www.vini7xgrave.site/2025/04/cobra-kai-2018.html",
+      "href": "https://viniraveon.blogspot.com/2025/04/inix-tp5e06_47.html",
+      "temp_href": 5,
+      "ep_href": 6,
+      "temp_titulo": 5,
+      "ep_titulo": 7
+    },
+    {
+      "quando": "2026-11-19T06:47:23+00:00",
+      "tipo": "href_vs_titulo",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-bates-motel.html",
+      "href": "https://viniraveon.blogspot.com/2025/04/inix-tp2e03_19.html",
+      "temp_href": 2,
+      "ep_href": 3,
+      "temp_titulo": 4,
+      "ep_titulo": 3
+    },
+    {
+      "quando": "2026-11-19T06:48:30+00:00",
+      "tipo": "href_vs_titulo",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-diarios-do-vampiro-2009.html",
+      "href": "https://viniraveon.blogspot.com/2025/04/inix-tp4e05_5.html",
+      "temp_href": 4,
+      "ep_href": 5,
+      "temp_titulo": 4,
+      "ep_titulo": 6
+    },
+    {
+      "quando": "2026-11-19T06:48:30+00:00",
+      "tipo": "href_vs_titulo",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-diarios-do-vampiro-2009.html",
+      "href": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp5e13_16.html",
+      "temp_href": 5,
+      "ep_href": 13,
+      "temp_titulo": 5,
+      "ep_titulo": 15
+    },
+    {
+      "quando": "2026-11-19T06:48:30+00:00",
+      "tipo": "titulo_vs_cabecalho",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-diarios-do-vampiro-2009.html",
+      "href": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp5e22.html",
+      "temp_titulo": 8,
+      "ep_titulo": 16,
+      "temp_cab": 5,
+      "ep_texto": 22
+    },
+    {
+      "quando": "2026-11-19T06:48:30+00:00",
+      "tipo": "href_vs_titulo",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-diarios-do-vampiro-2009.html",
+      "href": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp6e01.html",
+      "temp_href": 6,
+      "ep_href": 1,
+      "temp_titulo": 6,
+      "ep_titulo": 17
+    },
+    {
+      "quando": "2026-11-19T06:48:30+00:00",
+      "tipo": "serie_inconsistente",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-diarios-do-vampiro-2009.html",
+      "slug": "diarios_de_um_vampiro",
+      "problemas": [
+        "T6E17 aparece 2x com URLs diferentes",
+        "T6: faltam episódios [1]"
+      ],
+      "encontrado": {
+        "T1": 22,
+        "T2": 22,
+        "T3": 22,
+        "T4": 23,
+        "T5": 22,
+        "T6": 22,
+        "T7": 22,
+        "T8": 17
+      }
+    },
+    {
+      "quando": "2026-11-19T06:49:14+00:00",
+      "tipo": "titulo_vs_cabecalho",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-prison-break-em-busca-da-verdade.html",
+      "href": "https://viniraveon.blogspot.com/2025/04/inix-tp1e12_56.html",
+      "temp_titulo": 1,
+      "ep_titulo": 12,
+      "temp_cab": 2,
+      "ep_texto": 12
+    },
+    {
+      "quando": "2026-11-19T06:49:14+00:00",
+      "tipo": "titulo_vs_cabecalho",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-prison-break-em-busca-da-verdade.html",
+      "href": "https://viniraveon.blogspot.com/2025/04/inix-tp1e13_64.html",
+      "temp_titulo": 1,
+      "ep_titulo": 13,
+      "temp_cab": 2,
+      "ep_texto": 13
+    },
+    {
+      "quando": "2026-11-19T06:49:14+00:00",
+      "tipo": "href_vs_titulo",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-prison-break-em-busca-da-verdade.html",
+      "href": "https://viniraveon.blogspot.com/2025/04/inix-tp4e06_46.html",
+      "temp_href": 4,
+      "ep_href": 6,
+      "temp_titulo": 4,
+      "ep_titulo": 23
+    },
+    {
+      "quando": "2026-11-19T06:49:14+00:00",
+      "tipo": "href_vs_titulo",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-prison-break-em-busca-da-verdade.html",
+      "href": "https://viniraveon.blogspot.com/2025/04/inix-tp5e06_97.html",
+      "temp_href": 5,
+      "ep_href": 6,
+      "temp_titulo": 5,
+      "ep_titulo": 7
+    },
+    {
+      "quando": "2026-11-19T06:49:14+00:00",
+      "tipo": "href_vs_titulo",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-prison-break-em-busca-da-verdade.html",
+      "href": "https://viniraveon.blogspot.com/2025/04/inix-tp4e08_26.html",
+      "temp_href": 4,
+      "ep_href": 8,
+      "temp_titulo": 5,
+      "ep_titulo": 8
+    },
+    {
+      "quando": "2026-11-19T06:49:14+00:00",
+      "tipo": "href_vs_titulo",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-prison-break-em-busca-da-verdade.html",
+      "href": "https://viniraveon.blogspot.com/2025/04/inix-tp4e09_52.html",
+      "temp_href": 4,
+      "ep_href": 9,
+      "temp_titulo": 5,
+      "ep_titulo": 9
+    },
+    {
+      "quando": "2026-11-19T06:51:28+00:00",
+      "tipo": "href_vs_titulo",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-ben-10.html",
+      "href": "https://viniraveon.blogspot.com/2025/04/inix-tp1e04_90.html",
+      "temp_href": 1,
+      "ep_href": 4,
+      "temp_titulo": 1,
+      "ep_titulo": 5
+    },
+    {
+      "quando": "2026-11-19T06:51:28+00:00",
+      "tipo": "titulo_vs_cabecalho",
+      "url": "https://www.vini7xgrave.site/2025/04/inix-ben-10.html",
+      "href": "https://viniraveon.blogspot.com/2025/04/inix-tp4e13_15.html",
+      "temp_titulo": 5,
+      "ep_titulo": 13,
+      "temp_cab": 4,
+      "ep_texto": 13
+    },
+    {
+      "quando": "2026-11-19T06:52:15+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2026/04/inix-big-bang-teoria-tp5e01.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-19T07:01:26+00:00",
+      "tipo": "rate_limit",
+      "url": "https://viniraveon.blogspot.com/2026/04/inix-big-bang-teoria-tp5e01.html",
+      "retentativa": true
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 201,
-      "ok": 127,
-      "429": 14,
+      "requisicoes": 162,
+      "ok": 102,
+      "429": 3,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 14,
+      "falhas_definitivas": 3,
       "html_invalido": 0,
       "serie_inconsistente": 1,
       "conflitos": 0,
-      "proxy_fallback": 14,
-      "proxy_hit": 11,
-      "proxmint_listas": 29,
+      "proxy_fallback": 3,
+      "proxy_hit": 0,
+      "proxmint_listas": 12,
       "link_em_a_href": 0,
       "link_convertido_w2embed": 0,
-      "skip_perfeito": 635,
-      "feed_hit": 0,
-      "http_necessario": 23,
-      "playwright_skip": 17,
-      "episodios_tp_encontrados": 728,
-      "proxy_validados": 165,
+      "skip_perfeito": 379,
+      "feed_hit": 1,
+      "http_necessario": 3,
+      "playwright_skip": 0,
+      "episodios_tp_encontrados": 668,
+      "proxy_validados": 84,
       "robo": "series",
-      "quando": "2026-11-19T05:56:42+00:00",
-      "duracao_min": 79.6
+      "quando": "2026-11-19T07:01:26+00:00",
+      "duracao_min": 63.6
     },
     "acumulado": {
-      "requisicoes": 2937,
-      "ok": 1230,
-      "429": 204,
+      "requisicoes": 3099,
+      "ok": 1332,
+      "429": 207,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 204,
+      "falhas_definitivas": 207,
       "html_invalido": 0,
-      "serie_inconsistente": 30,
+      "serie_inconsistente": 31,
       "conflitos": 4,
-      "proxy_fallback": 204,
+      "proxy_fallback": 207,
       "proxy_hit": 125,
-      "proxmint_listas": 525,
+      "proxmint_listas": 537,
       "link_em_a_href": 0,
       "link_convertido_w2embed": 0,
-      "skip_perfeito": 12050,
-      "feed_hit": 0,
-      "http_necessario": 339,
+      "skip_perfeito": 12429,
+      "feed_hit": 1,
+      "http_necessario": 342,
       "playwright_skip": 174,
-      "episodios_tp_encontrados": 14516,
-      "proxy_validados": 3268
+      "episodios_tp_encontrados": 15184,
+      "proxy_validados": 3352
     }
   }
 }
