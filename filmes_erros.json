@@ -1522,12 +1522,20 @@
       "status": 429,
       "detalhe": "HTTP 429",
       "tentativas": 1
+    },
+    {
+      "quando": "2026-11-19T03:10:30+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://www.vini7xgrave.site/2025/02/a-serie-velozes-e-furiosos.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 36,
-      "ok": 35,
+      "requisicoes": 34,
+      "ok": 33,
       "429": 1,
       "5xx": 0,
       "retries": 0,
@@ -1539,38 +1547,38 @@
       "proxy_hit": 1,
       "pausas_evitadas": 0,
       "http_realizados": 0,
-      "playwright_skip": 4,
+      "playwright_skip": 2,
       "proxmint_listas": 4,
       "link_em_a_href": 0,
       "link_convertido_w2embed": 0,
       "multifilme_paginas": 0,
       "multifilme_arquivos": 0,
-      "proxy_validados": 37,
+      "proxy_validados": 51,
       "robo": "filmes",
-      "quando": "2026-11-19T02:57:43+00:00",
-      "duracao_min": 9.7
+      "quando": "2026-11-19T03:11:23+00:00",
+      "duracao_min": 8.8
     },
     "acumulado": {
-      "requisicoes": 2061,
-      "ok": 1837,
-      "429": 189,
+      "requisicoes": 2095,
+      "ok": 1870,
+      "429": 190,
       "5xx": 1,
       "retries": 0,
-      "falhas_definitivas": 190,
+      "falhas_definitivas": 191,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 189,
-      "proxy_hit": 189,
+      "proxy_fallback": 190,
+      "proxy_hit": 190,
       "pausas_evitadas": 8408,
       "http_realizados": 121,
-      "playwright_skip": 280,
-      "proxmint_listas": 371,
+      "playwright_skip": 282,
+      "proxmint_listas": 375,
       "link_em_a_href": 43,
       "link_convertido_w2embed": 254,
       "multifilme_paginas": 30,
       "multifilme_arquivos": 0,
-      "proxy_validados": 2973
+      "proxy_validados": 3024
     }
   }
 }
