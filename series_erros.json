@@ -2,43 +2,6 @@
   "contagem": {},
   "eventos": [
     {
-      "quando": "2026-11-19T06:30:35+00:00",
-      "tipo": "feed_dominio",
-      "url": "https://viniraveon.blogspot.com",
-      "posts": 4926,
-      "completo": true
-    },
-    {
-      "quando": "2026-11-19T06:30:35+00:00",
-      "tipo": "href_vs_titulo",
-      "url": "https://www.vini7xgrave.site/2025/04/star-contra-as-forcas-do-mal.html",
-      "href": "https://viniraveon.blogspot.com/2025/04/inix-tp1e01_55.html",
-      "temp_href": 1,
-      "ep_href": 1,
-      "temp_titulo": 1,
-      "ep_titulo": 2
-    },
-    {
-      "quando": "2026-11-19T06:30:35+00:00",
-      "tipo": "href_vs_titulo",
-      "url": "https://www.vini7xgrave.site/2025/04/star-contra-as-forcas-do-mal.html",
-      "href": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e06_19.html",
-      "temp_href": 3,
-      "ep_href": 6,
-      "temp_titulo": 3,
-      "ep_titulo": 7
-    },
-    {
-      "quando": "2026-11-19T06:30:35+00:00",
-      "tipo": "titulo_vs_cabecalho",
-      "url": "https://www.vini7xgrave.site/2025/04/star-contra-as-forcas-do-mal.html",
-      "href": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e13.html",
-      "temp_titulo": 5,
-      "ep_titulo": 9,
-      "temp_cab": 3,
-      "ep_texto": 13
-    },
-    {
       "quando": "2026-11-19T06:32:35+00:00",
       "tipo": "feed_dominio",
       "url": "https://viniseries3.blogspot.com",
@@ -4828,18 +4791,46 @@
       "tipo": "rate_limit",
       "url": "https://viniraveon.blogspot.com/2026/01/inix-uma-familia-da-pesada-tp2e03.html",
       "retentativa": true
+    },
+    {
+      "quando": "2026-11-20T01:38:48+00:00",
+      "tipo": "feed_dominio",
+      "url": "https://viniraveon.blogspot.com",
+      "posts": 4926,
+      "completo": true
+    },
+    {
+      "quando": "2026-11-20T01:42:13+00:00",
+      "tipo": "feed_dominio",
+      "url": "https://marcosx7.blogspot.com",
+      "posts": 1653,
+      "completo": true
+    },
+    {
+      "quando": "2026-11-20T01:42:52+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2026/01/inix-suits-tp8e08.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-20T01:51:01+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2026/01/inix-suits-tp8e08.html",
+      "retentativa": true
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 128,
-      "ok": 107,
+      "requisicoes": 99,
+      "ok": 78,
       "429": 1,
       "5xx": 0,
       "retries": 0,
       "falhas_definitivas": 1,
       "html_invalido": 0,
-      "serie_inconsistente": 24,
+      "serie_inconsistente": 0,
       "conflitos": 0,
       "proxy_fallback": 1,
       "proxy_hit": 0,
@@ -4848,35 +4839,35 @@
       "link_convertido_w2embed": 0,
       "skip_perfeito": 0,
       "feed_hit": 0,
-      "http_necessario": 1,
-      "playwright_skip": 0,
-      "episodios_tp_encontrados": 1367,
-      "proxy_validados": 63,
+      "http_necessario": 3,
+      "playwright_skip": 2,
+      "episodios_tp_encontrados": 0,
+      "proxy_validados": 73,
       "robo": "series",
-      "quando": "2026-11-19T21:16:45+00:00",
-      "duracao_min": 42.5
+      "quando": "2026-11-20T01:51:01+00:00",
+      "duracao_min": 28.1
     },
     "acumulado": {
-      "requisicoes": 4442,
-      "ok": 2347,
-      "429": 302,
+      "requisicoes": 4541,
+      "ok": 2425,
+      "429": 303,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 302,
+      "falhas_definitivas": 303,
       "html_invalido": 2,
       "serie_inconsistente": 70,
       "conflitos": 4,
-      "proxy_fallback": 302,
+      "proxy_fallback": 303,
       "proxy_hit": 209,
-      "proxmint_listas": 740,
+      "proxmint_listas": 744,
       "link_em_a_href": 1,
       "link_convertido_w2embed": 0,
       "skip_perfeito": 13262,
       "feed_hit": 2,
-      "http_necessario": 717,
-      "playwright_skip": 234,
+      "http_necessario": 720,
+      "playwright_skip": 236,
       "episodios_tp_encontrados": 18512,
-      "proxy_validados": 4751
+      "proxy_validados": 4824
     }
   }
 }
