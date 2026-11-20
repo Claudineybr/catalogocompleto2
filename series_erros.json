@@ -2,27 +2,6 @@
   "contagem": {},
   "eventos": [
     {
-      "quando": "2026-11-19T06:32:35+00:00",
-      "tipo": "feed_dominio",
-      "url": "https://viniseries3.blogspot.com",
-      "posts": 1187,
-      "completo": true
-    },
-    {
-      "quando": "2026-11-19T06:32:51+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e12_14.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-19T06:41:04+00:00",
-      "tipo": "rate_limit",
-      "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e12_14.html",
-      "serie": "https://www.vini7xgrave.site/2025/04/star-contra-as-forcas-do-mal.html"
-    },
-    {
       "quando": "2026-11-19T06:41:04+00:00",
       "tipo": "rate_limit",
       "url": "https://www.vini7xgrave.site/2025/04/star-contra-as-forcas-do-mal.html",
@@ -4819,12 +4798,33 @@
       "tipo": "rate_limit",
       "url": "https://marcosx7.blogspot.com/2026/01/inix-suits-tp8e08.html",
       "retentativa": true
+    },
+    {
+      "quando": "2026-11-20T08:58:12+00:00",
+      "tipo": "feed_dominio",
+      "url": "https://marcosx7.blogspot.com",
+      "posts": 1653,
+      "completo": true
+    },
+    {
+      "quando": "2026-11-20T08:59:12+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2026/01/inix-percy-jackson-e-os-olimpianos_9.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-20T09:07:16+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2026/01/inix-percy-jackson-e-os-olimpianos_9.html",
+      "retentativa": true
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 99,
-      "ok": 78,
+      "requisicoes": 66,
+      "ok": 45,
       "429": 1,
       "5xx": 0,
       "retries": 0,
@@ -4842,32 +4842,32 @@
       "http_necessario": 3,
       "playwright_skip": 2,
       "episodios_tp_encontrados": 0,
-      "proxy_validados": 73,
+      "proxy_validados": 52,
       "robo": "series",
-      "quando": "2026-11-20T01:51:01+00:00",
-      "duracao_min": 28.1
+      "quando": "2026-11-20T09:07:16+00:00",
+      "duracao_min": 19.8
     },
     "acumulado": {
-      "requisicoes": 4541,
-      "ok": 2425,
-      "429": 303,
+      "requisicoes": 4607,
+      "ok": 2470,
+      "429": 304,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 303,
+      "falhas_definitivas": 304,
       "html_invalido": 2,
       "serie_inconsistente": 70,
       "conflitos": 4,
-      "proxy_fallback": 303,
+      "proxy_fallback": 304,
       "proxy_hit": 209,
-      "proxmint_listas": 744,
+      "proxmint_listas": 748,
       "link_em_a_href": 1,
       "link_convertido_w2embed": 0,
       "skip_perfeito": 13262,
       "feed_hit": 2,
-      "http_necessario": 720,
-      "playwright_skip": 236,
+      "http_necessario": 723,
+      "playwright_skip": 238,
       "episodios_tp_encontrados": 18512,
-      "proxy_validados": 4824
+      "proxy_validados": 4876
     }
   }
 }
