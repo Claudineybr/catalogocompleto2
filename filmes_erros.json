@@ -1060,8 +1060,8 @@
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 31,
-      "ok": 31,
+      "requisicoes": 32,
+      "ok": 32,
       "429": 0,
       "5xx": 0,
       "retries": 0,
@@ -1080,12 +1080,12 @@
       "multifilme_paginas": 0,
       "multifilme_arquivos": 0,
       "robo": "filmes",
-      "quando": "2026-11-21T13:07:23+00:00",
-      "duracao_min": 7.5
+      "quando": "2026-11-21T20:12:02+00:00",
+      "duracao_min": 7.8
     },
     "acumulado": {
-      "requisicoes": 680,
-      "ok": 536,
+      "requisicoes": 712,
+      "ok": 568,
       "429": 132,
       "5xx": 0,
       "retries": 0,
