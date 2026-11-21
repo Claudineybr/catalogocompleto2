@@ -3,52 +3,6 @@
   "eventos": [
     {
       "quando": "2026-11-19T07:17:07+00:00",
-      "tipo": "feed_dominio",
-      "url": "https://marcosx7.blogspot.com",
-      "posts": 1653,
-      "completo": true
-    },
-    {
-      "quando": "2026-11-19T07:17:07+00:00",
-      "tipo": "href_vs_titulo",
-      "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
-      "href": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e13_13.html",
-      "temp_href": 1,
-      "ep_href": 13,
-      "temp_titulo": 1,
-      "ep_titulo": 15
-    },
-    {
-      "quando": "2026-11-19T07:17:07+00:00",
-      "tipo": "href_vs_texto",
-      "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
-      "href": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e20_13.html",
-      "numero_href": 20,
-      "numero_texto": 21,
-      "texto": "Episódio 21 - Motim na Capital"
-    },
-    {
-      "quando": "2026-11-19T07:17:07+00:00",
-      "tipo": "href_vs_titulo",
-      "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
-      "href": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e25_13.html",
-      "temp_href": 1,
-      "ep_href": 25,
-      "temp_titulo": 1,
-      "ep_titulo": 26
-    },
-    {
-      "quando": "2026-11-19T07:17:07+00:00",
-      "tipo": "href_vs_titulo",
-      "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
-      "href": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e26.html",
-      "temp_href": 1,
-      "ep_href": 26,
-      "temp_titulo": 1,
-      "ep_titulo": 27
-    },
-    {
-      "quando": "2026-11-19T07:17:07+00:00",
       "tipo": "href_vs_titulo",
       "url": "https://www.vini7xgrave.site/2025/09/black-clover-1-temporada-sinopse-num.html",
       "href": "https://marcosx7.blogspot.com/2025/09/inix-black-clover-tp1e29_13.html",
@@ -4762,55 +4716,91 @@
       "tipo": "rate_limit",
       "url": "https://marcosx7.blogspot.com/2025/10/arc-act-tp01ep07.html",
       "retentativa": true
+    },
+    {
+      "quando": "2026-11-21T20:10:29+00:00",
+      "tipo": "feed_dominio",
+      "url": "https://viniraveon.blogspot.com",
+      "posts": 4931,
+      "completo": true
+    },
+    {
+      "quando": "2026-11-21T20:11:52+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2025/11/inix-marvel-punho-de-ferro-tp2e03.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-21T20:18:11+00:00",
+      "tipo": "feed_dominio",
+      "url": "https://marcosx7.blogspot.com",
+      "posts": 1653,
+      "completo": true
+    },
+    {
+      "quando": "2026-11-21T20:18:26+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2025/11/inix-tp01ep21.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-21T20:26:25+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2025/11/inix-tp01ep21.html",
+      "retentativa": true
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 116,
-      "ok": 93,
-      "429": 3,
+      "requisicoes": 110,
+      "ok": 88,
+      "429": 2,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 3,
+      "falhas_definitivas": 2,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 3,
-      "proxy_hit": 2,
-      "proxmint_listas": 9,
+      "proxy_fallback": 2,
+      "proxy_hit": 1,
+      "proxmint_listas": 8,
       "link_em_a_href": 0,
       "link_convertido_w2embed": 0,
       "skip_perfeito": 0,
       "feed_hit": 0,
-      "http_necessario": 18,
-      "playwright_skip": 17,
+      "http_necessario": 12,
+      "playwright_skip": 11,
       "episodios_tp_encontrados": 0,
-      "proxy_validados": 68,
+      "proxy_validados": 125,
       "robo": "series",
-      "quando": "2026-11-21T13:27:33+00:00",
-      "duracao_min": 34.8
+      "quando": "2026-11-21T20:26:25+00:00",
+      "duracao_min": 32.1
     },
     "acumulado": {
-      "requisicoes": 5002,
-      "ok": 2774,
-      "429": 314,
+      "requisicoes": 5112,
+      "ok": 2862,
+      "429": 316,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 314,
+      "falhas_definitivas": 316,
       "html_invalido": 2,
       "serie_inconsistente": 70,
       "conflitos": 4,
-      "proxy_fallback": 314,
-      "proxy_hit": 215,
-      "proxmint_listas": 776,
+      "proxy_fallback": 316,
+      "proxy_hit": 216,
+      "proxmint_listas": 784,
       "link_em_a_href": 1,
       "link_convertido_w2embed": 0,
       "skip_perfeito": 13262,
       "feed_hit": 2,
-      "http_necessario": 760,
-      "playwright_skip": 271,
+      "http_necessario": 772,
+      "playwright_skip": 282,
       "episodios_tp_encontrados": 18512,
-      "proxy_validados": 5157
+      "proxy_validados": 5282
     }
   }
 }
