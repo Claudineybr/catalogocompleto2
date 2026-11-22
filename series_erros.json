@@ -2,43 +2,6 @@
   "contagem": {},
   "eventos": [
     {
-      "quando": "2026-11-19T07:40:27+00:00",
-      "tipo": "titulo_vs_cabecalho",
-      "url": "https://www.vini7xgrave.site/2025/04/star-contra-as-forcas-do-mal.html",
-      "href": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp3e13.html",
-      "temp_titulo": 5,
-      "ep_titulo": 9,
-      "temp_cab": 3,
-      "ep_texto": 13
-    },
-    {
-      "quando": "2026-11-19T07:42:27+00:00",
-      "tipo": "feed_dominio",
-      "url": "https://viniseries3.blogspot.com",
-      "posts": 1187,
-      "completo": true
-    },
-    {
-      "quando": "2026-11-19T07:43:52+00:00",
-      "tipo": "href_vs_titulo",
-      "url": "https://www.vini7xgrave.site/2025/04/inix-elite.html",
-      "href": "https://viniraveon.blogspot.com/2025/04/inix-tp1e03_48.html",
-      "temp_href": 1,
-      "ep_href": 3,
-      "temp_titulo": 1,
-      "ep_titulo": 4
-    },
-    {
-      "quando": "2026-11-19T07:43:52+00:00",
-      "tipo": "href_vs_titulo",
-      "url": "https://www.vini7xgrave.site/2025/04/inix-elite.html",
-      "href": "https://viniraveon.blogspot.com/2025/04/inix-tp4e05_94.html",
-      "temp_href": 4,
-      "ep_href": 5,
-      "temp_titulo": 3,
-      "ep_titulo": 5
-    },
-    {
       "quando": "2026-11-19T07:43:52+00:00",
       "tipo": "href_vs_titulo",
       "url": "https://www.vini7xgrave.site/2025/04/inix-elite.html",
@@ -4736,12 +4699,40 @@
       "tipo": "rate_limit",
       "url": "https://marcosx7.blogspot.com/2025/11/inix-tp01ep21.html",
       "retentativa": true
+    },
+    {
+      "quando": "2026-11-22T14:14:06+00:00",
+      "tipo": "feed_dominio",
+      "url": "https://marcosx7.blogspot.com",
+      "posts": 1653,
+      "completo": true
+    },
+    {
+      "quando": "2026-11-22T14:23:03+00:00",
+      "tipo": "feed_dominio",
+      "url": "https://viniraveon.blogspot.com",
+      "posts": 4931,
+      "completo": true
+    },
+    {
+      "quando": "2026-11-22T14:23:18+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2026/02/inix-uma-familia-da-pesada-tp2e15.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-22T14:31:16+00:00",
+      "tipo": "rate_limit",
+      "url": "https://viniraveon.blogspot.com/2026/02/inix-uma-familia-da-pesada-tp2e15.html",
+      "retentativa": true
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 65,
-      "ok": 44,
+      "requisicoes": 100,
+      "ok": 79,
       "429": 1,
       "5xx": 0,
       "retries": 0,
@@ -4756,35 +4747,35 @@
       "link_convertido_w2embed": 0,
       "skip_perfeito": 0,
       "feed_hit": 0,
-      "http_necessario": 1,
-      "playwright_skip": 0,
+      "http_necessario": 3,
+      "playwright_skip": 2,
       "episodios_tp_encontrados": 0,
-      "proxy_validados": 45,
+      "proxy_validados": 55,
       "robo": "series",
-      "quando": "2026-11-22T06:16:57+00:00",
-      "duracao_min": 19.2
+      "quando": "2026-11-22T14:31:16+00:00",
+      "duracao_min": 28.0
     },
     "acumulado": {
-      "requisicoes": 5322,
-      "ok": 3026,
-      "429": 322,
+      "requisicoes": 5422,
+      "ok": 3105,
+      "429": 323,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 322,
+      "falhas_definitivas": 323,
       "html_invalido": 2,
       "serie_inconsistente": 70,
       "conflitos": 4,
-      "proxy_fallback": 322,
+      "proxy_fallback": 323,
       "proxy_hit": 220,
-      "proxmint_listas": 802,
+      "proxmint_listas": 806,
       "link_em_a_href": 1,
       "link_convertido_w2embed": 0,
       "skip_perfeito": 13262,
       "feed_hit": 2,
-      "http_necessario": 809,
-      "playwright_skip": 313,
+      "http_necessario": 812,
+      "playwright_skip": 315,
       "episodios_tp_encontrados": 18516,
-      "proxy_validados": 5499
+      "proxy_validados": 5554
     }
   }
 }
