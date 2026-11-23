@@ -2,44 +2,6 @@
   "contagem": {},
   "eventos": [
     {
-      "quando": "2026-11-19T07:48:18+00:00",
-      "tipo": "href_vs_titulo",
-      "url": "https://www.vini7xgrave.site/2025/04/inix-black-mirror.html",
-      "href": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp6e01.html",
-      "temp_href": 6,
-      "ep_href": 1,
-      "temp_titulo": 6,
-      "ep_titulo": 17
-    },
-    {
-      "quando": "2026-11-19T07:48:18+00:00",
-      "tipo": "serie_inconsistente",
-      "url": "https://www.vini7xgrave.site/2025/04/inix-black-mirror.html",
-      "slug": "black_mirror",
-      "problemas": [
-        "T6: faltam episódios [1, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]"
-      ],
-      "encontrado": {
-        "T1": 3,
-        "T2": 4,
-        "T3": 6,
-        "T4": 6,
-        "T5": 3,
-        "T6": 5,
-        "T7": 6
-      }
-    },
-    {
-      "quando": "2026-11-19T07:48:40+00:00",
-      "tipo": "href_vs_titulo",
-      "url": "https://www.vini7xgrave.site/2025/04/inix-nascer-da-lua.html",
-      "href": "https://viniraveon.blogspot.com/2025/04/inix-tp1e01_12.html",
-      "temp_href": 1,
-      "ep_href": 1,
-      "temp_titulo": 1,
-      "ep_titulo": 2
-    },
-    {
       "quando": "2026-11-19T07:51:04+00:00",
       "tipo": "feed_dominio",
       "url": "https://viniseriesonline.blogspot.com",
@@ -4720,6 +4682,27 @@
       "tipo": "rate_limit",
       "url": "https://viniraveon.blogspot.com/2026/02/inix-uma-familia-da-pesada-tp2e15.html",
       "retentativa": true
+    },
+    {
+      "quando": "2026-11-23T01:32:56+00:00",
+      "tipo": "feed_dominio",
+      "url": "https://viniraveon.blogspot.com",
+      "posts": 4931,
+      "completo": true
+    },
+    {
+      "quando": "2026-11-23T01:33:11+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2026/02/inix-uma-familia-da-pesada-tp2e15.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-23T01:41:10+00:00",
+      "tipo": "rate_limit",
+      "url": "https://viniraveon.blogspot.com/2026/02/inix-uma-familia-da-pesada-tp2e15.html",
+      "retentativa": true
     }
   ],
   "metricas": {
@@ -4743,32 +4726,32 @@
       "http_necessario": 1,
       "playwright_skip": 0,
       "episodios_tp_encontrados": 0,
-      "proxy_validados": 42,
+      "proxy_validados": 45,
       "robo": "series",
-      "quando": "2026-11-22T21:11:28+00:00",
+      "quando": "2026-11-23T01:41:10+00:00",
       "duracao_min": 24.4
     },
     "acumulado": {
-      "requisicoes": 5508,
-      "ok": 3170,
-      "429": 324,
+      "requisicoes": 5594,
+      "ok": 3235,
+      "429": 325,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 324,
+      "falhas_definitivas": 325,
       "html_invalido": 2,
       "serie_inconsistente": 70,
       "conflitos": 4,
-      "proxy_fallback": 324,
+      "proxy_fallback": 325,
       "proxy_hit": 220,
-      "proxmint_listas": 810,
+      "proxmint_listas": 814,
       "link_em_a_href": 1,
       "link_convertido_w2embed": 0,
       "skip_perfeito": 13262,
       "feed_hit": 2,
-      "http_necessario": 813,
+      "http_necessario": 814,
       "playwright_skip": 315,
       "episodios_tp_encontrados": 18516,
-      "proxy_validados": 5596
+      "proxy_validados": 5641
     }
   }
 }
