@@ -2,38 +2,6 @@
   "contagem": {},
   "eventos": [
     {
-      "quando": "2026-11-19T08:12:39+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e21_7.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-19T08:13:39+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/04/inix-tp1e22_7.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-19T08:15:34+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e02_7.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-19T08:17:01+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e05_7.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
       "quando": "2026-11-19T08:18:28+00:00",
       "tipo": "http_esgotado",
       "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e07_7.html",
@@ -4656,12 +4624,40 @@
       "tipo": "rate_limit",
       "url": "https://marcosx7.blogspot.com/2025/10/arc-act-tp01ep07.html",
       "retentativa": true
+    },
+    {
+      "quando": "2026-11-25T20:11:48+00:00",
+      "tipo": "feed_dominio",
+      "url": "https://marcosx7.blogspot.com",
+      "posts": 1653,
+      "completo": true
+    },
+    {
+      "quando": "2026-11-25T20:20:27+00:00",
+      "tipo": "feed_dominio",
+      "url": "https://viniraveon.blogspot.com",
+      "posts": 4931,
+      "completo": true
+    },
+    {
+      "quando": "2026-11-25T20:21:06+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2025/10/arc-walking-dead-daryl-tp03ep06.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-25T20:29:24+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2025/10/arc-walking-dead-daryl-tp03ep06.html",
+      "retentativa": true
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 65,
-      "ok": 44,
+      "requisicoes": 100,
+      "ok": 79,
       "429": 1,
       "5xx": 0,
       "retries": 0,
@@ -4676,35 +4672,35 @@
       "link_convertido_w2embed": 0,
       "skip_perfeito": 0,
       "feed_hit": 0,
-      "http_necessario": 1,
-      "playwright_skip": 0,
+      "http_necessario": 3,
+      "playwright_skip": 2,
       "episodios_tp_encontrados": 0,
-      "proxy_validados": 42,
+      "proxy_validados": 64,
       "robo": "series",
-      "quando": "2026-11-25T10:21:20+00:00",
-      "duracao_min": 19.1
+      "quando": "2026-11-25T20:29:24+00:00",
+      "duracao_min": 28.5
     },
     "acumulado": {
-      "requisicoes": 6175,
-      "ok": 3688,
-      "429": 333,
+      "requisicoes": 6275,
+      "ok": 3767,
+      "429": 334,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 333,
+      "falhas_definitivas": 334,
       "html_invalido": 2,
       "serie_inconsistente": 70,
       "conflitos": 4,
-      "proxy_fallback": 333,
+      "proxy_fallback": 334,
       "proxy_hit": 222,
-      "proxmint_listas": 840,
+      "proxmint_listas": 844,
       "link_em_a_href": 1,
       "link_convertido_w2embed": 0,
       "skip_perfeito": 13262,
       "feed_hit": 2,
-      "http_necessario": 848,
-      "playwright_skip": 343,
+      "http_necessario": 851,
+      "playwright_skip": 345,
       "episodios_tp_encontrados": 18516,
-      "proxy_validados": 5949
+      "proxy_validados": 6013
     }
   }
 }
