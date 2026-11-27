@@ -2,30 +2,6 @@
   "contagem": {},
   "eventos": [
     {
-      "quando": "2026-11-19T08:36:01+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/04/inix-tp3e10_7.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-19T08:37:01+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/04/inix-tp3e11.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-19T08:38:01+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/04/inix-tp3e12.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
       "quando": "2026-11-19T08:40:00+00:00",
       "tipo": "http_esgotado",
       "url": "https://viniraveon.blogspot.com/2025/04/inix-tp3e14.html",
@@ -4641,6 +4617,27 @@
       "tipo": "rate_limit",
       "url": "https://marcosx7.blogspot.com/2025/10/arc-walking-dead-daryl-tp03ep06.html",
       "retentativa": true
+    },
+    {
+      "quando": "2026-11-27T03:35:16+00:00",
+      "tipo": "feed_dominio",
+      "url": "https://marcosx7.blogspot.com",
+      "posts": 1653,
+      "completo": true
+    },
+    {
+      "quando": "2026-11-27T03:35:31+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2025/10/arc-walking-dead-daryl-tp03ep06.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-27T03:43:31+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2025/10/arc-walking-dead-daryl-tp03ep06.html",
+      "retentativa": true
     }
   ],
   "metricas": {
@@ -4664,32 +4661,32 @@
       "http_necessario": 1,
       "playwright_skip": 0,
       "episodios_tp_encontrados": 0,
-      "proxy_validados": 46,
+      "proxy_validados": 50,
       "robo": "series",
-      "quando": "2026-11-26T21:04:22+00:00",
-      "duracao_min": 19.6
+      "quando": "2026-11-27T03:43:31+00:00",
+      "duracao_min": 19.2
     },
     "acumulado": {
-      "requisicoes": 6520,
-      "ok": 3948,
-      "429": 338,
+      "requisicoes": 6585,
+      "ok": 3992,
+      "429": 339,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 338,
+      "falhas_definitivas": 339,
       "html_invalido": 2,
       "serie_inconsistente": 70,
       "conflitos": 4,
-      "proxy_fallback": 338,
+      "proxy_fallback": 339,
       "proxy_hit": 223,
-      "proxmint_listas": 860,
+      "proxmint_listas": 864,
       "link_em_a_href": 1,
       "link_convertido_w2embed": 0,
       "skip_perfeito": 13262,
       "feed_hit": 2,
-      "http_necessario": 862,
+      "http_necessario": 863,
       "playwright_skip": 353,
       "episodios_tp_encontrados": 18516,
-      "proxy_validados": 6179
+      "proxy_validados": 6229
     }
   }
 }
