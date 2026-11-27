@@ -2,60 +2,6 @@
   "contagem": {},
   "eventos": [
     {
-      "quando": "2026-11-19T08:45:22+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/04/inix-tp3e20.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-19T08:46:22+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://viniraveon.blogspot.com/2025/04/inix-tp3e21.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-19T08:48:13+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp4e02_15.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-19T08:50:04+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp4e05_15.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-19T08:52:17+00:00",
-      "tipo": "html_invalido",
-      "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp4e09.html",
-      "detalhe": "truncado (sem </html>)"
-    },
-    {
-      "quando": "2026-11-19T08:52:37+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp4e10.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
-      "quando": "2026-11-19T08:53:37+00:00",
-      "tipo": "http_esgotado",
-      "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp4e11.html",
-      "status": 429,
-      "detalhe": "HTTP 429",
-      "tentativas": 1
-    },
-    {
       "quando": "2026-11-19T08:55:28+00:00",
       "tipo": "http_esgotado",
       "url": "https://vini7xgseries2.blogspot.com/2025/04/inix-tp5e01_16.html",
@@ -4635,55 +4581,106 @@
       "tipo": "rate_limit",
       "url": "https://marcosx7.blogspot.com/2025/10/arc-walking-dead-daryl-tp03ep06.html",
       "retentativa": true
+    },
+    {
+      "quando": "2026-11-27T21:56:17+00:00",
+      "tipo": "feed_dominio",
+      "url": "https://marcosx7.blogspot.com",
+      "posts": 1653,
+      "completo": true
+    },
+    {
+      "quando": "2026-11-27T21:58:39+00:00",
+      "tipo": "feed_dominio",
+      "url": "https://viniseries3.blogspot.com",
+      "posts": 1187,
+      "completo": true
+    },
+    {
+      "quando": "2026-11-27T22:07:15+00:00",
+      "tipo": "feed_dominio",
+      "url": "https://viniraveon.blogspot.com",
+      "posts": 4931,
+      "completo": true
+    },
+    {
+      "quando": "2026-11-27T22:07:30+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2025/09/inix-naruto-shippuden-tp5e21.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-27T22:09:30+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://viniraveon.blogspot.com/2025/04/inix-tp2e08_37.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-27T22:11:34+00:00",
+      "tipo": "http_esgotado",
+      "url": "https://marcosx7.blogspot.com/2025/11/inix-mushoku-tensei-tp02ep06.html",
+      "status": 429,
+      "detalhe": "HTTP 429",
+      "tentativas": 1
+    },
+    {
+      "quando": "2026-11-27T22:21:36+00:00",
+      "tipo": "rate_limit",
+      "url": "https://marcosx7.blogspot.com/2025/11/inix-mushoku-tensei-tp02ep06.html",
+      "retentativa": true
     }
   ],
   "metricas": {
     "ultima_run": {
-      "requisicoes": 65,
-      "ok": 44,
-      "429": 1,
+      "requisicoes": 118,
+      "ok": 95,
+      "429": 3,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 1,
+      "falhas_definitivas": 3,
       "html_invalido": 0,
       "serie_inconsistente": 0,
       "conflitos": 0,
-      "proxy_fallback": 1,
-      "proxy_hit": 0,
-      "proxmint_listas": 4,
+      "proxy_fallback": 3,
+      "proxy_hit": 2,
+      "proxmint_listas": 6,
       "link_em_a_href": 0,
       "link_convertido_w2embed": 0,
       "skip_perfeito": 0,
       "feed_hit": 0,
-      "http_necessario": 1,
-      "playwright_skip": 0,
+      "http_necessario": 11,
+      "playwright_skip": 10,
       "episodios_tp_encontrados": 0,
-      "proxy_validados": 39,
+      "proxy_validados": 44,
       "robo": "series",
-      "quando": "2026-11-27T13:13:59+00:00",
-      "duracao_min": 19.4
+      "quando": "2026-11-27T22:21:36+00:00",
+      "duracao_min": 36.2
     },
     "acumulado": {
-      "requisicoes": 6650,
-      "ok": 4036,
-      "429": 340,
+      "requisicoes": 6768,
+      "ok": 4131,
+      "429": 343,
       "5xx": 0,
       "retries": 0,
-      "falhas_definitivas": 340,
+      "falhas_definitivas": 343,
       "html_invalido": 2,
       "serie_inconsistente": 70,
       "conflitos": 4,
-      "proxy_fallback": 340,
-      "proxy_hit": 223,
-      "proxmint_listas": 868,
+      "proxy_fallback": 343,
+      "proxy_hit": 225,
+      "proxmint_listas": 874,
       "link_em_a_href": 1,
       "link_convertido_w2embed": 0,
       "skip_perfeito": 13262,
       "feed_hit": 2,
-      "http_necessario": 864,
-      "playwright_skip": 353,
+      "http_necessario": 875,
+      "playwright_skip": 363,
       "episodios_tp_encontrados": 18516,
-      "proxy_validados": 6268
+      "proxy_validados": 6312
     }
   }
 }
